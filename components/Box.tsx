@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import theme, { PaletteTypes } from 'styles/theme';
 
@@ -20,7 +20,7 @@ function Box({
   backgroundColor = 'gray',
   borderRadius = '20px',
   ...rest
-}: BoxProps) {
+}: BoxProps): ReactElement {
   return (
     <StyledBox
       {...rest}
