@@ -64,6 +64,8 @@ const textStyle = {
   },
 };
 
+export type PaletteTypes = keyof typeof palette;
+
 const theme: DefaultTheme = {
   palette,
   textStyle,
