@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import { Button } from 'components';
-import Box from 'components/Box';
+import { Box, Button } from 'components';
 
 const Home: NextPage = () => {
   return (
