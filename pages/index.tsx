@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import { Button } from 'components';
+import { Box, Button } from 'components';
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +14,17 @@ const Home: NextPage = () => {
       <Button fontColor="black" buttonColor="white" borderColor="lightGray">
         프로젝트 더보기
       </Button>
+      <Box width={200} height={200}>
+        테스트1
+      </Box>
+      <Box
+        isFullWidth
+        height={200}
+        backgroundColor="lightGray"
+        borderRadius={10}
+      >
+        테스트2
+      </Box>
     </Wrapper>
   );
 };

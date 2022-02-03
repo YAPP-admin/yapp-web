@@ -3,15 +3,19 @@ import type { ReactNode, ReactElement } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  children: ReactNode;
+interface IButtonStyle {
   width?: number;
   height?: number;
   fontColor: 'white' | 'black';
   buttonColor: 'white' | 'gray';
   borderColor: 'white' | 'lightGray';
+}
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    IButtonStyle {
+  className?: string;
+  children: ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -28,7 +32,7 @@ function Button({
   );
 }
 
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<IButtonStyle>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
