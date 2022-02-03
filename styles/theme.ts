@@ -63,13 +63,20 @@ const textStyle = {
     `,
   },
 };
+
 export type PaletteTypes = typeof palette;
 export type PaletteKeyTypes = keyof typeof palette;
 export type TextStyleTypes = typeof textStyle;
+export type FontSizeTypes = typeof fontSize;
+export type FontWeightTypes = typeof fontWeight;
+export type LineHeightTypes = typeof lineHeight;
 
 const theme: DefaultTheme = {
   palette,
   textStyle,
+  fontSize,
+  fontWeight,
+  lineHeight,
 };
 
 export default theme;
