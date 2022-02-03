@@ -14,14 +14,14 @@ const Home: NextPage = () => {
       <Button fontColor="black" buttonColor="white" borderColor="lightGray">
         프로젝트 더보기
       </Button>
-      <Box width="200px" height="200px">
+      <Box width={200} height={200}>
         테스트1
       </Box>
       <Box
-        width="200px"
-        height="200px"
+        isFullWidth
+        height={200}
         backgroundColor="lightGray"
-        borderRadius="50%"
+        borderRadius={10}
       >
         테스트2
       </Box>
