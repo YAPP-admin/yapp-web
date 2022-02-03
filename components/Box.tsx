@@ -1,9 +1,9 @@
 import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
-import theme, { PaletteTypes } from 'styles/theme';
+import theme, { PaletteKeyTypes } from 'styles/theme';
 
 interface IBoxStyle {
-  backgroundColor?: PaletteTypes;
+  backgroundColor?: PaletteKeyTypes;
   width?: number;
   height?: number;
   borderRadius?: number;
