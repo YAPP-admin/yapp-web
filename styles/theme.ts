@@ -63,8 +63,9 @@ const textStyle = {
     `,
   },
 };
-
-export type PaletteTypes = keyof typeof palette;
+export type PaletteTypes = typeof palette;
+export type PaletteKeyTypes = keyof typeof palette;
+export type TextStyleTypes = typeof textStyle;
 
 const theme: DefaultTheme = {
   palette,
