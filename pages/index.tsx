@@ -5,7 +5,6 @@ import { Box, Button, Footer, Header } from 'components';
 const Home: NextPage = () => {
   return (
     <Wrapper>
-      <Header />
       <Button fontColor="black" buttonColor="white" borderColor="white">
         20기 지원하기
       </Button>
@@ -26,7 +25,6 @@ const Home: NextPage = () => {
       >
         테스트2
       </Box>
-      <Footer />
     </Wrapper>
   );
 };
