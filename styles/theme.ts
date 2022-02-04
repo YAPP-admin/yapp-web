@@ -61,6 +61,11 @@ const textStyle = {
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
     `,
+    Category: css`
+      font-size: ${fontSize.xSmall};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xSmall};
+    `,
   },
 };
 

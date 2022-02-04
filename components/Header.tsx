@@ -49,10 +49,8 @@ const HeaderMenu = styled.div`
 `;
 
 const MenuText = styled.a`
-  font-size: 18px;
-  font-weight: ${({ theme }) => theme.fontWeight.semibold};
-  line-height: ${({ theme }) => theme.lineHeight.xSmall};
   cursor: pointer;
+  ${({ theme }) => theme.textStyle.web.Category};
 `;
 
 export default Header;
