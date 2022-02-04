@@ -51,6 +51,21 @@ const textStyle = {
     `,
   },
   web: {
+    Head: css`
+      font-size: ${fontSize.xxxxLarge};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.medium};
+    `,
+    Title: css`
+      font-size: ${fontSize.xxxLarge};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.small};
+    `,
+    SubTitle: css`
+      font-size: ${fontSize.medium};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xLarge};
+    `,
     Button_Point: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.semibold};
