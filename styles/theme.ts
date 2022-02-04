@@ -66,6 +66,16 @@ const textStyle = {
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xSmall};
     `,
+    Body_1: css`
+      font-size: ${fontSize.small};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.large};
+    `,
+    Footer_Logo: css`
+      font-size: ${fontSize.xLarge};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.xSmall};
+    `,
   },
 };
 
