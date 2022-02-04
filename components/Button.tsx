@@ -36,7 +36,6 @@ const StyledButton = styled.button<IButtonStyle>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 40px;
   border-radius: 150px;
 
   ${({ width, height }) =>
