@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import { Box, Button } from 'components';
+import { Box, Button, Header } from 'components';
 
 const Home: NextPage = () => {
   return (
     <Wrapper>
+      <Header />
       <Button fontColor="black" buttonColor="white" borderColor="white">
         20기 지원하기
       </Button>
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 export default Home;

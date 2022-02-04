@@ -1,10 +1,19 @@
 import 'styled-components';
+import {
+  LineHeightTypes,
+  FontSizeTypes,
+  FontWeightTypes,
+  PaletteTypes,
+  TextStyleTypes,
+} from './theme';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    // 아직 디자인 시스템이 완벽히 구현된게 아니므로 any로 처리
-    palette: any;
-    textStyle: any;
+    palette: PaletteTypes;
+    textStyle: TextStyleTypes;
+    fontSize: FontSizeTypes;
+    fontWeight: FontWeightTypes;
+    lineHeight: LineHeightTypes;
   }
 
   export interface Media {
