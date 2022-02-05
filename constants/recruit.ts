@@ -1,7 +1,7 @@
 /**
  * 작성 Tip
- * - 줄바꿈은 <br /> 태그를 넣어주세요 !
- * - <span class="test"> 테스트 </span> 과 같은 html 태그와 class 를 넣어서 사용할 수 있습니다!
+ * - 줄바꿈은 <br /> 태그를 넣어주세요!
+ * - <span class="test">테스트</span> 과 같은 html 태그와 class 를 넣어서 사용할 수 있습니다!
  * - html 태그 사용시 `` 백틱 으로 문자열을 감싸주세요!
  */
 
@@ -39,9 +39,35 @@ export const RECRUIT_APPLY_WAY = {
     {
       title: '지원방법',
       description: `1차 서류<br />
-                    <span class="small">모집 페이지에서 지원서 작성<br />
-                    및 포트폴리오 제출</span><br />
+                    <div class="smallBox">
+                      <div class="small">모집 페이지에서 지원서 작성</div>
+                      <div class="small">및 포트폴리오 제출</div>
+                    </div>
                     2차 면접 후 최종 합격`,
+    },
+  ],
+};
+
+export const RECRUIT_SCHEDULE = {
+  title: '모집 일정',
+  schedules: [
+    {
+      title: '서류 접수',
+      description: `2022. 07. 10(금)<br />
+                    ~ 07.20(월)`,
+    },
+    {
+      title: '서류 결과 발표',
+      description: `2022. 07. 10(금)`,
+    },
+    {
+      title: '면접',
+      description: `2022. 07. 10(금)<br />
+                    ~ 07.20(월)`,
+    },
+    {
+      title: '최종 발표',
+      description: `2022. 07. 10(금)`,
     },
   ],
 };

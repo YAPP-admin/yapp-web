@@ -3,7 +3,7 @@ import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_APPLY_WAY } from 'constants/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
-import SectionTitle from './SectionTitle';
+import { SectionTitle } from '..';
 
 function ApplyWay(): ReactElement {
   const { title, ways } = RECRUIT_APPLY_WAY;
@@ -13,9 +13,15 @@ function ApplyWay(): ReactElement {
       <ApplyWayInner>
         <SectionTitle title={title} />
         <SectionContent>
-          {ways.map((way) => (
-            <WayBox width={380} height={307} backgroundColor="lightGray">
-              <WaySubTitle>{way.title}</WaySubTitle>
+          {ways.map(({ title, description }) => (
+            <WayBox
+              width={380}
+              height={307}
+              backgroundColor="lightestGray"
+              key={`applyWay-${title}`}
+            >
+              <WaySubTitle>{title}</WaySubTitle>
+              <WayContent dangerouslySetInnerHTML={{ __html: description }} />
             </WayBox>
           ))}
         </SectionContent>
@@ -46,8 +52,18 @@ const WayBox = styled(Box)`
 
 const WaySubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.SubTitle}
+  margin-bottom: 8px;
 `;
 
-const WayContent = styled.div``;
+const WayContent = styled.div`
+  ${({ theme }) => theme.textStyle.web.Body_1};
+  .smallBox {
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+  .small {
+    ${({ theme }) => theme.textStyle.web.Body_2};
+  }
+`;
 
 export default ApplyWay;

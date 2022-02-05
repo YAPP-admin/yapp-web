@@ -7,6 +7,7 @@ const palette = {
   black: '#000000',
   gray: '#A6A6A6',
   lightGray: '#D3D3D3',
+  lightestGray: '#F9F9F9',
 };
 
 const fontSize = {
@@ -85,6 +86,11 @@ const textStyle = {
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
+    `,
+    Body_2: css`
+      font-size: ${fontSize.xSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.medium};
     `,
     Footer_Logo: css`
       font-size: ${fontSize.xLarge};

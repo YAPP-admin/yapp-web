@@ -16,7 +16,7 @@ function RecruitBanner(): ReactElement {
           width={216}
           height={78}
           fontColor="black"
-          buttonColor="gray"
+          buttonColor="lightestGray"
           borderColor="lightGray"
         >
           {buttonName}
