@@ -5,8 +5,8 @@ interface SectionTitleProps {
   title: string;
 }
 
-function SectionTitle({ title }: SectionTitleProps): ReactElement {
-  return <StyledSectionTitle>{title}</StyledSectionTitle>;
+function SectionTitle({ title, ...rest }: SectionTitleProps): ReactElement {
+  return <StyledSectionTitle {...rest}>{title}</StyledSectionTitle>;
 }
 
 const StyledSectionTitle = styled.h2`

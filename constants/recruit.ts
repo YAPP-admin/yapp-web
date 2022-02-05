@@ -116,3 +116,10 @@ export const RECRUIT_FAQ = {
     },
   ],
 };
+
+/* 문의 사항 */
+export const RECRUIT_ENQUIRY = {
+  title: '더 궁금하신 내용이 있거나 문의 사항이 있으신가요?',
+  description: '동아리 관련, 프로젝트, 후원 등 언제든지 문의해 주세요.',
+  buttonName: '문의 하러 가기',
+};

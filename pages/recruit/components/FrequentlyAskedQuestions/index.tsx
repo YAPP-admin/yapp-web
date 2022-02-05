@@ -63,6 +63,7 @@ const FAQSubTitle = styled.div`
 
 const FQASubContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
+  width: 1056px;
 `;
 
 export default FrequentlyAskedQuestions;
