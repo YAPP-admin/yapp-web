@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import { Box, Button, Header } from 'components';
+import { Box, Button, Footer, Header } from 'components';
 
 const Home: NextPage = () => {
   return (
@@ -26,6 +26,7 @@ const Home: NextPage = () => {
       >
         테스트2
       </Box>
+      <Footer />
     </Wrapper>
   );
 };
