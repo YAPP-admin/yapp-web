@@ -31,8 +31,9 @@ function Box({
       height={height}
       borderRadius={borderRadius}
       backgroundColor={backgroundColor}
+      className={className}
     >
-      Box
+      {children}
     </StyledBox>
   );
 }
