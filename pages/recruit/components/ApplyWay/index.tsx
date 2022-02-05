@@ -13,14 +13,14 @@ function ApplyWay(): ReactElement {
       <ApplyWayInner>
         <SectionTitle title={title} />
         <SectionContent>
-          {ways.map(({ title, description }) => (
+          {ways.map(({ subTitle, description }) => (
             <WayBox
               width={380}
               height={307}
               backgroundColor="lightestGray"
-              key={`applyWay-${title}`}
+              key={`applyWay-${subTitle}`}
             >
-              <WaySubTitle>{title}</WaySubTitle>
+              <WaySubTitle>{subTitle}</WaySubTitle>
               <WayContent dangerouslySetInnerHTML={{ __html: description }} />
             </WayBox>
           ))}

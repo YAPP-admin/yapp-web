@@ -13,14 +13,14 @@ function RecruitSchedule(): ReactElement {
       <ScheduleInner>
         <SectionTitle title={title} />
         <SectionContent>
-          {schedules.map(({ title, description }) => (
+          {schedules.map(({ subTitle, description }) => (
             <ScheduleBox
               width={278}
               height={193}
               backgroundColor="lightestGray"
-              key={`schedule-${title}`}
+              key={`schedule-${subTitle}`}
             >
-              <ScheduleSubTitle>{title}</ScheduleSubTitle>
+              <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
               <ScheduleContent
                 dangerouslySetInnerHTML={{ __html: description }}
               />
