@@ -2,8 +2,7 @@ import { Box } from 'components';
 import { RECRUIT_APPLY_WAY } from 'constants/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
-import { SectionTitle } from '..';
-import SectionTemplate from '../SectionTemplate';
+import { SectionTemplate, SectionTitle } from '..';
 
 function ApplyWay(): ReactElement {
   const { title, ways } = RECRUIT_APPLY_WAY;
