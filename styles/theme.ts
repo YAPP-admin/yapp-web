@@ -92,6 +92,11 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.medium};
     `,
+    Body_Point: css`
+      font-size: ${fontSize.small};
+      font-weight: ${fontWeight.medium};
+      line-height: ${lineHeight.xLarge};
+    `,
     Footer_Logo: css`
       font-size: ${fontSize.xLarge};
       font-weight: ${fontWeight.bold};
