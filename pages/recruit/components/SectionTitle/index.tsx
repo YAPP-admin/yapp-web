@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 interface SectionTitleProps {
   title: string;
+  className?: string;
 }
 
-function SectionTitle({ title, ...rest }: SectionTitleProps): ReactElement {
-  return <StyledSectionTitle {...rest}>{title}</StyledSectionTitle>;
+function SectionTitle({ title, className }: SectionTitleProps): ReactElement {
+  return <StyledSectionTitle className={className}>{title}</StyledSectionTitle>;
 }
 
 const StyledSectionTitle = styled.h2`
