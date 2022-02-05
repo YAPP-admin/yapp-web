@@ -1,46 +1,34 @@
 import { Box } from 'components';
-import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_SCHEDULE } from 'constants/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '..';
+import SectionTemplate from '../SectionTemplate';
 
 function RecruitSchedule(): ReactElement {
   const { title, schedules } = RECRUIT_SCHEDULE;
 
   return (
-    <ScheduleBlock>
-      <ScheduleInner>
-        <SectionTitle title={title} />
-        <SectionContent>
-          {schedules.map(({ subTitle, description }) => (
-            <ScheduleBox
-              width={278}
-              height={193}
-              backgroundColor="lightestGray"
-              key={`schedule-${subTitle}`}
-            >
-              <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
-              <ScheduleContent
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </ScheduleBox>
-          ))}
-        </SectionContent>
-      </ScheduleInner>
-    </ScheduleBlock>
+    <SectionTemplate>
+      <SectionTitle title={title} />
+      <SectionContent>
+        {schedules.map(({ subTitle, description }) => (
+          <ScheduleBox
+            width={278}
+            height={193}
+            backgroundColor="lightestGray"
+            key={`schedule-${subTitle}`}
+          >
+            <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
+            <ScheduleContent
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </ScheduleBox>
+        ))}
+      </SectionContent>
+    </SectionTemplate>
   );
 }
-
-const ScheduleBlock = styled.div`
-  width: 100%;
-`;
-
-const ScheduleInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
-  padding: 100px 0;
-  margin: 0 auto;
-`;
 
 const SectionContent = styled.div`
   display: flex;

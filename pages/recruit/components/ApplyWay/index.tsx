@@ -1,44 +1,32 @@
 import { Box } from 'components';
-import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_APPLY_WAY } from 'constants/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '..';
+import SectionTemplate from '../SectionTemplate';
 
 function ApplyWay(): ReactElement {
   const { title, ways } = RECRUIT_APPLY_WAY;
 
   return (
-    <ApplyWayBlock>
-      <ApplyWayInner>
-        <SectionTitle title={title} />
-        <SectionContent>
-          {ways.map(({ subTitle, description }) => (
-            <WayBox
-              width={380}
-              height={307}
-              backgroundColor="lightestGray"
-              key={`applyWay-${subTitle}`}
-            >
-              <WaySubTitle>{subTitle}</WaySubTitle>
-              <WayContent dangerouslySetInnerHTML={{ __html: description }} />
-            </WayBox>
-          ))}
-        </SectionContent>
-      </ApplyWayInner>
-    </ApplyWayBlock>
+    <SectionTemplate>
+      <SectionTitle title={title} />
+      <SectionContent>
+        {ways.map(({ subTitle, description }) => (
+          <WayBox
+            width={380}
+            height={307}
+            backgroundColor="lightestGray"
+            key={`applyWay-${subTitle}`}
+          >
+            <WaySubTitle>{subTitle}</WaySubTitle>
+            <WayContent dangerouslySetInnerHTML={{ __html: description }} />
+          </WayBox>
+        ))}
+      </SectionContent>
+    </SectionTemplate>
   );
 }
-
-const ApplyWayBlock = styled.div`
-  width: 100%;
-`;
-
-const ApplyWayInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
-  margin: 0 auto;
-  padding: 100px 0;
-`;
 
 const SectionContent = styled.div`
   display: flex;

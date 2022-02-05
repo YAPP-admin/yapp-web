@@ -1,45 +1,31 @@
 import { Box } from 'components';
-import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_FAQ } from 'constants/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '..';
+import SectionTemplate from '../SectionTemplate';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { title, faqs } = RECRUIT_FAQ;
 
   return (
-    <FAQBlock>
-      <FAQInner>
-        <SectionTitle title={title} />
-        <SectionContent>
-          {faqs.map(({ subTitle, description }) => (
-            <FAQBox
-              isFullWidth
-              backgroundColor="lightestGray"
-              key={`faq-${subTitle}`}
-            >
-              <FAQSubTitle>{subTitle}</FAQSubTitle>
-              <FQASubContent
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </FAQBox>
-          ))}
-        </SectionContent>
-      </FAQInner>
-    </FAQBlock>
+    <SectionTemplate>
+      <SectionTitle title={title} />
+      <SectionContent>
+        {faqs.map(({ subTitle, description }) => (
+          <FAQBox
+            isFullWidth
+            backgroundColor="lightestGray"
+            key={`faq-${subTitle}`}
+          >
+            <FAQSubTitle>{subTitle}</FAQSubTitle>
+            <FQASubContent dangerouslySetInnerHTML={{ __html: description }} />
+          </FAQBox>
+        ))}
+      </SectionContent>
+    </SectionTemplate>
   );
 }
-
-const FAQBlock = styled.div`
-  width: 100%;
-`;
-
-const FAQInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
-  margin: 0 auto;
-  padding: 100px 0;
-`;
 
 const SectionContent = styled.div`
   display: flex;
