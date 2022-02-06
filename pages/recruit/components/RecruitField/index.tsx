@@ -1,5 +1,5 @@
-import { Box } from 'components';
-import { RECRUIT_FIELD } from 'database/recruit';
+import { Box, Button } from 'components';
+import { RECRUIT_FIELD, RECRUIT_FIELD_NAMES } from 'database/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';
@@ -16,7 +16,18 @@ function RecruitField(): ReactElement {
         backgroundColor="lightestGray"
         borderRadius={124}
       >
-        dd
+        {RECRUIT_FIELD_NAMES.map((name) => (
+          <Button
+            key={`field-${name}`}
+            width={229}
+            height={78}
+            fontColor="white"
+            buttonColor="black"
+            borderColor="white"
+          >
+            {name}
+          </Button>
+        ))}
       </RecruitFieldNameBox>
     </SectionTemplate>
   );
@@ -24,6 +35,7 @@ function RecruitField(): ReactElement {
 
 const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
+  padding: 0;
 `;
 
 export default RecruitField;
