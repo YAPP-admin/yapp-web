@@ -1,24 +1,46 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';
+import ArrowDown from 'public/assets/icons/arrow_down.svg';
 
 function FrequentlyAskedQuestions(): ReactElement {
-  const { title, faqs } = RECRUIT_FAQ;
+  const { faqs, title } = RECRUIT_FAQ;
+  const [faqList, setFaqList] = useState(faqs);
+
+  const handleToggleFaq = (subTitle: string) => {
+    setFaqList(
+      faqList.map((faq) =>
+        faq.subTitle === subTitle ? { ...faq, isOpen: !faq.isOpen } : faq,
+      ),
+    );
+  };
 
   return (
     <SectionTemplate>
       <SectionTitle title={title} />
       <SectionContent>
-        {faqs.map(({ subTitle, description }) => (
+        {faqList.map(({ subTitle, description, isOpen }) => (
           <FAQBox
             isFullWidth
             backgroundColor="lightestGray"
             key={`faq-${subTitle}`}
           >
-            <FAQSubTitle>{subTitle}</FAQSubTitle>
-            <FQASubContent dangerouslySetInnerHTML={{ __html: description }} />
+            <FAQSubTitle>
+              <span>{subTitle}</span>
+              <TitleButton
+                isOpen={isOpen}
+                onClick={() => handleToggleFaq(subTitle)}
+              >
+                <ArrowDown />
+              </TitleButton>
+            </FAQSubTitle>
+            {isOpen && (
+              <FQASubContent
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            )}
           </FAQBox>
         ))}
       </SectionContent>
@@ -43,11 +65,19 @@ const FAQBox = styled(Box)`
 
 const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_Point}
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const TitleButton = styled.button<{ isOpen: boolean }>`
+  ${({ isOpen }) => (isOpen ? '' : `transform: rotate(180deg);`)}
+  transition: all ease .5s;
 `;
 
 const FQASubContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
+  margin-top: 24px;
   width: 1056px;
 `;
 
