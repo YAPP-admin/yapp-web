@@ -1,14 +1,19 @@
-import { Button } from 'components';
+import { Button, RecruitLayout } from 'components';
 import Breakpoints from 'constants/breakpoints';
-import { RECRUIT_BANNER } from 'constants/recruit';
+import {
+  IS_RECRUITING,
+  RECRUIT_BANNER,
+  RECRUIT_BANNER_ACTIVE,
+} from 'database/recruit';
 import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 function RecruitBanner(): ReactElement {
-  const { title, buttonName, description } = RECRUIT_BANNER;
+  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
+  const { title, buttonName, description } = BannerInfo;
 
   return (
-    <BannerBlock>
+    <RecruitLayout isRecruit={IS_RECRUITING}>
       <BannerInner>
         <BannerTitle>{title}</BannerTitle>
         <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
@@ -22,13 +27,9 @@ function RecruitBanner(): ReactElement {
           {buttonName}
         </Button>
       </BannerInner>
-    </BannerBlock>
+    </RecruitLayout>
   );
 }
-
-const BannerBlock = styled.div`
-  width: 100%;
-`;
 
 const BannerInner = styled.div`
   width: ${Breakpoints.xlarge}px;

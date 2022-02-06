@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { SectionTitle } from '..';
 import { Button } from 'components';
 import Breakpoints from 'constants/breakpoints';
-import { RECRUIT_ENQUIRY } from 'constants/recruit';
+import { RECRUIT_ENQUIRY } from 'database/recruit';
 import styled from 'styled-components';
 
 function Enquiry(): ReactElement {

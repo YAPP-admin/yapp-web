@@ -1,5 +1,5 @@
 import { Box } from 'components';
-import { RECRUIT_APPLY_WAY } from 'constants/recruit';
+import { RECRUIT_APPLY_WAY } from 'database/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';

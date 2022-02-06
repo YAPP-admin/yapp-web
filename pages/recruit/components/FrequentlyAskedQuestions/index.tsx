@@ -1,5 +1,5 @@
 import { Box } from 'components';
-import { RECRUIT_FAQ } from 'constants/recruit';
+import { RECRUIT_FAQ } from 'database/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';

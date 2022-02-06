@@ -5,6 +5,9 @@
  * - html 태그 사용시 `` 백틱 으로 문자열을 감싸주세요!
  */
 
+/* 현재 모집중이면 true 아니면 false */
+export const IS_RECRUITING = true;
+
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
