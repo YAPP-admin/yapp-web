@@ -27,12 +27,9 @@ function FrequentlyAskedQuestions(): ReactElement {
             backgroundColor="lightestGray"
             key={`faq-${subTitle}`}
           >
-            <FAQSubTitle>
+            <FAQSubTitle onClick={() => handleToggleFaq(subTitle)}>
               <span>{subTitle}</span>
-              <TitleButton
-                isOpen={isOpen}
-                onClick={() => handleToggleFaq(subTitle)}
-              >
+              <TitleButton isOpen={isOpen}>
                 <ArrowDown />
               </TitleButton>
             </FAQSubTitle>
@@ -68,6 +65,7 @@ const FAQSubTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`

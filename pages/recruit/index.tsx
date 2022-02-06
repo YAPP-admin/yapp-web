@@ -5,6 +5,7 @@ import {
   Enquiry,
   FrequentlyAskedQuestions,
   RecruitBanner,
+  RecruitField,
   RecruitSchedule,
 } from './components';
 
@@ -14,6 +15,7 @@ function RecruitPage(): ReactElement {
       <RecruitBanner />
       <ApplyWay />
       <RecruitSchedule />
+      <RecruitField />
       <FrequentlyAskedQuestions />
       <Enquiry />
     </Wrapper>
