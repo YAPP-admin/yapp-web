@@ -7,8 +7,8 @@ const mediaQuery = (maxWidth: number) => `@media (max-width: ${maxWidth}px)`;
 const { xxlarge } = Breakpoints;
 
 const media: Media = {
-  mobile: mediaQuery(375),
-  tablet: mediaQuery(834),
+  mobile: mediaQuery(800),
+  tablet: mediaQuery(1200),
   desktop: mediaQuery(xxlarge),
   custom: mediaQuery,
 };

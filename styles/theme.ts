@@ -39,6 +39,26 @@ const lineHeight = {
 
 const textStyle = {
   mobile: {
+    Head: css`
+      font-size: ${fontSize.xxLarge};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.small};
+    `,
+    Title_1: css`
+      font-size: ${fontSize.xLarge};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.small};
+    `,
+    Title_2: css`
+      font-size: ${fontSize.large};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.small};
+    `,
+    Subtitle: css`
+      font-size: ${fontSize.small};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xLarge};
+    `,
     Button_Point: css`
       font-size: ${fontSize.xSmall};
       font-weight: ${fontWeight.medium};
@@ -49,8 +69,43 @@ const textStyle = {
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
     `,
+    Body_Point: css`
+      font-size: ${fontSize.xSmall};
+      font-weight: ${fontWeight.medium};
+      line-height: ${lineHeight.xLarge};
+    `,
+    Body_1: css`
+      font-size: ${fontSize.xSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.large};
+    `,
+    Body_2: css`
+      font-size: ${fontSize.xxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+    `,
+    Body_3: css`
+      font-size: ${fontSize.xxxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+    `,
   },
   web: {
+    Head: css`
+      font-size: ${fontSize.xxxxLarge};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.medium};
+    `,
+    Title: css`
+      font-size: ${fontSize.xxxLarge};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.small};
+    `,
+    Subtitle: css`
+      font-size: ${fontSize.medium};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xLarge};
+    `,
     Button_Point: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.semibold};
@@ -75,6 +130,11 @@ const textStyle = {
       font-size: ${fontSize.xLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.xSmall};
+    `,
+    Body_Point: css`
+      font-size: ${fontSize.small};
+      font-weight: ${fontWeight.medium};
+      line-height: ${lineHeight.xLarge};
     `,
   },
 };
