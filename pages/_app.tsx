@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { LayoutWrapper } from 'components';
 import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
-import Main from 'components/home/Main';
+import Main from 'components/Home/Main';
 import { SEO, Header, Footer } from 'components';
 
 function App({ Component, pageProps }: AppProps) {
