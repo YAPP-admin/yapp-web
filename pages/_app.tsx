@@ -6,7 +6,7 @@ import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
 import Main from 'components/Home/Main';
 import { SEO, Header, Footer } from 'components';
-
+import PATH from 'constants/path';
 function App({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
 
@@ -14,7 +14,8 @@ function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <SEO />
       <GlobalStyle />
-      {asPath === '/' && <Main />}
+      {/* 추후 LayoutWrapper 안에 넣을 예정 */}
+      {asPath === PATH.Home && <Main />}
       <Header />
       <Component {...pageProps} />
       <Footer />

@@ -1,8 +1,9 @@
 import React from 'react';
 import type { ReactElement } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Button } from 'components';
 import media from 'styles/media';
+import Yapp from 'constants/yapp';
 
 function Main(): ReactElement {
   return (
@@ -15,7 +16,7 @@ function Main(): ReactElement {
         </span>
       </TitleContainer>
       <Button fontColor="black" buttonColor="white" borderColor="white">
-        20기 지원하기
+        {Yapp.YAPP_GENERATION} 지원하기
       </Button>
     </MainWrapper>
   );
