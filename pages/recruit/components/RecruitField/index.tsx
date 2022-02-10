@@ -1,7 +1,7 @@
 import { Box, Button } from 'components';
 import { RECRUIT_FIELD_NAMES } from 'database/recruit';
 import React, { ReactElement, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';
 import RecruitDesigner from './RecruitDesigner';
 import RecruitDeveloper from './RecruitDeveloper';
@@ -35,7 +35,7 @@ function RecruitField(): ReactElement {
         borderRadius={124}
       >
         {RECRUIT_FIELD_NAMES.map((name) => (
-          <Button
+          <RecruitFieldButton
             key={`field-${name}`}
             width={229}
             height={78}
@@ -43,9 +43,10 @@ function RecruitField(): ReactElement {
             fontColor="white"
             buttonColor="black"
             borderColor="white"
+            isActive={field === name}
           >
             {name}
-          </Button>
+          </RecruitFieldButton>
         ))}
         {printField()}
       </RecruitFieldNameBox>
@@ -56,6 +57,19 @@ function RecruitField(): ReactElement {
 const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
   padding: 0;
+`;
+
+const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
+  ${({ isActive }) =>
+    isActive
+      ? css`
+          background-color: ${({ theme }) => theme.palette.black};
+          color: ${({ theme }) => theme.palette.white};
+        `
+      : css`
+          background-color: transparent;
+          color: #898989; // @Todo 색상 코드 나오기 전 임시 색상
+        `}
 `;
 
 export default RecruitField;
