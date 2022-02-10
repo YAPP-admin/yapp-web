@@ -22,8 +22,6 @@ function RecruitField(): ReactElement {
         return <RecruitDesigner />;
       case '개발자':
         return <RecruitDeveloper />;
-      default:
-        return null;
     }
   };
 

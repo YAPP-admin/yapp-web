@@ -38,7 +38,7 @@ const WayBox = styled(Box)`
 `;
 
 const WaySubTitle = styled.div`
-  ${({ theme }) => theme.textStyle.web.SubTitle}
+  ${({ theme }) => theme.textStyle.web.Subtitle}
   margin-bottom: 8px;
 `;
 

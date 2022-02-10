@@ -40,7 +40,7 @@ const ScheduleBox = styled(Box)`
 `;
 
 const ScheduleSubTitle = styled.div`
-  ${({ theme }) => theme.textStyle.web.SubTitle}
+  ${({ theme }) => theme.textStyle.web.Subtitle}
   margin-bottom: 4px;
 `;
 
