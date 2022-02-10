@@ -31,6 +31,8 @@ function RecruitFieldExplain({
         <span>이런 경험이 있으면 더 좋습니다</span>
         <span dangerouslySetInnerHTML={{ __html: content3 }} />
       </div>
+
+      <button>{fieldName} 지원하기</button>
     </div>
   );
 }

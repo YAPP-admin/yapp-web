@@ -4,10 +4,12 @@ import RecruitFieldExplain from './RecruitFieldExplain';
 
 function RecruitDesigner(): ReactElement {
   return (
-    <RecruitFieldExplain
-      fieldName="디자이너"
-      explainContents={RECRUIT_EXPLAIN_DESIGNER}
-    />
+    <>
+      <RecruitFieldExplain
+        fieldName="디자이너"
+        explainContents={RECRUIT_EXPLAIN_DESIGNER}
+      />
+    </>
   );
 }
 
