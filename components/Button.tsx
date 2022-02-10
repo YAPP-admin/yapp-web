@@ -53,10 +53,8 @@ const StyledButton = styled.button<IButtonStyle>`
     };
   }};
 
-  /* 반응형 */
-  ${media.desktop} {
-    ${({ theme }) => theme.textStyle.web.Button}
-  }
+  /* Text Style */
+  ${({ theme }) => theme.textStyle.web.Button}
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Button}
   }

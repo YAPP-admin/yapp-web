@@ -3,3 +3,6 @@ export { default as Box } from './Box';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as RecruitLayout } from './RecruitLayout';
+export { default as LayoutWrapper } from './LayoutWrapper';
+export { default as SEO } from './SEO';
+export { default as Carousel } from './Carousel';
