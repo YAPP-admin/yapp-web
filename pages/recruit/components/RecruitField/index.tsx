@@ -1,15 +1,35 @@
 import { Box, Button } from 'components';
-import { RECRUIT_FIELD, RECRUIT_FIELD_NAMES } from 'database/recruit';
-import React, { ReactElement } from 'react';
+import { RECRUIT_FIELD_NAMES } from 'database/recruit';
+import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';
+import RecruitDesigner from './RecruitDesigner';
+import RecruitDeveloper from './RecruitDeveloper';
+import RecruitProjectManager from './RecruitProjectManager';
+
+export type FieldNameTypes = '기획자' | '디자이너' | '개발자';
 
 function RecruitField(): ReactElement {
-  const { title, fields } = RECRUIT_FIELD;
+  const [field, setField] = useState<FieldNameTypes>(RECRUIT_FIELD_NAMES[0]);
+
+  const handleClick = (fieldName: FieldNameTypes) => setField(fieldName);
+
+  const printField = () => {
+    switch (field) {
+      case '기획자':
+        return <RecruitProjectManager />;
+      case '디자이너':
+        return <RecruitDesigner />;
+      case '개발자':
+        return <RecruitDeveloper />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <SectionTemplate>
-      <SectionTitle title={title} />
+      <SectionTitle title="모집 분야" />
       <RecruitFieldNameBox
         width={696}
         height={78}
@@ -21,6 +41,7 @@ function RecruitField(): ReactElement {
             key={`field-${name}`}
             width={229}
             height={78}
+            onClick={() => handleClick(name)}
             fontColor="white"
             buttonColor="black"
             borderColor="white"
@@ -28,6 +49,7 @@ function RecruitField(): ReactElement {
             {name}
           </Button>
         ))}
+        {printField()}
       </RecruitFieldNameBox>
     </SectionTemplate>
   );
