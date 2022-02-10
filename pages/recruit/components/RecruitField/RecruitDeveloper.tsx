@@ -1,11 +1,6 @@
-import {
-  RECRUIT_DEVELOPER_FIELD_NAMES,
-  RECRUIT_EXPLAIN_ANDROID_DEVELOPER,
-  RECRUIT_EXPLAIN_BACKEND_DEVELOPER,
-  RECRUIT_EXPLAIN_FRONTEND_DEVELOPER,
-  RECRUIT_EXPLAIN_IOS_DEVELOPER,
-} from 'database/recruit';
+import { RECRUIT_DEVELOPER_FIELD_NAMES } from 'database/recruit';
 import React, { ReactElement, useState } from 'react';
+import getDeveloperFieldExplain from 'utils/getDeveloperFieldExplain';
 import RecruitFieldExplain from './RecruitFieldExplain';
 
 export type DeveloperFieldName = 'iOS' | 'Android' | 'Front-End' | 'Back-End';
@@ -18,40 +13,6 @@ function RecruitDeveloper(): ReactElement {
   const handleClick = (developFieldName: DeveloperFieldName) =>
     setDevelopField(developFieldName);
 
-  const printDevelopField = () => {
-    switch (developField) {
-      case 'iOS':
-        return (
-          <RecruitFieldExplain
-            fieldName="개발자"
-            explainContents={RECRUIT_EXPLAIN_IOS_DEVELOPER}
-          />
-        );
-      case 'Android':
-        return (
-          <RecruitFieldExplain
-            fieldName="개발자"
-            explainContents={RECRUIT_EXPLAIN_ANDROID_DEVELOPER}
-          />
-        );
-      case 'Front-End':
-        return (
-          <RecruitFieldExplain
-            fieldName="개발자"
-            explainContents={RECRUIT_EXPLAIN_FRONTEND_DEVELOPER}
-          />
-        );
-      case 'Back-End':
-        return (
-          <RecruitFieldExplain
-            fieldName="개발자"
-            explainContents={RECRUIT_EXPLAIN_BACKEND_DEVELOPER}
-          />
-        );
-      default:
-        return null;
-    }
-  };
   return (
     <div>
       <div>
@@ -65,7 +26,10 @@ function RecruitDeveloper(): ReactElement {
         ))}
       </div>
 
-      {printDevelopField()}
+      <RecruitFieldExplain
+        fieldName="개발자"
+        explainContents={getDeveloperFieldExplain(developField)}
+      />
     </div>
   );
 }

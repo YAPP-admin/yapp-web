@@ -1,12 +1,12 @@
+import { FieldNameTypes } from 'pages/recruit/components/RecruitField';
+import { DeveloperFieldName } from 'pages/recruit/components/RecruitField/RecruitDeveloper';
+
 /**
  * 작성 Tip
  * - 줄바꿈은 <br /> 태그를 넣어주세요!
  * - <span class="test">테스트</span> 과 같은 html 태그와 class 를 넣어서 사용할 수 있습니다!
  * - html 태그 사용시 `` 백틱 으로 문자열을 감싸주세요!
  */
-
-import { FieldNameTypes } from 'pages/recruit/components/RecruitField';
-import { DeveloperFieldName } from 'pages/recruit/components/RecruitField/RecruitDeveloper';
 
 /* 현재 모집중이면 true 아니면 false */
 export const IS_RECRUITING = true;
@@ -142,6 +142,7 @@ export const RECRUIT_DEVELOPER_FIELD_NAMES: DeveloperFieldName[] = [
   'Back-End',
 ];
 
+/* 기획자 */
 export const RECRUIT_EXPLAIN_PROJECT_MANAGER = {
   content1: `디자이너, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
   서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
@@ -156,6 +157,7 @@ export const RECRUIT_EXPLAIN_PROJECT_MANAGER = {
   3. UX 설계(기획~와이어프레임) 경험`,
 };
 
+/* 디자이너 */
 export const RECRUIT_EXPLAIN_DESIGNER = {
   content1: `기획자, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
   서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
@@ -169,6 +171,7 @@ export const RECRUIT_EXPLAIN_DESIGNER = {
   3. UX 설계(기획~와이어프레임) 경험`,
 };
 
+/* iOS */
 export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
   content1: `IOS 기획자, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
 서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
@@ -182,6 +185,7 @@ export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
 3. UX 설계(기획~와이어프레임) 경험`,
 };
 
+/* Android */
 export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   content1: `Android 기획자, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
   서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
@@ -195,6 +199,7 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   3. UX 설계(기획~와이어프레임) 경험`,
 };
 
+/* Front_End */
 export const RECRUIT_EXPLAIN_FRONTEND_DEVELOPER = {
   content1: `front 기획자, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
   서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
@@ -208,6 +213,7 @@ export const RECRUIT_EXPLAIN_FRONTEND_DEVELOPER = {
   3. UX 설계(기획~와이어프레임) 경험`,
 };
 
+/* Back_End */
 export const RECRUIT_EXPLAIN_BACKEND_DEVELOPER = {
   content1: `back 기획자, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
 서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
