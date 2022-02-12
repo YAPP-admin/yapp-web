@@ -7,6 +7,7 @@ const palette = {
   black: '#000000',
   gray: '#A6A6A6',
   lightGray: '#D3D3D3',
+  lightestGray: '#F9F9F9',
 };
 
 const fontSize = {
@@ -89,6 +90,11 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
     `,
+    Footer_Logo: css`
+      font-size: ${fontSize.small};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.xSmall};
+    `,
   },
   web: {
     Head: css`
@@ -126,15 +132,20 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
     `,
-    Footer_Logo: css`
-      font-size: ${fontSize.xLarge};
-      font-weight: ${fontWeight.bold};
-      line-height: ${lineHeight.xSmall};
+    Body_2: css`
+      font-size: ${fontSize.xSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.medium};
     `,
     Body_Point: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xLarge};
+    `,
+    Footer_Logo: css`
+      font-size: ${fontSize.xLarge};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.xSmall};
     `,
   },
 };

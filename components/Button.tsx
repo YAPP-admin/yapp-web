@@ -2,12 +2,13 @@ import React from 'react';
 import type { ReactNode, ReactElement } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
+import { PaletteKeyTypes } from 'styles/theme';
 
 interface IButtonStyle {
   width?: number;
   height?: number;
   fontColor: 'white' | 'black';
-  buttonColor: 'white' | 'gray';
+  buttonColor: PaletteKeyTypes;
   borderColor: 'white' | 'lightGray';
 }
 
@@ -36,7 +37,6 @@ const StyledButton = styled.button<IButtonStyle>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 40px;
   border-radius: 150px;
 
   ${({ width, height }) =>

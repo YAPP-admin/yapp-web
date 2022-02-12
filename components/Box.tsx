@@ -19,7 +19,7 @@ function Box({
   children,
   className,
   width = 0,
-  height = 0,
+  height,
   backgroundColor = 'gray',
   borderRadius = 20,
   ...rest
