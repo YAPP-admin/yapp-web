@@ -1,6 +1,7 @@
 import Breakpoints from 'constants/breakpoints';
 import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
+import media from 'styles/media';
 
 interface SectionTemplateProps {
   children: ReactNode;
@@ -22,6 +23,9 @@ const TemplateInner = styled.div`
   width: ${Breakpoints.large}px;
   margin: 0 auto;
   padding: 100px 0;
+  ${media.tablet} {
+    width: 100%;
+  }
 `;
 
 export default SectionTemplate;

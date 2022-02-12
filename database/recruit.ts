@@ -32,26 +32,23 @@ export const RECRUIT_APPLY_WAY = {
   ways: [
     {
       subTitle: '모집기간',
-      description: `YAPP에서는 1년에 두번<br />
-                    (6-7월/1-2월)<br />
-                    열정을 가지고 활동에 함께할<br />
+      description: `YAPP에서는 1년에 두번<br class="desktop mobile" />
+                    (6-7월/1-2월)<br class="desktop mobile" />
+                    열정을  가지고<br class="tablet" /> 활동에 함께할<br class="desktop mobile" />
                     YAPPian을 모집합니다`,
     },
     {
       subTitle: '지원자격',
-      description: `6개월 동안 활동하는데<br />
-                    문제가 없고,<br />
+      description: `6개월 동안 활동하는데<br class="desktop mobile" />
+                    문제가 없고,<br class="desktop mobile" />
                     실력을 키우기 위해 배우려는<br />
-                    의지가 있는 누구나<br />
+                    의지가 있는 누구나
                     <span class="small">대학생이 아닌 졸업생, 직장인도 가능합니다.</span>`,
     },
     {
       subTitle: '지원방법',
       description: `1차 서류<br />
-                    <div class="smallBox">
-                      <div class="small">모집 페이지에서 지원서 작성</div>
-                      <div class="small">및 포트폴리오 제출</div>
-                    </div>
+                      <div class="smallGray">지원서 작성 및 포트폴리오 제출</div>
                     2차 면접 후 최종 합격`,
     },
   ],
