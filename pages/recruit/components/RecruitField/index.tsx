@@ -37,7 +37,7 @@ function RecruitField(): ReactElement {
         {RECRUIT_FIELD_NAMES.map((name) => (
           <RecruitFieldButton
             key={`field-${name}`}
-            width={229}
+            width={232}
             height={78}
             onClick={() => handleClick(name)}
             fontColor="white"
@@ -57,6 +57,7 @@ function RecruitField(): ReactElement {
 const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
   padding: 0;
+  display: flex;
 `;
 
 const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
