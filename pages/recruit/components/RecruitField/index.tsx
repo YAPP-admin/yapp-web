@@ -57,7 +57,6 @@ function RecruitField(): ReactElement {
 const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
   padding: 0;
-  margin-bottom: 64px;
 `;
 
 const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
