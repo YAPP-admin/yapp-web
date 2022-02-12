@@ -41,16 +41,29 @@ const FooterInner = styled.div`
     width: 100%;
     padding: 48px 81px 40px;
   }
+  ${media.mobile} {
+    padding: 48px 36px 50px;
+    height: 290px;
+    min-width: ${Breakpoints.small}px;
+  }
 `;
 
 const YappInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  ${media.mobile} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const YappName = styled.span`
   ${({ theme }) => theme.textStyle.web.Footer_Logo}
+  ${media.mobile} {
+    margin-bottom: 8px;
+    ${({ theme }) => theme.textStyle.mobile.Footer_Logo}
+  }
 `;
 
 const YappEmail = styled.span`

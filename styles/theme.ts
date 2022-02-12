@@ -90,6 +90,11 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
     `,
+    Footer_Logo: css`
+      font-size: ${fontSize.small};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.xSmall};
+    `,
   },
   web: {
     Head: css`
