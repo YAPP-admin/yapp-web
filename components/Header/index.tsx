@@ -26,7 +26,7 @@ function Header(): ReactElement {
 }
 
 const HeaderInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
+  width: ${Breakpoints.large}px;
   height: 80px;
   margin: 0 auto;
   display: flex;
@@ -38,6 +38,7 @@ const HeaderInner = styled.div`
   }
   ${media.mobile} {
     padding: 0 20px;
+    min-width: ${Breakpoints.small}px;
   }
 `;
 

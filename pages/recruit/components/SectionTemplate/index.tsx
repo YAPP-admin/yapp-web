@@ -19,7 +19,7 @@ const TemplateBlock = styled.div`
 `;
 
 const TemplateInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
+  width: ${Breakpoints.large}px;
   margin: 0 auto;
   padding: 100px 0;
 `;

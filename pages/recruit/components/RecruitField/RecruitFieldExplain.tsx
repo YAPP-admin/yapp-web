@@ -64,7 +64,7 @@ const RecruitFieldWrapper = styled.div`
 
 const FieldBox = styled(Box)`
   padding: 32px;
-  width: ${Breakpoints.xlarge}px;
+  width: ${Breakpoints.large}px;
   margin-bottom: 32px;
   display: flex;
   &:nth-child(3) {

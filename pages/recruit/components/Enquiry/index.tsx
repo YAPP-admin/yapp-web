@@ -33,7 +33,7 @@ const EnquiryBlock = styled.div`
 `;
 
 const EnquiryInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
+  width: ${Breakpoints.large}px;
   margin: 0 auto;
   padding: 100px 0;
   display: flex;

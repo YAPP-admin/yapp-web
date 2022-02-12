@@ -2,6 +2,7 @@ import Breakpoints from 'constants/breakpoints';
 import Yapp from 'constants/yapp';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+import media from 'styles/media';
 
 function Footer(): ReactElement {
   const { YAPP_NAME, YAPP_OFFICIAL_EMAIL } = Yapp;
@@ -30,12 +31,16 @@ const FooterBlock = styled.div`
 
 const FooterInner = styled.div`
   height: 280px;
-  width: ${Breakpoints.xlarge}px;
+  width: ${Breakpoints.large}px;
   margin: 0 auto;
   padding: 55px 0 33px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${media.tablet} {
+    width: 100%;
+    padding: 48px 81px 40px;
+  }
 `;
 
 const YappInfo = styled.div`

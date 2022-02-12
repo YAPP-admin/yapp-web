@@ -32,7 +32,7 @@ function RecruitBanner(): ReactElement {
 }
 
 const BannerInner = styled.div`
-  width: ${Breakpoints.xlarge}px;
+  width: ${Breakpoints.large}px;
   margin: 0 auto;
   padding: 164px 0 100px;
 `;
