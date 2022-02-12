@@ -2,6 +2,7 @@ import { Box, Button } from 'components';
 import { RECRUIT_FIELD_NAMES } from 'database/recruit';
 import React, { ReactElement, useState } from 'react';
 import styled, { css } from 'styled-components';
+import media from 'styles/media';
 import { SectionTemplate, SectionTitle } from '..';
 import RecruitDesigner from './RecruitDesigner';
 import RecruitDeveloper from './RecruitDeveloper';
@@ -58,6 +59,10 @@ const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
   padding: 0;
   display: flex;
+  ${media.mobile} {
+    width: 279px;
+    height: 43px;
+  }
 `;
 
 const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
@@ -71,6 +76,11 @@ const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
           background-color: transparent;
           color: #898989; // @Todo 색상 코드 나오기 전 임시 색상
         `}
+
+  ${media.mobile} {
+    width: 82px;
+    height: 43px;
+  }
 `;
 
 export default RecruitField;

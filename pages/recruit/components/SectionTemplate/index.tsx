@@ -26,6 +26,9 @@ const TemplateInner = styled.div`
   ${media.tablet} {
     width: 100%;
   }
+  ${media.mobile} {
+    padding: 0 0 120px 0;
+  }
 `;
 
 export default SectionTemplate;

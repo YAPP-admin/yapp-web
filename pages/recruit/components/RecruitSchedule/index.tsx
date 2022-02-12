@@ -1,4 +1,5 @@
 import { Box } from 'components';
+import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_SCHEDULE } from 'database/recruit';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -31,7 +32,7 @@ function RecruitSchedule(): ReactElement {
 
 const SectionContent = styled.div`
   display: flex;
-  width: 100%;
+  width: ${Breakpoints.large}px;
   justify-content: space-between;
 `;
 

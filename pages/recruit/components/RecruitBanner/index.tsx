@@ -48,6 +48,7 @@ const BannerInner = styled.div`
   ${media.mobile} {
     padding: 80px 56px 64px 21px;
     min-width: ${Breakpoints.small}px;
+    margin-bottom: 56px;
     .desktop {
       display: none;
     }

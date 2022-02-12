@@ -60,7 +60,9 @@ const WayBox = styled(Box)`
     }
   }
   ${media.mobile} {
+    margin: 0 auto;
     margin-bottom: 16px;
+    width: 335px;
   }
 `;
 

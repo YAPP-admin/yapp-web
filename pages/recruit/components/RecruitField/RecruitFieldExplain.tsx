@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { FieldNameTypes } from '.';
 import Breakpoints from 'constants/breakpoints';
+import media from 'styles/media';
 
 interface RecruitFieldExplainProps {
   fieldName: FieldNameTypes;
@@ -60,6 +61,9 @@ function RecruitFieldExplain({
 
 const RecruitFieldWrapper = styled.div`
   margin-top: 64px;
+  ${media.tablet} {
+    padding: 0 22px;
+  }
 `;
 
 const FieldBox = styled(Box)`
@@ -70,11 +74,17 @@ const FieldBox = styled(Box)`
   &:nth-child(3) {
     margin-bottom: 64px;
   }
+  ${media.tablet} {
+    width: 100%;
+  }
 `;
 
 const SubTitleStyled = styled.span`
   ${({ theme }) => theme.textStyle.web.Subtitle}
   width: 371px;
+  ${media.tablet} {
+    width: 271px;
+  }
 `;
 
 const ContentStyled = styled.span`
