@@ -15,7 +15,13 @@ function Main(): ReactElement {
           세상을 크게 변화시키다.
         </span>
       </TitleContainer>
-      <Button fontColor="black" buttonColor="white" borderColor="white">
+      <Button
+        width={220}
+        height={78}
+        fontColor="black"
+        buttonColor="white"
+        borderColor="white"
+      >
         {Yapp.YAPP_GENERATION} 지원하기
       </Button>
     </MainWrapper>
