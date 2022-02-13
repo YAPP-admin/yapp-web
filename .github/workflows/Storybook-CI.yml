@@ -3,7 +3,7 @@ name: Storybook-Chromatic-CI
 on: push
 
 jobs:
-  test:
+  storybook-chromatic-build:
     runs-on: ubuntu-latest
 
     steps:
