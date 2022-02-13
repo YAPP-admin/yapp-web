@@ -2,11 +2,12 @@
   "presets": ["next/babel"],
   "plugins": [
     [
-      "babel-plugin-styled-components",
+      "styled-components",
       {
-        "fileName": true,
-        "displayName": true,
-        "pure": true
+        "ssr": true, // SSR
+        "fileName": true, // 파일 명
+        "displayName": true, // 클래스 명, 스타일 정보에 추가
+        "pure": true // 사용하지 않는 속성 제거
       }
     ]
   ]
