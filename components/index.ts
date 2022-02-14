@@ -6,3 +6,4 @@ export { default as RecruitLayout } from './RecruitLayout';
 export { default as LayoutWrapper } from './LayoutWrapper';
 export { default as SEO } from './SEO';
 export { default as Carousel } from './Carousel';
+export { default as FloatingButton } from './FloatingButton';

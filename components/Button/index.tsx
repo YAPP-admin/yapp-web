@@ -4,19 +4,21 @@ import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
 
-interface IButtonStyle {
+export interface IButtonStyle {
   width?: number;
   height?: number;
-  fontColor: 'white' | 'black';
-  buttonColor: PaletteKeyTypes;
-  borderColor: 'white' | 'lightGray';
+  hasBorder?: boolean;
+  borderRadius?: number;
+  buttonColor?: PaletteKeyTypes;
+  borderColor?: PaletteKeyTypes;
+  fontColor?: PaletteKeyTypes;
 }
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     IButtonStyle {
+  children?: ReactNode;
   className?: string;
-  children: ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -37,7 +39,6 @@ const StyledButton = styled.button<IButtonStyle>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 150px;
 
   ${({ width, height }) =>
     css`
@@ -45,13 +46,20 @@ const StyledButton = styled.button<IButtonStyle>`
       height: ${height}px;
     `};
 
-  ${({ theme, fontColor, buttonColor, borderColor }) => {
-    return {
-      color: theme.palette[fontColor],
-      backgroundColor: theme.palette[buttonColor],
-      border: `1px solid ${theme.palette[borderColor]}}`,
-    };
-  }};
+  ${({
+    theme,
+    fontColor = 'black',
+    buttonColor = 'white',
+    hasBorder = false,
+    borderRadius = 150,
+    borderColor = 'white',
+  }) => css`
+    border-radius: ${borderRadius}px;
+    color: ${theme.palette[fontColor]};
+    background-color: ${theme.palette[buttonColor]};
+    border: ${hasBorder ? '1px solid' : 'none'};
+    border-color: ${theme.palette[borderColor]}};
+  `};
 
   /* Text Style */
   ${({ theme }) => theme.textStyle.web.Button}

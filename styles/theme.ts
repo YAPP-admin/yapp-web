@@ -3,11 +3,16 @@ import { css, DefaultTheme } from 'styled-components';
 /* Based on YAPP Web Design System */
 
 const palette = {
+  // Color
   white: '#FFFFFF',
   black: '#000000',
   gray: '#A6A6A6',
   lightGray: '#D3D3D3',
   lightestGray: '#F9F9F9',
+
+  // Enterprise
+  facebook: '#397DFF',
+  kakao: '#FFD866',
 };
 
 const fontSize = {

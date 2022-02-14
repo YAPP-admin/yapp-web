@@ -2,8 +2,10 @@ import React, { useMemo, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import Slider, { Settings } from 'react-slick';
 import media from 'styles/media';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-interface CarouselProps {
+export interface CarouselProps {
   data: any; // 데이터 확정 전, any 타입
 }
 

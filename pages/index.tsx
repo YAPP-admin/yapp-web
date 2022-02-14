@@ -37,14 +37,28 @@ function Home(): ReactElement {
       <ProjectContainer>
         <TitleText>YAPP의 프로젝트</TitleText>
         <Carousel data={CAROUSEL_DATA} />
-        <Button fontColor="black" buttonColor="white" borderColor="lightGray">
+        <Button
+          width={220}
+          height={78}
+          fontColor="black"
+          buttonColor="white"
+          hasBorder
+          borderColor="lightGray"
+        >
           프로젝트 더보기
         </Button>
       </ProjectContainer>
       <SocialContainer>
         <TitleText>YAPP의 소식</TitleText>
         <CardContainer></CardContainer>
-        <Button fontColor="black" buttonColor="white" borderColor="lightGray">
+        <Button
+          width={252}
+          height={78}
+          fontColor="black"
+          buttonColor="white"
+          hasBorder
+          borderColor="lightGray"
+        >
           페이스북 둘러보기
         </Button>
       </SocialContainer>
@@ -53,7 +67,13 @@ function Home(): ReactElement {
         <span className="detail-text">
           YAPP은 운영을 위한 다양한 후원사를 기다리고 있습니다.
         </span>
-        <Button fontColor="white" buttonColor="gray" borderColor="lightGray">
+        <Button
+          width={180}
+          height={78}
+          fontColor="white"
+          buttonColor="gray"
+          borderColor="lightGray"
+        >
           후원 문의
         </Button>
       </SponsorContainer>
@@ -98,12 +118,15 @@ const YappIntroContainer = styled(ContainerLayout)`
   }
 `;
 
-const YappCurrentContainer = styled(ContainerLayout)``;
+const YappCurrentContainer = styled(ContainerLayout)`
+  background-color: #f9f9f9;
+`;
 
 const GridContainer = styled.article`
   display: grid;
   row-gap: 32px;
   column-gap: 30px;
+  background-color: #f9f9f9;
 
   grid-template-columns: repeat(3, 1fr);
   ${media.tablet} {
@@ -141,13 +164,21 @@ const GridContainer = styled.article`
   }
 `;
 
-const ProjectContainer = styled(ContainerLayout)``;
+const ProjectContainer = styled(ContainerLayout)`
+  background-color: #f9f9f9;
+`;
 
-const CardContainer = styled.article``;
+const CardContainer = styled.article`
+  background-color: #f9f9f9;
+`;
 
-const SocialContainer = styled(ContainerLayout)``;
+const SocialContainer = styled(ContainerLayout)`
+  background-color: #f9f9f9;
+`;
 
 const SponsorContainer = styled(ContainerLayout)`
+  background-color: #f9f9f9;
+
   .detail-text {
     ${({ theme }) => theme.textStyle.web.Body_1};
   }
