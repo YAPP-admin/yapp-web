@@ -4,11 +4,44 @@ import { css, DefaultTheme } from 'styled-components';
 
 const palette = {
   // Color
-  white: '#FFFFFF',
-  black: '#000000',
+  // 삭제 예정
   gray: '#A6A6A6',
   lightGray: '#D3D3D3',
   lightestGray: '#F9F9F9',
+
+  // Default
+  white: '#FFFFFF',
+  black: '#000000',
+
+  // Yellow
+  yellow_100: '#FFEFBE',
+  yellow_200: '#FFE69A',
+  yellow_300: '#FFD866',
+  yellow_400: '#FFCB31',
+  yellow_500: '#FABB00',
+  yellow_600: '#F5A810',
+
+  // Orange
+  orange_100: '#FFC9A5',
+  orange_200: '#FFB27C',
+  orange_300: '#FA9855',
+  orange_400: '#F48132',
+  orange_500: '#F06C11',
+  orange_600: '#DF5E15',
+
+  // Grey
+  grey_50: '#F4F7FA',
+  grey_100: '#F2F5F8',
+  grey_200: '#D7DADD',
+  grey_300: '#BCBFC2',
+  grey_400: '#A0A3A7',
+  grey_500: '#85888C',
+  grey_600: '#6A6D70',
+  grey_700: '#4F5255',
+  grey_800: '#33363A',
+  grey_850: '#25282D',
+  grey_900: '#181B1F',
+  grey_1000: '#07090B',
 
   // Enterprise
   facebook: '#397DFF',
@@ -43,62 +76,81 @@ const lineHeight = {
   xLarge: '160%',
 };
 
+const letterSpacing = {
+  xSmall: '-0.02em',
+  small: '-0.01em',
+  medium: '0',
+  large: '-0.01em',
+  xLarge: '-0.02em',
+};
+
 const textStyle = {
   mobile: {
     Head: css`
       font-size: ${fontSize.xxLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.small};
     `,
     Title_1: css`
       font-size: ${fontSize.xLarge};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.small};
     `,
     Title_2: css`
       font-size: ${fontSize.large};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.xSmall};
     `,
     Subtitle: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xLarge};
+      letter-spacing: ${letterSpacing.xSmall};
     `,
     Button_Point: css`
       font-size: ${fontSize.xSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.small};
     `,
     Button: css`
       font-size: ${fontSize.xxSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.small};
     `,
     Body_Point: css`
       font-size: ${fontSize.xSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xLarge};
+      letter-spacing: ${letterSpacing.small};
     `,
     Body_1: css`
       font-size: ${fontSize.xSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
+      letter-spacing: ${letterSpacing.small};
     `,
     Body_2: css`
       font-size: ${fontSize.xxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.medium};
     `,
     Body_3: css`
       font-size: ${fontSize.xxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.medium};
     `,
     Footer_Logo: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.medium};
     `,
   },
   web: {
@@ -106,51 +158,61 @@ const textStyle = {
       font-size: ${fontSize.xxxxLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.medium};
+      letter-spacing: ${letterSpacing.medium};
     `,
     Title: css`
       font-size: ${fontSize.xxxLarge};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.small};
     `,
     Subtitle: css`
       font-size: ${fontSize.medium};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xLarge};
+      letter-spacing: ${letterSpacing.xSmall};
     `,
     Button_Point: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.small};
     `,
     Button: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.small};
     `,
     Category: css`
       font-size: ${fontSize.xSmall};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.xLarge};
     `,
     Body_1: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
+      letter-spacing: ${letterSpacing.small};
     `,
     Body_2: css`
       font-size: ${fontSize.xSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.medium};
+      letter-spacing: ${letterSpacing.medium};
     `,
     Body_Point: css`
       font-size: ${fontSize.small};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xLarge};
+      letter-spacing: ${letterSpacing.xSmall};
     `,
     Footer_Logo: css`
       font-size: ${fontSize.xLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.medium};
     `,
   },
 };
