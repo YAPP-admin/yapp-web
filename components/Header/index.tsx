@@ -1,20 +1,23 @@
 import Breakpoints from 'constants/breakpoints';
 import { HEADER_MENUS } from 'constants/headerMenus';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { YappLogo } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 
 function Header(): ReactElement {
+  const { asPath } = useRouter();
+
   return (
     <HeaderBlock>
       <HeaderInner>
         <YappLogo />
         <HeaderMenu>
-          {HEADER_MENUS.map(({ name, path }, index) => (
-            <Link key={`${name}_${index}`} href={path}>
-              <MenuText>{name}</MenuText>
+          {HEADER_MENUS.map(({ name, path }) => (
+            <Link key={`${name}_${path}`} href={path}>
+              <MenuText active={asPath === path}>{name}</MenuText>
             </Link>
           ))}
         </HeaderMenu>
@@ -47,8 +50,6 @@ const HeaderInner = styled.div`
   }
 `;
 
-const Logo = styled.img``;
-
 const HeaderMenu = styled.div`
   width: 470px;
   display: flex;
@@ -59,8 +60,10 @@ const HeaderMenu = styled.div`
   }
 `;
 
-const MenuText = styled.a`
+const MenuText = styled.a<{ active: boolean }>`
   cursor: pointer;
+  color: ${({ theme, active }) =>
+    active ? theme.palette.orange_400 : theme.palette.white};
   ${({ theme }) => theme.textStyle.web.Category};
 `;
 
