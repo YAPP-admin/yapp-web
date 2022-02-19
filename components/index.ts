@@ -7,3 +7,4 @@ export { default as SEO } from './SEO';
 export { default as Carousel } from './Carousel';
 export { default as FloatingButton } from './FloatingButton';
 export { default as SectionTitle } from './SectionTitle';
+export { default as AnimatedBox } from './AnimatedBox';
