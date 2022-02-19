@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { LayoutWrapper } from 'components';
 import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
-import LandingMain from 'pages/components/LandingMain';
+import IntroSection from 'pages/components/IntroSection';
 import { SEO, Header, Footer } from 'components';
 import PATH from 'constants/path';
 import FloatingButton from 'components/FloatingButton';

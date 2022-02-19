@@ -5,7 +5,7 @@ import { Button } from 'components';
 import media from 'styles/media';
 import Yapp from 'constants/yapp';
 
-function Main(): ReactElement {
+function MainContainer(): ReactElement {
   return (
     <MainWrapper>
       <TitleContainer>
@@ -18,9 +18,8 @@ function Main(): ReactElement {
       <Button
         width={220}
         height={78}
-        fontColor="black"
-        buttonColor="white"
-        borderColor="white"
+        fontColor="yellow_400"
+        buttonColor="grey_900"
       >
         {Yapp.YAPP_GENERATION} 지원하기
       </Button>
@@ -52,4 +51,4 @@ const TitleContainer = styled.div`
   }
 `;
 
-export default Main;
+export default MainContainer;
