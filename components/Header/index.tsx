@@ -1,15 +1,13 @@
 import Breakpoints from 'constants/breakpoints';
 import { HEADER_MENUS } from 'constants/headerMenus';
-import { IS_RECRUITING } from 'database/recruit';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
-import RecruitLayout from '../RecruitLayout';
 
 function Header(): ReactElement {
   return (
-    <RecruitLayout isRecruit={IS_RECRUITING}>
+    <HeaderBlock>
       <HeaderInner>
         <Logo />
         <HeaderMenu>
@@ -21,9 +19,13 @@ function Header(): ReactElement {
         </HeaderMenu>
         <MobileHeaderMenu />
       </HeaderInner>
-    </RecruitLayout>
+    </HeaderBlock>
   );
 }
+
+const HeaderBlock = styled.div`
+  width: 100%;
+`;
 
 const HeaderInner = styled.div`
   width: ${Breakpoints.large}px;

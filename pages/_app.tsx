@@ -19,10 +19,11 @@ function App({ Component, pageProps }: AppProps) {
         <SEO />
         {/* 추후 LayoutWrapper 안에 넣을 예정 */}
         {asPath === PATH.Home && <LandingMain />}
-        <Header />
-        <Component {...pageProps} />
-        <FloatingButton />
-        <Footer />
+
+        <LayoutWrapper>
+          <Component {...pageProps} />
+          <FloatingButton />
+        </LayoutWrapper>
       </ThemeProvider>
     </>
   );

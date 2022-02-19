@@ -4,10 +4,11 @@ import { normalize } from 'styled-normalize';
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
-  @font-face {
+  /* @font-face {
     font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
-  };
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css')
+  }; */
+
   
   html {
     box-sizing: border-box;
@@ -25,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
     all: unset;
     cursor: pointer;
   }
+
+
 `;
 
 export default GlobalStyle;
