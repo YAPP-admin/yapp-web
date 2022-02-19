@@ -1,15 +1,16 @@
 import Breakpoints from 'constants/breakpoints';
 import { HEADER_MENUS } from 'constants/headerMenus';
 import Link from 'next/link';
+import { YappLogo } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media from 'styles/media';
 
 function Header(): ReactElement {
   return (
     <HeaderBlock>
       <HeaderInner>
-        <Logo />
+        <YappLogo />
         <HeaderMenu>
           {HEADER_MENUS.map(({ name, path }, index) => (
             <Link key={`${name}_${index}`} href={path}>
@@ -25,6 +26,8 @@ function Header(): ReactElement {
 
 const HeaderBlock = styled.div`
   width: 100%;
+  background-color: ${({ theme }) => theme.palette.grey_900};
+  color: ${({ theme }) => theme.palette.white};
 `;
 
 const HeaderInner = styled.div`
@@ -44,12 +47,7 @@ const HeaderInner = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  width: 56px;
-  height: 56px;
-  background-color: #999; /* @Todo 임시컬러 */
-  border-radius: 50%;
-`;
+const Logo = styled.img``;
 
 const HeaderMenu = styled.div`
   width: 470px;

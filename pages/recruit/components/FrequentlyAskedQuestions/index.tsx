@@ -1,9 +1,9 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
+import { ArrowDown } from 'public/assets/icons';
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import { SectionTemplate, SectionTitle } from '..';
-import ArrowDown from 'public/assets/icons/arrow_down.svg';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title } = RECRUIT_FAQ;
