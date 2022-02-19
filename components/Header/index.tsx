@@ -1,29 +1,37 @@
 import Breakpoints from 'constants/breakpoints';
 import { HEADER_MENUS } from 'constants/headerMenus';
-import { IS_RECRUITING } from 'database/recruit';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { YappLogo } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media from 'styles/media';
-import RecruitLayout from '../RecruitLayout';
 
 function Header(): ReactElement {
+  const { asPath } = useRouter();
+
   return (
-    <RecruitLayout isRecruit={IS_RECRUITING}>
+    <HeaderBlock>
       <HeaderInner>
-        <Logo />
+        <YappLogo />
         <HeaderMenu>
-          {HEADER_MENUS.map(({ name, path }, index) => (
-            <Link key={`${name}_${index}`} href={path}>
-              <MenuText>{name}</MenuText>
+          {HEADER_MENUS.map(({ name, path }) => (
+            <Link key={`${name}_${path}`} href={path}>
+              <MenuText active={asPath === path}>{name}</MenuText>
             </Link>
           ))}
         </HeaderMenu>
         <MobileHeaderMenu />
       </HeaderInner>
-    </RecruitLayout>
+    </HeaderBlock>
   );
 }
+
+const HeaderBlock = styled.div`
+  width: 100%;
+  background-color: ${({ theme }) => theme.palette.grey_900};
+  color: ${({ theme }) => theme.palette.white};
+`;
 
 const HeaderInner = styled.div`
   width: ${Breakpoints.large}px;
@@ -33,20 +41,13 @@ const HeaderInner = styled.div`
   justify-content: space-between;
   align-items: center;
   ${media.tablet} {
-    width: 100%;
+    width: auto;
     padding: 0 81px;
   }
   ${media.mobile} {
     padding: 0 20px;
     min-width: ${Breakpoints.small}px;
   }
-`;
-
-const Logo = styled.div`
-  width: 56px;
-  height: 56px;
-  background-color: #999; /* @Todo 임시컬러 */
-  border-radius: 50%;
 `;
 
 const HeaderMenu = styled.div`
@@ -59,8 +60,10 @@ const HeaderMenu = styled.div`
   }
 `;
 
-const MenuText = styled.a`
+const MenuText = styled.a<{ active: boolean }>`
   cursor: pointer;
+  color: ${({ theme, active }) =>
+    active ? theme.palette.orange_400 : theme.palette.white};
   ${({ theme }) => theme.textStyle.web.Category};
 `;
 
