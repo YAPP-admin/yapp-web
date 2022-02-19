@@ -41,7 +41,7 @@ const HeaderInner = styled.div`
   justify-content: space-between;
   align-items: center;
   ${media.tablet} {
-    width: 100%;
+    width: auto;
     padding: 0 81px;
   }
   ${media.mobile} {

@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body,
   #__next {
     height: 100%;
+    overflow-x:hidden;
   }
 
   button {
