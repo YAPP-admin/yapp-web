@@ -5,9 +5,9 @@ import { css, DefaultTheme } from 'styled-components';
 const palette = {
   // Color
   // 삭제 예정
-  gray: '#A6A6A6',
-  lightGray: '#D3D3D3',
-  lightestGray: '#F9F9F9',
+  grey: '#A6A6A6',
+  lightGrey: '#D3D3D3',
+  lightestGrey: '#F9F9F9',
 
   // Default
   white: '#FFFFFF',

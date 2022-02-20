@@ -21,7 +21,7 @@ function RecruitFieldExplain({
   const { content1, content2, content3 } = explainContents;
   return (
     <RecruitFieldWrapper>
-      <FieldBox backgroundColor="lightestGray">
+      <FieldBox backgroundColor="lightestGrey">
         <SubTitleStyled>
           다음과 같은
           <br /> 활동을 합니다🙌
@@ -29,14 +29,14 @@ function RecruitFieldExplain({
         <ContentStyled dangerouslySetInnerHTML={{ __html: content1 }} />
       </FieldBox>
 
-      <FieldBox backgroundColor="lightestGray">
+      <FieldBox backgroundColor="lightestGrey">
         <SubTitleStyled>
           이런 {fieldName}를<br /> 찾습니다🔎
         </SubTitleStyled>
         <ContentStyled dangerouslySetInnerHTML={{ __html: content2 }} />
       </FieldBox>
 
-      <FieldBox backgroundColor="lightestGray">
+      <FieldBox backgroundColor="lightestGrey">
         <SubTitleStyled>
           이런 경험이 있으면
           <br /> 더 좋습니다😊
@@ -49,8 +49,8 @@ function RecruitFieldExplain({
           width={252}
           height={78}
           fontColor="white"
-          buttonColor="lightGray"
-          borderColor="lightGray"
+          buttonColor="lightGrey"
+          borderColor="lightGrey"
         >
           {fieldName} 지원하기
         </Button>

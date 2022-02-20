@@ -16,7 +16,7 @@ function ApplyWay(): ReactElement {
           <WayBox
             width={380}
             height={307}
-            backgroundColor="lightestGray"
+            backgroundColor="lightestGrey"
             key={`applyWay-${subTitle}`}
           >
             <WaySubTitle>{subTitle}</WaySubTitle>
@@ -94,7 +94,7 @@ const WayContent = styled.div`
     ${({ theme }) => theme.textStyle.mobile.Body_1};
   }
 
-  .smallGray {
+  .smallGrey {
     ${({ theme }) => theme.textStyle.web.Body_2};
     margin: 8px 0 14px;
     color: #898989; // @Todo 임시컬러
