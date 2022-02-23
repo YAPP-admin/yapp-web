@@ -19,26 +19,23 @@ function RecruitBanner(): ReactElement {
         <BannerTitle dangerouslySetInnerHTML={{ __html: title }} />
         <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
         <ButtonBlock>
-          <div className="center">
-            <RecruitButton
-              className="btn"
-              width={174}
-              height={78}
-              fontColor="white"
-              buttonColor="grey_850"
-              borderColor="lightGray"
+          <RecruitButton
+            width={174}
+            height={78}
+            fontColor="white"
+            buttonColor="grey_850"
+            borderColor="lightGray"
+          >
+            <svg
+              width="174px"
+              height="78px"
+              viewBox="0 0 170 78"
+              className="border"
             >
-              <svg
-                width="174px"
-                height="78px"
-                viewBox="0 0 170 78"
-                className="border"
-              >
-                <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
-              </svg>
-              <span> {buttonName}</span>
-            </RecruitButton>
-          </div>
+              <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
+            </svg>
+            <span> {buttonName}</span>
+          </RecruitButton>
         </ButtonBlock>
       </BannerInner>
     </RecruitBannerContainer>
@@ -99,21 +96,6 @@ const ButtonBlock = styled.div`
     display: flex;
     justify-content: center;
   }
-  .center {
-    width: 174px;
-    height: 78px;
-  }
-
-  .btn {
-    width: 174px;
-    height: 78px;
-    position: relative;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    transition: 1s ease-in-out;
-  }
-
   svg {
     position: absolute;
     left: 0;
@@ -126,22 +108,24 @@ const ButtonBlock = styled.div`
     stroke-dashoffset: 174;
     transition: 1s ease-in-out;
   }
-
-  .btn:hover {
-    transition: 1s ease-in-out;
-    background: #f48132;
-  }
-
-  .btn:hover svg {
-    stroke-dashoffset: -480;
-  }
-
-  .btn span {
-    color: white;
-  }
 `;
 
 const RecruitButton = styled(Button)`
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: 1s ease-in-out;
+  color: ${({ theme }) => theme.palette.white};
+
+  &:hover {
+    transition: 1s ease-in-out;
+    background: ${({ theme }) => theme.palette.orange_400};
+    svg {
+      stroke-dashoffset: -480;
+    }
+  }
+
   ${media.mobile} {
     width: 112px;
     height: 56px;
