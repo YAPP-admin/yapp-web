@@ -6,7 +6,7 @@ import {
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
 import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 
 function RecruitBanner(): ReactElement {
@@ -34,13 +34,34 @@ function RecruitBanner(): ReactElement {
             >
               <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
             </svg>
-            <span> {buttonName}</span>
+            <span className="textgroup">
+              <span className="mainText">{buttonName}</span>
+              <span className="cloneText">{buttonName}</span>
+            </span>
           </RecruitButton>
         </ButtonBlock>
       </BannerInner>
     </RecruitBannerContainer>
   );
 }
+
+const slideIn = keyframes`
+0% {
+    transform: translateY(100%)
+}
+
+to {
+    opacity: 1
+}
+
+`;
+
+const slideOut = keyframes`
+to {
+    transform: translateY(-100%);
+    opacity: 0
+}
+`;
 
 const RecruitBannerContainer = styled.div`
   width: 100%;
@@ -118,11 +139,30 @@ const RecruitButton = styled(Button)`
   transition: 1s ease-in-out;
   color: ${({ theme }) => theme.palette.white};
 
+  .textgroup {
+    position: relative;
+  }
+
+  .cloneText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: inline-block;
+  }
+
   &:hover {
     transition: 1s ease-in-out;
     background: ${({ theme }) => theme.palette.orange_400};
     svg {
       stroke-dashoffset: -480;
+    }
+    .mainText {
+      animation: ${slideOut} 0.533s cubic-bezier(0.33, 0, 0.67, 1) forwards;
+    }
+    .cloneText {
+      animation: ${slideIn} 0.567s cubic-bezier(0.22, 1, 0.36, 1) 0.367s
+        forwards;
     }
   }
 
