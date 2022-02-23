@@ -27,7 +27,7 @@ function Header(): ReactElement {
   );
 }
 
-const HeaderBlock = styled.div`
+const HeaderBlock = styled.header`
   width: 100%;
   background-color: ${({ theme }) => theme.palette.grey_900};
   color: ${({ theme }) => theme.palette.white};

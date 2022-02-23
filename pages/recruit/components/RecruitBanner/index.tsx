@@ -19,15 +19,26 @@ function RecruitBanner(): ReactElement {
         <BannerTitle dangerouslySetInnerHTML={{ __html: title }} />
         <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
         <ButtonBlock>
-          <RecruitButton
-            width={174}
-            height={78}
-            fontColor="black"
-            buttonColor="lightestGray"
-            borderColor="lightGray"
-          >
-            {buttonName}
-          </RecruitButton>
+          <div className="center">
+            <RecruitButton
+              className="btn"
+              width={174}
+              height={78}
+              fontColor="white"
+              buttonColor="grey_850"
+              borderColor="lightGray"
+            >
+              <svg
+                width="174px"
+                height="78px"
+                viewBox="0 0 170 78"
+                className="border"
+              >
+                <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
+              </svg>
+              <span> {buttonName}</span>
+            </RecruitButton>
+          </div>
         </ButtonBlock>
       </BannerInner>
     </RecruitBannerContainer>
@@ -36,6 +47,7 @@ function RecruitBanner(): ReactElement {
 
 const RecruitBannerContainer = styled.div`
   width: 100%;
+  background-color: ${({ theme }) => theme.palette.yellow_400};
 `;
 
 const BannerInner = styled.div`
@@ -86,6 +98,46 @@ const ButtonBlock = styled.div`
   ${media.mobile} {
     display: flex;
     justify-content: center;
+  }
+  .center {
+    width: 174px;
+    height: 78px;
+  }
+
+  .btn {
+    width: 174px;
+    height: 78px;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: 1s ease-in-out;
+  }
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+    stroke-dasharray: 174 480;
+    stroke-dashoffset: 174;
+    transition: 1s ease-in-out;
+  }
+
+  .btn:hover {
+    transition: 1s ease-in-out;
+    background: #f48132;
+  }
+
+  .btn:hover svg {
+    stroke-dashoffset: -480;
+  }
+
+  .btn span {
+    color: white;
   }
 `;
 
