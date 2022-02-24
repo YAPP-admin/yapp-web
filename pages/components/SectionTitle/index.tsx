@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import media from 'styles/media';
 
 interface SectionTitleProps {
-  children: string;
+  children: string | ReactNode;
   className?: string;
 }
 

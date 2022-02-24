@@ -1,13 +1,14 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
-import media from 'styles/media';
+import { SectionTitle, SectionTemplate } from 'pages/components';
+import { AnimatedBox } from 'components';
 import { CURRENT_INFO_DATA } from 'database/home';
-import { SectionTitle, AnimatedBox } from 'components';
+import media from 'styles/media';
 
 function GridSection(): ReactElement {
   return (
     <GridSectionContainer>
-      <SectionTitle>YAPP의 현재</SectionTitle>
+      <SectionTitle>숫자가 말해주는 열정</SectionTitle>
       <GridContainer>
         {CURRENT_INFO_DATA.map(({ title, content }, index) => (
           <AnimatedBox key={index}>
@@ -22,16 +23,9 @@ function GridSection(): ReactElement {
   );
 }
 
-const ContainerLayout = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+const GridSectionContainer = styled(SectionTemplate)`
   padding: 200px 0;
 `;
-
-const GridSectionContainer = styled(ContainerLayout)``;
 
 const GridContainer = styled.article`
   display: grid;

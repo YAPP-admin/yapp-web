@@ -6,6 +6,7 @@ import {
   NewsSection,
   ProjectSection,
   SponsorSection,
+  SectionTemplate,
 } from 'pages/components';
 
 function Home(): ReactElement {
@@ -20,13 +21,8 @@ function Home(): ReactElement {
   );
 }
 
-const HomeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #f9f9f9;
+const HomeWrapper = styled(SectionTemplate)`
+  background-color: ${({ theme }) => theme.palette.lightestGrey}; ;
 `;
 
 export default Home;
