@@ -61,7 +61,7 @@ const RecruitFieldNameBox = styled(Box)`
   display: flex;
   position: relative;
   ${media.mobile} {
-    width: 246px;
+    width: 279px;
     height: 43px;
   }
 `;
@@ -75,10 +75,10 @@ const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
           color: ${({ theme }) => theme.palette.white};
         `
       : css`
-          color: #898989; // @Todo 색상 코드 나오기 전 임시 색상
+          color: ${({ theme }) => theme.palette.grey_700};
         `}
   ${media.mobile} {
-    width: 82px;
+    width: 93px;
     height: 43px;
   }
 `;
@@ -94,14 +94,14 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
         return css`
           left: 232px;
           ${media.mobile} {
-            left: 82px;
+            left: 93px;
           }
         `;
       case '개발자':
         return css`
           left: 464px;
           ${media.mobile} {
-            left: 164px;
+            left: 186px;
           }
         `;
     }
@@ -109,12 +109,12 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
   width: 232px;
   height: 78px;
   ${media.mobile} {
-    width: 82px;
+    width: 93px;
     height: 43px;
   }
   position: absolute;
   top: 0;
-  background-color: ${({ theme }) => theme.palette.black};
+  background-color: ${({ theme }) => theme.palette.orange_400};
   border-radius: 124px;
   transition: all 0.2s ease-in-out;
 `;
