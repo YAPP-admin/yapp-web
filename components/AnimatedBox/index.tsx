@@ -1,9 +1,9 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
 import type { ReactElement, ReactNode } from 'react';
+import { useSpring, animated } from '@react-spring/web';
 import { Box } from 'components';
 import styled from 'styled-components';
 import media from 'styles/media';
-import { useSpring, animated } from '@react-spring/web';
 
 interface AnimatedBox {
   children: ReactNode;
@@ -25,7 +25,7 @@ function AnimatedBox({ children, className }: AnimatedBox): ReactElement {
   );
 
   const styles = useSpring({
-    config: { mass: 500, tension: 1500, friction: 1000 }, // 질량, 장력, 마찰력
+    config: { mass: 200, tension: 1500, friction: 1000 }, // 질량, 장력, 마찰력
     from: { opacity: 0, y: 50 }, // 처음 위치
     to: isIntersect && { opacity: 1, y: 0 }, // 이벤트 시작시 해당 값까지 애니메이션
   });
@@ -33,7 +33,7 @@ function AnimatedBox({ children, className }: AnimatedBox): ReactElement {
   useEffect(() => {
     let observer: IntersectionObserver;
     if (animatedDivRef.current) {
-      observer = new IntersectionObserver(handleIntersect, { threshold: 0.5 }); // 이벤트 부여
+      observer = new IntersectionObserver(handleIntersect, { threshold: 0.3 }); // 이벤트 부여
       observer.observe(animatedDivRef.current); // observe 시작
     }
 
@@ -63,6 +63,9 @@ const StyledBox = styled(Box)`
   justify-content: center;
   align-items: center;
   padding: 0;
+  filter: drop-shadow(
+    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '3'}
+  );
 
   .title-text {
     color: ${({ theme }) => theme.palette.grey_500};
