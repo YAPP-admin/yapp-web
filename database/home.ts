@@ -27,18 +27,63 @@ export const CURRENT_INFO_DATA = [
 
 export const CAROUSEL_DATA = [
   {
-    img: 'temp1',
+    title: '길잡 (Giljob)',
+    link: '/project',
+    image: '/assets/images/project1.png',
   },
   {
-    img: 'temp2',
+    title: '딜리버디',
+    link: '/project',
+    image: '/assets/images/project2.png',
   },
   {
-    img: 'temp3',
+    title: '도토리함',
+    link: '/project',
+    image: '/assets/images/project3.png',
   },
   {
-    img: 'temp4',
+    title: '길잡 (Giljob)',
+    link: '/project',
+    image: '/assets/images/project1.png',
   },
   {
-    img: 'temp5',
+    title: '딜리버디',
+    link: '/project',
+    image: '/assets/images/project2.png',
+  },
+  {
+    title: '도토리함',
+    link: '/project',
+    image: '/assets/images/project3.png',
+  },
+];
+
+export const NEWS_DATA = [
+  {
+    image: '/assets/images/facebook1.png',
+    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    content:
+      '얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북',
+  },
+  {
+    image: '/assets/images/facebook2.png',
+    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    content:
+      '얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북',
+  },
+  {
+    image: '/assets/images/facebook3.png',
+    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    content:
+      '얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북 포스팅 내용이 들어갑니다. 얍 페이스북',
+  },
+];
+
+export const SPONSOR_DATA = [
+  {
+    image: '/assets/images/naverD2.png',
+  },
+  {
+    image: '/assets/images/naverD2.png',
   },
 ];

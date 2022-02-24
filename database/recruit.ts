@@ -48,7 +48,7 @@ export const RECRUIT_APPLY_WAY = {
     {
       subTitle: '지원방법',
       description: `1차 서류<br />
-                      <div class="smallGray">지원서 작성 및 포트폴리오 제출</div>
+                      <div class="smallGrey">지원서 작성 및 포트폴리오 제출</div>
                     2차 면접 후 최종 합격`,
     },
   ],
