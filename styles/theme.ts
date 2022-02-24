@@ -153,6 +153,12 @@ const textStyle = {
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.medium};
     `,
+    NewsCard_Text: css`
+      font-size: ${fontSize.xxxxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.xLarge};
+    `,
   },
   web: {
     Head: css`
@@ -226,6 +232,12 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.medium};
+    `,
+    NewsCard_Text: css`
+      font-size: ${fontSize.xxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.xLarge};
     `,
   },
 };
