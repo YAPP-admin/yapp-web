@@ -22,9 +22,9 @@ function RecruitBanner(): ReactElement {
           <RecruitButton
             width={174}
             height={78}
-            fontColor="white"
+            fontColor="black"
             buttonColor="grey_850"
-            borderColor="lightGray"
+            borderColor="lightGrey"
           >
             <svg
               width="174px"
@@ -76,12 +76,12 @@ const BannerInner = styled.div`
     display: none;
   }
   ${media.tablet} {
-    width: 100%;
+    width: auto;
     padding: 164px 81px 100px;
   }
   ${media.mobile} {
     padding: 80px 56px 64px 21px;
-    min-width: ${Breakpoints.small}px;
+    min-width: ${Breakpoints.xsmall}px;
     margin-bottom: 56px;
     .desktop {
       display: none;

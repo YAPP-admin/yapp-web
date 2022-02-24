@@ -46,7 +46,7 @@ const HeaderInner = styled.div`
   }
   ${media.mobile} {
     padding: 0 20px;
-    min-width: ${Breakpoints.small}px;
+    min-width: ${Breakpoints.xsmall}px;
   }
 `;
 

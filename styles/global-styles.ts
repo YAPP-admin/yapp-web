@@ -26,9 +26,13 @@ const GlobalStyle = createGlobalStyle`
   button {
     all: unset;
     cursor: pointer;
+    -webkit-tap-highlight-color : transparent !important;
   }
 
-
+  ul {
+    list-style: none;
+    padding: 0;
+  }
 `;
 
 export default GlobalStyle;

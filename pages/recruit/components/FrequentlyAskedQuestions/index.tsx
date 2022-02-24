@@ -24,7 +24,7 @@ function FrequentlyAskedQuestions(): ReactElement {
         {faqList.map(({ subTitle, description, isOpen }) => (
           <FAQBox
             isFullWidth
-            backgroundColor="lightestGray"
+            backgroundColor="lightestGrey"
             key={`faq-${subTitle}`}
           >
             <FAQSubTitle onClick={() => handleToggleFaq(subTitle)}>

@@ -16,11 +16,13 @@ function ApplyWay(): ReactElement {
           <WayBox
             width={380}
             height={307}
-            backgroundColor="lightestGray"
+            backgroundColor="lightestGrey"
             key={`applyWay-${subTitle}`}
           >
-            <WaySubTitle>{subTitle}</WaySubTitle>
-            <WayContent dangerouslySetInnerHTML={{ __html: description }} />
+            <WayInnerBox>
+              <WaySubTitle>{subTitle}</WaySubTitle>
+              <WayContent dangerouslySetInnerHTML={{ __html: description }} />
+            </WayInnerBox>
           </WayBox>
         ))}
       </SectionContent>
@@ -35,6 +37,7 @@ const SectionContent = styled.div`
   ${media.tablet} {
     flex-direction: column;
     padding: 0 22px;
+    width: auto;
     .desktop {
       display: none;
     }
@@ -50,8 +53,7 @@ const SectionContent = styled.div`
 `;
 
 const WayBox = styled(Box)`
-  padding: 32px;
-  margin-right: 30px;
+  padding: 0px;
   ${media.tablet} {
     width: 100%;
     margin-bottom: 30px;
@@ -65,6 +67,10 @@ const WayBox = styled(Box)`
     margin-bottom: 16px;
     width: 335px;
   }
+`;
+
+const WayInnerBox = styled.div`
+  padding: 32px;
 `;
 
 const WaySubTitle = styled.div`
@@ -95,7 +101,7 @@ const WayContent = styled.div`
     ${({ theme }) => theme.textStyle.mobile.Body_1};
   }
 
-  .smallGray {
+  .smallGrey {
     ${({ theme }) => theme.textStyle.web.Body_2};
     margin: 8px 0 14px;
     color: #898989; // @Todo 임시컬러

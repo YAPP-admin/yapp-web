@@ -1,13 +1,15 @@
 import React from 'react';
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
+import Router from 'next/router';
+import { SectionTemplate } from 'pages/components';
 import { Button } from 'components';
 import media from 'styles/media';
 import Yapp from 'constants/yapp';
 
-function Main(): ReactElement {
+function IntroSection(): ReactElement {
   return (
-    <MainWrapper>
+    <IntroSectionContainer>
       <TitleContainer>
         <span className="main-text">
           작은 아이디어로
@@ -18,21 +20,17 @@ function Main(): ReactElement {
       <Button
         width={220}
         height={78}
-        fontColor="black"
-        buttonColor="white"
-        borderColor="white"
+        fontColor="yellow_400"
+        buttonColor="grey_900"
+        onClick={() => Router.push('/recruit')}
       >
         {Yapp.YAPP_GENERATION} 지원하기
       </Button>
-    </MainWrapper>
+    </IntroSectionContainer>
   );
 }
 
-const MainWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const IntroSectionContainer = styled(SectionTemplate)`
   height: 100vh;
   background-color: #c4c4c4;
 `;
@@ -52,4 +50,4 @@ const TitleContainer = styled.div`
   }
 `;
 
-export default Main;
+export default IntroSection;
