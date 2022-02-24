@@ -42,13 +42,13 @@ function RecruitField(): ReactElement {
             height={78}
             onClick={() => handleClick(name)}
             fontColor="white"
-            buttonColor="black"
             borderColor="white"
             isActive={field === name}
           >
             {name}
           </RecruitFieldButton>
         ))}
+        <ButtonBackground field={field} />
       </RecruitFieldNameBox>
       {printField()}
     </SectionTemplate>
@@ -59,6 +59,7 @@ const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
   padding: 0;
   display: flex;
+  position: relative;
   ${media.mobile} {
     width: 279px;
     height: 43px;
@@ -66,21 +67,46 @@ const RecruitFieldNameBox = styled(Box)`
 `;
 
 const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
+  z-index: 1000;
+  background-color: transparent;
   ${({ isActive }) =>
     isActive
       ? css`
-          background-color: ${({ theme }) => theme.palette.black};
           color: ${({ theme }) => theme.palette.white};
         `
       : css`
-          background-color: transparent;
           color: #898989; // @Todo 색상 코드 나오기 전 임시 색상
         `}
-
   ${media.mobile} {
     width: 82px;
     height: 43px;
   }
+`;
+
+const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
+  ${({ field }) => {
+    switch (field) {
+      case '기획자':
+        return css`
+          left: 0;
+        `;
+      case '디자이너':
+        return css`
+          left: 232px;
+        `;
+      case '개발자':
+        return css`
+          left: 464px;
+        `;
+    }
+  }};
+  width: 232px;
+  height: 78px;
+  position: absolute;
+  top: 0;
+  background-color: ${({ theme }) => theme.palette.black};
+  border-radius: 124px;
+  transition: all 0.2s ease-in-out;
 `;
 
 export default RecruitField;
