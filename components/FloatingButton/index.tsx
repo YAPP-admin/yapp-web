@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import styled, { css } from 'styled-components';
 import Button from 'components/Button';
-import Mail from 'public/assets/icons/mail.svg';
-import Plus from 'public/assets/icons/plus.svg';
-import Facebook from 'public/assets/icons/facebook.svg';
-import Kakao from 'public/assets/icons/kakao.svg';
+import { Mail, Facebook, Plus, Kakao } from 'public/assets/icons';
+import media from 'styles/media';
 
 function FloatingButton(): ReactElement {
   const [visible, setVisible] = useState(false);
@@ -14,9 +12,18 @@ function FloatingButton(): ReactElement {
   };
 
   return (
-    <FloatingButtonsContainer>
-      <MainContainer visible={visible}>
-        <SubContainer visible={visible}>
+    <>
+      <TriggerButton
+        width={64}
+        height={64}
+        borderRadius={32}
+        onClick={handleTrigger}
+        visible={visible}
+      >
+        <Plus />
+      </TriggerButton>
+      <FixedFloatingContainer visible={visible}>
+        <AnimatedFloatingContainer visible={visible}>
           <Button
             width={64}
             height={64}
@@ -47,45 +54,73 @@ function FloatingButton(): ReactElement {
             <Kakao />
             <span className="text kakao">카카오톡 문의</span>
           </Button>
-        </SubContainer>
-      </MainContainer>
-      <TriggerButton
-        width={64}
-        height={64}
-        borderRadius={32}
-        onClick={handleTrigger}
-      >
-        <Plus className="temp" />
-      </TriggerButton>
-    </FloatingButtonsContainer>
+        </AnimatedFloatingContainer>
+      </FixedFloatingContainer>
+    </>
   );
 }
 
-const FloatingButtonsContainer = styled.div`
+const TriggerButton = styled(Button)<{ visible: boolean }>`
   position: fixed;
-  text-align: right;
   bottom: 48px;
   right: 48px;
   z-index: 1000;
-`;
+  background: ${({ theme }) =>
+    `linear-gradient(208.15deg, ${theme.palette.orange_300} 12.08%, ${theme.palette.orange_500} 86.71%)`};
 
-const MainContainer = styled.div<{ visible: boolean }>`
-  position: relative;
-  bottom: -65px;
-  overflow: hidden;
-  opacity: 0;
-  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  ${media.mobile} {
+    bottom: 24px;
+    right: 24px;
+  }
 
-  transition: all 1.5s;
+  svg {
+    // plus 버튼 각도 조절 transition
+    transition: transform 0.5s;
+  }
+
   ${({ visible }) =>
     visible &&
     css`
-      bottom: 0;
-      opacity: 1;
+      background: ${({ theme }) => theme.palette.grey_800};
+      svg {
+        transform: rotate(45deg);
+      }
     `};
 `;
 
-const SubContainer = styled.div<{ visible: boolean }>`
+const FixedFloatingContainer = styled.div<{ visible: boolean }>`
+  position: fixed;
+  overflow: hidden;
+  bottom: 48px;
+  right: 48px;
+  z-index: 900;
+  opacity: 0;
+  visibility: 'hidden';
+  pointer-events: none;
+
+  ${media.mobile} {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  /* floating container transition
+   해당 transition을 통해 버튼이 Plus 버튼에서 자연스럽게 올라와지는 것 처럼 보임 */
+  transition: all 1.2s;
+  ${({ visible }) =>
+    visible &&
+    css`
+      bottom: 117px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+
+      ${media.mobile} {
+        bottom: 93px;
+      }
+    `};
+`;
+
+const AnimatedFloatingContainer = styled.div<{ visible: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -93,7 +128,7 @@ const SubContainer = styled.div<{ visible: boolean }>`
   bottom: -150px;
 
   // floating 버튼 등장 transition
-  transition: all 0.7s ease-out;
+  transition: all 1s;
   ${({ visible }) =>
     visible &&
     css`
@@ -124,25 +159,6 @@ const SubContainer = styled.div<{ visible: boolean }>`
       .text {
         display: inline-block;
       }
-    }
-  }
-`;
-
-const TriggerButton = styled(Button)`
-  position: relative;
-  margin-top: 5px;
-  background-image: ${({ theme }) =>
-    `linear-gradient(208.15deg, ${theme.palette.orange_300} 12.08%, ${theme.palette.orange_500} 86.71%)`};
-
-  // 버튼 길이 transition
-  svg {
-    transition: transform 0.5s;
-  }
-  transition: all 0.5s;
-  :hover {
-    background-image: ${({ theme }) => theme.palette.grey_800};
-    svg {
-      transform: rotate(45deg);
     }
   }
 `;
