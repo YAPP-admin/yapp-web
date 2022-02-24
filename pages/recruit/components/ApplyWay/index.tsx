@@ -51,6 +51,7 @@ const SectionContent = styled.div`
 
 const WayBox = styled(Box)`
   padding: 32px;
+  margin-right: 30px;
   ${media.tablet} {
     width: 100%;
     margin-bottom: 30px;
