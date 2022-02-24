@@ -6,3 +6,5 @@ export { default as LayoutWrapper } from './LayoutWrapper';
 export { default as SEO } from './SEO';
 export { default as Carousel } from './Carousel';
 export { default as FloatingButton } from './FloatingButton';
+export { default as AnimatedBox } from './AnimatedBox';
+export { default as NewsCard } from './NewsCard';

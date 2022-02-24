@@ -1,9 +1,13 @@
 import React, { useMemo, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import Slider, { Settings } from 'react-slick';
+import Link from 'next/link';
+import Image from 'next/image';
 import media from 'styles/media';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Breakpoints from 'constants/breakpoints';
+import { ArrowRight, ArrowLeft } from 'public/assets/icons';
 
 export interface CarouselProps {
   data: any; // 데이터 확정 전, any 타입
@@ -21,15 +25,14 @@ function Carousel({ data }: CarouselProps) {
       infinite: true, // 무한 루프
       arrow: false, // 좌 우 화살표
       autoplay: true, // 자동재생
-      speed: 400, // 슬라이더 속도
+      speed: 800, // 슬라이더 속도
       pauseOnHover: true, // Hover시 멈춤
       draggable: true, // 드래그 가능
       // 반응형, 현재는 임시 구현
       responsive: [
         {
-          breakpoint: 375, // 추후 breakpoint 상수로 대체
+          breakpoint: 400,
           settings: {
-            slidesToShow: 1,
             centerPadding: '0',
           },
         },
@@ -44,15 +47,22 @@ function Carousel({ data }: CarouselProps) {
   return (
     <CarouselContainer>
       <Slider ref={slickRef} {...settings}>
-        {data.map(({ img }: any, idx: any) => (
-          <ProjectCard className="project-card" key={idx}>
-            {img}
-          </ProjectCard>
+        {data.map(({ title, link, image }: any, index: number) => (
+          <Link href={link} key={index}>
+            <ProjectCard className="project-card">
+              <Image src={image} layout="fill" loading="eager" />
+              <ProjectBlurCard>{title}</ProjectBlurCard>
+            </ProjectCard>
+          </Link>
         ))}
       </Slider>
       <>
-        <Arrow left onClick={handlePrevious}></Arrow>
-        <Arrow onClick={handleNext}></Arrow>
+        <Arrow left onClick={handlePrevious}>
+          <ArrowLeft />
+        </Arrow>
+        <Arrow onClick={handleNext}>
+          <ArrowRight />
+        </Arrow>
       </>
     </CarouselContainer>
   );
@@ -69,7 +79,6 @@ const CarouselContainer = styled.div`
   overflow: hidden;
 
   // Carousel Container
-
   .slick-slide {
     height: 400px;
   }
@@ -81,28 +90,28 @@ const CarouselContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 1s;
+    transition: transform 1.5s;
   }
 
-  // 중앙 요소
+  // Carousel 중앙 요소
   .slick-center.slick-active {
-    transform: scale(1.3);
+    transform: scale(1.2);
 
-    .project-card {
-      background-color: #c4c4c4;
+    ${media.small} {
+      transform: none;
     }
   }
 
   // Dots
   .slick-dots {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     button::before {
-      color: #111111;
+      color: ${({ theme }) => theme.palette.grey_900};
     }
 
     .slick-active {
       button::before {
-        color: #000000;
+        color: ${({ theme }) => theme.palette.black};
       }
     }
   }
@@ -110,9 +119,12 @@ const CarouselContainer = styled.div`
 
 const ProjectCard = styled.div`
   display: block;
+  position: relative;
   border-radius: 20px;
-  background-color: #e8e8e8;
   cursor: pointer;
+  filter: drop-shadow(
+    0px 10px 20px ${({ theme }) => theme.palette.grey_850 + '40'}
+  );
 
   width: 409px !important;
   height: 229px !important;
@@ -121,6 +133,26 @@ const ProjectCard = styled.div`
     width: 335px !important;
     height: 189px !important;
   }
+
+  :hover {
+    > span {
+      visibility: visible;
+    }
+  }
+`;
+
+const ProjectBlurCard = styled.span`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  visibility: hidden;
+  color: ${({ theme }) => theme.palette.white};
+  background: ${({ theme }) => theme.palette.black + '50'};
+  ${({ theme }) => theme.textStyle.web.Button}
 `;
 
 const Arrow = styled.button<{ left?: boolean }>`
@@ -128,10 +160,6 @@ const Arrow = styled.button<{ left?: boolean }>`
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  background-color: #e8e8e8;
 
   ${({ left }) =>
     left
@@ -141,6 +169,17 @@ const Arrow = styled.button<{ left?: boolean }>`
       : css`
           right: 40%;
         `};
+
+  ${media.small} {
+    ${({ left }) =>
+      left
+        ? css`
+            left: 42%;
+          `
+        : css`
+            right: 42%;
+          `};
+  }
 `;
 
 export default Carousel;

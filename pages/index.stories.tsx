@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import Home from './index';
 import { FloatingButton, Header, Footer } from 'components';
-import LandingMain from 'pages/components/LandingMain';
+import IntroSection from 'pages/components/IntroSection';
 
 export default {
   title: 'YAPP Design System/Page/Home',
@@ -17,7 +17,7 @@ export default {
 
 const Template: Story = (args) => (
   <>
-    <LandingMain />
+    <IntroSection />
     <Header />
     <Home {...args} />
     <FloatingButton />

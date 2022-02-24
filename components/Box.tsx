@@ -20,7 +20,7 @@ function Box({
   className,
   width = 0,
   height,
-  backgroundColor = 'gray',
+  backgroundColor = 'grey',
   borderRadius = 20,
   ...rest
 }: BoxProps): ReactElement {
