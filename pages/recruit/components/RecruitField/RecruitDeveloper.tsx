@@ -19,7 +19,7 @@ function RecruitDeveloper(): ReactElement {
     <RecruitDeveloperWrapper>
       <DeveloperListStyled>
         {RECRUIT_DEVELOPER_FIELD_NAMES.map((developFieldName, index) => (
-          <>
+          <React.Fragment key={`RECRUIT_DEV_${index}`}>
             <DeveloperItem
               key={developFieldName}
               onClick={() => handleClick(developFieldName)}
@@ -30,7 +30,7 @@ function RecruitDeveloper(): ReactElement {
             {index !== RECRUIT_DEVELOPER_FIELD_NAMES.length - 1 && (
               <DividerLine />
             )}
-          </>
+          </React.Fragment>
         ))}
       </DeveloperListStyled>
 
