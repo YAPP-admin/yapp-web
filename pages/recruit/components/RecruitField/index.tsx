@@ -61,7 +61,7 @@ const RecruitFieldNameBox = styled(Box)`
   display: flex;
   position: relative;
   ${media.mobile} {
-    width: 279px;
+    width: 246px;
     height: 43px;
   }
 `;
@@ -93,15 +93,25 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
       case '디자이너':
         return css`
           left: 232px;
+          ${media.mobile} {
+            left: 82px;
+          }
         `;
       case '개발자':
         return css`
           left: 464px;
+          ${media.mobile} {
+            left: 164px;
+          }
         `;
     }
   }};
   width: 232px;
   height: 78px;
+  ${media.mobile} {
+    width: 82px;
+    height: 43px;
+  }
   position: absolute;
   top: 0;
   background-color: ${({ theme }) => theme.palette.black};
