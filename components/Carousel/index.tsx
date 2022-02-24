@@ -118,6 +118,7 @@ const CarouselContainer = styled.div`
 `;
 
 const ProjectCard = styled.div`
+  position: relative;
   display: block;
   position: relative;
   border-radius: 20px;
@@ -146,6 +147,8 @@ const ProjectBlurCard = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 20px;

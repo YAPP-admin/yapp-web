@@ -27,11 +27,6 @@ export const CURRENT_INFO_DATA = [
 
 export const CAROUSEL_DATA = [
   {
-    title: '길잡 (Giljob)',
-    link: '/project',
-    image: '/assets/images/project1.png',
-  },
-  {
     title: '딜리버디',
     link: '/project',
     image: '/assets/images/project2.png',
@@ -40,11 +35,6 @@ export const CAROUSEL_DATA = [
     title: '도토리함',
     link: '/project',
     image: '/assets/images/project3.png',
-  },
-  {
-    title: '길잡 (Giljob)',
-    link: '/project',
-    image: '/assets/images/project1.png',
   },
   {
     title: '딜리버디',

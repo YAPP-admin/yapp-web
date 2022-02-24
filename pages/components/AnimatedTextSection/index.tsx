@@ -6,7 +6,10 @@ import { SectionTemplate } from 'pages/components';
 function AnimatedTextSection(): ReactElement {
   return (
     <AnimatedTextSectionContainer>
-      <span className="intro-text">Animated</span>
+      <span className="intro-text">YOUR -</span>
+      <div className="animate-box">
+        <span className="intro-text">ACTION</span>
+      </div>
     </AnimatedTextSectionContainer>
   );
 }
@@ -20,6 +23,11 @@ const AnimatedTextSectionContainer = styled(SectionTemplate)`
       ${({ theme }) => theme.textStyle.mobile.Body_Point}
     }
   }
+
+  font-size: 136px;
+  font-weight: 900;
+  line-height: 163px;
+  letter-spacing: 0em;
 `;
 
 export default AnimatedTextSection;
