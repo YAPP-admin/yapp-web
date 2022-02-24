@@ -32,7 +32,7 @@ function RecruitField(): ReactElement {
       <RecruitFieldNameBox
         width={696}
         height={78}
-        backgroundColor="lightestGrey"
+        backgroundColor="grey_50"
         borderRadius={124}
       >
         {RECRUIT_FIELD_NAMES.map((name) => (

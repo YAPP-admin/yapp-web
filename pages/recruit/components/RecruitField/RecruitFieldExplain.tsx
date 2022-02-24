@@ -21,7 +21,7 @@ function RecruitFieldExplain({
   const { content1, content2, content3 } = explainContents;
   return (
     <RecruitFieldWrapper>
-      <FieldBox backgroundColor="lightestGrey">
+      <FieldBox backgroundColor="grey_50">
         <FieldBoxInner>
           <SubTitleStyled>
             다음과 같은
@@ -31,7 +31,7 @@ function RecruitFieldExplain({
         </FieldBoxInner>
       </FieldBox>
 
-      <FieldBox backgroundColor="lightestGrey">
+      <FieldBox backgroundColor="grey_50">
         <FieldBoxInner>
           <SubTitleStyled>
             이런 {fieldName}를<br /> 찾습니다🔎
@@ -40,7 +40,7 @@ function RecruitFieldExplain({
         </FieldBoxInner>
       </FieldBox>
 
-      <FieldBox backgroundColor="lightestGrey">
+      <FieldBox backgroundColor="grey_50">
         <FieldBoxInner>
           <SubTitleStyled>
             이런 경험이 있으면

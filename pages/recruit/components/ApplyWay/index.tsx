@@ -16,7 +16,7 @@ function ApplyWay(): ReactElement {
           <WayBox
             width={380}
             height={307}
-            backgroundColor="lightestGrey"
+            backgroundColor="grey_50"
             key={`applyWay-${subTitle}`}
           >
             <WayInnerBox>

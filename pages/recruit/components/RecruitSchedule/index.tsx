@@ -16,7 +16,7 @@ function RecruitSchedule(): ReactElement {
           <ScheduleBox
             width={278}
             height={193}
-            backgroundColor="lightestGrey"
+            backgroundColor="grey_50"
             key={`schedule-${subTitle}`}
           >
             <ScheduleBoxInner>
