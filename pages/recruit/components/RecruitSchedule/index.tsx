@@ -19,10 +19,12 @@ function RecruitSchedule(): ReactElement {
             backgroundColor="lightestGrey"
             key={`schedule-${subTitle}`}
           >
-            <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
-            <ScheduleContent
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+            <ScheduleBoxInner>
+              <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
+              <ScheduleContent
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            </ScheduleBoxInner>
           </ScheduleBox>
         ))}
       </SectionContent>
@@ -37,6 +39,10 @@ const SectionContent = styled.div`
 `;
 
 const ScheduleBox = styled(Box)`
+  padding: 0;
+`;
+
+const ScheduleBoxInner = styled.div`
   padding: 32px;
 `;
 
