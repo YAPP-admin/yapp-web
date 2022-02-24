@@ -51,11 +51,11 @@ const StyledNewsCard = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  position: relative;
   height: 379px;
   overflow: hidden;
 
   .image-scale-wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.7s;
