@@ -57,7 +57,7 @@ const fontSize = {
   medium: '2.8rem',
   large: '3.0rem',
   xLarge: '3.6rem',
-  xxLarge: '4.2rem',
+  xxLarge: '4.2 rem',
   xxxLarge: '4.8rem',
   xxxxLarge: '6.0rem',
 };

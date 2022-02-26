@@ -33,8 +33,7 @@ export const RECRUIT_APPLY_WAY = {
     {
       subTitle: '모집기간',
       description: `YAPP에서는 1년에 두번<br class="desktop mobile" />
-                    (6-7월/1-2월)<br class="desktop mobile" />
-                    열정을  가지고<br class="tablet" /> 활동에 함께할<br class="desktop mobile" />
+                    열정을  가지고 활동에 함께할<br class="desktop mobile" />
                     YAPPian을 모집합니다`,
     },
     {
