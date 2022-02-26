@@ -34,6 +34,7 @@ function RecruitBanner(): ReactElement {
             >
               <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
             </svg>
+
             <span className="textgroup">
               <span className="mainText">{buttonName}</span>
               <span className="cloneText">{buttonName}</span>
@@ -162,6 +163,11 @@ const RecruitButton = styled(Button)`
     .cloneText {
       animation: ${slideIn} 0.567s cubic-bezier(0.22, 1, 0.36, 1) 0.367s
         forwards;
+    }
+    ${media.mobile} {
+      svg {
+        display: none;
+      }
     }
   }
 
