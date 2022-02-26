@@ -3,7 +3,7 @@ import { HEADER_MENUS } from 'constants/headerMenus';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Hamburger, YappLogo } from 'public/assets/icons';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import useToggle from 'hooks/useToggle';
@@ -13,19 +13,31 @@ function Header(): ReactElement {
   const { asPath } = useRouter();
   const [isOpenMenu, handleOpenMenu] = useToggle(false);
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleToggleMenu = () => {
+    if (!ref.current) return;
+    ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+    handleOpenMenu();
+  };
+
   return (
     <>
-      <HeaderBlock>
+      <HeaderBlock ref={ref}>
         <HeaderInner>
           <YappLogo />
           <HeaderMenu>
             {HEADER_MENUS.map(({ name, path }) => (
-              <Link key={`${name}_${path}`} href={path}>
+              <Link key={`${name}_${path}`} href={path} scroll={false}>
                 <MenuText active={asPath === path}>{name}</MenuText>
               </Link>
             ))}
           </HeaderMenu>
-          <MobileHeaderMenu onClick={handleOpenMenu} />
+          <MobileHeaderMenu onClick={handleToggleMenu} />
         </HeaderInner>
       </HeaderBlock>
       {isOpenMenu && <HamburgerMenu handleOpenMenu={handleOpenMenu} />}
@@ -37,6 +49,9 @@ const HeaderBlock = styled.header`
   width: 100%;
   background-color: ${({ theme }) => theme.palette.grey_900};
   color: ${({ theme }) => theme.palette.white};
+  position: sticky;
+  top: 0;
+  z-index: 5000;
 `;
 
 const HeaderInner = styled.div`

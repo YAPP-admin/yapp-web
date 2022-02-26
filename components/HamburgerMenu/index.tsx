@@ -24,7 +24,7 @@ function HamburgerMenu({ handleOpenMenu }: HamburgerMenuProps): ReactElement {
       <InnerMenu>
         <MenuList>
           {HEADER_MENUS.map(({ name, path }) => (
-            <Link key={`${name}_${path}`} href={path}>
+            <Link key={`${name}_${path}`} href={path} scroll>
               <MenuItem active={asPath === path} onClick={handleOpenMenu}>
                 {name}
               </MenuItem>
@@ -42,7 +42,7 @@ const HamburgerMenuContainer = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 8000;
+  z-index: 1500;
 `;
 
 const InnerMenu = styled.div`
@@ -56,7 +56,7 @@ const InnerMenu = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  z-index: 9999;
+  z-index: 2000;
   animation: ${fadeIn} 0.5s ease-in-out;
 `;
 
