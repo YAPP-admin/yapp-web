@@ -53,7 +53,6 @@ const FooterInner = styled.div`
   }
   ${media.mobile} {
     padding: 48px 36px 50px;
-    height: 290px;
     min-width: auto;
   }
 `;
