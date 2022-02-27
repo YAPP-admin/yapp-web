@@ -4,7 +4,6 @@ enum Breakpoints {
   large = 1200,
   medium = 836,
   small = 375,
-  xsmall = 240, // @Note: 갤럭시 폴드 대응
 }
 
 export default Breakpoints;
