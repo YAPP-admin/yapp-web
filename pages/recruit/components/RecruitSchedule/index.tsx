@@ -1,6 +1,7 @@
 import { Box } from 'components';
 import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_SCHEDULE } from 'database/recruit';
+import useDragScroll from 'hooks/useDragScroll';
 import React, { ReactElement, useRef, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -8,32 +9,8 @@ import { SectionTemplate, SectionTitle } from '..';
 
 function RecruitSchedule(): ReactElement {
   const { title, schedules } = RECRUIT_SCHEDULE;
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isDrag, setIsDrag] = useState(false);
-  const [startX, setStartX] = useState(0);
 
-  const onDragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDrag(true);
-    setStartX(e.pageX + scrollRef.current!.scrollLeft);
-  };
-
-  const onDragEnd = () => {
-    setIsDrag(false);
-  };
-
-  const onDragMove = (e: React.DragEvent<HTMLDivElement>) => {
-    if (!scrollRef.current) return;
-    if (isDrag) {
-      const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
-      scrollRef.current.scrollLeft = startX - e.pageX;
-      if (scrollLeft === 0) {
-        setStartX(e.pageX);
-      } else if (scrollWidth <= clientWidth + scrollLeft) {
-        setStartX(e.pageX + scrollLeft);
-      }
-    }
-  };
+  const { onDragEnd, onDragMove, onDragStart, scrollRef } = useDragScroll();
 
   return (
     <SectionTemplate>
