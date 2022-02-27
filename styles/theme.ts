@@ -49,17 +49,23 @@ const palette = {
 };
 
 const fontSize = {
-  xxxxSmall: '1.4rem',
-  xxxSmall: '1.5rem',
-  xxSmall: '1.6rem',
-  xSmall: '1.8rem',
+  xxxxxxSmall: '1.4rem',
+  xxxxxSmall: '1.5rem',
+  xxxxSmall: '1.6rem',
+  xxxSmall: '1.8rem',
+  xxSmall: '2.0rem',
+  xSmall: '2.2rem',
   small: '2.4rem',
   medium: '2.8rem',
   large: '3.0rem',
-  xLarge: '3.6rem',
-  xxLarge: '4.2 rem',
-  xxxLarge: '4.8rem',
-  xxxxLarge: '6.0rem',
+  xLarge: '3.2rem',
+  xxLarge: '3.4rem',
+  xxxLarge: '3.6rem',
+  xxxxLarge: '3.8rem',
+  xxxxxLarge: '4.0rem',
+  xxxxxxLarge: '4.2rem',
+  xxxxxxxLarge: '4.8rem',
+  xxxxxxxxLarge: '6.0rem',
 };
 
 const fontWeight = {
@@ -81,20 +87,20 @@ const letterSpacing = {
   xSmall: '-0.02em',
   small: '-0.01em',
   medium: '0',
-  large: '-0.01em',
-  xLarge: '-0.02em',
+  large: '0.01em',
+  xLarge: '0.02em',
 };
 
 const textStyle = {
   mobile: {
     Head: css`
-      font-size: ${fontSize.xxLarge};
+      font-size: ${fontSize.xxxxxxLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
     `,
     Title_1: css`
-      font-size: ${fontSize.xLarge};
+      font-size: ${fontSize.xxxLarge};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
@@ -112,43 +118,43 @@ const textStyle = {
       letter-spacing: ${letterSpacing.xSmall};
     `,
     Button_Point: css`
-      font-size: ${fontSize.xSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.small};
     `,
     Button: css`
-      font-size: ${fontSize.xxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.small};
     `,
     Body_Point: css`
-      font-size: ${fontSize.xSmall};
+      font-size: ${fontSize.xxxSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xLarge};
       letter-spacing: ${letterSpacing.small};
     `,
     Body_Point2: css`
-      font-size: ${fontSize.xxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.medium};
       line-height: 19px; // @Note 모집 분야 개발자 탭에 아래 IOS, Android 텍스트가 Body_point2라고 나와있는데 디자인 시스템에 안나와있고, line-height고 19로 나와있네요 이 부분 나중에 물어보겠습니다!
       letter-spacing: ${letterSpacing.small};
     `,
     Body_1: css`
-      font-size: ${fontSize.xSmall};
+      font-size: ${fontSize.xxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
       letter-spacing: ${letterSpacing.small};
     `,
     Body_2: css`
-      font-size: ${fontSize.xxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.medium};
     `,
     Body_3: css`
-      font-size: ${fontSize.xxxSmall};
+      font-size: ${fontSize.xxxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.medium};
@@ -160,7 +166,7 @@ const textStyle = {
       letter-spacing: ${letterSpacing.medium};
     `,
     NewsCard_Text: css`
-      font-size: ${fontSize.xxxxSmall};
+      font-size: ${fontSize.xxxxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.xLarge};
@@ -168,79 +174,85 @@ const textStyle = {
   },
   web: {
     Head: css`
-      font-size: ${fontSize.xxxxLarge};
+      font-size: ${fontSize.xxxxxxxxLarge};
+      font-weight: ${fontWeight.bold};
+      line-height: ${lineHeight.medium};
+      letter-spacing: ${letterSpacing.medium};
+    `,
+    Head2: css`
+      font-size: ${fontSize.xxxxxxxLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.medium};
       letter-spacing: ${letterSpacing.medium};
     `,
     Title: css`
-      font-size: ${fontSize.xxxLarge};
+      font-size: ${fontSize.xxxxxLarge};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
     `,
     Subtitle: css`
-      font-size: ${fontSize.medium};
+      font-size: ${fontSize.xxSmall};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xLarge};
       letter-spacing: ${letterSpacing.xSmall};
     `,
     Button_Point: css`
-      font-size: ${fontSize.small};
+      font-size: ${fontSize.xxSmall};
       font-weight: ${fontWeight.semibold};
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.small};
     `,
     Button: css`
-      font-size: ${fontSize.small};
+      font-size: ${fontSize.xxSmall};
       font-weight: ${fontWeight.medium};
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.small};
     `,
-    Category: css`
-      font-size: ${fontSize.xSmall};
-      font-weight: ${fontWeight.semibold};
-      line-height: ${lineHeight.xSmall};
-      letter-spacing: ${letterSpacing.xLarge};
+    Body_Point: css`
+      font-size: ${fontSize.xxxSmall};
+      font-weight: ${fontWeight.medium};
+      line-height: ${lineHeight.xLarge};
+      letter-spacing: ${letterSpacing.xSmall};
     `,
     Body_1: css`
-      font-size: ${fontSize.small};
+      font-size: ${fontSize.xxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
       letter-spacing: ${letterSpacing.small};
     `,
     Body_2: css`
-      font-size: ${fontSize.xSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.medium};
       letter-spacing: ${letterSpacing.medium};
     `,
-    Body_Point: css`
-      font-size: ${fontSize.small};
-      font-weight: ${fontWeight.medium};
-      line-height: ${lineHeight.xLarge};
-      letter-spacing: ${letterSpacing.xSmall};
-    `,
     Footer_Logo: css`
-      font-size: ${fontSize.xLarge};
+      font-size: ${fontSize.xxxLarge};
       font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.medium};
     `,
     Footer_Text: css`
-      font-size: ${fontSize.xSmall};
+      font-size: ${fontSize.xxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
       letter-spacing: ${letterSpacing.medium};
     `,
-    Copyright_Text: css`
+    Category: css`
       font-size: ${fontSize.xxxxSmall};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.xLarge};
+    `,
+    Copyright_Text: css`
+      font-size: ${fontSize.xxxxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.medium};
     `,
     NewsCard_Text: css`
-      font-size: ${fontSize.xxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.xLarge};
