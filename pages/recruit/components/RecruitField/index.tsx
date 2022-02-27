@@ -32,7 +32,7 @@ function RecruitField(): ReactElement {
       <RecruitFieldNameBox
         width={696}
         height={78}
-        backgroundColor="lightestGrey"
+        backgroundColor="grey_50"
         borderRadius={124}
       >
         {RECRUIT_FIELD_NAMES.map((name) => (
@@ -42,13 +42,13 @@ function RecruitField(): ReactElement {
             height={78}
             onClick={() => handleClick(name)}
             fontColor="white"
-            buttonColor="black"
             borderColor="white"
             isActive={field === name}
           >
             {name}
           </RecruitFieldButton>
         ))}
+        <ButtonBackground field={field} />
       </RecruitFieldNameBox>
       {printField()}
     </SectionTemplate>
@@ -59,6 +59,7 @@ const RecruitFieldNameBox = styled(Box)`
   margin: 0 auto;
   padding: 0;
   display: flex;
+  position: relative;
   ${media.mobile} {
     width: 279px;
     height: 43px;
@@ -66,21 +67,56 @@ const RecruitFieldNameBox = styled(Box)`
 `;
 
 const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
+  z-index: 1000;
+  background-color: transparent;
   ${({ isActive }) =>
     isActive
       ? css`
-          background-color: ${({ theme }) => theme.palette.black};
           color: ${({ theme }) => theme.palette.white};
         `
       : css`
-          background-color: transparent;
-          color: #898989; // @Todo 색상 코드 나오기 전 임시 색상
+          color: ${({ theme }) => theme.palette.grey_700};
         `}
-
   ${media.mobile} {
-    width: 82px;
+    width: 93px;
     height: 43px;
   }
+`;
+
+const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
+  ${({ field }) => {
+    switch (field) {
+      case '기획자':
+        return css`
+          left: 0;
+        `;
+      case '디자이너':
+        return css`
+          left: 232px;
+          ${media.mobile} {
+            left: 93px;
+          }
+        `;
+      case '개발자':
+        return css`
+          left: 464px;
+          ${media.mobile} {
+            left: 186px;
+          }
+        `;
+    }
+  }};
+  width: 232px;
+  height: 78px;
+  ${media.mobile} {
+    width: 93px;
+    height: 43px;
+  }
+  position: absolute;
+  top: 0;
+  background-color: ${({ theme }) => theme.palette.orange_400};
+  border-radius: 124px;
+  transition: all 0.2s ease-in-out;
 `;
 
 export default RecruitField;

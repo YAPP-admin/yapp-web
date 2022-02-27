@@ -6,3 +6,4 @@ export { default as Mail } from 'public/assets/icons/mail.svg';
 export { default as Plus } from 'public/assets/icons/plus.svg';
 export { default as ArrowLeft } from 'public/assets/icons/arrow_left.svg';
 export { default as ArrowRight } from 'public/assets/icons/arrow_right.svg';
+export { default as Hamburger } from 'public/assets/icons/hamburger.svg';
