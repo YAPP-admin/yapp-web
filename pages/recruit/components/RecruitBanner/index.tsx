@@ -8,6 +8,7 @@ import {
 import React, { ReactElement } from 'react';
 import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
+import { slideIn, slideOut } from 'styles/utils-styles';
 
 function RecruitBanner(): ReactElement {
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
@@ -45,24 +46,6 @@ function RecruitBanner(): ReactElement {
     </RecruitBannerContainer>
   );
 }
-
-const slideIn = keyframes`
-0% {
-    transform: translateY(100%)
-}
-
-to {
-    opacity: 1
-}
-
-`;
-
-const slideOut = keyframes`
-to {
-    transform: translateY(-100%);
-    opacity: 0
-}
-`;
 
 const RecruitBannerContainer = styled.div`
   width: 100%;
