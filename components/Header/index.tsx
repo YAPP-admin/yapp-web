@@ -3,15 +3,23 @@ import { HEADER_MENUS } from 'constants/headerMenus';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Hamburger, YappLogo } from 'public/assets/icons';
-import React, { ReactElement, useRef } from 'react';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import useToggle from 'hooks/useToggle';
 import HamburgerMenu from 'components/HamburgerMenu';
+import useWindowDimensions from 'hooks/useWindowDimensions';
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
-  const [isOpenMenu, handleOpenMenu] = useToggle(false);
+  const [isOpenMenu, handleOpenMenu, setOpenMenu] = useToggle(false);
+  const { windowWidth } = useWindowDimensions();
+
+  useEffect(() => {
+    if (windowWidth > Breakpoints.medium) {
+      setOpenMenu(false);
+    }
+  }, [windowWidth]);
 
   const ref = useRef<HTMLDivElement>(null);
 
