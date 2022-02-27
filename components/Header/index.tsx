@@ -2,35 +2,64 @@ import Breakpoints from 'constants/breakpoints';
 import { HEADER_MENUS } from 'constants/headerMenus';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { YappLogo } from 'public/assets/icons';
-import React, { ReactElement } from 'react';
+import { Hamburger, YappLogo } from 'public/assets/icons';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
+import useToggle from 'hooks/useToggle';
+import HamburgerMenu from 'components/HamburgerMenu';
+import useWindowDimensions from 'hooks/useWindowDimensions';
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
+  const [isOpenMenu, handleOpenMenu, setOpenMenu] = useToggle(false);
+  const { windowWidth } = useWindowDimensions();
+
+  useEffect(() => {
+    if (windowWidth > Breakpoints.medium) {
+      setOpenMenu(false);
+    }
+  }, [windowWidth]);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleToggleMenu = () => {
+    if (!ref.current) return;
+    ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+    handleOpenMenu();
+  };
 
   return (
-    <HeaderBlock>
-      <HeaderInner>
-        <YappLogo />
-        <HeaderMenu>
-          {HEADER_MENUS.map(({ name, path }) => (
-            <Link key={`${name}_${path}`} href={path}>
-              <MenuText active={asPath === path}>{name}</MenuText>
-            </Link>
-          ))}
-        </HeaderMenu>
-        <MobileHeaderMenu />
-      </HeaderInner>
-    </HeaderBlock>
+    <>
+      <HeaderBlock ref={ref}>
+        <HeaderInner>
+          <YappLogo />
+          <HeaderMenu>
+            {HEADER_MENUS.map(({ name, path }) => (
+              <Link key={`${name}_${path}`} href={path} scroll={false}>
+                <MenuText active={asPath === path}>{name}</MenuText>
+              </Link>
+            ))}
+          </HeaderMenu>
+          <MobileHeaderMenu onClick={handleToggleMenu} />
+        </HeaderInner>
+      </HeaderBlock>
+      {isOpenMenu && <HamburgerMenu handleOpenMenu={handleOpenMenu} />}
+    </>
   );
 }
 
-const HeaderBlock = styled.div`
+const HeaderBlock = styled.header`
   width: 100%;
   background-color: ${({ theme }) => theme.palette.grey_900};
   color: ${({ theme }) => theme.palette.white};
+  position: sticky;
+  top: 0;
+  z-index: 5000;
 `;
 
 const HeaderInner = styled.div`
@@ -46,7 +75,7 @@ const HeaderInner = styled.div`
   }
   ${media.mobile} {
     padding: 0 20px;
-    min-width: ${Breakpoints.small}px;
+    height: 64px;
   }
 `;
 
@@ -67,14 +96,11 @@ const MenuText = styled.a<{ active: boolean }>`
   ${({ theme }) => theme.textStyle.web.Category};
 `;
 
-const MobileHeaderMenu = styled.div`
-  width: 32px;
-  height: 32px;
-  background-color: #999; /* @Todo 임시컬러 */
-  border-radius: 50%;
+const MobileHeaderMenu = styled(Hamburger)`
   display: none;
   ${media.mobile} {
     display: block;
+    cursor: pointer;
   }
 `;
 
