@@ -5,15 +5,15 @@ export default function useDragScroll() {
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState(0);
 
-  const onDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDrag(true);
     setStartX(e.pageX + scrollRef.current!.scrollLeft);
   };
 
-  const onDragEnd = () => setIsDrag(false);
+  const handleDragEnd = () => setIsDrag(false);
 
-  const onDragMove = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragMove = (e: React.DragEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
     if (isDrag) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
@@ -28,8 +28,8 @@ export default function useDragScroll() {
 
   return {
     scrollRef,
-    onDragStart,
-    onDragEnd,
-    onDragMove,
+    handleDragStart,
+    handleDragEnd,
+    handleDragMove,
   };
 }

@@ -10,16 +10,17 @@ import { SectionTemplate, SectionTitle } from '..';
 function RecruitSchedule(): ReactElement {
   const { title, schedules } = RECRUIT_SCHEDULE;
 
-  const { onDragEnd, onDragMove, onDragStart, scrollRef } = useDragScroll();
+  const { handleDragEnd, handleDragMove, handleDragStart, scrollRef } =
+    useDragScroll();
 
   return (
     <SectionTemplate>
       <SectionTitle title={title} />
       <SectionContent
-        onMouseDown={onDragStart}
-        onMouseMove={onDragMove}
-        onMouseUp={onDragEnd}
-        onMouseLeave={onDragEnd}
+        onMouseDown={handleDragStart}
+        onMouseMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onMouseLeave={handleDragEnd}
         ref={scrollRef}
       >
         {schedules.map(({ subTitle, description }) => (
