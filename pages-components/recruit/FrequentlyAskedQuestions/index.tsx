@@ -9,6 +9,7 @@ import { SectionTemplate, SectionTitle } from '..';
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title } = RECRUIT_FAQ;
   const [faqList, setFaqList] = useState(faqs);
+  console.log(ArrowDown);
 
   const handleToggleFaq = (subTitle: string) => {
     setFaqList(
@@ -31,9 +32,9 @@ function FrequentlyAskedQuestions(): ReactElement {
           >
             <FAQBoxInner>
               <FAQSubTitle>
-                <span>{subTitle}</span>
+                <TitleText>{subTitle}</TitleText>
                 <TitleButton isOpen={isOpen}>
-                  <ArrowDown />
+                  <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
               {isOpen && (
@@ -81,15 +82,25 @@ const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_Point}
   display: flex;
   justify-content: space-between;
-  align-items: center;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point}
+    align-items: flex-start;
+  }
+`;
+
+const TitleText = styled.span`
+  ${media.custom(450)} {
+    max-width: 228px;
   }
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`
   ${({ isOpen }) => (isOpen ? '' : `transform: rotate(180deg);`)}
   transition: all ease .5s;
+  ${media.mobile} {
+    margin-top: 8px;
+    margin-left: 12px;
+  }
 `;
 
 const FQASubContent = styled.div`
@@ -101,6 +112,19 @@ const FQASubContent = styled.div`
   }
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1};
+  }
+`;
+
+const ArrowButton = styled.div`
+  background-image: url('/assets/icons/arrow_down.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 15px;
+  ${media.mobile} {
+    width: 20px;
+    height: 10px;
   }
 `;
 
