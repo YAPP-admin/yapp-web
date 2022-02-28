@@ -1,3 +1,4 @@
+/** Grid Section */
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간 🕙',
@@ -25,29 +26,41 @@ export const CURRENT_INFO_DATA = [
   },
 ];
 
+/** Carousel에 들어갈 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: '딜리버디',
+    title: '냠냠박사',
     link: '/project',
-    image: '/assets/images/project2.png',
+    image: '/assets/images/19_냠냠박사.png',
   },
   {
     title: '도토리함',
     link: '/project',
-    image: '/assets/images/project3.png',
+    image: '/assets/images/19_도토리함.png',
   },
   {
-    title: '딜리버디',
+    title: '버디',
     link: '/project',
-    image: '/assets/images/project2.png',
+    image: '/assets/images/19_버디.jpg',
   },
   {
-    title: '도토리함',
+    title: '딜리버디 (DeliBuddy)',
     link: '/project',
-    image: '/assets/images/project3.png',
+    image: '/assets/images/19_DeliBuddy.png',
+  },
+  {
+    title: 'GILJOB (길잡)',
+    link: '/project',
+    image: '/assets/images/19_GILJOB.png',
+  },
+  {
+    title: 'Minning (미닝)',
+    link: '/project',
+    image: '/assets/images/19_Minning.png',
   },
 ];
 
+/** Facebook News Card */
 export const NEWS_DATA = [
   {
     image: '/assets/images/facebook1.png',
@@ -69,6 +82,7 @@ export const NEWS_DATA = [
   },
 ];
 
+/** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   /* {
     image: '이미지 경로',
