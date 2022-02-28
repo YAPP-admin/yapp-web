@@ -14,9 +14,9 @@ function FloatingButton(): ReactElement {
   return (
     <>
       <TriggerButton
-        width={64}
-        height={64}
-        borderRadius={32}
+        width={56}
+        height={56}
+        borderRadius={28}
         onClick={handleTrigger}
         visible={visible}
       >
@@ -25,9 +25,9 @@ function FloatingButton(): ReactElement {
       <FixedFloatingContainer visible={visible}>
         <AnimatedFloatingContainer visible={visible}>
           <Button
-            width={64}
-            height={64}
-            borderRadius={32}
+            width={56}
+            height={56}
+            borderRadius={28}
             buttonColor="orange_400"
             className="floating-button mail"
           >
@@ -35,9 +35,9 @@ function FloatingButton(): ReactElement {
             <span className="text mail">이메일 문의</span>
           </Button>
           <Button
-            width={64}
-            height={64}
-            borderRadius={32}
+            width={56}
+            height={56}
+            borderRadius={28}
             buttonColor="facebook"
             className="floating-button facebook"
           >
@@ -45,9 +45,9 @@ function FloatingButton(): ReactElement {
             <span className="text facebook">페이스북 문의</span>
           </Button>
           <Button
-            width={64}
-            height={64}
-            borderRadius={32}
+            width={56}
+            height={56}
+            borderRadius={28}
             buttonColor="kakao"
             className="floating-button kakao"
           >
@@ -64,13 +64,15 @@ const TriggerButton = styled(Button)<{ visible: boolean }>`
   position: fixed;
   bottom: 48px;
   right: 48px;
-  z-index: 1000;
+  z-index: 10000;
   background: ${({ theme }) =>
     `linear-gradient(208.15deg, ${theme.palette.orange_300} 12.08%, ${theme.palette.orange_500} 86.71%)`};
 
   ${media.mobile} {
-    bottom: 24px;
-    right: 24px;
+    width: 48px;
+    height: 48px;
+    bottom: 12px;
+    right: 12px;
   }
 
   svg {
@@ -93,14 +95,14 @@ const FixedFloatingContainer = styled.div<{ visible: boolean }>`
   overflow: hidden;
   bottom: 48px;
   right: 48px;
-  z-index: 900;
+  z-index: 9000;
   opacity: 0;
   visibility: 'hidden';
   pointer-events: none;
 
   ${media.mobile} {
-    bottom: 24px;
-    right: 24px;
+    bottom: 12px;
+    right: 12px;
   }
 
   /* floating container transition
@@ -109,13 +111,13 @@ const FixedFloatingContainer = styled.div<{ visible: boolean }>`
   ${({ visible }) =>
     visible &&
     css`
-      bottom: 117px;
+      bottom: 108px; // Plus 버튼에서의 간격
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
 
       ${media.mobile} {
-        bottom: 93px;
+        bottom: 63px;
       }
     `};
 `;
@@ -140,6 +142,11 @@ const AnimatedFloatingContainer = styled.div<{ visible: boolean }>`
     justify-content: space-around;
     margin: 5px 0;
 
+    ${media.mobile} {
+      width: 48px;
+      height: 48px;
+    }
+
     .text {
       display: none;
       flex-grow: 0;
@@ -154,10 +161,14 @@ const AnimatedFloatingContainer = styled.div<{ visible: boolean }>`
     // floating 버튼 길이 transition
     transition: all 0.5s;
     :hover {
-      width: 188px;
+      width: 174px;
       padding: 0 20px 0 5px;
       .text {
         display: inline-block;
+      }
+
+      ${media.mobile} {
+        width: 140px;
       }
     }
   }

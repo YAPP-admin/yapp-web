@@ -59,7 +59,7 @@ const IntroSectionContainer = styled(SectionTemplate)`
 
   :hover {
     > .background {
-      transform: scale(1.15);
+      transform: scale(1.1);
     }
   }
 `;
@@ -73,7 +73,7 @@ const Background = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
-  transition: all 1.5s;
+  transition: all 2s;
 `;
 
 const Dimension = styled.span`
@@ -116,7 +116,7 @@ const ButtonBlock = styled.div`
     top: 0;
     border-radius: 20px;
     fill: none;
-    stroke: #fff;
+    stroke: ${({ theme }) => theme.palette.white};
     stroke-width: 2px;
     stroke-dasharray: 168 480;
     stroke-dashoffset: 168;
