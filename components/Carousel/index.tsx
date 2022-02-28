@@ -122,6 +122,7 @@ const ProjectCard = styled.div`
   display: block;
   position: relative;
   border-radius: 20px;
+  overflow: hidden;
   cursor: pointer;
   filter: drop-shadow(
     0px 10px 20px ${({ theme }) => theme.palette.grey_850 + '40'}
