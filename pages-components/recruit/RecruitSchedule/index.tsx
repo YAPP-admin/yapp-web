@@ -62,6 +62,7 @@ const ScheduleBox = styled(Box)`
   white-space: nowrap;
   ${media.tablet} {
     margin-right: 30px;
+    min-width: 278px;
   }
   ${media.mobile} {
     width: 225px;

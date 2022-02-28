@@ -23,9 +23,14 @@ function FrequentlyAskedQuestions(): ReactElement {
       <SectionTitle title={title} />
       <SectionContent>
         {faqList.map(({ subTitle, description, isOpen }) => (
-          <FAQBox isFullWidth backgroundColor="grey_50" key={`faq-${subTitle}`}>
+          <FAQBox
+            onClick={() => handleToggleFaq(subTitle)}
+            isFullWidth
+            backgroundColor="grey_50"
+            key={`faq-${subTitle}`}
+          >
             <FAQBoxInner>
-              <FAQSubTitle onClick={() => handleToggleFaq(subTitle)}>
+              <FAQSubTitle>
                 <span>{subTitle}</span>
                 <TitleButton isOpen={isOpen}>
                   <ArrowDown />
@@ -55,8 +60,8 @@ const SectionContent = styled.div`
 const FAQBox = styled(Box)`
   padding: 0;
   margin-bottom: 24px;
-  min-height: 102px;
   height: auto;
+  cursor: pointer;
   &:last-child {
     margin-bottom: 0;
   }
@@ -77,7 +82,6 @@ const FAQSubTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point}
   }
