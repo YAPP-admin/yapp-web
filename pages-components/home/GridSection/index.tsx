@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
-import { SectionTitle, SectionTemplate } from 'pages/components';
+import { SectionTitle, SectionTemplate } from 'pages-components/home';
 import { AnimatedBox } from 'components';
 import { CURRENT_INFO_DATA } from 'database/home';
 import media from 'styles/media';

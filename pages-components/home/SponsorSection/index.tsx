@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { Button } from 'components';
-import { SectionTitle } from 'pages/components';
+import { SectionTitle } from 'pages-components/home';
 import SectionTemplate from '../SectionTemplate';
 import media from 'styles/media';
 import { SPONSOR_DATA } from 'database/home';

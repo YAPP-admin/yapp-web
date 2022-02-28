@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
-import { SectionTitle, SectionTemplate } from 'pages/components';
+import { SectionTitle, SectionTemplate } from 'pages-components/home';
 import { Button, NewsCard } from 'components';
 import { NEWS_DATA } from 'database/home';
 import Yapp from 'constants/yapp';

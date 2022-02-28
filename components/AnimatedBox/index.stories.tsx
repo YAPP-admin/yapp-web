@@ -1,9 +1,9 @@
 import { Story, Meta } from '@storybook/react';
-import AnimatedBox, { AnimatedBoxProps } from 'components/AnimatedBox';
+import GridSection from 'pages-components/home/GridSection';
 
 export default {
   title: 'YAPP Design System/Component/AnimatedBox',
-  component: AnimatedBox,
+  component: GridSection,
   parameters: {
     docs: {
       description: {
@@ -20,9 +20,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<AnimatedBoxProps> = (args) => (
-  <AnimatedBox {...args}>Mock</AnimatedBox>
-);
+const Template: Story = (args) => <GridSection {...args} />;
 
 export const defaultAnimatedBox = Template.bind({});
 defaultAnimatedBox.args = {};
