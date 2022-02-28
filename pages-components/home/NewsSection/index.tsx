@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { SectionTitle, SectionTemplate } from 'pages-components/home';
 import { Button, NewsCard } from 'components';
 import { NEWS_DATA } from 'database/home';
+import media from 'styles/media';
 import Yapp from 'constants/yapp';
 
 function MainContainer(): ReactElement {
@@ -14,15 +15,15 @@ function MainContainer(): ReactElement {
           return <NewsCard key={index} data={data} />;
         })}
       </CardContainer>
-      <Button
-        width={252}
-        height={78}
+      <StyledButton
+        width={176}
+        height={65}
         fontColor="white"
         buttonColor="grey_850"
         onClick={() => window.open(Yapp.YAPP_FACEBOOK, '_blank')}
       >
-        페이스북 둘러보기
-      </Button>
+        소식 더보기
+      </StyledButton>
     </SocialContainer>
   );
 }
@@ -34,6 +35,18 @@ const SocialContainer = styled(SectionTemplate)`
 const CardContainer = styled.article`
   margin: 49px 0;
   text-align: center;
+`;
+
+const StyledButton = styled(Button)`
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.grey_800};
+  }
+
+  ${media.mobile} {
+    width: 162px;
+    height: 56px;
+  }
 `;
 
 export default MainContainer;

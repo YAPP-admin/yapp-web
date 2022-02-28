@@ -21,14 +21,14 @@ function SponsorSection(): ReactElement {
           </Sponsor>
         ))}
       </SponsorList>
-      <Button
-        width={180}
-        height={78}
+      <StyledButton
+        width={148}
+        height={65}
         fontColor="white"
         buttonColor="orange_400"
       >
         후원 문의
-      </Button>
+      </StyledButton>
     </SponsorSectionContainer>
   );
 }
@@ -68,6 +68,18 @@ const Sponsor = styled.li`
   display: inline-block;
   width: 280px;
   height: 80px;
+`;
+
+const StyledButton = styled(Button)`
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.grey_800};
+  }
+
+  ${media.mobile} {
+    width: 104px;
+    height: 52px;
+  }
 `;
 
 export default SponsorSection;

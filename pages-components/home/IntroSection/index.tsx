@@ -37,11 +37,11 @@ function IntroSection(): ReactElement {
             >
               <rect x="-0.9" y="0" width="168" height="65" rx="32" ry="32" />
             </svg>
-            <span className="textgroup">
-              <span className="mainText">
+            <span className="text-group">
+              <span className="main-text">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
-              <span className="cloneText">
+              <span className="clone-text">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
             </span>
@@ -133,11 +133,17 @@ const RecruitButton = styled(Button)`
   transition: 1s ease-in-out;
   color: ${({ theme }) => theme.palette.white};
 
-  .textgroup {
+  ${media.mobile} {
+    width: 148px;
+    height: 56px;
+    ${({ theme }) => theme.textStyle.mobile.Button_Point}
+  }
+
+  .text-group {
     position: relative;
   }
 
-  .cloneText {
+  .clone-text {
     position: absolute;
     top: 0;
     left: 0;
@@ -153,10 +159,10 @@ const RecruitButton = styled(Button)`
     svg {
       stroke-dashoffset: -480;
     }
-    .mainText {
+    .main-text {
       animation: ${slideOut} 0.533s cubic-bezier(0.33, 0, 0.67, 1) forwards;
     }
-    .cloneText {
+    .clone-text {
       animation: ${slideIn} 0.567s cubic-bezier(0.22, 1, 0.36, 1) 0.367s
         forwards;
     }
@@ -165,11 +171,6 @@ const RecruitButton = styled(Button)`
         display: none;
       }
     }
-  }
-
-  ${media.mobile} {
-    width: 112px;
-    height: 56px;
   }
 `;
 
