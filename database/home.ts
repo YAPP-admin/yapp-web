@@ -80,10 +80,7 @@ export const NEWS_DATA = [
 ];
 
 export const SPONSOR_DATA = [
-  {
-    image: '/assets/images/naverD2.png',
-  },
-  {
-    image: '/assets/images/naverD2.png',
-  },
+  /* {
+    image: '이미지 경로',
+  }, */
 ];

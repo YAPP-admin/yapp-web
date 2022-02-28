@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Header, Footer, FloatingButton } from 'components';
 import { useRouter } from 'next/router';
-import IntroSection from 'pages/components/IntroSection';
+import { IntroSection } from 'pages-components/home';
 import PATH from 'constants/path';
 
 interface LayoutWrapperProps {
