@@ -1,5 +1,6 @@
 import { Box } from 'components';
 import { RECRUIT_APPLY_WAY } from 'database/recruit';
+import useDragScroll from 'hooks/useDragScroll';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -8,10 +9,19 @@ import { SectionTemplate, SectionTitle } from '..';
 function ApplyWay(): ReactElement {
   const { title, ways } = RECRUIT_APPLY_WAY;
 
+  const { handleDragEnd, handleDragMove, handleDragStart, scrollRef } =
+    useDragScroll();
+
   return (
     <SectionTemplate>
       <SectionTitle title={title} />
-      <SectionContent>
+      <SectionContent
+        onMouseDown={handleDragStart}
+        onMouseMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onMouseLeave={handleDragEnd}
+        ref={scrollRef}
+      >
         {ways.map(({ subTitle, description }) => (
           <WayBox
             width={380}
