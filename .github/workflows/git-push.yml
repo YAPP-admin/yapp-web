@@ -1,4 +1,4 @@
-name: git push into YAPPgit/yapp-web to deploy to vercel
+name: Git push into YAPPgit/yapp-web (to deploy to vercel)
 
 on:
   push:
@@ -18,12 +18,12 @@ jobs:
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          API_TOKEN_GITHUB: ${{ secrets.API_GITHUB_TOKEN }}
         with:
           source-directory: 'output'
           destination-github-username: YAPPgit
           destination-repository-name: yapp-web
-          user-email: ${{ secrets.OFFICIAL_ACCOUNT_EMAIL }}
+          user-email: ${{ secrets.YAPP_OFFICIAL_ACCOUNT_EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
       - name: Test get variable exported by push-to-another-repository

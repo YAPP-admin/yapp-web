@@ -1,6 +1,6 @@
 import Yapp from 'constants/yapp';
-import { FieldNameTypes } from 'pages/recruit/components/RecruitField';
-import { DeveloperFieldName } from 'pages/recruit/components/RecruitField/RecruitDeveloper';
+import { FieldNameTypes } from 'pages-components/recruit/RecruitField';
+import { DeveloperFieldName } from 'pages-components/recruit/RecruitField/RecruitDeveloper';
 
 /**
  * 작성 Tip

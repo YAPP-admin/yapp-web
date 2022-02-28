@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import Router from 'next/router';
-import { SectionTitle, SectionTemplate } from 'pages/components';
+import { SectionTitle, SectionTemplate } from 'pages-components/home';
 import { Button, Carousel } from 'components';
 import { CAROUSEL_DATA } from 'database/home';
 

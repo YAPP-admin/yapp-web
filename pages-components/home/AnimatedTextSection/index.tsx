@@ -1,12 +1,16 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate } from 'pages/components';
+import { SectionTemplate } from 'pages-components/home';
 
 function AnimatedTextSection(): ReactElement {
   return (
     <AnimatedTextSectionContainer>
-      <span className="intro-text">Animated</span>
+      <span className="intro-text">YOUR -</span>
+      <div className="animate-box">
+        <span className="intro-text">ACTION</span>
+        <div className="block-box"></div>
+      </div>
     </AnimatedTextSectionContainer>
   );
 }
