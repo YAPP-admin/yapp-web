@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import GridSection from 'pages/components/GridSection';
+import GridSection from 'pages-components/home/GridSection';
 
 export default {
   title: 'YAPP Design System/Component/AnimatedBox',

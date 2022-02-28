@@ -4,7 +4,7 @@ import {
   RECRUIT_EXPLAIN_FRONTEND_DEVELOPER,
   RECRUIT_EXPLAIN_IOS_DEVELOPER,
 } from 'database/recruit';
-import { DeveloperFieldName } from 'pages/recruit/components/RecruitField/RecruitDeveloper';
+import { DeveloperFieldName } from 'pages-components/recruit/RecruitField/RecruitDeveloper';
 
 const getDeveloperFieldExplain = (field: DeveloperFieldName) => {
   switch (field) {
