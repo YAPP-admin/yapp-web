@@ -32,13 +32,16 @@ const StyledNewsCard = styled.div`
   display: inline-block;
   width: 380px;
   height: 515px;
-  border: ${({ theme }) => theme.palette.grey_200} solid 1px;
   border-radius: 25px;
   background-color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
   margin: 15px;
 
+  transition: filter 1s;
   :hover {
+    filter: drop-shadow(
+      0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
+    );
     .image-scale-wrapper {
       transform: scale(1.1);
     }
