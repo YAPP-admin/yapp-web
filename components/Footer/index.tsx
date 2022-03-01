@@ -23,7 +23,6 @@ function Footer(): ReactElement {
             <TextPoint>P</TextPoint>otential.
           </InfoText>
           <YappSocialButtonGroup>
-            {/* @Todo 임시 버튼들, 나중에 소셜 버튼 나오면 추가 예정 */}
             <Facebook_13 />
             <Instagram />
             <Github />
