@@ -107,11 +107,17 @@ const FQASubContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
   margin-top: 24px;
   width: 1056px;
+  b {
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  }
   ${media.tablet} {
     width: 100%;
   }
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1};
+    br {
+      display: none;
+    }
   }
 `;
 
