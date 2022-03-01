@@ -9,7 +9,6 @@ import { SectionTemplate, SectionTitle } from '..';
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title } = RECRUIT_FAQ;
   const [faqList, setFaqList] = useState(faqs);
-  console.log(ArrowDown);
 
   const handleToggleFaq = (subTitle: string) => {
     setFaqList(
