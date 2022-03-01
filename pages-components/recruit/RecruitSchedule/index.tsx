@@ -65,7 +65,7 @@ const ScheduleBox = styled(Box)`
     min-width: 278px;
   }
   ${media.mobile} {
-    width: 225px;
+    min-width: 225px;
     height: 172px;
   }
 `;
@@ -75,15 +75,18 @@ const ScheduleBoxInner = styled.div`
 `;
 
 const ScheduleSubTitle = styled.div`
-  ${({ theme }) => theme.textStyle.web.Subtitle}
-  margin-bottom: 4px;
+  ${({ theme }) => theme.textStyle.web.Subtitle};
+  color: ${({ theme }) => theme.palette.grey_1000};
+  margin-bottom: 12px;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Subtitle}
+    margin-bottom: 7px;
   }
 `;
 
 const ScheduleContent = styled.div`
-  ${({ theme }) => theme.textStyle.web.Body_1};
+  ${({ theme }) => theme.textStyle.web.Body_Point};
+  color: ${({ theme }) => theme.palette.grey_850};
   .smallBox {
     margin-top: 16px;
     margin-bottom: 12px;

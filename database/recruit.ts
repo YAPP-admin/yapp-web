@@ -59,21 +59,21 @@ export const RECRUIT_SCHEDULE = {
   schedules: [
     {
       subTitle: '서류 접수',
-      description: `2022. 07. 10(금)<br />
-                    ~ 07.20(월)`,
+      description: `2022. 03. 06. (일)<br />
+                    ~ 03. 17. (목)`,
     },
     {
       subTitle: '서류 결과 발표',
-      description: `2022. 07. 10(금)`,
+      description: `2022. 03. 22. (화)`,
     },
     {
       subTitle: '면접',
-      description: `2022. 07. 10(금)<br />
-                    ~ 07.20(월)`,
+      description: `2022. 03. 25. (금)<br />
+                    ~ 03. 27. (일)`,
     },
     {
       subTitle: '최종 발표',
-      description: `2022. 07. 10(금)`,
+      description: `2022. 03. 30. (수)`,
     },
   ],
 };
