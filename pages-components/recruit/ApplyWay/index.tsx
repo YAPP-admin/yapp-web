@@ -77,7 +77,8 @@ const WayBox = styled(Box)`
   ${media.mobile} {
     margin: 0 auto;
     margin-bottom: 16px;
-    min-width: 335px;
+    min-width: auto;
+    white-space: normal;
     min-height: 191px;
     height: auto;
     width: 100%;
@@ -90,6 +91,7 @@ const WayInnerBox = styled.div`
 
 const WaySubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Subtitle}
+  color: ${({ theme }) => theme.palette.grey_1000};
   margin-bottom: 8px;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Subtitle}
@@ -98,6 +100,7 @@ const WaySubTitle = styled.div`
 
 const WayContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
+  color: ${({ theme }) => theme.palette.grey_850};
   .smallBox {
     margin-top: 16px;
     margin-bottom: 12px;
