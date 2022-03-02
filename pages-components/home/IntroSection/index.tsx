@@ -73,7 +73,7 @@ const Background = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1;
-  transition: all 2s;
+  transition: all 1.5s;
 `;
 
 const Dimension = styled.span`

@@ -1,5 +1,6 @@
 import { Box } from 'components';
 import { RECRUIT_APPLY_WAY } from 'database/recruit';
+import useDragScroll from 'hooks/useDragScroll';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -8,10 +9,19 @@ import { SectionTemplate, SectionTitle } from '..';
 function ApplyWay(): ReactElement {
   const { title, ways } = RECRUIT_APPLY_WAY;
 
+  const { handleDragEnd, handleDragMove, handleDragStart, scrollRef } =
+    useDragScroll();
+
   return (
     <SectionTemplate>
       <SectionTitle title={title} />
-      <SectionContent>
+      <SectionContent
+        onMouseDown={handleDragStart}
+        onMouseMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onMouseLeave={handleDragEnd}
+        ref={scrollRef}
+      >
         {ways.map(({ subTitle, description }) => (
           <WayBox
             width={380}
@@ -35,14 +45,19 @@ const SectionContent = styled.div`
   width: 100%;
   justify-content: space-between;
   ${media.tablet} {
-    flex-direction: column;
-    padding: 0 22px;
     width: auto;
+    overflow: auto;
+    margin-left: 22px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .desktop {
       display: none;
     }
   }
   ${media.mobile} {
+    flex-direction: column;
+    margin: 0 22px;
     .tablet {
       display: none;
     }
@@ -54,18 +69,19 @@ const SectionContent = styled.div`
 
 const WayBox = styled(Box)`
   padding: 0px;
+  white-space: nowrap;
   ${media.tablet} {
-    width: 100%;
-    margin-bottom: 30px;
-    height: auto;
-    &:nth-child(3) {
-      margin-bottom: 0;
-    }
+    margin-right: 30px;
+    min-width: 380px;
   }
   ${media.mobile} {
     margin: 0 auto;
     margin-bottom: 16px;
-    width: 335px;
+    min-width: auto;
+    white-space: normal;
+    min-height: 191px;
+    height: auto;
+    width: 100%;
   }
 `;
 
@@ -75,6 +91,7 @@ const WayInnerBox = styled.div`
 
 const WaySubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Subtitle}
+  color: ${({ theme }) => theme.palette.grey_1000};
   margin-bottom: 8px;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Subtitle}
@@ -83,12 +100,14 @@ const WaySubTitle = styled.div`
 
 const WayContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
+  color: ${({ theme }) => theme.palette.grey_850};
   .smallBox {
     margin-top: 16px;
     margin-bottom: 12px;
   }
   .small {
     ${({ theme }) => theme.textStyle.web.Body_2};
+    color: ${({ theme }) => theme.palette.grey_600};
     margin-top: 12px;
     display: block;
     ${media.mobile} {
@@ -104,7 +123,7 @@ const WayContent = styled.div`
   .smallGrey {
     ${({ theme }) => theme.textStyle.web.Body_2};
     margin: 8px 0 14px;
-    color: #898989; // @Todo 임시컬러
+    color: ${({ theme }) => theme.palette.grey_600};
     ${media.mobile} {
       ${({ theme }) => theme.textStyle.mobile.Body_3};
     }

@@ -55,7 +55,7 @@ const RecruitBannerContainer = styled.div`
 const BannerInner = styled.div`
   width: ${Breakpoints.large}px;
   margin: 0 auto;
-  padding: 164px 0 100px;
+  padding: 120px 0 100px;
   .mobile {
     display: none;
   }
@@ -64,13 +64,14 @@ const BannerInner = styled.div`
     padding: 164px 81px 100px;
   }
   ${media.mobile} {
-    padding: 80px 56px 64px 21px;
+    padding: 80px 21px 64px 21px;
     margin-bottom: 56px;
     .desktop {
       display: none;
     }
   }
-  ${media.small} {
+
+  ${media.custom(400)} {
     .mobile {
       display: block;
     }
@@ -79,6 +80,7 @@ const BannerInner = styled.div`
 
 const BannerTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Head};
+  color: ${({ theme }) => theme.palette.grey_1000};
   margin-bottom: 24px;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Head};
@@ -86,8 +88,12 @@ const BannerTitle = styled.div`
 `;
 
 const BannerDescription = styled.div`
-  ${({ theme }) => theme.textStyle.web.Body_1}
-  margin-bottom:40px;
+  ${({ theme }) => theme.textStyle.web.Body_1};
+  color: ${({ theme }) => theme.palette.grey_900};
+  margin-bottom: 56px;
+  ${media.tablet} {
+    margin-bottom: 103px;
+  }
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1}
     margin-bottom:32px;
