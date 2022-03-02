@@ -23,12 +23,17 @@ function FrequentlyAskedQuestions(): ReactElement {
       <SectionTitle title={title} />
       <SectionContent>
         {faqList.map(({ subTitle, description, isOpen }) => (
-          <FAQBox isFullWidth backgroundColor="grey_50" key={`faq-${subTitle}`}>
+          <FAQBox
+            onClick={() => handleToggleFaq(subTitle)}
+            isFullWidth
+            backgroundColor="grey_50"
+            key={`faq-${subTitle}`}
+          >
             <FAQBoxInner>
-              <FAQSubTitle onClick={() => handleToggleFaq(subTitle)}>
-                <span>{subTitle}</span>
+              <FAQSubTitle>
+                <TitleText>{subTitle}</TitleText>
                 <TitleButton isOpen={isOpen}>
-                  <ArrowDown />
+                  <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
               {isOpen && (
@@ -55,8 +60,8 @@ const SectionContent = styled.div`
 const FAQBox = styled(Box)`
   padding: 0;
   margin-bottom: 24px;
-  min-height: 102px;
   height: auto;
+  cursor: pointer;
   &:last-child {
     margin-bottom: 0;
   }
@@ -76,27 +81,55 @@ const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_Point}
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point}
+    align-items: flex-start;
+  }
+`;
+
+const TitleText = styled.span`
+  ${media.custom(450)} {
+    max-width: 228px;
   }
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`
   ${({ isOpen }) => (isOpen ? '' : `transform: rotate(180deg);`)}
   transition: all ease .5s;
+  ${media.mobile} {
+    margin-top: 8px;
+    margin-left: 12px;
+  }
 `;
 
 const FQASubContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
   margin-top: 24px;
   width: 1056px;
+  b {
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  }
   ${media.tablet} {
     width: 100%;
   }
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1};
+    br {
+      display: none;
+    }
+  }
+`;
+
+const ArrowButton = styled.div`
+  background-image: url('/assets/icons/arrow_down.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 15px;
+  ${media.mobile} {
+    width: 20px;
+    height: 10px;
   }
 `;
 

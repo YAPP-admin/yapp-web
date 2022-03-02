@@ -10,7 +10,7 @@ interface IBoxStyle {
   isFullWidth?: boolean;
 }
 
-interface BoxProps extends IBoxStyle {
+interface BoxProps extends IBoxStyle, React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }

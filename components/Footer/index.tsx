@@ -1,5 +1,6 @@
 import Breakpoints from 'constants/breakpoints';
 import Yapp from 'constants/yapp';
+import { Facebook_13, Github, Instagram } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -22,10 +23,9 @@ function Footer(): ReactElement {
             <TextPoint>P</TextPoint>otential.
           </InfoText>
           <YappSocialButtonGroup>
-            {/* @Todo 임시 버튼들, 나중에 소셜 버튼 나오면 추가 예정 */}
-            <SocialButton />
-            <SocialButton />
-            <SocialButton />
+            <Facebook_13 />
+            <Instagram />
+            <Github />
           </YappSocialButtonGroup>
         </FooterInner>
       </FooterBlock>
@@ -95,14 +95,10 @@ const YappSocialButtonGroup = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
 
-// @Todo 임시 소셜 버튼
-const SocialButton = styled.div`
-  width: 32px;
-  height: 32px;
-  background-color: #c9c9c9;
-  border-radius: 50%;
+  svg {
+    cursor: pointer;
+  }
 `;
 
 const Copyright = styled.div`
