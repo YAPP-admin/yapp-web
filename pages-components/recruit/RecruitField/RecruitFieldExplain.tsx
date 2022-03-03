@@ -100,8 +100,15 @@ const FieldBoxInner = styled.div`
 const SubTitleStyled = styled.span`
   ${({ theme }) => theme.textStyle.web.Subtitle}
   width: 371px;
+  br {
+    display: none;
+  }
+
   ${media.tablet} {
     width: 271px;
+    br {
+      display: block;
+    }
   }
   ${media.mobile} {
     margin-bottom: 8px;
