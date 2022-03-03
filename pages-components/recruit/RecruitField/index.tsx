@@ -57,6 +57,9 @@ const RecruitFieldNameBox = styled(Box)`
   display: flex;
   position: relative;
   align-items: center;
+  ${media.tablet} {
+    width: 484px;
+  }
   ${media.mobile} {
     width: 279px;
     height: 43px;
@@ -68,13 +71,13 @@ const RecruitFieldButton = styled.div<{ isActive: boolean }>`
   background-color: transparent;
   cursor: pointer;
   &:nth-child(1) {
-    padding-left: 72px;
+    padding: 0 72px;
   }
   &:nth-child(2) {
-    padding: 0 100px;
+    padding: 0 28px;
   }
   &:nth-child(3) {
-    padding-right: 72px;
+    padding: 0 72px;
   }
   ${({ theme }) => theme.textStyle.web.Subtitle};
   ${({ isActive }) =>
@@ -85,9 +88,29 @@ const RecruitFieldButton = styled.div<{ isActive: boolean }>`
       : css`
           color: ${({ theme }) => theme.palette.grey_700};
         `}
+
+  ${media.tablet} {
+    &:nth-child(1) {
+      padding: 0 56px;
+    }
+    &:nth-child(2) {
+      padding: 0 44px;
+    }
+    &:nth-child(3) {
+      padding: 0 56px;
+    }
+  }
   ${media.mobile} {
-    width: 93px;
-    height: 43px;
+    ${({ theme }) => theme.textStyle.mobile.Body_Point2};
+    &:nth-child(1) {
+      padding-left: 20px;
+    }
+    &:nth-child(2) {
+      padding: 0 50px;
+    }
+    &:nth-child(3) {
+      padding-right: 20px;
+    }
   }
 `;
 
@@ -116,8 +139,11 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
   }};
   width: 196px;
   height: 64px;
+  ${media.tablet} {
+    width: 164px;
+  }
   ${media.mobile} {
-    width: 93px;
+    width: 82px;
     height: 43px;
   }
   position: absolute;
