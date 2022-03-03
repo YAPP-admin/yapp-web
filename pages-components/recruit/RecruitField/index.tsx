@@ -30,19 +30,15 @@ function RecruitField(): ReactElement {
     <SectionTemplate>
       <SectionTitle title="모집 분야" />
       <RecruitFieldNameBox
-        width={696}
-        height={78}
+        width={516}
+        height={64}
         backgroundColor="grey_50"
         borderRadius={124}
       >
         {RECRUIT_FIELD_NAMES.map((name) => (
           <RecruitFieldButton
             key={`field-${name}`}
-            width={232}
-            height={78}
             onClick={() => handleClick(name)}
-            fontColor="white"
-            borderColor="white"
             isActive={field === name}
           >
             {name}
@@ -60,15 +56,27 @@ const RecruitFieldNameBox = styled(Box)`
   padding: 0;
   display: flex;
   position: relative;
+  align-items: center;
   ${media.mobile} {
     width: 279px;
     height: 43px;
   }
 `;
 
-const RecruitFieldButton = styled(Button)<{ isActive: boolean }>`
+const RecruitFieldButton = styled.div<{ isActive: boolean }>`
   z-index: 1000;
   background-color: transparent;
+  cursor: pointer;
+  &:nth-child(1) {
+    padding-left: 72px;
+  }
+  &:nth-child(2) {
+    padding: 0 100px;
+  }
+  &:nth-child(3) {
+    padding-right: 72px;
+  }
+  ${({ theme }) => theme.textStyle.web.Subtitle};
   ${({ isActive }) =>
     isActive
       ? css`
@@ -92,22 +100,22 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
         `;
       case '디자이너':
         return css`
-          left: 232px;
+          left: 160px;
           ${media.mobile} {
             left: 93px;
           }
         `;
       case '개발자':
         return css`
-          left: 464px;
+          left: 320px;
           ${media.mobile} {
             left: 186px;
           }
         `;
     }
   }};
-  width: 232px;
-  height: 78px;
+  width: 196px;
+  height: 64px;
   ${media.mobile} {
     width: 93px;
     height: 43px;

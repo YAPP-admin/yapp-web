@@ -52,8 +52,8 @@ function RecruitFieldExplain({
 
       <ButtonBlock>
         <ApplyButton
-          width={252}
-          height={78}
+          width={176}
+          height={65}
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
