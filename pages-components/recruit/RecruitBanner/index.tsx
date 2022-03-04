@@ -33,7 +33,7 @@ function RecruitBanner(): ReactElement {
               viewBox="0 0 168 65"
               className="border"
             >
-              <rect x="-0.9" y="0" width="166" height="65" rx="32" ry="32" />
+              <rect x="-0.9" y="1" width="167" height="63" rx="32" ry="32" />
             </svg>
 
             <span className="textgroup">
@@ -112,10 +112,10 @@ const ButtonBlock = styled.div`
     top: 0;
     border-radius: 20px;
     fill: none;
-    stroke: #fff;
+    stroke: ${({ theme }) => theme.palette.orange_400};
     stroke-width: 2px;
-    stroke-dasharray: 174 480;
-    stroke-dashoffset: 174;
+    stroke-dasharray: 168 480;
+    stroke-dashoffset: 168;
     transition: 1s ease-in-out;
   }
 `;
