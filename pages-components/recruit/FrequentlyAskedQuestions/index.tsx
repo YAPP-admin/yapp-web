@@ -94,7 +94,7 @@ const TitleText = styled.span`
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`
-  ${({ isOpen }) => (isOpen ? '' : `transform: rotate(180deg);`)}
+  ${({ isOpen }) => (isOpen ? `transform: rotate(180deg);` : '')}
   transition: all ease .5s;
   ${media.mobile} {
     margin-top: 8px;
