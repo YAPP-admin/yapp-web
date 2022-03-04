@@ -14,7 +14,7 @@ function SectionTitle({ title, className }: SectionTitleProps): ReactElement {
 const StyledSectionTitle = styled.h2`
   ${({ theme }) => theme.textStyle.web.Title};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  margin-bottom: 64px;
+  margin-bottom: 72px;
   margin-top: 0;
   text-align: center;
   color: ${({ theme }) => theme.palette.grey_1000};

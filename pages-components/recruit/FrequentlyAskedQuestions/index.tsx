@@ -1,9 +1,10 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
+import { SectionTemplate } from 'pages-components/home';
 import React, { ReactElement, useState } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate, SectionTitle } from '..';
+import { SectionTitle } from '..';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title } = RECRUIT_FAQ;
@@ -18,7 +19,7 @@ function FrequentlyAskedQuestions(): ReactElement {
   };
 
   return (
-    <SectionTemplate>
+    <FAQTemplate>
       <SectionTitle title={title} />
       <SectionContent>
         {faqList.map(({ subTitle, description, isOpen }) => (
@@ -35,19 +36,27 @@ function FrequentlyAskedQuestions(): ReactElement {
                   <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
-              {/* {isOpen && ( */}
               <FQASubContent
                 dangerouslySetInnerHTML={{ __html: description }}
                 isOpen={isOpen}
               />
-              {/* )} */}
             </FAQBoxInner>
           </FAQBox>
         ))}
       </SectionContent>
-    </SectionTemplate>
+    </FAQTemplate>
   );
 }
+
+const FAQTemplate = styled(SectionTemplate)`
+  padding-bottom: 200px;
+  ${media.tablet} {
+    padding-bottom: 218px;
+  }
+  ${media.mobile} {
+    padding-bottom: 60px;
+  }
+`;
 
 const SectionContent = styled.div`
   display: flex;
