@@ -49,6 +49,7 @@ const palette = {
 };
 
 const fontSize = {
+  xxxxxxxSmall: '1.2rem',
   xxxxxxSmall: '1.4rem',
   xxxxxSmall: '1.5rem',
   xxxxSmall: '1.6rem',
@@ -234,7 +235,7 @@ const textStyle = {
       letter-spacing: ${letterSpacing.medium};
     `,
     Footer_Text: css`
-      font-size: ${fontSize.xxxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
       letter-spacing: ${letterSpacing.medium};
@@ -256,6 +257,12 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.xLarge};
+    `,
+    Caption: css`
+      font-size: ${fontSize.xxxxxxxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.xSmall};
     `,
   },
 };
