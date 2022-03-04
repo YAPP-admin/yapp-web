@@ -35,7 +35,7 @@ function IntroSection(): ReactElement {
               viewBox="0 0 168 65"
               className="border"
             >
-              <rect x="-0.9" y="0" width="168" height="65" rx="32" ry="32" />
+              <rect x="-0.9" y="1" width="166" height="63" rx="32" ry="32" />
             </svg>
             <span className="textgroup">
               <span className="mainText">
@@ -116,7 +116,7 @@ const ButtonBlock = styled.div`
     top: 0;
     border-radius: 20px;
     fill: none;
-    stroke: #fff;
+    stroke: ${({ theme }) => theme.palette.orange_400};
     stroke-width: 2px;
     stroke-dasharray: 168 480;
     stroke-dashoffset: 168;
