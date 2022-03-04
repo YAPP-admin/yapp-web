@@ -5,12 +5,16 @@ import media from 'styles/media';
 
 interface SectionTemplateProps {
   children: ReactNode;
+  className?: string;
 }
 
-function SectionTemplate({ children }: SectionTemplateProps): ReactElement {
+function SectionTemplate({
+  children,
+  className,
+}: SectionTemplateProps): ReactElement {
   return (
     <TemplateBlock>
-      <TemplateInner>{children}</TemplateInner>
+      <TemplateInner className={className}>{children}</TemplateInner>
     </TemplateBlock>
   );
 }

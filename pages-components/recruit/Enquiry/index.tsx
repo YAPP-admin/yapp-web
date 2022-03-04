@@ -17,8 +17,8 @@ function Enquiry(): ReactElement {
         />
         <EnquiryContent dangerouslySetInnerHTML={{ __html: description }} />
         <EnquiryButton
-          width={177}
-          height={78}
+          width={148}
+          height={65}
           buttonColor="yellow_400"
           borderColor="white"
           fontColor="black"
@@ -82,7 +82,7 @@ const EnquiryContent = styled.div`
 
 const EnquiryButton = styled(Button)`
   ${media.mobile} {
-    width: 148px;
+    width: 120px;
     height: 56px;
   }
 `;

@@ -21,19 +21,19 @@ function RecruitBanner(): ReactElement {
         <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
         <ButtonBlock>
           <RecruitButton
-            width={174}
-            height={78}
+            width={168}
+            height={65}
             fontColor="black"
             buttonColor="grey_850"
             borderColor="lightGrey"
           >
             <svg
-              width="174px"
-              height="78px"
-              viewBox="0 0 170 78"
+              width="172px"
+              height="65px"
+              viewBox="0 0 168 65"
               className="border"
             >
-              <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
+              <rect x="-0.9" y="1" width="167" height="63" rx="32" ry="32" />
             </svg>
 
             <span className="textgroup">
@@ -112,10 +112,10 @@ const ButtonBlock = styled.div`
     top: 0;
     border-radius: 20px;
     fill: none;
-    stroke: #fff;
+    stroke: ${({ theme }) => theme.palette.orange_400};
     stroke-width: 2px;
-    stroke-dasharray: 174 480;
-    stroke-dashoffset: 174;
+    stroke-dasharray: 168 480;
+    stroke-dashoffset: 168;
     transition: 1s ease-in-out;
   }
 `;

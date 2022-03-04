@@ -1,10 +1,10 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
-import { ArrowDown } from 'public/assets/icons';
+import { SectionTemplate } from 'pages-components/home';
 import React, { ReactElement, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate, SectionTitle } from '..';
+import { SectionTitle } from '..';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title } = RECRUIT_FAQ;
@@ -19,7 +19,7 @@ function FrequentlyAskedQuestions(): ReactElement {
   };
 
   return (
-    <SectionTemplate>
+    <FAQTemplate>
       <SectionTitle title={title} />
       <SectionContent>
         {faqList.map(({ subTitle, description, isOpen }) => (
@@ -36,18 +36,27 @@ function FrequentlyAskedQuestions(): ReactElement {
                   <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
-              {isOpen && (
-                <FQASubContent
-                  dangerouslySetInnerHTML={{ __html: description }}
-                />
-              )}
+              <FQASubContent
+                dangerouslySetInnerHTML={{ __html: description }}
+                isOpen={isOpen}
+              />
             </FAQBoxInner>
           </FAQBox>
         ))}
       </SectionContent>
-    </SectionTemplate>
+    </FAQTemplate>
   );
 }
+
+const FAQTemplate = styled(SectionTemplate)`
+  padding-bottom: 200px;
+  ${media.tablet} {
+    padding-bottom: 218px;
+  }
+  ${media.mobile} {
+    padding-bottom: 60px;
+  }
+`;
 
 const SectionContent = styled.div`
   display: flex;
@@ -81,6 +90,7 @@ const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_Point}
   display: flex;
   justify-content: space-between;
+  color: ${({ theme }) => theme.palette.grey_1000};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point}
     align-items: flex-start;
@@ -94,7 +104,7 @@ const TitleText = styled.span`
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`
-  ${({ isOpen }) => (isOpen ? '' : `transform: rotate(180deg);`)}
+  ${({ isOpen }) => (isOpen ? `transform: rotate(180deg);` : '')}
   transition: all ease .5s;
   ${media.mobile} {
     margin-top: 8px;
@@ -102,10 +112,24 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
   }
 `;
 
-const FQASubContent = styled.div`
+const FQASubContent = styled.div<{ isOpen: boolean }>`
   ${({ theme }) => theme.textStyle.web.Body_1};
-  margin-top: 24px;
+  color: ${({ theme }) => theme.palette.grey_850};
   width: 1056px;
+  overflow: hidden;
+  transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
+  ${({ isOpen }) =>
+    isOpen
+      ? css`
+          height: auto;
+          margin-top: 24px;
+          opacity: 1;
+          transform: translateY(0);
+        `
+      : css`
+          opacity: 0;
+          height: 0px;
+        `}
   b {
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
