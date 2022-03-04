@@ -99,6 +99,7 @@ const FieldBoxInner = styled.div`
 
 const SubTitleStyled = styled.span`
   ${({ theme }) => theme.textStyle.web.Subtitle}
+  color: ${({ theme }) => theme.palette.grey_1000};
   width: 371px;
   br {
     display: none;
@@ -118,6 +119,7 @@ const SubTitleStyled = styled.span`
 
 const ContentStyled = styled.span`
   ${({ theme }) => theme.textStyle.web.Body_1}
+  color: ${({ theme }) => theme.palette.grey_850};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1}
   }

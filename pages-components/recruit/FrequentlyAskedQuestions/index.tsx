@@ -81,6 +81,7 @@ const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_Point}
   display: flex;
   justify-content: space-between;
+  color: ${({ theme }) => theme.palette.grey_1000};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point}
     align-items: flex-start;
@@ -104,6 +105,7 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
 
 const FQASubContent = styled.div<{ isOpen: boolean }>`
   ${({ theme }) => theme.textStyle.web.Body_1};
+  color: ${({ theme }) => theme.palette.grey_850};
   width: 1056px;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
