@@ -63,13 +63,14 @@ const DeveloperListStyled = styled.div`
 `;
 
 const DeveloperItem = styled.button<{ isSelected: boolean }>`
+  color: ${({ theme }) => theme.palette.grey_500};
   ${({ isSelected }) =>
     isSelected &&
     css`
-      color: ${({ theme }) => theme.palette.black};
-      border-bottom: 4px solid ${({ theme }) => theme.palette.black};
+      color: ${({ theme }) => theme.palette.orange_500};
+      border-bottom: 4px solid ${({ theme }) => theme.palette.orange_500};
       ${media.mobile} {
-        border-bottom: 2px solid ${({ theme }) => theme.palette.black};
+        border-bottom: 2px solid ${({ theme }) => theme.palette.orange_500};
       }
     `}
   height: 100%;
@@ -81,7 +82,11 @@ const DeveloperItem = styled.button<{ isSelected: boolean }>`
 const DividerLine = styled.div`
   width: 2px;
   height: 20px;
-  background-color: #dadada; // @Todo 와이어프레임 임시 컬러
+  background-color: ${({ theme }) => theme.palette.grey_200};
+  ${media.mobile} {
+    width: 1.5px;
+    height: 10px;
+  }
 `;
 
 export default RecruitDeveloper;

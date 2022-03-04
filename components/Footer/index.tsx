@@ -18,9 +18,8 @@ function Footer(): ReactElement {
           </YappInfo>
           <InfoText>
             <TextPoint>Y</TextPoint>our own idea can change the{' '}
-            <TextPoint>A</TextPoint>ctual world at
-            <br /> anytime with <TextPoint>P</TextPoint>assion and{' '}
-            <TextPoint>P</TextPoint>otential.
+            <TextPoint>A</TextPoint>ctual world at anytime <br /> with{' '}
+            <TextPoint>P</TextPoint>assion and <TextPoint>P</TextPoint>otential.
           </InfoText>
           <YappSocialButtonGroup>
             <Facebook_13 />
@@ -52,7 +51,7 @@ const FooterInner = styled.div`
     padding: 48px 81px 40px;
   }
   ${media.mobile} {
-    padding: 48px 36px 50px;
+    padding: 48px 30px 50px 36px;
     min-width: auto;
   }
 `;
@@ -71,6 +70,12 @@ const YappInfo = styled.div`
 const InfoText = styled.div`
   ${({ theme }) => theme.textStyle.web.Footer_Text};
   margin-bottom: 60px;
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyle.mobile.Body_3};
+    br {
+      display: none;
+    }
+  }
 `;
 
 const TextPoint = styled.span`
@@ -105,7 +110,7 @@ const Copyright = styled.div`
   background-color: ${({ theme }) => theme.palette.grey_1000};
   color: ${({ theme }) => theme.palette.grey_700};
   height: 49px;
-  ${({ theme }) => theme.textStyle.web.Copyright_Text}
+  ${({ theme }) => theme.textStyle.web.Caption}
   display: flex;
   align-items: center;
   justify-content: center;

@@ -242,7 +242,7 @@ const textStyle = {
       letter-spacing: ${letterSpacing.medium};
     `,
     Footer_Text: css`
-      font-size: ${fontSize.xxxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
       letter-spacing: ${letterSpacing.medium};

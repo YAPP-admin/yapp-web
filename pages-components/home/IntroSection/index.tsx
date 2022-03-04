@@ -35,13 +35,13 @@ function IntroSection(): ReactElement {
               viewBox="0 0 168 65"
               className="border"
             >
-              <rect x="-0.9" y="0" width="168" height="65" rx="32" ry="32" />
+              <rect x="-0.9" y="1" width="166" height="63" rx="32" ry="32" />
             </svg>
-            <span className="text-group">
-              <span className="main-text">
+            <span className="textgroup">
+              <span className="mainText">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
-              <span className="clone-text">
+              <span className="cloneText">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
             </span>
@@ -116,7 +116,7 @@ const ButtonBlock = styled.div`
     top: 0;
     border-radius: 20px;
     fill: none;
-    stroke: ${({ theme }) => theme.palette.white};
+    stroke: ${({ theme }) => theme.palette.orange_400};
     stroke-width: 2px;
     stroke-dasharray: 168 480;
     stroke-dashoffset: 168;
