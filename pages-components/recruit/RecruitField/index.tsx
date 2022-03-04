@@ -61,7 +61,7 @@ const RecruitFieldNameBox = styled(Box)`
     width: 484px;
   }
   ${media.mobile} {
-    width: 279px;
+    width: 285px;
     height: 43px;
   }
 `;
@@ -103,13 +103,13 @@ const RecruitFieldButton = styled.div<{ isActive: boolean }>`
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point2};
     &:nth-child(1) {
-      padding-left: 20px;
+      padding: 0 26px;
     }
     &:nth-child(2) {
-      padding: 0 50px;
+      padding: 0 21px;
     }
     &:nth-child(3) {
-      padding-right: 20px;
+      padding: 0 26px;
     }
   }
 `;
@@ -132,7 +132,7 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
         return css`
           left: 320px;
           ${media.mobile} {
-            left: 186px;
+            left: 190px;
           }
         `;
     }
@@ -143,7 +143,7 @@ const ButtonBackground = styled.div<{ field: FieldNameTypes }>`
     width: 164px;
   }
   ${media.mobile} {
-    width: 82px;
+    width: 95px;
     height: 43px;
   }
   position: absolute;
