@@ -2,6 +2,7 @@ import { Box } from 'components';
 import { IllustContact } from 'public/assets/images';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+import media from 'styles/media';
 import {
   ContactFacebookIcon,
   ContactInstagramIcon,
@@ -70,12 +71,20 @@ const ContactListContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  ${media.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const ContactItem = styled(Box)`
   position: relative;
   display: flex;
   flex-direction: column;
+  ${media.tablet} {
+    margin-bottom: 32px;
+    width: auto;
+    height: 125px;
+  }
 `;
 
 const ItemInner = styled.div`
@@ -85,6 +94,11 @@ const ItemInner = styled.div`
   border-radius: 20px 20px 0 0;
   display: flex;
   flex-direction: column;
+  ${media.tablet} {
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 40px 42px 40px;
+  }
 `;
 
 const ContactTitle = styled.div`
@@ -118,6 +132,9 @@ const ContactContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${media.tablet} {
+    justify-content: flex-end;
+  }
 `;
 
 const ContactButton = styled.div<SocialTypes>`
@@ -151,12 +168,18 @@ const ContactButton = styled.div<SocialTypes>`
         return '';
     }
   }}
+  ${media.tablet} {
+    display: none;
+  }
 `;
 
 const IllustImage = styled.img`
   position: absolute;
   right: 2px;
   top: -97px;
+  ${media.tablet} {
+    display: none;
+  }
 `;
 
 export default ContactList;

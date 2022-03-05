@@ -20,6 +20,7 @@ const ContactLayoutContainer = styled.div`
   ${media.tablet} {
     width: auto;
     padding: 174px 80px 164px;
+    margin: inherit;
   }
   ${media.mobile} {
     padding: 80px 20px 100px;
