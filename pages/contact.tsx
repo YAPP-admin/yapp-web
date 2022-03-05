@@ -1,11 +1,15 @@
-import ContactLayout from 'pages-components/contact/ContactLayout';
-import ContactTitle from 'pages-components/contact/ContactTitle';
+import {
+  ContactLayout,
+  ContactList,
+  ContactTitle,
+} from 'pages-components/contact';
 import React, { ReactElement } from 'react';
 
 function ContactPage(): ReactElement {
   return (
     <ContactLayout>
       <ContactTitle />
+      <ContactList />
     </ContactLayout>
   );
 }
