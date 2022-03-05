@@ -6,6 +6,8 @@ const Yapp = {
   YAPP_OFFICIAL_FACEBOOK: '@YAPP' as const,
   YAPP_OFFICIAL_INSTAGRAM: 'about.yapp' as const,
   YAPP_FACEBOOK: 'https://ko-kr.facebook.com/yapp.co.kr/' as const,
+  YAPP_INSTAGRAM: 'https://www.instagram.com/about.yapp/' as const,
+  YAPP_KAKAO: 'http://pf.kakao.com/_aGxofd' as const,
 };
 
 export default Yapp;

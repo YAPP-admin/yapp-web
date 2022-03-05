@@ -1,5 +1,6 @@
 import { Box } from 'components';
 import { CONTACT_LIST } from 'database/contact';
+import Link from 'next/link';
 import { IllustContact } from 'public/assets/images';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -13,7 +14,7 @@ export interface SocialTypes {
 function ContactList(): ReactElement {
   return (
     <ContactListContainer>
-      {CONTACT_LIST.map(({ title, buttonText, content, social }) => (
+      {CONTACT_LIST.map(({ title, buttonText, content, social, link }) => (
         <ContactItem
           width={278}
           height={243}
@@ -23,14 +24,21 @@ function ContactList(): ReactElement {
           {social === 'instagram' && (
             <IllustImage src={IllustContact} alt="문의 일러스트" />
           )}
-          <ItemInner>
+          <ItemInner target="_blank" href={link} rel="noreferrer">
             <ContactTitle>
               <ContactSocialIcon social={social} />
               <TitleText social={social}>{title}</TitleText>
             </ContactTitle>
             <ContactContent>{content}</ContactContent>
           </ItemInner>
-          <ContactButton social={social}>{buttonText}</ContactButton>
+          <ContactButton
+            target="_blank"
+            href={link}
+            rel="noreferrer"
+            social={social}
+          >
+            {buttonText}
+          </ContactButton>
         </ContactItem>
       ))}
     </ContactListContainer>
@@ -64,7 +72,7 @@ const ContactItem = styled(Box)`
   }
 `;
 
-const ItemInner = styled.div`
+const ItemInner = styled.a`
   flex: 1 0 auto;
   padding: 28px;
   padding-bottom: 0;
@@ -132,7 +140,7 @@ const ContactContent = styled.div`
   }
 `;
 
-const ContactButton = styled.div<SocialTypes>`
+const ContactButton = styled.a<SocialTypes>`
   cursor: pointer;
   border-radius: 0 0 20px 20px;
   height: 65px;
