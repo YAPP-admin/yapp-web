@@ -1,4 +1,5 @@
 import { Box } from 'components';
+import { CONTACT_LIST } from 'database/contact';
 import { IllustContact } from 'public/assets/images';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -12,52 +13,26 @@ export interface SocialTypes {
 function ContactList(): ReactElement {
   return (
     <ContactListContainer>
-      <ContactItem width={278} height={243} backgroundColor="grey_50">
-        <ItemInner>
-          <ContactTitle>
-            <ContactSocialIcon social="mail" />
-            <TitleText social="mail">메일</TitleText>
-          </ContactTitle>
-          <ContactContent>support@yapp.co.kr</ContactContent>
-        </ItemInner>
-        <ContactButton social="mail">메일로 문의하기</ContactButton>
-      </ContactItem>
-
-      <ContactItem width={278} height={243} backgroundColor="grey_50">
-        <ItemInner>
-          <ContactTitle>
-            <ContactSocialIcon social="kakao" />
-            <TitleText social="kakao">카카오톡</TitleText>
-          </ContactTitle>
-          <ContactContent>@YAPP</ContactContent>
-        </ItemInner>
-        <ContactButton social="kakao">카카오톡으로 문의하기</ContactButton>
-      </ContactItem>
-
-      <ContactItem width={278} height={243} backgroundColor="grey_50">
-        <ItemInner>
-          <ContactTitle>
-            <ContactSocialIcon social="facebook" />
-            <TitleText social="facebook">페이스북</TitleText>
-          </ContactTitle>
-          <ContactContent>@YAPP</ContactContent>
-        </ItemInner>
-        <ContactButton social="facebook">
-          페이스북 페이지로 이동하기
-        </ContactButton>
-      </ContactItem>
-
-      <ContactItem width={278} height={243} backgroundColor="grey_50">
-        <IllustImage src={IllustContact} alt="문의 일러스트" />
-        <ItemInner>
-          <ContactTitle>
-            <ContactSocialIcon social="instagram" />
-            <TitleText social="instagram">인스타그램</TitleText>
-          </ContactTitle>
-          <ContactContent>about.yapp</ContactContent>
-        </ItemInner>
-        <ContactButton social="instagram">인스타그램 방문하기</ContactButton>
-      </ContactItem>
+      {CONTACT_LIST.map(({ title, buttonText, content, social }) => (
+        <ContactItem
+          width={278}
+          height={243}
+          backgroundColor="grey_50"
+          key={social}
+        >
+          {social === 'instagram' && (
+            <IllustImage src={IllustContact} alt="문의 일러스트" />
+          )}
+          <ItemInner>
+            <ContactTitle>
+              <ContactSocialIcon social={social} />
+              <TitleText social={social}>{title}</TitleText>
+            </ContactTitle>
+            <ContactContent>{content}</ContactContent>
+          </ItemInner>
+          <ContactButton social={social}>{buttonText}</ContactButton>
+        </ContactItem>
+      ))}
     </ContactListContainer>
   );
 }
