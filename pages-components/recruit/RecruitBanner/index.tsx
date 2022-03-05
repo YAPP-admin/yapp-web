@@ -1,5 +1,6 @@
 import { Button } from 'components';
 import Breakpoints from 'constants/breakpoints';
+import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
@@ -19,7 +20,7 @@ function RecruitBanner(): ReactElement {
       <BannerInner>
         <BannerTitle dangerouslySetInnerHTML={{ __html: title }} />
         <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
-        <ButtonBlock>
+        <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer">
           <RecruitButton
             width={168}
             height={65}
@@ -100,7 +101,7 @@ const BannerDescription = styled.div`
   }
 `;
 
-const ButtonBlock = styled.div`
+const ButtonBlock = styled.a`
   display: block;
   ${media.mobile} {
     display: flex;
