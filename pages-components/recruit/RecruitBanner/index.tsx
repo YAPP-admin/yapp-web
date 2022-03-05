@@ -1,6 +1,7 @@
 import { Button } from 'components';
 import DOMPurify from 'isomorphic-dompurify';
 import Breakpoints from 'constants/breakpoints';
+import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
@@ -24,7 +25,7 @@ function RecruitBanner(): ReactElement {
         <BannerDescription
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
         />
-        <ButtonBlock>
+        <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer">
           <RecruitButton
             width={168}
             height={65}
@@ -66,17 +67,17 @@ const BannerInner = styled.div`
   }
   ${media.tablet} {
     width: auto;
-    padding: 164px 81px 100px;
+    padding: 164px 80px 100px;
   }
   ${media.mobile} {
-    padding: 80px 21px 64px 21px;
+    padding: 80px 20px 64px 20px;
     margin-bottom: 56px;
     .desktop {
       display: none;
     }
   }
 
-  ${media.custom(400)} {
+  ${media.custom(420)} {
     .mobile {
       display: block;
     }
@@ -105,7 +106,7 @@ const BannerDescription = styled.div`
   }
 `;
 
-const ButtonBlock = styled.div`
+const ButtonBlock = styled.a`
   display: block;
   ${media.mobile} {
     display: flex;

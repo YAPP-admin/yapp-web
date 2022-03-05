@@ -39,7 +39,6 @@ function Box({
 }
 
 const StyledBox = styled.div<IBoxStyle>`
-  padding: 10px;
   width: ${({ isFullWidth, width }) => (isFullWidth ? '100%' : `${width}px`)};
   height: ${({ height }) => height}px;
   border-radius: ${({ borderRadius }) => borderRadius}px;

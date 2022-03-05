@@ -46,6 +46,7 @@ const palette = {
   // Enterprise
   facebook: '#397DFF',
   kakao: '#FFD866',
+  instagram: '#E03AFF',
 } as const;
 
 const fontSize = {
@@ -189,7 +190,7 @@ const textStyle = {
     `,
     Title: css`
       font-size: ${fontSize.xxxxxLarge};
-      font-weight: ${fontWeight.semibold};
+      font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
     `,
@@ -276,6 +277,12 @@ const textStyle = {
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.xSmall};
+    `,
+    Body_Text: css`
+      font-size: ${fontSize.xxxSmall};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.medium};
+      letter-spacing: ${letterSpacing.medium};
     `,
   },
 } as const;

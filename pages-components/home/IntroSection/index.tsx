@@ -1,41 +1,18 @@
-import { useState } from 'react';
-import type { ReactElement, MouseEvent } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import type { ReactElement } from 'react';
+import styled, { keyframes } from 'styled-components';
 import Router from 'next/router';
+import { SectionTemplate } from 'pages-components/home';
 import { Button } from 'components';
 import media from 'styles/media';
 import Yapp from 'constants/yapp';
-import { useSpring, animated } from '@react-spring/web';
 import { slideIn, slideOut } from 'styles/utils-styles';
 
 function IntroSection(): ReactElement {
-  const [isHover, setIsHover] = useState(false);
-  const [move, setMove] = useState({ ix: 0, iy: 0 });
-
-  const handleEnter = () => setIsHover(!isHover);
-
-  const handleMove = (e: MouseEvent<HTMLDivElement>) => {
-    setMove({
-      ix: (window.innerWidth - e.pageX * 2) / 25,
-      iy: (window.innerHeight - e.pageY * 2) / 25,
-    });
-  };
-
-  const styles = useSpring({
-    config: { duration: 3000 },
-    to: isHover && {
-      transform: `scale(1.1) translateX(${move.ix}px) translateY(${move.iy}px)`,
-    },
-  });
-
   return (
-    <IntroSectionContainer
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleEnter}
-      onMouseMove={handleMove}
-    >
+    <IntroSectionContainer>
       <Dimension />
-      <animated.div className="background" style={styles} />
+      <Background className="background" />
       <ContentWrapper>
         <TitleContainer>
           <span className="main-text">
@@ -60,11 +37,11 @@ function IntroSection(): ReactElement {
             >
               <rect x="-0.9" y="1" width="166" height="63" rx="32" ry="32" />
             </svg>
-            <span className="text-group">
-              <span className="main-text">
+            <span className="textgroup">
+              <span className="mainText">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
-              <span className="clone-text">
+              <span className="cloneText">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
             </span>
@@ -75,27 +52,28 @@ function IntroSection(): ReactElement {
   );
 }
 
-const IntroSectionContainer = styled.div`
+const IntroSectionContainer = styled(SectionTemplate)`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 70px);
+  height: 100vh;
   overflow: hidden;
 
-  .background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('/assets/images/main.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
-    transition: all 1s;
+  :hover {
+    > .background {
+      transform: scale(1.15);
+    }
   }
+`;
+
+const Background = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/main.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  transition: all 1.5s;
 `;
 
 const Dimension = styled.span`
@@ -155,18 +133,11 @@ const RecruitButton = styled(Button)`
   transition: 1s ease-in-out;
   color: ${({ theme }) => theme.palette.white};
 
-  ${({ theme }) => theme.textStyle.web.Button_Point};
-  ${media.mobile} {
-    width: 148px;
-    height: 56px;
-    ${({ theme }) => theme.textStyle.mobile.Button_Point}
-  }
-
-  .text-group {
+  .textgroup {
     position: relative;
   }
 
-  .clone-text {
+  .cloneText {
     position: absolute;
     top: 0;
     left: 0;
@@ -182,10 +153,10 @@ const RecruitButton = styled(Button)`
     svg {
       stroke-dashoffset: -480;
     }
-    .main-text {
+    .mainText {
       animation: ${slideOut} 0.533s cubic-bezier(0.33, 0, 0.67, 1) forwards;
     }
-    .clone-text {
+    .cloneText {
       animation: ${slideIn} 0.567s cubic-bezier(0.22, 1, 0.36, 1) 0.367s
         forwards;
     }
@@ -194,6 +165,11 @@ const RecruitButton = styled(Button)`
         display: none;
       }
     }
+  }
+
+  ${media.mobile} {
+    width: 112px;
+    height: 56px;
   }
 `;
 

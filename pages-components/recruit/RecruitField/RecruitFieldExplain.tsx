@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { FieldNameTypes } from '.';
 import Breakpoints from 'constants/breakpoints';
 import media from 'styles/media';
+import getRecruitLink from 'utils/getRecruitLink';
 
 interface RecruitFieldExplainProps {
   fieldName: FieldNameTypes;
@@ -57,7 +58,11 @@ function RecruitFieldExplain({
         </FieldBoxInner>
       </FieldBox>
 
-      <ButtonBlock>
+      <ButtonBlock
+        target="_blank"
+        href={getRecruitLink(fieldName)}
+        rel="noreferrer"
+      >
         <ApplyButton
           width={176}
           height={65}
@@ -132,7 +137,7 @@ const ContentStyled = styled.span`
   }
 `;
 
-const ButtonBlock = styled.div`
+const ButtonBlock = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
