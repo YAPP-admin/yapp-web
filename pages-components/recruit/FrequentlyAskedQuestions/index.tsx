@@ -1,6 +1,6 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
-import { ArrowDown } from 'public/assets/icons';
+import DOMPurify from 'isomorphic-dompurify';
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -38,7 +38,9 @@ function FrequentlyAskedQuestions(): ReactElement {
               </FAQSubTitle>
               {isOpen && (
                 <FQASubContent
-                  dangerouslySetInnerHTML={{ __html: description }}
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(description),
+                  }}
                 />
               )}
             </FAQBoxInner>

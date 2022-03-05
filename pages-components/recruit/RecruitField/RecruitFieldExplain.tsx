@@ -1,5 +1,6 @@
 import { Box, Button } from 'components';
 import React, { ReactElement } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 import styled from 'styled-components';
 import { FieldNameTypes } from '.';
 import Breakpoints from 'constants/breakpoints';
@@ -27,7 +28,9 @@ function RecruitFieldExplain({
             다음과 같은
             <br /> 활동을 합니다🙌
           </SubTitleStyled>
-          <ContentStyled dangerouslySetInnerHTML={{ __html: content1 }} />
+          <ContentStyled
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content1) }}
+          />
         </FieldBoxInner>
       </FieldBox>
 
@@ -36,7 +39,9 @@ function RecruitFieldExplain({
           <SubTitleStyled>
             이런 {fieldName}를<br /> 찾습니다🔎
           </SubTitleStyled>
-          <ContentStyled dangerouslySetInnerHTML={{ __html: content2 }} />
+          <ContentStyled
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content2) }}
+          />
         </FieldBoxInner>
       </FieldBox>
 
@@ -46,7 +51,9 @@ function RecruitFieldExplain({
             이런 경험이 있으면
             <br /> 더 좋습니다😊
           </SubTitleStyled>
-          <ContentStyled dangerouslySetInnerHTML={{ __html: content3 }} />
+          <ContentStyled
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content3) }}
+          />
         </FieldBoxInner>
       </FieldBox>
 

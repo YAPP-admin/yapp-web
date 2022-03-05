@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import Button from 'components/Button';
 import { Mail, Facebook, Plus, Kakao } from 'public/assets/icons';
 import media from 'styles/media';
+import Yapp from 'constants/yapp';
 
 function FloatingButton(): ReactElement {
   const [visible, setVisible] = useState(false);
@@ -24,36 +25,50 @@ function FloatingButton(): ReactElement {
       </TriggerButton>
       <FixedFloatingContainer visible={visible}>
         <AnimatedFloatingContainer visible={visible}>
-          <Button
-            width={56}
-            height={56}
-            borderRadius={28}
-            buttonColor="orange_400"
-            className="floating-button mail"
+          <ButtonLinked
+            href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
+            rel="noreferrer"
           >
-            <Mail />
-            <span className="text mail">이메일 문의</span>
-          </Button>
-          <Button
-            width={56}
-            height={56}
-            borderRadius={28}
-            buttonColor="facebook"
-            className="floating-button facebook"
+            <Button
+              width={56}
+              height={56}
+              borderRadius={28}
+              buttonColor="orange_400"
+              className="floating-button mail"
+            >
+              <Mail />
+              <span className="text mail">이메일 문의</span>
+            </Button>
+          </ButtonLinked>
+          <ButtonLinked
+            target="_blank"
+            href={Yapp.YAPP_FACEBOOK}
+            rel="noreferrer"
           >
-            <Facebook />
-            <span className="text facebook">페이스북 문의</span>
-          </Button>
-          <Button
-            width={56}
-            height={56}
-            borderRadius={28}
-            buttonColor="kakao"
-            className="floating-button kakao"
-          >
-            <Kakao />
-            <span className="text kakao">카카오톡 문의</span>
-          </Button>
+            <Button
+              width={56}
+              height={56}
+              borderRadius={28}
+              buttonColor="facebook"
+              className="floating-button facebook"
+              onClick={() => window.open(Yapp.YAPP_FACEBOOK, '_blank')}
+            >
+              <Facebook />
+              <span className="text facebook">페이스북 문의</span>
+            </Button>
+          </ButtonLinked>
+          <ButtonLinked target="_blank" href={Yapp.YAPP_KAKAO} rel="noreferrer">
+            <Button
+              width={56}
+              height={56}
+              borderRadius={28}
+              buttonColor="kakao"
+              className="floating-button kakao"
+            >
+              <Kakao />
+              <span className="text kakao">카카오톡 문의</span>
+            </Button>
+          </ButtonLinked>
         </AnimatedFloatingContainer>
       </FixedFloatingContainer>
     </>
@@ -172,6 +187,10 @@ const AnimatedFloatingContainer = styled.div<{ visible: boolean }>`
       }
     }
   }
+`;
+
+const ButtonLinked = styled.a`
+  text-decoration: none;
 `;
 
 export default FloatingButton;

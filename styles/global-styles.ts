@@ -27,7 +27,6 @@ const GlobalStyle = createGlobalStyle`
   button {
     all: unset;
     cursor: pointer;
-    -webkit-tap-highlight-color : transparent !important;
   }
 
   ul {

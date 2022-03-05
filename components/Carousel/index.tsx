@@ -9,8 +9,14 @@ import 'slick-carousel/slick/slick-theme.css';
 import Breakpoints from 'constants/breakpoints';
 import { ArrowRight, ArrowLeft } from 'public/assets/icons';
 
+type CarouselDataType = {
+  title: string;
+  link: string;
+  image: string;
+};
+
 export interface CarouselProps {
-  data: any; // 데이터 확정 전, any 타입
+  data: CarouselDataType[];
 }
 
 function Carousel({ data }: CarouselProps) {
@@ -31,7 +37,7 @@ function Carousel({ data }: CarouselProps) {
       // 반응형, 현재는 임시 구현
       responsive: [
         {
-          breakpoint: 400,
+          breakpoint: Breakpoints.small,
           settings: {
             centerPadding: '0',
           },

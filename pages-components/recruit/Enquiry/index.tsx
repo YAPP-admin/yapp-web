@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 import { Button } from 'components';
 import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_ENQUIRY } from 'database/recruit';
@@ -12,10 +13,12 @@ function Enquiry(): ReactElement {
     <EnquiryBlock>
       <EnquiryInner>
         <EnquiryTitle
-          dangerouslySetInnerHTML={{ __html: title }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
           className="enquiryTitle"
         />
-        <EnquiryContent dangerouslySetInnerHTML={{ __html: description }} />
+        <EnquiryContent
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+        />
         <EnquiryButton
           width={148}
           height={65}

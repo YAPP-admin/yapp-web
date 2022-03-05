@@ -9,7 +9,7 @@ import Yapp from 'constants/yapp';
 function MainContainer(): ReactElement {
   return (
     <SocialContainer>
-      <SectionTitle>YAPP의 소식</SectionTitle>
+      <SectionTitle>따끈한 최신 소식</SectionTitle>
       <CardContainer>
         {NEWS_DATA.map((data, index) => {
           return <NewsCard key={index} data={data} />;
