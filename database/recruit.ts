@@ -190,8 +190,7 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   2. 모르는 부분이 생기면 주저않고 질문이 가능하신 분<br />
   3. 끈기있게 프로젝트를 진행해주실 분<br />`,
   content3: `1. 디자이너, 백엔드 개발자와의 소통 경험<br />
-  2. 안드로이드 스튜디오, flutter, react native 중 하나 이상 다뤄본 경험<br />
-  3. GitHub를 사용한 협업 프로젝트 경험`,
+  2. GitHub를 사용한 협업 프로젝트 경험`,
 };
 
 /* Front_End */
