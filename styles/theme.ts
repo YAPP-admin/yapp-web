@@ -188,7 +188,7 @@ const textStyle = {
     `,
     Title: css`
       font-size: ${fontSize.xxxxxLarge};
-      font-weight: ${fontWeight.semibold};
+      font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
     `,
