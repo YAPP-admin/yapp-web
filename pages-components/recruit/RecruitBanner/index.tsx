@@ -61,17 +61,17 @@ const BannerInner = styled.div`
   }
   ${media.tablet} {
     width: auto;
-    padding: 164px 81px 100px;
+    padding: 164px 80px 100px;
   }
   ${media.mobile} {
-    padding: 80px 21px 64px 21px;
+    padding: 80px 20px 64px 20px;
     margin-bottom: 56px;
     .desktop {
       display: none;
     }
   }
 
-  ${media.custom(400)} {
+  ${media.custom(420)} {
     .mobile {
       display: block;
     }
