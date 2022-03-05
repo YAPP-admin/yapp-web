@@ -37,9 +37,6 @@ module.exports = {
     config.resolve.alias['next/link'] = require.resolve(
       '../__mocks__/next/link.js',
     );
-    config.resolve.alias['next/image'] = require.resolve(
-      '../__mocks__/next/image.js',
-    );
 
     // svg 이용
     const rules = config.module.rules;

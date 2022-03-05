@@ -9,9 +9,11 @@ import media from 'styles/media';
 import useToggle from 'hooks/useToggle';
 import HamburgerMenu from 'components/HamburgerMenu';
 import useWindowDimensions from 'hooks/useWindowDimensions';
+import Path from 'constants/path';
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
+  const router = useRouter();
   const [isOpenMenu, handleOpenMenu, setOpenMenu] = useToggle(false);
   const { windowWidth } = useWindowDimensions();
 
@@ -37,7 +39,7 @@ function Header(): ReactElement {
     <>
       <HeaderBlock ref={ref}>
         <HeaderInner>
-          <YappLogo />
+          <Logo onClick={() => router.push(Path.Home)} />
           <HeaderMenu>
             {HEADER_MENUS.map(({ name, path }) => (
               <Link key={`${name}_${path}`} href={path} scroll={false}>
@@ -64,7 +66,7 @@ const HeaderBlock = styled.header`
 
 const HeaderInner = styled.div`
   width: ${Breakpoints.large}px;
-  height: 80px;
+  height: 70px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -77,6 +79,12 @@ const HeaderInner = styled.div`
     padding: 0 20px;
     height: 64px;
   }
+`;
+
+const Logo = styled(YappLogo)`
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
 `;
 
 const HeaderMenu = styled.div`

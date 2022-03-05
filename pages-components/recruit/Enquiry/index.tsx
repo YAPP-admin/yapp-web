@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 import { Button } from 'components';
 import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_ENQUIRY } from 'database/recruit';
 import styled from 'styled-components';
 import media from 'styles/media';
+import Yapp from 'constants/yapp';
 
 function Enquiry(): ReactElement {
   const { title, description, buttonName } = RECRUIT_ENQUIRY;
@@ -12,19 +14,21 @@ function Enquiry(): ReactElement {
     <EnquiryBlock>
       <EnquiryInner>
         <EnquiryTitle
-          dangerouslySetInnerHTML={{ __html: title }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
           className="enquiryTitle"
         />
         <EnquiryContent dangerouslySetInnerHTML={{ __html: description }} />
-        <EnquiryButton
-          width={177}
-          height={78}
-          buttonColor="yellow_400"
-          borderColor="white"
-          fontColor="black"
-        >
-          {buttonName}
-        </EnquiryButton>
+        <ButtonLinked target="_blank" href={Yapp.YAPP_KAKAO} rel="noreferrer">
+          <EnquiryButton
+            width={148}
+            height={65}
+            buttonColor="yellow_400"
+            borderColor="white"
+            fontColor="black"
+          >
+            {buttonName}
+          </EnquiryButton>
+        </ButtonLinked>
       </EnquiryInner>
     </EnquiryBlock>
   );
@@ -80,9 +84,11 @@ const EnquiryContent = styled.div`
   }
 `;
 
+const ButtonLinked = styled.a``;
+
 const EnquiryButton = styled(Button)`
   ${media.mobile} {
-    width: 148px;
+    width: 120px;
     height: 56px;
   }
 `;

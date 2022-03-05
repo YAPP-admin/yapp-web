@@ -6,6 +6,7 @@ import { SectionTitle } from 'pages-components/home';
 import SectionTemplate from '../SectionTemplate';
 import media from 'styles/media';
 import { SPONSOR_DATA } from 'database/home';
+import Yapp from 'constants/yapp';
 
 function SponsorSection(): ReactElement {
   return (
@@ -21,14 +22,19 @@ function SponsorSection(): ReactElement {
           </Sponsor>
         ))}
       </SponsorList>
-      <Button
-        width={180}
-        height={78}
-        fontColor="white"
-        buttonColor="orange_400"
+      <ButtonLinked
+        href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
+        rel="noreferrer"
       >
-        후원 문의
-      </Button>
+        <StyledButton
+          width={148}
+          height={65}
+          fontColor="white"
+          buttonColor="orange_400"
+        >
+          후원 문의
+        </StyledButton>
+      </ButtonLinked>
     </SponsorSectionContainer>
   );
 }
@@ -68,6 +74,22 @@ const Sponsor = styled.li`
   display: inline-block;
   width: 280px;
   height: 80px;
+`;
+
+const StyledButton = styled(Button)`
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.grey_800};
+  }
+
+  ${media.mobile} {
+    width: 104px;
+    height: 52px;
+  }
+`;
+
+const ButtonLinked = styled.a`
+  text-decoration: none;
 `;
 
 export default SponsorSection;

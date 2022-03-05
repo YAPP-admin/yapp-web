@@ -1,5 +1,7 @@
 import { Button } from 'components';
+import DOMPurify from 'isomorphic-dompurify';
 import Breakpoints from 'constants/breakpoints';
+import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
@@ -17,23 +19,27 @@ function RecruitBanner(): ReactElement {
   return (
     <RecruitBannerContainer>
       <BannerInner>
-        <BannerTitle dangerouslySetInnerHTML={{ __html: title }} />
-        <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
-        <ButtonBlock>
+        <BannerTitle
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
+        />
+        <BannerDescription
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+        />
+        <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer">
           <RecruitButton
-            width={174}
-            height={78}
+            width={168}
+            height={65}
             fontColor="black"
             buttonColor="grey_850"
             borderColor="lightGrey"
           >
             <svg
-              width="174px"
-              height="78px"
-              viewBox="0 0 170 78"
+              width="172px"
+              height="65px"
+              viewBox="0 0 168 65"
               className="border"
             >
-              <rect x="-0.9" y="0" width="172" height="78" rx="36" ry="36" />
+              <rect x="-0.9" y="1" width="167" height="63" rx="32" ry="32" />
             </svg>
 
             <span className="textgroup">
@@ -61,17 +67,17 @@ const BannerInner = styled.div`
   }
   ${media.tablet} {
     width: auto;
-    padding: 164px 81px 100px;
+    padding: 164px 80px 100px;
   }
   ${media.mobile} {
-    padding: 80px 21px 64px 21px;
+    padding: 80px 20px 64px 20px;
     margin-bottom: 56px;
     .desktop {
       display: none;
     }
   }
 
-  ${media.custom(400)} {
+  ${media.custom(420)} {
     .mobile {
       display: block;
     }
@@ -100,7 +106,7 @@ const BannerDescription = styled.div`
   }
 `;
 
-const ButtonBlock = styled.div`
+const ButtonBlock = styled.a`
   display: block;
   ${media.mobile} {
     display: flex;
@@ -112,10 +118,10 @@ const ButtonBlock = styled.div`
     top: 0;
     border-radius: 20px;
     fill: none;
-    stroke: #fff;
+    stroke: ${({ theme }) => theme.palette.orange_400};
     stroke-width: 2px;
-    stroke-dasharray: 174 480;
-    stroke-dashoffset: 174;
+    stroke-dasharray: 168 480;
+    stroke-dashoffset: 168;
     transition: 1s ease-in-out;
   }
 `;

@@ -1,9 +1,11 @@
 import { Box, Button } from 'components';
 import React, { ReactElement } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 import styled from 'styled-components';
 import { FieldNameTypes } from '.';
 import Breakpoints from 'constants/breakpoints';
 import media from 'styles/media';
+import getRecruitLink from 'utils/getRecruitLink';
 
 interface RecruitFieldExplainProps {
   fieldName: FieldNameTypes;
@@ -27,7 +29,9 @@ function RecruitFieldExplain({
             다음과 같은
             <br /> 활동을 합니다🙌
           </SubTitleStyled>
-          <ContentStyled dangerouslySetInnerHTML={{ __html: content1 }} />
+          <ContentStyled
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content1) }}
+          />
         </FieldBoxInner>
       </FieldBox>
 
@@ -36,7 +40,9 @@ function RecruitFieldExplain({
           <SubTitleStyled>
             이런 {fieldName}를<br /> 찾습니다🔎
           </SubTitleStyled>
-          <ContentStyled dangerouslySetInnerHTML={{ __html: content2 }} />
+          <ContentStyled
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content2) }}
+          />
         </FieldBoxInner>
       </FieldBox>
 
@@ -46,14 +52,20 @@ function RecruitFieldExplain({
             이런 경험이 있으면
             <br /> 더 좋습니다😊
           </SubTitleStyled>
-          <ContentStyled dangerouslySetInnerHTML={{ __html: content3 }} />
+          <ContentStyled
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content3) }}
+          />
         </FieldBoxInner>
       </FieldBox>
 
-      <ButtonBlock>
+      <ButtonBlock
+        target="_blank"
+        href={getRecruitLink(fieldName)}
+        rel="noreferrer"
+      >
         <ApplyButton
-          width={252}
-          height={78}
+          width={176}
+          height={65}
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
@@ -99,9 +111,17 @@ const FieldBoxInner = styled.div`
 
 const SubTitleStyled = styled.span`
   ${({ theme }) => theme.textStyle.web.Subtitle}
+  color: ${({ theme }) => theme.palette.grey_1000};
   width: 371px;
+  br {
+    display: none;
+  }
+
   ${media.tablet} {
     width: 271px;
+    br {
+      display: block;
+    }
   }
   ${media.mobile} {
     margin-bottom: 8px;
@@ -111,12 +131,13 @@ const SubTitleStyled = styled.span`
 
 const ContentStyled = styled.span`
   ${({ theme }) => theme.textStyle.web.Body_1}
+  color: ${({ theme }) => theme.palette.grey_850};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1}
   }
 `;
 
-const ButtonBlock = styled.div`
+const ButtonBlock = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;

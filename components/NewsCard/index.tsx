@@ -1,11 +1,16 @@
 import React from 'react';
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
+import DOMPurify from 'isomorphic-dompurify';
 import Image from 'next/image';
 import media from 'styles/media';
 
 interface NewsCardProps {
-  data: any; // 임시
+  data: {
+    image: string;
+    link: string;
+    content: string;
+  };
   className?: string;
 }
 
@@ -23,7 +28,11 @@ function NewsCard({ data, className }: NewsCardProps): ReactElement {
           <Image src={image} layout="fill" />
         </div>
       </ImageWrapper>
-      <ContentWrapper>{content}</ContentWrapper>
+      <ContentWrapper
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(content),
+        }}
+      />
     </StyledNewsCard>
   );
 }
@@ -32,13 +41,17 @@ const StyledNewsCard = styled.div`
   display: inline-block;
   width: 380px;
   height: 515px;
-  border: ${({ theme }) => theme.palette.grey_200} solid 1px;
   border-radius: 25px;
   background-color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
   margin: 15px;
 
+  transition: filter 1s;
   :hover {
+    filter: drop-shadow(
+      0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
+    );
+
     .image-scale-wrapper {
       transform: scale(1.1);
     }
@@ -67,13 +80,18 @@ const ImageWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  height: 88px;
-  padding: 24px;
+  height: 60px;
+  padding: 25px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   text-overflow: ellipsis;
 
   ${({ theme }) => theme.textStyle.web.NewsCard_Text};
   ${media.mobile} {
-    height: 72px;
+    height: 50px;
     padding: 22px;
     ${({ theme }) => theme.textStyle.mobile.NewsCard_Text};
   }

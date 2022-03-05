@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 62.5%; // 1rem === 10px
     font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    -webkit-tap-highlight-color: transparent; // @Note 모바일에서 클릭했을 때 파란 배경 없애 주는 코드
   }
 
   html,
@@ -26,12 +27,14 @@ const GlobalStyle = createGlobalStyle`
   button {
     all: unset;
     cursor: pointer;
-    -webkit-tap-highlight-color : transparent !important;
   }
 
   ul {
     list-style: none;
     padding: 0;
+  }
+  a {
+    text-decoration: none ;
   }
 `;
 

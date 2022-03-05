@@ -1,23 +1,33 @@
+import { useEffect, useRef } from 'react';
 import type { ReactElement } from 'react';
+import lottie from 'lottie-web';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate } from 'pages-components/home';
 
 function AnimatedTextSection(): ReactElement {
+  const animatedTextRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: animatedTextRef.current as HTMLDivElement,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: require('public/assets/lottie/motion.json'),
+    });
+  }, []);
+
   return (
     <AnimatedTextSectionContainer>
-      <span className="intro-text">YOUR -</span>
-      <div className="animate-box">
-        <span className="intro-text">ACTION</span>
-        <div className="block-box"></div>
-      </div>
+      <div ref={animatedTextRef} />
     </AnimatedTextSectionContainer>
   );
 }
 
 const AnimatedTextSectionContainer = styled(SectionTemplate)`
   height: 100vh;
-  border: 1px solid black;
+
   ${({ theme }) => theme.textStyle.web.Body_Point}
   ${media.mobile} {
     .intro-text {

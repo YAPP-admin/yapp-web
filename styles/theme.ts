@@ -46,9 +46,11 @@ const palette = {
   // Enterprise
   facebook: '#397DFF',
   kakao: '#FFD866',
-};
+  instagram: '#E03AFF',
+} as const;
 
 const fontSize = {
+  xxxxxxxSmall: '1.2rem',
   xxxxxxSmall: '1.4rem',
   xxxxxSmall: '1.5rem',
   xxxxSmall: '1.6rem',
@@ -66,14 +68,15 @@ const fontSize = {
   xxxxxxLarge: '4.2rem',
   xxxxxxxLarge: '4.8rem',
   xxxxxxxxLarge: '6.0rem',
-};
+} as const;
 
 const fontWeight = {
   regular: 400,
   medium: 500,
   semibold: 600,
   bold: 700,
-};
+  extraBold: 800,
+} as const;
 
 const lineHeight = {
   xSmall: '120%',
@@ -81,7 +84,7 @@ const lineHeight = {
   medium: '140%',
   large: '150%',
   xLarge: '160%',
-};
+} as const;
 
 const letterSpacing = {
   xSmall: '-0.02em',
@@ -89,7 +92,7 @@ const letterSpacing = {
   medium: '0',
   large: '0.01em',
   xLarge: '0.02em',
-};
+} as const;
 
 const textStyle = {
   mobile: {
@@ -187,7 +190,7 @@ const textStyle = {
     `,
     Title: css`
       font-size: ${fontSize.xxxxxLarge};
-      font-weight: ${fontWeight.semibold};
+      font-weight: ${fontWeight.bold};
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
     `,
@@ -227,6 +230,12 @@ const textStyle = {
       line-height: ${lineHeight.medium};
       letter-spacing: ${letterSpacing.medium};
     `,
+    Body_3: css`
+      font-size: ${fontSize.xxxxxxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.xSmall};
+    `,
     Footer_Logo: css`
       font-size: ${fontSize.xxxLarge};
       font-weight: ${fontWeight.bold};
@@ -234,7 +243,7 @@ const textStyle = {
       letter-spacing: ${letterSpacing.medium};
     `,
     Footer_Text: css`
-      font-size: ${fontSize.xxxSmall};
+      font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.regular};
       line-height: ${lineHeight.large};
       letter-spacing: ${letterSpacing.medium};
@@ -242,6 +251,12 @@ const textStyle = {
     Category: css`
       font-size: ${fontSize.xxxxSmall};
       font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.xLarge};
+    `,
+    Category_Point: css`
+      font-size: ${fontSize.xxxxSmall};
+      font-weight: ${fontWeight.extraBold};
       line-height: ${lineHeight.xSmall};
       letter-spacing: ${letterSpacing.xLarge};
     `,
@@ -257,8 +272,20 @@ const textStyle = {
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.xLarge};
     `,
+    Caption: css`
+      font-size: ${fontSize.xxxxxxxSmall};
+      font-weight: ${fontWeight.regular};
+      line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.xSmall};
+    `,
+    Body_Text: css`
+      font-size: ${fontSize.xxxSmall};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.medium};
+      letter-spacing: ${letterSpacing.medium};
+    `,
   },
-};
+} as const;
 
 export type PaletteTypes = typeof palette;
 export type PaletteKeyTypes = keyof typeof palette;

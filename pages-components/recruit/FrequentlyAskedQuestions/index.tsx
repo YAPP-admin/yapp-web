@@ -1,8 +1,7 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
-import { ArrowDown } from 'public/assets/icons';
 import React, { ReactElement, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate, SectionTitle } from '..';
 
@@ -36,11 +35,12 @@ function FrequentlyAskedQuestions(): ReactElement {
                   <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
-              {isOpen && (
-                <FQASubContent
-                  dangerouslySetInnerHTML={{ __html: description }}
-                />
-              )}
+              {/* {isOpen && ( */}
+              <FQASubContent
+                dangerouslySetInnerHTML={{ __html: description }}
+                isOpen={isOpen}
+              />
+              {/* )} */}
             </FAQBoxInner>
           </FAQBox>
         ))}
@@ -94,7 +94,7 @@ const TitleText = styled.span`
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`
-  ${({ isOpen }) => (isOpen ? '' : `transform: rotate(180deg);`)}
+  ${({ isOpen }) => (isOpen ? `transform: rotate(180deg);` : '')}
   transition: all ease .5s;
   ${media.mobile} {
     margin-top: 8px;
@@ -102,10 +102,23 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
   }
 `;
 
-const FQASubContent = styled.div`
+const FQASubContent = styled.div<{ isOpen: boolean }>`
   ${({ theme }) => theme.textStyle.web.Body_1};
-  margin-top: 24px;
   width: 1056px;
+  overflow: hidden;
+  transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
+  ${({ isOpen }) =>
+    isOpen
+      ? css`
+          height: auto;
+          margin-top: 24px;
+          opacity: 1;
+          transform: translateY(0);
+        `
+      : css`
+          opacity: 0;
+          height: 0px;
+        `}
   b {
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }

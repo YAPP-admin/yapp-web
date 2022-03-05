@@ -2,6 +2,7 @@ import { Box } from 'components';
 import { RECRUIT_APPLY_WAY } from 'database/recruit';
 import useDragScroll from 'hooks/useDragScroll';
 import React, { ReactElement } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate, SectionTitle } from '..';
@@ -31,7 +32,11 @@ function ApplyWay(): ReactElement {
           >
             <WayInnerBox>
               <WaySubTitle>{subTitle}</WaySubTitle>
-              <WayContent dangerouslySetInnerHTML={{ __html: description }} />
+              <WayContent
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(description),
+                }}
+              />
             </WayInnerBox>
           </WayBox>
         ))}
