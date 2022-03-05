@@ -1,54 +1,46 @@
-import Breakpoints from 'constants/breakpoints';
-import useWindowDimensions from 'hooks/useWindowDimensions';
 import {
-  Facebook_14,
   Facebook_24,
-  Instagram_14,
   Instagram_24,
-  Kakao_14,
   Kakao_24,
-  Mail_14,
   Mail_24,
 } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
+import { SocialTypes } from '../ContactList';
 
-export function ContactMailIcon(): ReactElement {
-  const { windowWidth } = useWindowDimensions();
-  return (
-    <IconBoxStyled boxColor="orange_400">
-      {windowWidth > Breakpoints.medium ? <Mail_24 /> : <Mail_14 />}
-    </IconBoxStyled>
-  );
-}
+function ContactSocialIcon({ social }: SocialTypes): ReactElement {
+  const getIcon = (): ReactElement => {
+    switch (social) {
+      case 'mail':
+        return (
+          <IconBoxStyled boxColor="orange_400">
+            <IconStyled social={social} />
+          </IconBoxStyled>
+        );
+      case 'kakao':
+        return (
+          <IconBoxStyled boxColor="yellow_300">
+            <IconStyled social={social} />
+          </IconBoxStyled>
+        );
+      case 'facebook':
+        return (
+          <IconBoxStyled boxColor="facebook">
+            <IconStyled social={social} />
+          </IconBoxStyled>
+        );
+      case 'instagram':
+        return (
+          <IconBoxStyled boxColor="instagram">
+            <IconStyled social={social} />
+          </IconBoxStyled>
+        );
+    }
+  };
 
-export function ContactKakaoIcon(): ReactElement {
-  const { windowWidth } = useWindowDimensions();
-  return (
-    <IconBoxStyled boxColor="yellow_300">
-      {windowWidth > Breakpoints.medium ? <Kakao_24 /> : <Kakao_14 />}
-    </IconBoxStyled>
-  );
-}
-
-export function ContactFacebookIcon(): ReactElement {
-  const { windowWidth } = useWindowDimensions();
-  return (
-    <IconBoxStyled boxColor="facebook">
-      {windowWidth > Breakpoints.medium ? <Facebook_24 /> : <Facebook_14 />}
-    </IconBoxStyled>
-  );
-}
-
-export function ContactInstagramIcon(): ReactElement {
-  const { windowWidth } = useWindowDimensions();
-  return (
-    <IconBoxStyled boxColor="instagram">
-      {windowWidth > Breakpoints.medium ? <Instagram_24 /> : <Instagram_14 />}
-    </IconBoxStyled>
-  );
+  return <>{getIcon()}</>;
 }
 
 const IconBoxStyled = styled.div<{ boxColor: PaletteKeyTypes }>`
@@ -64,3 +56,37 @@ const IconBoxStyled = styled.div<{ boxColor: PaletteKeyTypes }>`
     height: 24px;
   }
 `;
+
+const IconStyled = styled.div<SocialTypes>`
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  ${media.mobile} {
+    width: 14px;
+    height: 14px;
+  }
+  ${({ social }) => {
+    switch (social) {
+      case 'mail':
+        return css`
+          background-image: url(${Mail_24});
+        `;
+      case 'kakao':
+        return css`
+          background-image: url(${Kakao_24});
+        `;
+      case 'facebook':
+        return css`
+          background-image: url(${Facebook_24});
+        `;
+      case 'instagram':
+        return css`
+          background-image: url(${Instagram_24});
+        `;
+    }
+  }}
+`;
+
+export default ContactSocialIcon;
