@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import type { ReactElement } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import media from 'styles/media';
+import { useRouter } from 'next/router';
 import { Button } from 'components';
 
-function Custom404() {
+function Custom404(): ReactElement {
   const Router = useRouter();
 
   return (
@@ -37,11 +38,12 @@ const Custom404Wrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 170px 0;
   width: 100%;
-  height: calc(
+  min-height: calc(
     100vh - 70px - 336px - 49px
   ); // viewport - header - footer - copyright
-  min-height: 400px;
+  overflow: auto;
 `;
 
 const ContentContainer = styled.div`
@@ -57,13 +59,12 @@ const ContentContainer = styled.div`
     flex-direction: column-reverse;
     height: 70%;
     gap: 0px;
-    margin-bottom: 0;
+    margin-bottom: 48px;
   }
 `;
 
 const TextContainer = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   word-break: keep-all;
@@ -81,8 +82,8 @@ const TextContainer = styled.div`
 
   ${media.mobile} {
     align-items: center;
-    margin: 0 15px;
     text-align: center;
+    margin: 0 15px;
   }
 `;
 
@@ -93,9 +94,9 @@ const ImageContainer = styled.div`
   height: 100%;
 
   ${media.mobile} {
-    margin-top: 10px;
     width: 116px;
     height: 84px;
+    margin-bottom: 10px;
   }
 `;
 
