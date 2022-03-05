@@ -1,4 +1,5 @@
 import { Button } from 'components';
+import DOMPurify from 'isomorphic-dompurify';
 import Breakpoints from 'constants/breakpoints';
 import Yapp from 'constants/yapp';
 import {
@@ -18,8 +19,12 @@ function RecruitBanner(): ReactElement {
   return (
     <RecruitBannerContainer>
       <BannerInner>
-        <BannerTitle dangerouslySetInnerHTML={{ __html: title }} />
-        <BannerDescription dangerouslySetInnerHTML={{ __html: description }} />
+        <BannerTitle
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
+        />
+        <BannerDescription
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+        />
         <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer">
           <RecruitButton
             width={168}

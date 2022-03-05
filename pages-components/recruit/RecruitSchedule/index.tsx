@@ -1,3 +1,4 @@
+import DOMPurify from 'isomorphic-dompurify';
 import { Box } from 'components';
 import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_SCHEDULE } from 'database/recruit';
@@ -33,7 +34,9 @@ function RecruitSchedule(): ReactElement {
             <ScheduleBoxInner>
               <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
               <ScheduleContent
-                dangerouslySetInnerHTML={{ __html: description }}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(description),
+                }}
               />
             </ScheduleBoxInner>
           </ScheduleBox>

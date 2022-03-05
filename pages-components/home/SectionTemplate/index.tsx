@@ -18,6 +18,7 @@ function SectionTemplate({
 }
 
 const StyledSectionTemplate = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

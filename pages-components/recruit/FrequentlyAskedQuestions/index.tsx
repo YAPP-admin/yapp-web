@@ -1,10 +1,9 @@
 import { Box } from 'components';
 import { RECRUIT_FAQ } from 'database/recruit';
-import { SectionTemplate } from 'pages-components/home';
 import React, { ReactElement, useState } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
-import { SectionTitle } from '..';
+import { SectionTemplate, SectionTitle } from '..';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title } = RECRUIT_FAQ;
@@ -19,7 +18,7 @@ function FrequentlyAskedQuestions(): ReactElement {
   };
 
   return (
-    <FAQTemplate>
+    <SectionTemplate>
       <SectionTitle title={title} />
       <SectionContent>
         {faqList.map(({ subTitle, description, isOpen }) => (
@@ -36,27 +35,19 @@ function FrequentlyAskedQuestions(): ReactElement {
                   <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
+              {/* {isOpen && ( */}
               <FQASubContent
                 dangerouslySetInnerHTML={{ __html: description }}
                 isOpen={isOpen}
               />
+              {/* )} */}
             </FAQBoxInner>
           </FAQBox>
         ))}
       </SectionContent>
-    </FAQTemplate>
+    </SectionTemplate>
   );
 }
-
-const FAQTemplate = styled(SectionTemplate)`
-  padding-bottom: 200px;
-  ${media.tablet} {
-    padding-bottom: 218px;
-  }
-  ${media.mobile} {
-    padding-bottom: 60px;
-  }
-`;
 
 const SectionContent = styled.div`
   display: flex;
@@ -90,7 +81,6 @@ const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_Point}
   display: flex;
   justify-content: space-between;
-  color: ${({ theme }) => theme.palette.grey_1000};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_Point}
     align-items: flex-start;
@@ -114,7 +104,6 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
 
 const FQASubContent = styled.div<{ isOpen: boolean }>`
   ${({ theme }) => theme.textStyle.web.Body_1};
-  color: ${({ theme }) => theme.palette.grey_850};
   width: 1056px;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);

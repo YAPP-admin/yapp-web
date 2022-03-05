@@ -5,12 +5,12 @@ import { Box } from 'components';
 import styled from 'styled-components';
 import media from 'styles/media';
 
-interface AnimatedBox {
+export interface AnimatedBoxProps {
   children: ReactNode;
   className?: string;
 }
 
-function AnimatedBox({ children, className }: AnimatedBox): ReactElement {
+function AnimatedBox({ children, className }: AnimatedBoxProps): ReactElement {
   const animatedDivRef = useRef(null);
   const [isIntersect, setIsIntersect] = useState(false);
 

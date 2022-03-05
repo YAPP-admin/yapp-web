@@ -17,6 +17,7 @@ declare module 'styled-components' {
   }
 
   export interface Media {
+    xSmall: string;
     small: string;
     mobile: string;
     tablet: string;

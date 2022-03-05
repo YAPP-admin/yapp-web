@@ -9,8 +9,14 @@ import 'slick-carousel/slick/slick-theme.css';
 import Breakpoints from 'constants/breakpoints';
 import { ArrowRight, ArrowLeft } from 'public/assets/icons';
 
+type CarouselDataType = {
+  title: string;
+  link: string;
+  image: string;
+};
+
 export interface CarouselProps {
-  data: any; // 데이터 확정 전, any 타입
+  data: CarouselDataType[];
 }
 
 function Carousel({ data }: CarouselProps) {
@@ -31,7 +37,7 @@ function Carousel({ data }: CarouselProps) {
       // 반응형, 현재는 임시 구현
       responsive: [
         {
-          breakpoint: 400,
+          breakpoint: Breakpoints.small,
           settings: {
             centerPadding: '0',
           },
@@ -118,9 +124,11 @@ const CarouselContainer = styled.div`
 `;
 
 const ProjectCard = styled.div`
+  position: relative;
   display: block;
   position: relative;
   border-radius: 20px;
+  overflow: hidden;
   cursor: pointer;
   filter: drop-shadow(
     0px 10px 20px ${({ theme }) => theme.palette.grey_850 + '40'}
@@ -146,6 +154,8 @@ const ProjectBlurCard = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 20px;
