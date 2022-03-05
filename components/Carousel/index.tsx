@@ -120,6 +120,10 @@ const CarouselContainer = styled.div`
         color: ${({ theme }) => theme.palette.black};
       }
     }
+
+    ${media.small} {
+      padding-bottom: 60px;
+    }
   }
 `;
 
@@ -174,11 +178,22 @@ const Arrow = styled.button<{ left?: boolean }>`
   ${({ left }) =>
     left
       ? css`
-          left: 40%;
+          left: 38.5%;
         `
       : css`
-          right: 40%;
+          right: 38.5%;
         `};
+
+  ${media.mobile} {
+    ${({ left }) =>
+      left
+        ? css`
+            left: 40%;
+          `
+        : css`
+            right: 40%;
+          `};
+  }
 
   ${media.small} {
     ${({ left }) =>

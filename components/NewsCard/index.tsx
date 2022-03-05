@@ -42,9 +42,13 @@ const StyledNewsCard = styled.div`
   width: 380px;
   height: 515px;
   border-radius: 25px;
+  margin: 15px;
   background-color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
-  margin: 15px;
+
+  filter: drop-shadow(
+    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
+  );
 
   transition: filter 1s;
   :hover {
@@ -66,6 +70,8 @@ const StyledNewsCard = styled.div`
 const ImageWrapper = styled.div`
   height: 379px;
   overflow: hidden;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 
   .image-scale-wrapper {
     position: relative;
