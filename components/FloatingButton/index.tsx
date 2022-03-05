@@ -51,7 +51,6 @@ function FloatingButton(): ReactElement {
               borderRadius={28}
               buttonColor="facebook"
               className="floating-button facebook"
-              onClick={() => window.open(Yapp.YAPP_FACEBOOK, '_blank')}
             >
               <Facebook />
               <span className="text facebook">페이스북 문의</span>

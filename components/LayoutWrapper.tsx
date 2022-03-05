@@ -38,6 +38,7 @@ const LayoutWrapperStyled = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  background-color: ${({ theme }) => theme.palette.grey_100};
 `;
 
 export default LayoutWrapper;
