@@ -24,6 +24,7 @@ const ContactLayoutContainer = styled.div`
   }
   ${media.mobile} {
     padding: 80px 20px 100px;
+    min-width: 280px;
   }
 `;
 

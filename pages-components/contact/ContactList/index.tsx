@@ -84,6 +84,13 @@ const ContactItem = styled(Box)`
     margin-bottom: 32px;
     width: auto;
     height: 125px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  ${media.mobile} {
+    margin-bottom: 16px;
+    height: 77px;
   }
 `;
 
@@ -99,10 +106,16 @@ const ItemInner = styled.div`
     align-items: center;
     padding: 40px 40px 42px 40px;
   }
+  ${media.mobile} {
+    padding: 24px;
+  }
 `;
 
 const ContactTitle = styled.div`
   display: flex;
+  ${media.mobile} {
+    align-items: center;
+  }
 `;
 
 const TitleText = styled.span<SocialTypes>`
@@ -123,6 +136,15 @@ const TitleText = styled.span<SocialTypes>`
   }}
   color: ${({ theme }) => theme.palette.grey_1000};
   ${({ theme }) => theme.textStyle.web.Body_Point};
+
+  ${media.tablet} {
+    margin-left: 16px;
+  }
+  ${media.mobile} {
+    margin-left: 8px;
+    margin-top: 0;
+    ${({ theme }) => theme.textStyle.mobile.Body_Point};
+  }
 `;
 
 const ContactContent = styled.div`
@@ -134,6 +156,9 @@ const ContactContent = styled.div`
   justify-content: center;
   ${media.tablet} {
     justify-content: flex-end;
+  }
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyle.mobile.Body_Point};
   }
 `;
 

@@ -15,6 +15,9 @@ const TitleStyled = styled.h2`
     margin-bottom: 85px;
     text-align: center;
   }
+  ${media.mobile} {
+    margin-bottom: 40px;
+  }
 `;
 
 export default ContactTitle;
