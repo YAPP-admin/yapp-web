@@ -1,18 +1,24 @@
 import styled from 'styled-components';
+import type { ReactElement } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import media from 'styles/media';
+import { useRouter } from 'next/router';
 import { Button } from 'components';
 
-function Custom404() {
+function ProjectPage(): ReactElement {
   const Router = useRouter();
 
   return (
-    <Custom404Wrapper>
+    <ProjectWrapper>
       <ContentContainer>
         <TextContainer>
           <div className="main-text">
             페이지 <span>공사중</span>입니다!
+          </div>
+          <div className="sub-text">
+            프로젝트들을 더 매력적으로 보여드릴 수 있게 준비중입니다.
+            <br />
+            YAPP의 멋진 결과물들을 기대해 주세요!
           </div>
         </TextContainer>
         <ImageContainer>
@@ -28,20 +34,21 @@ function Custom404() {
       >
         홈으로 돌아가기
       </StyledButton>
-    </Custom404Wrapper>
+    </ProjectWrapper>
   );
 }
 
-const Custom404Wrapper = styled.section`
+const ProjectWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 170px 0;
   width: 100%;
-  height: calc(
+  min-height: calc(
     100vh - 70px - 336px - 49px
   ); // viewport - header - footer - copyright
-  min-height: 400px;
+  overflow: auto;
 `;
 
 const ContentContainer = styled.div`
@@ -57,7 +64,7 @@ const ContentContainer = styled.div`
     flex-direction: column-reverse;
     height: 70%;
     gap: 0px;
-    margin-bottom: 0;
+    margin-bottom: 48px;
   }
 `;
 
@@ -79,10 +86,19 @@ const TextContainer = styled.div`
     }
   }
 
+  .sub-text {
+    margin-top: 24px;
+
+    ${({ theme }) => theme.textStyle.web.Body_1}
+    ${media.mobile} {
+      ${({ theme }) => theme.textStyle.mobile.Body_1}
+    }
+  }
+
   ${media.mobile} {
     align-items: center;
-    margin: 0 15px;
     text-align: center;
+    margin: 0 15px;
   }
 `;
 
@@ -93,9 +109,9 @@ const ImageContainer = styled.div`
   height: 100%;
 
   ${media.mobile} {
-    margin-top: 10px;
     width: 116px;
     height: 84px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -111,4 +127,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default Custom404;
+export default ProjectPage;
