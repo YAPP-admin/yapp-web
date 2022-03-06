@@ -17,7 +17,7 @@ function Custom404(): ReactElement {
           </div>
         </TextContainer>
         <ImageContainer>
-          <Image src={'/assets/images/character.png'} layout="fill"></Image>
+          <Image src={'/assets/images/illust_404.png'} layout="fill"></Image>
         </ImageContainer>
       </ContentContainer>
       <StyledButton

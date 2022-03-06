@@ -135,7 +135,7 @@ const ProjectCard = styled.div`
   overflow: hidden;
   cursor: pointer;
   filter: drop-shadow(
-    0px 10px 20px ${({ theme }) => theme.palette.grey_850 + '40'}
+    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
   );
 
   width: 409px !important;
@@ -174,6 +174,10 @@ const Arrow = styled.button<{ left?: boolean }>`
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  svg {
+    width: 48px;
+    height: 48px;
+  }
 
   ${({ left }) =>
     left
@@ -185,6 +189,11 @@ const Arrow = styled.button<{ left?: boolean }>`
         `};
 
   ${media.mobile} {
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+
     ${({ left }) =>
       left
         ? css`
@@ -196,6 +205,10 @@ const Arrow = styled.button<{ left?: boolean }>`
   }
 
   ${media.small} {
+    svg {
+      width: 28px;
+      height: 28px;
+    }
     ${({ left }) =>
       left
         ? css`

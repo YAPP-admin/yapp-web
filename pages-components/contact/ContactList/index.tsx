@@ -1,6 +1,5 @@
 import { Box } from 'components';
 import { CONTACT_LIST } from 'database/contact';
-import Link from 'next/link';
 import { IllustContact } from 'public/assets/images';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -178,6 +177,8 @@ const ContactButton = styled.a<SocialTypes>`
 
 const IllustImage = styled.img`
   position: absolute;
+  width: 211px;
+  height: 96px;
   right: 2px;
   top: -97px;
   ${media.tablet} {

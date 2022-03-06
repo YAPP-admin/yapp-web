@@ -118,7 +118,7 @@ const ImageContainer = styled.div`
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey_800};
+    background-color: ${({ theme }) => theme.palette.grey_700};
   }
 
   ${media.mobile} {
