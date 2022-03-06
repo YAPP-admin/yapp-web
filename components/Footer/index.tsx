@@ -1,12 +1,20 @@
 import Breakpoints from 'constants/breakpoints';
 import Yapp from 'constants/yapp';
-import { Facebook_13, Github, Instagram } from 'public/assets/icons';
+import { SnsGroup } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 
 function Footer(): ReactElement {
-  const { YAPP_NAME, YAPP_OFFICIAL_EMAIL } = Yapp;
+  const {
+    YAPP_NAME,
+    YAPP_OFFICIAL_EMAIL,
+    YAPP_FACEBOOK,
+    YAPP_INSTAGRAM,
+    YAPP_GITHUB,
+  } = Yapp;
+
+  const socialButtons = [YAPP_FACEBOOK, YAPP_INSTAGRAM, YAPP_GITHUB];
 
   return (
     <>
@@ -22,9 +30,18 @@ function Footer(): ReactElement {
             <TextPoint>P</TextPoint>assion and <TextPoint>P</TextPoint>otential.
           </InfoText>
           <YappSocialButtonGroup>
-            <Facebook_13 />
-            <Instagram />
-            <Github />
+            <SnsGroup />
+            <div className="inner-buttons">
+              {socialButtons.map((url) => (
+                <a
+                  className="btn"
+                  target="_blank"
+                  href={url}
+                  rel="noreferrer"
+                  key={url}
+                />
+              ))}
+            </div>
           </YappSocialButtonGroup>
         </FooterInner>
       </FooterBlock>
@@ -96,13 +113,20 @@ const YappEmail = styled.span`
 `;
 
 const YappSocialButtonGroup = styled.div`
-  width: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  svg {
-    cursor: pointer;
+  position: relative;
+  .inner-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 170px;
+    height: 40px;
+    top: 0;
+    .btn {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
   }
 `;
 

@@ -8,7 +8,7 @@ export { default as ArrowRight } from 'public/assets/icons/arrow_right.svg';
 export { default as Hamburger } from 'public/assets/icons/hamburger.svg';
 export { default as Facebook_13 } from 'public/assets/icons/facebook_13.svg';
 export { default as Github } from 'public/assets/icons/github.svg';
-export { default as Instagram } from 'public/assets/icons/instagram.svg';
+export { default as SnsGroup } from 'public/assets/icons/sns_group.svg';
 export { default as YappLogo } from 'public/assets/icons/logo.svg';
 
 // constants

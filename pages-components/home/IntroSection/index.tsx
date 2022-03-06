@@ -22,7 +22,6 @@ function IntroSection(): ReactElement {
   };
 
   const styles = useSpring({
-    config: { duration: 3000 },
     to: isHover && {
       transform: `scale(1.1) translateX(${move.ix}px) translateY(${move.iy}px)`,
     },
@@ -83,6 +82,9 @@ const IntroSectionContainer = styled.div`
   align-items: center;
   width: 100%;
   height: calc(100vh - 70px);
+  ${media.mobile} {
+    height: calc(100vh - 64px);
+  }
   overflow: hidden;
 
   .background {
@@ -94,7 +96,7 @@ const IntroSectionContainer = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-    transition: all 1s;
+    transition: all 0.5s ease-out;
   }
 `;
 
@@ -115,7 +117,8 @@ const ContentWrapper = styled.div`
 const TitleContainer = styled.div`
   text-align: center;
   word-break: keep-all;
-  margin-bottom: 48px;
+  margin: 0 5px 48px 5px;
+
   .main-text {
     color: ${({ theme }) => theme.palette['white']};
 
