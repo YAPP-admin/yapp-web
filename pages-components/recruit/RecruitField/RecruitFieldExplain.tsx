@@ -144,8 +144,10 @@ const ButtonBlock = styled.a`
 `;
 
 const ApplyButton = styled(Button)`
+  transition: all 0.5s;
+
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey_800};
+    background-color: ${({ theme }) => theme.palette.grey_700};
   }
   ${media.mobile} {
     width: 162px;

@@ -79,7 +79,7 @@ const Sponsor = styled.li`
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey_800};
+    background-color: ${({ theme }) => theme.palette.orange_600};
   }
 
   ${media.mobile} {

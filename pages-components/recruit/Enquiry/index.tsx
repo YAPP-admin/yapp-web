@@ -87,6 +87,8 @@ const EnquiryContent = styled.div`
 const ButtonLinked = styled.a``;
 
 const EnquiryButton = styled(Button)`
+  transition: all 0.5s;
+
   &:hover {
     color: ${({ theme }) => theme.palette.white};
     background-color: ${({ theme }) => theme.palette.yellow_600};
