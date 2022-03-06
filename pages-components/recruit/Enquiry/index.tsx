@@ -87,6 +87,11 @@ const EnquiryContent = styled.div`
 const ButtonLinked = styled.a``;
 
 const EnquiryButton = styled(Button)`
+  &:hover {
+    color: ${({ theme }) => theme.palette.white};
+    background-color: ${({ theme }) => theme.palette.yellow_600};
+  }
+
   ${media.mobile} {
     width: 120px;
     height: 56px;
