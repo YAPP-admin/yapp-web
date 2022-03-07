@@ -6,8 +6,9 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-
+import siteMetadata from 'database/sitemap';
 export default class MyDocument extends Document {
+  // Styled-components
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
@@ -34,6 +35,19 @@ export default class MyDocument extends Document {
     }
   }
 
+  // Google Analytics
+  addGoogleAnalyticsScript() {
+    return {
+      __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${siteMetadata.analytics.google}');
+        `,
+    };
+  }
+
   render() {
     return (
       <Html>
@@ -47,6 +61,11 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${siteMetadata.analytics.google}`}
+          ></script>
+          <script dangerouslySetInnerHTML={this.addGoogleAnalyticsScript()} />
         </body>
       </Html>
     );

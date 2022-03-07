@@ -27,7 +27,7 @@ function RecruitFieldExplain({
         <FieldBoxInner>
           <SubTitleStyled>
             다음과 같은
-            <br /> 활동을 합니다🙌
+            <br /> 활동을 합니다 🙌
           </SubTitleStyled>
           <ContentStyled
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content1) }}
@@ -38,7 +38,7 @@ function RecruitFieldExplain({
       <FieldBox backgroundColor="grey_50">
         <FieldBoxInner>
           <SubTitleStyled>
-            이런 {fieldName}를<br /> 찾습니다🔎
+            이런 {fieldName}를<br /> 찾습니다 🔎
           </SubTitleStyled>
           <ContentStyled
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content2) }}
@@ -50,7 +50,7 @@ function RecruitFieldExplain({
         <FieldBoxInner>
           <SubTitleStyled>
             이런 경험이 있으면
-            <br /> 더 좋습니다😊
+            <br /> 더 좋습니다 😊
           </SubTitleStyled>
           <ContentStyled
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content3) }}
