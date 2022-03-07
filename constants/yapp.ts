@@ -6,7 +6,6 @@ const Yapp = {
   YAPP_OFFICIAL_FACEBOOK: '@YAPP',
   YAPP_OFFICIAL_INSTAGRAM: 'about.yapp',
   YAPP_FACEBOOK: 'https://ko-kr.facebook.com/yapp.co.kr/',
-  YAPP_MAIL: 'support@yapp.co.kr',
   YAPP_INSTAGRAM: 'https://www.instagram.com/about.yapp/',
   YAPP_KAKAO: 'http://pf.kakao.com/_aGxofd',
   YAPP_GITHUB: 'https://github.com/YAPP-Github',
