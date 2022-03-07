@@ -130,7 +130,7 @@ const FQASubContent = styled.div<{ isOpen: boolean }>`
   }
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1};
-    br {
+    .br {
       display: none;
     }
   }
