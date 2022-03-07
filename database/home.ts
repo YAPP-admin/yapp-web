@@ -53,11 +53,11 @@ export const CAROUSEL_DATA = [
     link: '/project',
     image: '/assets/images/19_GILJOB.png',
   },
-  {
+  /*  {
     title: 'Minning (미닝)',
     link: '/project',
     image: '/assets/images/19_Minning.png',
-  },
+  }, */
 ];
 
 /** Social News Card */
