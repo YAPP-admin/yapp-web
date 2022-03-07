@@ -22,7 +22,12 @@ function Footer(): ReactElement {
         <FooterInner>
           <YappInfo>
             <YappName>{YAPP_NAME}</YappName>
-            <YappEmail>{YAPP_OFFICIAL_EMAIL}</YappEmail>
+            <YappEmail
+              href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
+              rel="noreferrer"
+            >
+              {YAPP_OFFICIAL_EMAIL}
+            </YappEmail>
           </YappInfo>
           <InfoText>
             <TextPoint>Y</TextPoint>our own idea can change the{' '}
@@ -108,7 +113,9 @@ const YappName = styled.span`
   }
 `;
 
-const YappEmail = styled.span`
+const YappEmail = styled.a`
+  color: ${({ theme }) => theme.palette.white};
+  cursor: pointer;
   ${({ theme }) => theme.textStyle.web.Body_1}
 `;
 

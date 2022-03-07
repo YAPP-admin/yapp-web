@@ -3,7 +3,7 @@ import { Box } from 'components';
 import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_SCHEDULE } from 'database/recruit';
 import useDragScroll from 'hooks/useDragScroll';
-import React, { ReactElement, useRef, useState } from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate, SectionTitle } from '..';
