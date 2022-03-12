@@ -22,9 +22,13 @@ function IntroSection(): ReactElement {
   };
 
   const styles = useSpring({
-    to: isHover && {
-      transform: `scale(1.1) translateX(${move.ix}px) translateY(${move.iy}px)`,
-    },
+    to: isHover
+      ? {
+          transform: `scale(1.1) translateX(${move.ix}px) translateY(${move.iy}px)`,
+        }
+      : {
+          transform: `scale(1) translateX(0px) translateY(0px)`,
+        },
   });
 
   return (
