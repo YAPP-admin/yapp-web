@@ -26,7 +26,7 @@ export const CURRENT_INFO_DATA = [
   },
 ];
 
-/** Carousel에 들어갈 데이터 */
+/** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
     title: '냠냠박사',
@@ -41,7 +41,7 @@ export const CAROUSEL_DATA = [
   {
     title: '버디',
     link: '/project',
-    image: '/assets/images/19_버디.jpg',
+    image: '/assets/images/19_버디.png',
   },
   {
     title: '딜리버디 (DeliBuddy)',
@@ -53,11 +53,11 @@ export const CAROUSEL_DATA = [
     link: '/project',
     image: '/assets/images/19_GILJOB.png',
   },
-  /*  {
-    title: 'Minning (미닝)',
+  {
+    title: '위닝',
     link: '/project',
-    image: '/assets/images/19_Minning.png',
-  }, */
+    image: '/assets/images/19_위닝.jpeg',
+  },
 ];
 
 /** Social News Card */
