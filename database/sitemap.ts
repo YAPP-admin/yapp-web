@@ -7,7 +7,7 @@ const siteMetadata = {
   email: 'support@yapp.co.kr',
   description: '작은 아이디어로 세상을 크게 변화시키는 IT동아리, YAPP',
   keywords:
-    'YAPP, yapp, 동아리, 연합 동아리, IT 동아리, 개발 동아리, 대학교 동아리, 개발 동아리, 개발, 대외활동, 외부활동, 프론트엔드, 백엔드, 디자이너, PM',
+    'YAPP, yapp, 동아리, 연합 동아리, IT 동아리, 개발 동아리, 대학교 동아리, 대학생 연합 동아리, 대외활동, 외부활동, 사이드 프로젝트, 개발, 개발자, 프론트엔드, 백엔드, 디자이너, PM',
   type: 'website',
   siteUrl: 'https://yapp.co.kr',
   siteRepo: 'https://https://github.com/YAPP-admin',

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import media from 'styles/media';
 import { useRouter } from 'next/router';
 import { Button } from 'components';
+import Illust_404 from 'public/assets/images/illust_404.png';
 
 function Custom404(): ReactElement {
   const Router = useRouter();
@@ -17,7 +18,7 @@ function Custom404(): ReactElement {
           </div>
         </TextContainer>
         <ImageContainer>
-          <Image src={'/assets/images/illust_404.png'} layout="fill"></Image>
+          <Image src={Illust_404} layout="fill" objectFit="contain"></Image>
         </ImageContainer>
       </ContentContainer>
       <StyledButton

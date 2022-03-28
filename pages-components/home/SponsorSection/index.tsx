@@ -18,7 +18,14 @@ function SponsorSection(): ReactElement {
       <SponsorList>
         {SPONSOR_DATA.map(({ image }, index) => (
           <Sponsor key={index}>
-            <Image src={image} layout="fill" />
+            <Image
+              src={image}
+              alt="sponsor image"
+              layout="fill"
+              objectFit="contain"
+              placeholder="blur"
+              blurDataURL={image}
+            />
           </Sponsor>
         ))}
       </SponsorList>
@@ -74,6 +81,10 @@ const Sponsor = styled.li`
   display: inline-block;
   width: 280px;
   height: 80px;
+
+  ${media.mobile} {
+    margin: 10px 0;
+  }
 `;
 
 const StyledButton = styled(Button)`
