@@ -91,9 +91,12 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/images/sponsor1.png',
+    image: '/assets/images/sponsor1.png', // 오늘의 집
   },
   {
-    image: '/assets/images/sponsor2.png',
+    image: '/assets/images/sponsor2.png', // readyme
+  },
+  {
+    image: '/assets/images/sponsor3.png', // 이지스퍼블리싱
   },
 ];
