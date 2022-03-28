@@ -1,15 +1,8 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
 import { Header, Footer, FloatingButton } from 'components';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { IntroSection } from 'pages-components/home';
 import PATH from 'constants/path';
-import siteMetadata from 'database/sitemap';
-
-declare global {
-  interface Window {
-    gtag: (param1: string, param2: string, param3: object) => void;
-  }
-}
 
 interface LayoutWrapperProps {
   children: ReactNode;
@@ -28,26 +21,6 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
       inline: 'nearest',
     });
   }, [asPath]);
-
-  // Google Analytics
-  useEffect(() => {
-    const handleRouteChangeComplete = () => {
-      if (typeof window === 'object') {
-        const { title } = window.document;
-        const { href, pathname } = window.location;
-
-        window.gtag('config', `${siteMetadata.analytics.google}`, {
-          page_title: title,
-          page_location: href,
-          page_path: pathname,
-        });
-      }
-    };
-
-    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    return () =>
-      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
-  }, []);
 
   return (
     <div ref={scrollRef}>
