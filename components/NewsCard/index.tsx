@@ -25,7 +25,12 @@ function NewsCard({ data, className }: NewsCardProps): ReactElement {
     <StyledNewsCard className={className} onClick={handleClickCard}>
       <ImageWrapper>
         <div className="image-scale-wrapper">
-          <Image src={image} layout="fill" />
+          <Image
+            src={image}
+            layout="fill"
+            placeholder="blur"
+            blurDataURL={image}
+          />
         </div>
       </ImageWrapper>
       <ContentWrapper

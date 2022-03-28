@@ -56,7 +56,13 @@ function Carousel({ data }: CarouselProps) {
         {data.map(({ title, link, image }: any, index: number) => (
           <Link href={link} key={index}>
             <ProjectCard className="project-card">
-              <Image src={image} layout="fill" loading="eager" />
+              <Image
+                src={image}
+                alt="Project Card Image"
+                layout="fill"
+                placeholder="blur"
+                blurDataURL={image}
+              />
               <ProjectBlurCard>{title}</ProjectBlurCard>
             </ProjectCard>
           </Link>
