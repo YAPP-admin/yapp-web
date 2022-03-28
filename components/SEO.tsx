@@ -5,13 +5,13 @@ const SEO = () => {
   return (
     <Head>
       {/* Default SEO */}
-      <title>YAPP</title>
+      <title>{siteMetadata.title}</title>
       <link rel="icon" href="/assets/images/favicon.png" />
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="description" content={siteMetadata.description} />
       <meta name="keywords" content={siteMetadata.keywords} />
       <meta name="author" content={siteMetadata.author} />
       <meta name="reply-to" content={siteMetadata.email} />
+      <link rel="canonical" href={siteMetadata.siteUrl} />
 
       {/* 로봇 방문 허용 */}
       <meta name="robots" content="follow, index" />
