@@ -40,13 +40,14 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <GoogleAnalyticsScript />
           {/* 폰트 */}
           <link
             rel="stylesheet"
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
           />
-          <GoogleAnalyticsScript />
         </Head>
         <body>
           <Main />

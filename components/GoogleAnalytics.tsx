@@ -1,15 +1,13 @@
-import Script from 'next/script';
-
 import siteMetadata from 'database/sitemap';
 
 export const GoogleAnalyticsScript = () => {
   return (
     <>
-      <Script
+      <script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${siteMetadata.analytics.google}`}
-      ></Script>
-      <Script
+      ></script>
+      <script
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
