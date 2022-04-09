@@ -48,7 +48,7 @@ function IntroSection(): ReactElement {
           </span>
         </TitleContainer>
         <ButtonBlock>
-          <RecruitButton
+          {/* <RecruitButton
             width={168}
             height={65}
             fontColor="white"
@@ -70,6 +70,26 @@ function IntroSection(): ReactElement {
               <span className="clone-text">
                 {Yapp.YAPP_GENERATION}기 지원하기
               </span>
+            </span>
+          </RecruitButton> */}
+          <RecruitButton
+            width={190}
+            height={65}
+            fontColor="white"
+            buttonColor="orange_400"
+            isDisabled
+          >
+            <svg
+              width="192px"
+              height="65px"
+              viewBox="0 0 190 65"
+              className="border"
+            >
+              <rect x="-0.9" y="1" width="188" height="63" rx="32" ry="32" />
+            </svg>
+            <span className="text-group">
+              <span className="main-text">21기에서 만나요!</span>
+              <span className="clone-text">21기에서 만나요!</span>
             </span>
           </RecruitButton>
         </ButtonBlock>
@@ -153,11 +173,12 @@ const ButtonBlock = styled.div`
   }
 `;
 
-const RecruitButton = styled(Button)`
+const RecruitButton = styled(Button)<{ isDisabled?: boolean }>`
   box-sizing: border-box;
   position: relative;
   text-align: center;
   cursor: pointer;
+  ${({ isDisabled }) => isDisabled && `cursor: not-allowed;`}
   outline: none;
   transition: 1s ease-in-out;
   color: ${({ theme }) => theme.palette.white};

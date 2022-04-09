@@ -99,4 +99,10 @@ export const SPONSOR_DATA = [
   {
     image: '/assets/images/sponsor3.png', // 이지스퍼블리싱
   },
+  {
+    image: '/assets/images/sponsor4.png', // 한빛 미디어
+  },
+  {
+    image: '/assets/images/sponsor5.png', // 제로 베이스
+  },
 ];

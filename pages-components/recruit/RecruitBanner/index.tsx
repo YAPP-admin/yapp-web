@@ -25,8 +25,9 @@ function RecruitBanner(): ReactElement {
         <BannerDescription
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
         />
-        <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer">
-          <RecruitButton
+        {/* <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer"> <<- 활성화 시킬려면 주석 해제 */}
+        <ButtonBlock>
+          {/* <RecruitButton
             width={168}
             height={65}
             fontColor="black"
@@ -45,6 +46,28 @@ function RecruitBanner(): ReactElement {
             <span className="textgroup">
               <span className="mainText">{buttonName}</span>
               <span className="cloneText">{buttonName}</span>
+            </span>
+          </RecruitButton> */}
+
+          <RecruitButton
+            width={190}
+            height={65}
+            fontColor="black"
+            buttonColor="grey_850"
+            borderColor="lightGrey"
+            isDisabled
+          >
+            <svg
+              width="192px"
+              height="65px"
+              viewBox="0 0 190 65"
+              className="border"
+            >
+              <rect x="-0.9" y="1" width="188" height="63" rx="32" ry="32" />
+            </svg>
+            <span className="textgroup">
+              <span className="mainText">21기에서 만나요!</span>
+              <span className="cloneText">21기에서 만나요!</span>
             </span>
           </RecruitButton>
         </ButtonBlock>
@@ -126,10 +149,11 @@ const ButtonBlock = styled.a`
   }
 `;
 
-const RecruitButton = styled(Button)`
+const RecruitButton = styled(Button)<{ isDisabled?: boolean }>`
   position: relative;
   text-align: center;
   cursor: pointer;
+  ${({ isDisabled }) => isDisabled && `cursor: not-allowed;`}
   outline: none;
   transition: 1s ease-in-out;
   color: ${({ theme }) => theme.palette.white};
@@ -169,6 +193,7 @@ const RecruitButton = styled(Button)`
   ${media.mobile} {
     width: 112px;
     height: 56px;
+    ${({ isDisabled }) => isDisabled && ` width: 160px;`}
   }
 `;
 
