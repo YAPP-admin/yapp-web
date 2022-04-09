@@ -10,7 +10,7 @@ export const CURRENT_INFO_DATA = [
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',
-    content: '50명',
+    content: '72명',
   },
   {
     title: '누적 활동 인원 👩🏻',
@@ -18,7 +18,7 @@ export const CURRENT_INFO_DATA = [
   },
   {
     title: '런칭 서비스 📱',
-    content: '100개',
+    content: '50+개',
   },
   {
     title: '누적 앱 다운로드 ⬇️',
