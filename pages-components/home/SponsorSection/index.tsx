@@ -29,6 +29,7 @@ function SponsorSection(): ReactElement {
           </Sponsor>
         ))}
       </SponsorList>
+
       <ButtonLinked
         href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
         rel="noreferrer"
@@ -71,19 +72,23 @@ const SponsorSectionContainer = styled(SectionTemplate)`
 `;
 
 const SponsorList = styled.ul`
-  width: 100%;
-  margin: 64px 0;
+  width: 900px;
+  margin: 64px 0 44px;
   text-align: center;
+  ${media.custom(900)} {
+    width: 100%;
+  }
 `;
 
 const Sponsor = styled.li`
   position: relative;
   display: inline-block;
-  width: 280px;
+  width: 260px;
   height: 80px;
+  margin: 0 20px 20px;
 
   ${media.mobile} {
-    margin: 10px 0;
+    margin: 10px 10px;
   }
 `;
 

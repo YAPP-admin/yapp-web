@@ -25,7 +25,7 @@ function RecruitBanner(): ReactElement {
         <BannerDescription
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
         />
-        {/* <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer"> */}
+        {/* <ButtonBlock target="_blank" href={Yapp.YAPP_RECRUIT} rel="noreferrer"> <<- 활성화 시킬려면 주석 해제 */}
         <ButtonBlock>
           {/* <RecruitButton
             width={168}
