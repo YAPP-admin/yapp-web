@@ -12,6 +12,7 @@ export async function getAllProjects(): Promise<Array<any>> {
     const jsonFile = fs.readFileSync(cur, { encoding: 'utf8' }); // 가져온 경로로 file 읽기
     const jsonData = JSON.parse(jsonFile); // JSON 으로 파싱
 
+    // PATH 설정(동적 라우팅 경로) 및 Project를 찾을 때 사용되는 변수입니다.
     const slug = cur
       .slice(cur.indexOf(DIR_REPLACE_STRING) + DIR_REPLACE_STRING.length + 1)
       .replace('.json', '')
