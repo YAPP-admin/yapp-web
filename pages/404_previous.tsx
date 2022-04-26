@@ -4,21 +4,25 @@ import Image from 'next/image';
 import media from 'styles/media';
 import { useRouter } from 'next/router';
 import { Button } from 'components';
-import Illust_404 from 'public/assets/images/illust_404.png';
 
-function Custom404(): ReactElement {
+function ProjectPage(): ReactElement {
   const Router = useRouter();
 
   return (
-    <Custom404Wrapper>
+    <ProjectWrapper>
       <ContentContainer>
         <TextContainer>
           <div className="main-text">
-            잘못된 <span>접근</span>입니다!
+            페이지 <span>공사중</span>입니다!
+          </div>
+          <div className="sub-text">
+            프로젝트들을 더 매력적으로 보여드릴 수 있게 준비중입니다.
+            <br />
+            YAPP의 멋진 결과물들을 기대해 주세요!
           </div>
         </TextContainer>
         <ImageContainer>
-          <Image src={Illust_404} layout="fill" objectFit="contain"></Image>
+          <Image src={'/assets/images/character.png'} layout="fill"></Image>
         </ImageContainer>
       </ContentContainer>
       <StyledButton
@@ -30,11 +34,11 @@ function Custom404(): ReactElement {
       >
         홈으로 돌아가기
       </StyledButton>
-    </Custom404Wrapper>
+    </ProjectWrapper>
   );
 }
 
-const Custom404Wrapper = styled.section`
+const ProjectWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,6 +70,7 @@ const ContentContainer = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   word-break: keep-all;
@@ -78,6 +83,15 @@ const TextContainer = styled.div`
 
     > span {
       color: ${({ theme }) => theme.palette.orange_400};
+    }
+  }
+
+  .sub-text {
+    margin-top: 24px;
+
+    ${({ theme }) => theme.textStyle.web.Body_1}
+    ${media.mobile} {
+      ${({ theme }) => theme.textStyle.mobile.Body_1}
     }
   }
 
@@ -104,7 +118,7 @@ const ImageContainer = styled.div`
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey_800};
+    background-color: ${({ theme }) => theme.palette.grey_700};
   }
 
   ${media.mobile} {
@@ -113,4 +127,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default Custom404;
+export default ProjectPage;
