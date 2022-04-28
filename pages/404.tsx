@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import Image from 'next/image';
 import media from 'styles/media';
 import { useRouter } from 'next/router';
-import { Button } from 'components';
+import { Button } from 'components/common';
 import Illust_404 from 'public/assets/images/illust_404.png';
 
 function Custom404(): ReactElement {

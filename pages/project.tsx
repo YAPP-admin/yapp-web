@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import Image from 'next/image';
 import media from 'styles/media';
 import { useRouter } from 'next/router';
-import { Button } from 'components';
+import { Button } from 'components/common';
 
 function ProjectPage(): ReactElement {
   const Router = useRouter();
