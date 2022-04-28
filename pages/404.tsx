@@ -14,7 +14,7 @@ function Custom404(): ReactElement {
       <ContentContainer>
         <TextContainer>
           <div className="main-text">
-            페이지 <span>공사중</span>입니다!
+            잘못된 <span>접근</span>입니다!
           </div>
         </TextContainer>
         <ImageContainer>

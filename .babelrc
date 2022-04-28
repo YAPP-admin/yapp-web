@@ -2,7 +2,7 @@
   "presets": ["next/babel"],
   "plugins": [
     [
-      "styled-components",
+      "babel-plugin-styled-components",
       {
         "ssr": true, // SSR
         "fileName": true, // 파일 명
