@@ -1,0 +1,9 @@
+{
+  "title": "도토리함",
+  "thumbnail": "/assets/project/20_thumbnail_renewal.png",
+  "content": "/assets/project/20_content_renewal.png",
+  "tags": ["20기", "WEB"],
+  "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
+  "program": ["Figma", "Next.js", "TypeScript", "Styled-Components"],
+  "description": "상세 설명"
+}
