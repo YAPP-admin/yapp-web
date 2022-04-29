@@ -1,5 +1,5 @@
 import Yapp from 'constants/yapp';
-import { FieldNameTypes } from 'pages-components/recruit/RecruitField';
+import { FieldNameTypes } from 'components/recruit/RecruitField';
 
 const getRecruitLink = (field: FieldNameTypes) => {
   const {

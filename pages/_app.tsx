@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import { SEO, LayoutWrapper } from 'components';
+import { SEO, LayoutWrapper } from 'components/common';
 import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
 import * as ga from 'utils/gtag';
