@@ -7,7 +7,7 @@ import {
   ProjectSection,
   SponsorSection,
   SectionTemplate,
-} from 'pages-components/home';
+} from 'components/home';
 
 function Home(): ReactElement {
   return (

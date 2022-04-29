@@ -7,7 +7,7 @@ import {
   RecruitBanner,
   RecruitField,
   RecruitSchedule,
-} from 'pages-components/recruit';
+} from 'components/recruit';
 
 function RecruitPage(): ReactElement {
   return (
