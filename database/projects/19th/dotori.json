@@ -4,8 +4,9 @@
   "content": "/assets/project/20_content_renewal.png",
   "tags": ["20기", "WEB"],
   "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
-  "field": "WEB",
+  "field": ["WEB"],
   "generation": 20,
   "program": ["Figma", "Next.js", "TypeScript", "Styled-Components"],
+  "deployLink": "https://dotoriham.kr/",
   "description": "상세 설명"
 }
