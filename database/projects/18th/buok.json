@@ -1,0 +1,20 @@
+{
+  "title": "나를 기록하며 완성해 나가는 버킷리스트, buok(북)",
+  "thumbnail": "/assets/project/17_thumbnail_picon.png",
+  "content": "/assets/project/17_content_picon.png",
+  "tags": ["18기", "iOS 1"],
+  "team": [
+    "김유지",
+    "최아현",
+    "김태인",
+    "김보민",
+    "김혜빈",
+    "문아영",
+    "최정균"
+  ],
+  "field": ["iOS"],
+  "generation": 18,
+  "program": ["Figma", "Adobe illustrator", "Swift", "Java", "Spring Boot"],
+  "deployLink": null,
+  "description": "buok(북)은 사용자가 미래 계획을 기록하고 완성해 나갈 수 있도록 돕는 어플리케이션입니다.<br /> 어떤 미래 계획을 세우고 싶은지 찾아보고, 구체적인 계획을 세우며 하나씩 성취해 나갈 수 있습니다."
+}

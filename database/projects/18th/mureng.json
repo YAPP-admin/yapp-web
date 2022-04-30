@@ -1,0 +1,27 @@
+{
+  "title": "영어 질문에 뭐랭? 하는 순간, 머렝",
+  "thumbnail": "/assets/project/17_thumbnail_picon.png",
+  "content": "/assets/project/17_content_picon.png",
+  "tags": ["18기", "Android 1"],
+  "team": [
+    "최현정",
+    "김서정",
+    "김수현",
+    "김유나",
+    "한기호",
+    "박현국",
+    "조현우"
+  ],
+  "field": ["Android"],
+  "generation": 18,
+  "program": [
+    "Figma",
+    "Zeplin",
+    "Kotlin",
+    "MVVM(AAC)",
+    "Spring Boot",
+    "jpa&hibernate"
+  ],
+  "deployLink": null,
+  "description": "머렝은 일상적인 질문들에 영어로 답변을 써보는 Q&A 영어 일기 서비스입니다. 그동안 영어를 사용하는 것이 막막하고 어려웠던 사람들에게, 다양한 질문에 답변하는 과정을 통해 영어에 대한 자신감을 심어주려고 합니다."
+}
