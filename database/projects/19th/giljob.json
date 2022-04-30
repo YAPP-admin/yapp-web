@@ -1,9 +1,27 @@
 {
-  "title": "길잡",
-  "thumbnail": "/assets/project/20_thumbnail_renewal.png",
-  "content": "/assets/project/20_content_renewal.png",
-  "tags": ["20기", "WEB"],
-  "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
-  "program": ["Figma", "Next.js", "TypeScript", "Styled-Components"],
-  "description": "상세 설명"
+  "title": "취업의 길을 인도하는 커리어 로드맵 서비스, 길잡",
+  "thumbnail": "/assets/project/17_thumbnail_picon.png",
+  "content": "/assets/project/17_content_picon.png",
+  "tags": ["19기", "Web 1"],
+  "team": [
+    "김강산",
+    "박소현",
+    "조래준",
+    "노경진",
+    "이주해",
+    "문지은",
+    "문아영"
+  ],
+  "field": ["Web"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Adobe illustrator",
+    "React",
+    "Typescript",
+    "SpringBoot",
+    "Kotlin"
+  ],
+  "deployLink": "https://giljob.netlify.app/",
+  "description": "길잡(GiLJOB)은 게임처럼 즐기는 커리어 개발 웹 플랫폼입니다. 취업 선배의 커리어 로드맵, 역량 강화를 위한 퀘스트 등 취업을 위한 목표 달성 서비스를 제공합니다."
 }

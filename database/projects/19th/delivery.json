@@ -1,0 +1,26 @@
+{
+  "title": "주변 이웃들과 효율적으로 나누는 음식 배달, 딜리버디",
+  "thumbnail": "/assets/project/17_thumbnail_picon.png",
+  "content": "/assets/project/17_content_picon.png",
+  "tags": ["19기", "Android 1"],
+  "team": [
+    "이지은",
+    "이은비",
+    "김효린",
+    "전영상",
+    "한지희",
+    "임해진",
+    "정승원"
+  ],
+  "field": ["Android"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Adobe illustrator",
+    "Android Studio",
+    "SpringBoot",
+    "JPA"
+  ],
+  "deployLink": "https://play.google.com/store/apps/details?id=yapp.android1.delibuddy",
+  "description": "햄버거는 먹고 싶은데 배달 최소 금액 때문에 스킵한 적이 있으시다구요? 같은 음식을 먹고 싶어하는 동네 버디를 찾아 금액을 나눠보세요!<br /> 또한 댓글을 통해 원하는 음식 메뉴도 고를 수 있어요! 오픈하기 껄끄러운 정보는 카카오톡을 통해 공유할 수 있으니 걱정 마세요 :)"
+}

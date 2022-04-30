@@ -1,0 +1,27 @@
+{
+  "title": "나의 꽃을 피우다, 버디",
+  "thumbnail": "/assets/project/17_thumbnail_picon.png",
+  "content": "/assets/project/17_content_picon.png",
+  "tags": ["19기", "iOS 2"],
+  "team": [
+    "김민승",
+    "이슬기",
+    "최동규",
+    "이상희",
+    "인병윤",
+    "신유진",
+    "황지훈"
+  ],
+  "field": ["iOS"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Adobe illustrator",
+    "Swift 5",
+    "Alamofire",
+    "SpringBoot",
+    "Firebase"
+  ],
+  "deployLink": null,
+  "description": "버디는 bud+i와 Buddy 두가지의 의미를 담은 단어로, IT 프로젝트를 함께 할 동료를 찾고 ‘나’의 실력을 꽃 피울 수 있도록 돕는 서비스입니다."
+}
