@@ -1,0 +1,27 @@
+{
+  "title": "브랜드 커스텀 메뉴 공유가 필요할 땐?, 냠냠박사",
+  "thumbnail": "/assets/project/19_thumbnail_yumyumdoctor.png",
+  "content": "/assets/project/19_content_yumyumdoctor.png",
+  "tags": ["19기", "Android 2"],
+  "team": [
+    "박하영",
+    "최주원",
+    "김재원",
+    "김준영",
+    "추지온",
+    "김동환",
+    "김기환"
+  ],
+  "field": ["Android"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Adobe illustrator",
+    "Kotlin",
+    "Clean Architecture",
+    "Java11",
+    "File Server: S3"
+  ],
+  "deployLink": "https://play.google.com/store/apps/details?id=com.doctor.yumyum",
+  "description": "냠냠박사는 브랜드 커스텀 메뉴 레시피 저장, 공유 어플리케이션입니다. 입맛에 딱 맞게 먹을 수 있지만, 그만큼 다양한 레시피를 가지고 있어 기억하기 어려웠던 레시피들을 쉽게 저장하고 찾아볼 수 있습니다."
+}
