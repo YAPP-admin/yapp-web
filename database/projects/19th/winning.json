@@ -1,0 +1,19 @@
+{
+  "title": "우리 함께 성취하는 아침, 위닝",
+  "thumbnail": "/assets/project/19_thumbnail_winning.png",
+  "content": "/assets/project/19_content_winning.png",
+  "tags": ["19기", "iOS 1"],
+  "team": ["김태영", "고정빈", "고세림", "김태인", "박솔찬", "박수한"],
+  "field": ["iOS"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Adobe illustrator",
+    "Swift",
+    "CoreData",
+    "SpringBoot",
+    "Swagger"
+  ],
+  "deployLink": "https://apps.apple.com/kr/app/%EC%9C%84%EB%8B%9D-%ED%95%A8%EA%BB%98-%EC%84%B1%EC%B7%A8%ED%95%98%EB%8A%94-%EC%95%84%EC%B9%A8-%EC%9C%84%EB%8B%9D/id1615192954",
+  "description": "위닝은 미라클 모닝러들을 위한 아침 루틴 앱 서비스입니다.<br /> 다양한 아침 루틴을 수립하고 리포트로 나의 루틴을 점검하며, 그룹 기능으로 강력한 동기부여를 얻을 수 있는 기회를 제공합니다."
+}

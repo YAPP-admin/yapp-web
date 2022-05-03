@@ -1,0 +1,12 @@
+{
+  "title": "오늘 하루가 유독 정신없고, 길고 지루하게 느껴졌다면? doraboda",
+  "thumbnail": "/assets/project/18_thumbnail_doraboda.png",
+  "content": "/assets/project/18_content_doraboda.png",
+  "tags": ["18기", "Web 1"],
+  "team": ["심재민", "김성규", "임인호", "곽형조", "허정민", "황종훈"],
+  "field": ["Android"],
+  "generation": 18,
+  "program": null,
+  "deployLink": null,
+  "description": "메인화면에서 대화형 선택지를 통해 프로젝트 단위, 감정 상태 등을 선택해 회고 템플릿을 추천 받을 수 있어요.<br /> 언제 어느 화면에서든 간편하게 읽고 쓰기의 전환이 가능해요. 마이페이지에서 작성 중인 회고, 읽거나 스크랩한 회고를 확인하고 얼마나 회고했는지 확인할 수 있어요."
+}

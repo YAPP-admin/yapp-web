@@ -1,0 +1,19 @@
+{
+  "title": "주주들 다모여! 터놓고 주식이야기 어때?, 주주클럽",
+  "thumbnail": "/assets/project/18_thumbnail_zuzuclub.png",
+  "content": "/assets/project/18_content_zuzuclub.png",
+  "tags": ["18기", "Android 2"],
+  "team": ["전우정", "주진환", "박소연", "이재경", "조수연", "신상현"],
+  "field": ["Android"],
+  "generation": 18,
+  "program": [
+    "Figma",
+    "Zeplin",
+    "Kotlin",
+    "MVVM",
+    "Spring Boot",
+    "Spring Security"
+  ],
+  "deployLink": null,
+  "description": "주주클럽은 험한 주식시장에서의 주주들을 위한 국내 주식 SNS로, 언제 어디서나 주주들과 자유롭게 주식 이야기를 나눌 수 있는 소셜 네트워크 공간입니다. 존버 끝에 따상 따따상을 맞봐서 기쁘신가요? 어제 들어간 주식이 나락가서 슬프신가요? 주식으로 인한 감정들, 주주클럽에서 다 털어놓으세요!"
+}

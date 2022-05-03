@@ -1,9 +1,27 @@
 {
-  "title": "도토리함",
-  "thumbnail": "/assets/project/20_thumbnail_renewal.png",
-  "content": "/assets/project/20_content_renewal.png",
-  "tags": ["20기", "WEB"],
-  "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
-  "program": ["Figma", "Next.js", "TypeScript", "Styled-Components"],
-  "description": "상세 설명"
+  "title": "흩어진 북마크를 모으는, 도토리함",
+  "thumbnail": "/assets/project/19_thumbnail_dotori.png",
+  "content": "/assets/project/19_content_dotori.png",
+  "tags": ["19기", "Web 2"],
+  "team": [
+    "신예람",
+    "김서정",
+    "길상우",
+    "박제구",
+    "이도현",
+    "노지환",
+    "이주현"
+  ],
+  "field": ["Web"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Zeplin",
+    "React",
+    "Typescript",
+    "Kotlin",
+    "Spring Boot"
+  ],
+  "deployLink": "https://dotoriham.kr/",
+  "description": "다람쥐는 여러 군데 저장한 도토리 중 10%만 다시 찾는다고 해요. 여러분도 저장한 정보를 찾기 힘들진 않으신가요?"
 }
