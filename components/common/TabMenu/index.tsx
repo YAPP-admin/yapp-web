@@ -1,9 +1,9 @@
-import type { ReactElement } from 'react';
+import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
 
-import { ProjectCategoriesTypes } from 'pages/project';
+import { ProjectCategoryTypes } from 'pages/project';
 import { FieldNameTypes } from 'components/recruit/RecruitField';
 
 interface ITabMenuStyle {
@@ -12,9 +12,11 @@ interface ITabMenuStyle {
 
 export interface TabMenuProps extends ITabMenuStyle {
   className?: string;
-  tabs: Array<ProjectCategoriesTypes> | Array<FieldNameTypes>;
-  currentTab: string;
-  onClick: (category: ProjectCategoriesTypes) => void;
+  tabs: (ProjectCategoryTypes | FieldNameTypes)[];
+  currentTab: ProjectCategoryTypes | FieldNameTypes;
+  onClick:
+    | Dispatch<SetStateAction<ProjectCategoryTypes>>
+    | Dispatch<SetStateAction<FieldNameTypes>>;
 }
 
 function TabMenu({
@@ -26,7 +28,7 @@ function TabMenu({
 }: TabMenuProps): ReactElement {
   return (
     <TabMenuContainer className={className} backgroundColor={backgroundColor}>
-      {tabs.map((tab) => (
+      {tabs.map((tab: any) => (
         <TabMenuButton
           key={`field-${tab}`}
           onClick={() => onClick(tab)}
