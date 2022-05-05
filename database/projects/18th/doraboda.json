@@ -1,10 +1,11 @@
 {
+  "name": "doraboda",
   "title": "오늘 하루가 유독 정신없고, 길고 지루하게 느껴졌다면? doraboda",
   "thumbnail": "/assets/project/18_thumbnail_doraboda.png",
   "content": "/assets/project/18_content_doraboda.png",
   "tags": ["18기", "Web 1"],
   "team": ["심재민", "김성규", "임인호", "곽형조", "허정민", "황종훈"],
-  "field": ["Android"],
+  "field": ["Web"],
   "generation": 18,
   "program": null,
   "deployLink": null,
