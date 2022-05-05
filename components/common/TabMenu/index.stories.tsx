@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import TabMenu, { TabMenuProps } from 'components/TabMenu';
+import TabMenu, { TabMenuProps } from 'components/common/TabMenu';
 import { RECRUIT_FIELD_NAMES } from 'database/recruit';
 import { PROJECT_CATEGORIES } from 'database/project';
 import { useState } from 'react';
@@ -18,7 +18,7 @@ export default {
 } as Meta;
 
 const Template: Story<TabMenuProps> = (args) => {
-  const [tab, setTab] = useState(args.currentTab);
+  const [tab, setTab] = useState<any>(args.currentTab);
 
   return <TabMenu {...args} currentTab={tab} onClick={setTab} />;
 };
