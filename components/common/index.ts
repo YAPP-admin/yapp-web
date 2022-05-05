@@ -8,3 +8,6 @@ export { default as Carousel } from './Carousel';
 export { default as FloatingButton } from './FloatingButton';
 export { default as AnimatedBox } from './AnimatedBox';
 export { default as NewsCard } from './NewsCard';
+export { default as TabMenu } from './TabMenu';
+export { default as ProjectCard } from './ProjectCard';
+export { default as Badge } from './Badge';

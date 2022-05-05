@@ -105,4 +105,7 @@ export const SPONSOR_DATA = [
   {
     image: '/assets/images/sponsor5.png', // 제로 베이스
   },
+  {
+    image: '/assets/images/sponsor6.png', // 게더타운
+  },
 ];

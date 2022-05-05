@@ -200,6 +200,18 @@ const textStyle = {
       line-height: ${lineHeight.xLarge};
       letter-spacing: ${letterSpacing.xSmall};
     `,
+    Subtitle_1: css`
+      font-size: 2.6rem;
+      font-weight: ${fontWeight.semibold};
+      line-height: auto;
+      letter-spacing: ${letterSpacing.xSmall};
+    `,
+    Subtitle_2: css`
+      font-size: ${fontSize.xxSmall};
+      font-weight: ${fontWeight.semibold};
+      line-height: ${lineHeight.xLarge};
+      letter-spacing: ${letterSpacing.xSmall};
+    `,
     Button_Point: css`
       font-size: ${fontSize.xxSmall};
       font-weight: ${fontWeight.semibold};
