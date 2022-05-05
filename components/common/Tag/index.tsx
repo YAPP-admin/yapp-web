@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLSpanElement> {
   label: string;
 }
 
-function Tag({ label }: Props): ReactElement {
-  return <Container>{label}</Container>;
+function Tag({ label, ...rest }: Props): ReactElement {
+  return <Container {...rest}>{label}</Container>;
 }
 
 const Container = styled.span`

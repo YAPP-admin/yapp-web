@@ -24,7 +24,7 @@ function ProjectContent({ project }: Props): ReactElement {
   return (
     <Container>
       {tags.map((tag) => (
-        <Tag label={tag} key={tag} />
+        <Tag label={tag} key={tag} className="tag" />
       ))}
     </Container>
   );
@@ -32,6 +32,11 @@ function ProjectContent({ project }: Props): ReactElement {
 
 const Container = styled.div`
   margin-bottom: 100px;
+  .tag {
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
 `;
 
 export default ProjectContent;
