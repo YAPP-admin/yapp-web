@@ -2,6 +2,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { getAllProjects } from 'utils/getAllProjects';
 import Image from 'next/image';
 import styled from 'styled-components';
+import Breakpoints from 'constants/breakpoints';
+import { Project } from 'types/project';
+import ProjectContent from 'components/project/ProjectContent';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -50,31 +53,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 // Project Detail View
 interface ProjectDetailProps {
-  project: any;
+  project: Project;
 }
 
 function ProjectDetail({ project }: ProjectDetailProps) {
   console.log(project); // 프로젝트 데이터 확인용
   return (
-    <TempWrapper>
+    <Wrapper>
+      <ProjectContent project={project} />
       <ContentImageWrapper>
-        <Image
-          src={project.content}
-          alt="project-content-image"
-          layout="fill"
-          placeholder="blur"
-          blurDataURL={project.content}
-        />
+        <img src={project.content} alt="project-content-image" />
       </ContentImageWrapper>
-    </TempWrapper>
+    </Wrapper>
   );
 }
 
-const TempWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
+const Wrapper = styled.div`
+  width: ${Breakpoints.large}px;
+  margin: 0 auto;
+  padding: 174px 0 209px 0;
+  height: 100%;
 `;
 
 const ContentImageWrapper = styled.div`

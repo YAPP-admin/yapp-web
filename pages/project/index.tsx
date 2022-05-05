@@ -64,7 +64,7 @@ function Project({ projects }: ProjectProps) {
           {projects
             .filter((project: any) => project.category.includes(category))
             .map((project: any) => (
-              <ProjectCard project={project} />
+              <ProjectCard key={project.title} project={project} />
             ))}
         </ProjectGridWrapper>
         <ButtonWrapper>
