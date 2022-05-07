@@ -7,6 +7,7 @@ import { Project } from 'types/project';
 import ProjectContent from 'components/project/ProjectContent';
 import Tag from 'components/common/Tag';
 import { ProjectTitle } from 'components/project/ProjectTitle';
+import media from 'styles/media';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -62,22 +63,23 @@ function ProjectDetail({ project }: ProjectDetailProps) {
   console.log(project); // 프로젝트 데이터 확인용
   return (
     <Wrapper>
-      {project.tags.map((tag) => (
-        <Tag label={tag} key={tag} className="tag" />
-      ))}
+      <ResponsiveLayout>
+        {project.tags.map((tag) => (
+          <Tag label={tag} key={tag} className="tag" />
+        ))}
 
-      <ProjectTitle
-        css={`
-          margin-top: 16px;
-          margin-bottom: 26px;
-        `}
-      >
-        {project.title}
-      </ProjectTitle>
-      <ProjectContent project={project} />
-      <ContentImageWrapper>
-        <img src={project.content} alt="project-content-image" />
-      </ContentImageWrapper>
+        <ProjectTitle
+          css={`
+            margin-top: 16px;
+            margin-bottom: 26px;
+          `}
+        >
+          {project.title}
+        </ProjectTitle>
+        <ProjectContent project={project} />
+      </ResponsiveLayout>
+
+      <ProjectImage src={project.content} alt="project-content-image" />
     </Wrapper>
   );
 }
@@ -92,11 +94,26 @@ const Wrapper = styled.div`
       margin-right: 12px;
     }
   }
+
+  ${media.tablet} {
+    width: 100%;
+  }
 `;
 
-const ContentImageWrapper = styled.div`
-  position: relative;
-  width: 75%;
+const ResponsiveLayout = styled.div`
+  ${media.tablet} {
+    padding: 0 76px 0 80px;
+  }
+  ${media.mobile} {
+    padding: 0 20px;
+  }
+`;
+
+const ProjectImage = styled.img`
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  margin: 100px 0 200px;
 `;
 
 export default ProjectDetail;

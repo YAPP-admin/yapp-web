@@ -1,6 +1,8 @@
+import { Button } from 'components/common';
 import Tag from 'components/common/Tag';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+import media from 'styles/media';
 import { Project } from 'types/project';
 import { ProjectTitle } from '../ProjectTitle';
 
@@ -40,7 +42,7 @@ function ProjectContent({ project }: Props): ReactElement {
               <TextItem key={program}>{program}</TextItem>
             ))
           ) : (
-            <div>-</div>
+            <>-</>
           )}
         </BodyText>
       </Block>
@@ -59,6 +61,17 @@ function ProjectContent({ project }: Props): ReactElement {
           ))}
         </BodyText>
       </Block>
+
+      {deployLink && (
+        <Button
+          width={148}
+          height={65}
+          buttonColor="grey_850"
+          fontColor="white"
+        >
+          App store
+        </Button>
+      )}
     </Container>
   );
 }
@@ -69,6 +82,10 @@ const Block = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  ${media.mobile} {
+    flex-direction: column;
+    align-items: unset;
+  }
 `;
 
 const SubTitle = styled.div`
@@ -82,6 +99,7 @@ const BodyText = styled.div`
   display: flex;
   ${({ theme }) => theme.textStyle.web.Body_1};
   color: ${({ theme }) => theme.palette.grey_850};
+  flex-wrap: wrap;
 `;
 
 const TextItem = styled.div`

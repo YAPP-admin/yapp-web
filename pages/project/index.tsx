@@ -5,6 +5,7 @@ import { TabMenu, ProjectCard, Button } from 'components/common';
 import { getAllProjects } from 'utils/getAllProjects';
 import { PROJECT_CATEGORIES } from 'database/project';
 import media from 'styles/media';
+import { Project as ProjectType } from 'types/project';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getAllProjects();
@@ -36,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
 export type ProjectCategoryTypes = 'iOS' | 'Android' | 'Web' | 'ML';
 
 interface ProjectProps {
-  projects: any;
+  projects: ProjectType[];
 }
 
 // Project Grid View
