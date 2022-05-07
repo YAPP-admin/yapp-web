@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Breakpoints from 'constants/breakpoints';
 import { Project } from 'types/project';
 import ProjectContent from 'components/project/ProjectContent';
+import Tag from 'components/common/Tag';
+import { ProjectTitle } from 'components/project/ProjectTitle';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -60,6 +62,18 @@ function ProjectDetail({ project }: ProjectDetailProps) {
   console.log(project); // 프로젝트 데이터 확인용
   return (
     <Wrapper>
+      {project.tags.map((tag) => (
+        <Tag label={tag} key={tag} className="tag" />
+      ))}
+
+      <ProjectTitle
+        css={`
+          margin-top: 16px;
+          margin-bottom: 26px;
+        `}
+      >
+        {project.title}
+      </ProjectTitle>
       <ProjectContent project={project} />
       <ContentImageWrapper>
         <img src={project.content} alt="project-content-image" />
@@ -73,6 +87,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 174px 0 209px 0;
   height: 100%;
+  .tag {
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
 `;
 
 const ContentImageWrapper = styled.div`

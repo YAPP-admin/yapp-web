@@ -1,7 +1,10 @@
-import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
-function ProjectTitle(): ReactElement {
-  return <div>ProjectTitle</div>;
+interface Props {
+  isCenter?: boolean;
 }
 
-export default ProjectTitle;
+export const ProjectTitle = styled.div<Props>`
+  ${({ theme }) => theme.textStyle.web.Title};
+  ${({ isCenter }) => isCenter && 'text-align: center;'}
+`;
