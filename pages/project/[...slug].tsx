@@ -2,6 +2,12 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { getAllProjects } from 'utils/getAllProjects';
 import Image from 'next/image';
 import styled from 'styled-components';
+import Breakpoints from 'constants/breakpoints';
+import { Project } from 'types/project';
+import ProjectContent from 'components/project/ProjectContent';
+import Tag from 'components/common/Tag';
+import { ProjectTitle } from 'components/project/ProjectTitle';
+import media from 'styles/media';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -50,36 +56,64 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 // Project Detail View
 interface ProjectDetailProps {
-  project: any;
+  project: Project;
 }
 
 function ProjectDetail({ project }: ProjectDetailProps) {
   console.log(project); // 프로젝트 데이터 확인용
   return (
-    <TempWrapper>
-      <ContentImageWrapper>
-        <Image
-          src={project.content}
-          alt="project-content-image"
-          layout="fill"
-          placeholder="blur"
-          blurDataURL={project.content}
-        />
-      </ContentImageWrapper>
-    </TempWrapper>
+    <Wrapper>
+      <ResponsiveLayout>
+        {project.tags.map((tag) => (
+          <Tag label={tag} key={tag} className="tag" />
+        ))}
+
+        <ProjectTitle
+          css={`
+            margin-top: 16px;
+            margin-bottom: 26px;
+          `}
+        >
+          {project.title}
+        </ProjectTitle>
+        <ProjectContent project={project} />
+      </ResponsiveLayout>
+
+      <ProjectImage src={project.content} alt="project-content-image" />
+    </Wrapper>
   );
 }
 
-const TempWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
+const Wrapper = styled.div`
+  width: ${Breakpoints.large}px;
+  margin: 0 auto;
+  padding: 174px 0 209px 0;
+  height: 100%;
+  .tag {
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  ${media.tablet} {
+    width: 100%;
+  }
 `;
 
-const ContentImageWrapper = styled.div`
-  position: relative;
-  width: 75%;
+const ResponsiveLayout = styled.div`
+  ${media.tablet} {
+    padding: 0 76px 0 80px;
+  }
+  ${media.mobile} {
+    padding: 0 20px;
+  }
+`;
+
+const ProjectImage = styled.img`
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  margin: 100px 0 200px;
 `;
 
 export default ProjectDetail;

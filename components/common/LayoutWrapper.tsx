@@ -24,18 +24,16 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
   }, [asPath]);
 
   return (
-    <Layout ref={scrollRef}>
+    <div ref={scrollRef}>
       {asPath === PATH.Home && <IntroSection />}
       <Header />
       {children}
       <Footer />
       <FloatingButton />
-    </Layout>
+    </div>
   );
 }
 
-const Layout = styled.div`
-  height: 100%;
-`;
+
 
 export default LayoutWrapper;
