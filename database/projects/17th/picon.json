@@ -17,6 +17,7 @@
     "JPA",
     "Spring"
   ],
+  "retospects": [],
   "deployLink": null,
   "description": "PiCON은 간단하게 여행을 기록해 지도 위에 펼쳐진 여행의 흔적을 한 눈에 볼 수 있는 여행 다이어리 서비스입니다.<br /> PiCON과 함께 소중한 추억을 지도 위에 기록해보세요. 당신의 여행이 더욱 다채롭게 기억될 거에요."
 }

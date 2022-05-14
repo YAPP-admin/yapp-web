@@ -23,6 +23,7 @@
     "SpringBoot",
     "Microservice"
   ],
+  "retospects": [],
   "deployLink": null,
   "description": "수 많은 사람들 중에, 같이 운동할 사람 하나 없겠어? 사람들과 함께 운동하고 싶지만, 시간 맞추기가 어려울 때 나에게 꼭 맞는 운동메이트를 찾게 도와주는 앱입니다."
 }
