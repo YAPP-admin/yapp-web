@@ -15,7 +15,7 @@
     "SpringBoot",
     "Swagger"
   ],
-  "retospects": [
+  "retrospects": [
     {
       "name": "고정빈",
       "field": "Design",

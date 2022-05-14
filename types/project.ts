@@ -1,6 +1,6 @@
 export type ProjectField = 'Android' | 'iOS' | 'Web' | 'ML';
 
-export interface Retospect {
+export interface Retrospect {
   name: string;
   field: string;
   content: string;
@@ -15,7 +15,7 @@ export interface Project {
   field: ProjectField[];
   generation: number;
   program: string[] | null;
-  retospects: Retospect[];
+  retrospects: Retrospect[];
   deployLink: string | null;
   description: string;
 }

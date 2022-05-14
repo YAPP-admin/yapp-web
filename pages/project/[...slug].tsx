@@ -76,10 +76,20 @@ function ProjectDetail({ project }: ProjectDetailProps) {
         >
           {project.title}
         </ProjectTitle>
+
         <ProjectContent project={project} />
       </ResponsiveLayout>
 
       <ProjectImage src={project.content} alt="project-content-image" />
+
+      <ProjectTitle
+        css={`
+          text-align: center;
+          margin-bottom: 72px; 
+        `}
+      >
+        팀 회고
+      </ProjectTitle>
     </Wrapper>
   );
 }

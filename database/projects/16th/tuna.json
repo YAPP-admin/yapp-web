@@ -23,7 +23,7 @@
     "SpringBoot",
     "SpringSecurity"
   ],
-  "retospects": [],
+  "retrospects": [],
   "deployLink": null,
   "description": "태그로 구성된 4가지의 맞춤 뮤지션 질문 큐레이션으로 쉽고 간단하게 유저의 니즈에 맞는 뮤지션을 찾아요.<br /> 음악 의뢰내용을 간단히 확인하고 수락/거절을 결정할 수 있어요."
 }
