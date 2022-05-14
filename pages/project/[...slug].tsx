@@ -8,6 +8,7 @@ import ProjectContent from 'components/project/ProjectContent';
 import Tag from 'components/common/Tag';
 import { ProjectTitle } from 'components/project/ProjectTitle';
 import media from 'styles/media';
+import ProjectRetrospects from 'components/project/ProjectRetrospects';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -61,35 +62,33 @@ interface ProjectDetailProps {
 
 function ProjectDetail({ project }: ProjectDetailProps) {
   console.log(project); // 프로젝트 데이터 확인용
+  const { content, retrospects, tags, title } = project;
   return (
     <Wrapper>
       <ResponsiveLayout>
-        {project.tags.map((tag) => (
+        {tags.map((tag) => (
           <Tag label={tag} key={tag} className="tag" />
         ))}
-
         <ProjectTitle
           css={`
             margin-top: 16px;
             margin-bottom: 26px;
           `}
         >
-          {project.title}
+          {title}
         </ProjectTitle>
-
         <ProjectContent project={project} />
       </ResponsiveLayout>
-
-      <ProjectImage src={project.content} alt="project-content-image" />
-
+      <ProjectImage src={content} alt="project-content-image" />
       <ProjectTitle
         css={`
           text-align: center;
-          margin-bottom: 72px; 
+          margin-bottom: 72px;
         `}
       >
         팀 회고
       </ProjectTitle>
+      <ProjectRetrospects retrospects={retrospects} />
     </Wrapper>
   );
 }

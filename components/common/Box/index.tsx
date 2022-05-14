@@ -40,7 +40,7 @@ function Box({
 
 const StyledBox = styled.div<IBoxStyle>`
   width: ${({ isFullWidth, width }) => (isFullWidth ? '100%' : `${width}px`)};
-  height: ${({ height }) => height}px;
+  height: ${({ height }) => (height ? `${height}px` : 'auto')};
   border-radius: ${({ borderRadius }) => borderRadius}px;
   background-color: ${({ backgroundColor }) =>
     backgroundColor && theme.palette[backgroundColor]};
