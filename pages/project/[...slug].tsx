@@ -4,12 +4,9 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Breakpoints from 'constants/breakpoints';
 import { Project } from 'types/project';
-import ProjectContent from 'components/project/ProjectContent';
 import Tag from 'components/common/Tag';
-import { ProjectTitle } from 'components/project/ProjectText/ProjectTitle';
 import media from 'styles/media';
-import ProjectRetrospects from 'components/project/ProjectRetrospects';
-import { ProjectSubTitle } from 'components/project/ProjectText/ProjectSubTitle';
+import { ProjectContent, ProjectRetrospects } from 'components/project';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -88,9 +85,12 @@ const Wrapper = styled.div`
       margin-right: 12px;
     }
   }
-
   ${media.tablet} {
     width: 100%;
+    padding: 174px 0 200px 0;
+  }
+  ${media.mobile} {
+    padding: 80px 0 120px 0;
   }
 `;
 
@@ -103,10 +103,12 @@ const ResponsiveLayout = styled.div`
   }
 `;
 
-const ProjectName = styled(ProjectTitle)`
+const ProjectName = styled.div`
+  ${({ theme }) => theme.textStyle.web.Title};
   margin-top: 16px;
   margin-bottom: 26px;
   ${media.mobile} {
+    ${({ theme }) => theme.textStyle.mobile.Title_1};
     margin-bottom: 32px;
   }
 `;
@@ -116,6 +118,16 @@ const ProjectImage = styled.img`
   height: 100%;
   display: block;
   margin: 100px 0 200px;
+`;
+
+const ProjectSubTitle = styled.div`
+  ${({ theme }) => theme.textStyle.web.Title};
+  text-align: center;
+  margin-bottom: 72px;
+  ${media.mobile} {
+    margin-bottom: 32px;
+    ${({ theme }) => theme.textStyle.mobile.Title_2};
+  }
 `;
 
 export default ProjectDetail;
