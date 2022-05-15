@@ -6,9 +6,10 @@ import Breakpoints from 'constants/breakpoints';
 import { Project } from 'types/project';
 import ProjectContent from 'components/project/ProjectContent';
 import Tag from 'components/common/Tag';
-import { ProjectTitle } from 'components/project/ProjectTitle';
+import { ProjectTitle } from 'components/project/ProjectText/ProjectTitle';
 import media from 'styles/media';
 import ProjectRetrospects from 'components/project/ProjectRetrospects';
+import { ProjectSubTitle } from 'components/project/ProjectText/ProjectSubTitle';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -55,13 +56,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-// Project Detail View
-interface ProjectDetailProps {
+interface Props {
   project: Project;
 }
 
-function ProjectDetail({ project }: ProjectDetailProps) {
-  console.log(project); // 프로젝트 데이터 확인용
+function ProjectDetail({ project }: Props) {
   const { content, retrospects, tags, title } = project;
   return (
     <Wrapper>
@@ -69,25 +68,11 @@ function ProjectDetail({ project }: ProjectDetailProps) {
         {tags.map((tag) => (
           <Tag label={tag} key={tag} className="tag" />
         ))}
-        <ProjectTitle
-          css={`
-            margin-top: 16px;
-            margin-bottom: 26px;
-          `}
-        >
-          {title}
-        </ProjectTitle>
+        <ProjectName>{title}</ProjectName>
         <ProjectContent project={project} />
       </ResponsiveLayout>
       <ProjectImage src={content} alt="project-content-image" />
-      <ProjectTitle
-        css={`
-          text-align: center;
-          margin-bottom: 72px;
-        `}
-      >
-        팀 회고
-      </ProjectTitle>
+      <ProjectSubTitle>팀 회고</ProjectSubTitle>
       <ProjectRetrospects retrospects={retrospects} />
     </Wrapper>
   );
@@ -115,6 +100,14 @@ const ResponsiveLayout = styled.div`
   }
   ${media.mobile} {
     padding: 0 20px;
+  }
+`;
+
+const ProjectName = styled(ProjectTitle)`
+  margin-top: 16px;
+  margin-bottom: 26px;
+  ${media.mobile} {
+    margin-bottom: 32px;
   }
 `;
 

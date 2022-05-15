@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
+import media from 'styles/media';
 import { Retrospect } from 'types/project';
 import ProjectRetrospectItem from './ProjectRetrospectItem';
 
@@ -16,7 +17,10 @@ function ProjectRetrospects({ retrospects }: Props): ReactElement {
         columnClassName="my-masonry-grid_column"
       >
         {retrospects.map((retrospect) => (
-          <ProjectRetrospectItem retrospect={retrospect} />
+          <ProjectRetrospectItem
+            key={retrospect.name}
+            retrospect={retrospect}
+          />
         ))}
       </Masonry>
     </Container>
@@ -34,6 +38,21 @@ const Container = styled.div`
   .my-masonry-grid_column {
     padding-left: 30px;
     background-clip: padding-box;
+  }
+
+  ${media.tablet} {
+    width: auto;
+    padding: 0 80px;
+    .my-masonry-grid {
+      flex-direction: column;
+    }
+    .my-masonry-grid_column {
+      width: auto !important;
+    }
+  }
+
+  ${media.mobile} {
+    padding: 0 20px;
   }
 `;
 
