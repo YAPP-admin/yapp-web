@@ -1,11 +1,17 @@
 import fs from 'fs';
 import glob from 'glob';
+import { Project } from 'types/project';
 
 const POSTS_PATH = `${process.cwd()}/database/projects`; // Database 위치
 
 const DIR_REPLACE_STRING = '/projects';
 
-export async function getAllProjects(): Promise<Array<any>> {
+interface ReturnTypes {
+  slug: string[];
+  project: Project;
+}
+
+export async function getAllProjects(): Promise<Array<ReturnTypes>> {
   const files = glob.sync(`${POSTS_PATH}/**/*.json`.replace(/\\/g, '/')); // JSON 파일들 경로 가져오기
 
   const projects = files.reduce((acc, cur): any => {

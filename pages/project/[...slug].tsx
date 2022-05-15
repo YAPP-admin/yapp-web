@@ -7,6 +7,8 @@ import { Project } from 'types/project';
 import Tag from 'components/common/Tag';
 import media from 'styles/media';
 import { ProjectContent, ProjectRetrospects } from 'components/project';
+import { ProjectCard } from 'components/common';
+import OthersProjectCard from 'components/project/OthersProjectCard';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -31,18 +33,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 getStaticPaths으로 동적 라우팅(PATH)를 생성해줘야
 getStaticProps의 Params 사용이 가능합니다. 
 */
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as SlugType;
   const projects = await getAllProjects();
 
-  const projectData = projects.find(
-    (project: any) => project.slug[1] === slug[1],
-  ); // 현재 PATH 와 맞는 프로젝트 찾기
+  // console.log('projects', projects);
+
+  const projectData = projects.find((project) => project.slug[1] === slug[1]); // 현재 PATH 와 맞는 프로젝트 찾기
+
+  const otherProjects = projects
+    .filter(
+      (otherProject) =>
+        otherProject.project.generation === projectData?.project.generation,
+    )
+    .map((otherProject) => otherProject.project);
 
   if (projectData) {
     return {
       props: {
         project: projectData.project,
+        otherProjects,
       },
     };
   }
@@ -55,22 +66,35 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 interface Props {
   project: Project;
+  otherProjects: Project[];
 }
 
-function ProjectDetail({ project }: Props) {
+function ProjectDetail({ project, otherProjects }: Props) {
   const { content, retrospects, tags, title } = project;
+
+  console.log('otherProjects', otherProjects);
+
   return (
     <Wrapper>
       <ResponsiveLayout>
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <Tag label={tag} key={tag} className="tag" />
         ))}
         <ProjectName>{title}</ProjectName>
         <ProjectContent project={project} />
       </ResponsiveLayout>
       <ProjectImage src={content} alt="project-content-image" />
+
       <ProjectSubTitle>팀 회고</ProjectSubTitle>
       <ProjectRetrospects retrospects={retrospects} />
+
+      <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
+
+      <OtherProjectList>
+        {otherProjects.map((otherProject, i) => (
+          <OthersProjectCard key={i} otherProjects={otherProject} />
+        ))}
+      </OtherProjectList>
     </Wrapper>
   );
 }
@@ -128,6 +152,11 @@ const ProjectSubTitle = styled.div`
     margin-bottom: 32px;
     ${({ theme }) => theme.textStyle.mobile.Title_2};
   }
+`;
+
+const OtherProjectList = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export default ProjectDetail;
