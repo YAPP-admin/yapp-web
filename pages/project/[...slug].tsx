@@ -9,6 +9,7 @@ import media from 'styles/media';
 import { ProjectContent, ProjectRetrospects } from 'components/project';
 import { ProjectCard } from 'components/common';
 import OthersProjectCard from 'components/project/OthersProjectCard';
+import { useEffect, useState } from 'react';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -47,7 +48,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       (otherProject) =>
         otherProject.project.generation === projectData?.project.generation,
     )
-    .map((otherProject) => otherProject.project);
+    .map((otherProject) => {
+      return {
+        ...otherProject.project,
+        url: otherProject.slug.join('/'),
+      };
+    });
 
   if (projectData) {
     return {
@@ -64,13 +70,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
+export interface OtherProject extends Project {
+  url: string;
+}
+
 interface Props {
   project: Project;
-  otherProjects: Project[];
+  otherProjects: OtherProject[];
 }
 
 function ProjectDetail({ project, otherProjects }: Props) {
   const { content, retrospects, tags, title } = project;
+
+  const [randomProjects, setRandomProjects] = useState<OtherProject[]>([]);
+
+  useEffect(() => {
+    if (otherProjects.length > 3) {
+      const randomProjects = otherProjects.sort(() => 0.5 - Math.random());
+      setRandomProjects(randomProjects.slice(0, 3));
+    } else {
+      setRandomProjects(otherProjects);
+    }
+  }, []);
 
   console.log('otherProjects', otherProjects);
 
@@ -91,7 +112,7 @@ function ProjectDetail({ project, otherProjects }: Props) {
       <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
 
       <OtherProjectList>
-        {otherProjects.map((otherProject, i) => (
+        {randomProjects.map((otherProject, i) => (
           <OthersProjectCard key={i} otherProjects={otherProject} />
         ))}
       </OtherProjectList>
@@ -157,6 +178,7 @@ const ProjectSubTitle = styled.div`
 const OtherProjectList = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export default ProjectDetail;
