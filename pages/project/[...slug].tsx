@@ -4,10 +4,12 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Breakpoints from 'constants/breakpoints';
 import { Project } from 'types/project';
-import ProjectContent from 'components/project/ProjectContent';
 import Tag from 'components/common/Tag';
-import { ProjectTitle } from 'components/project/ProjectTitle';
 import media from 'styles/media';
+import { ProjectContent, ProjectRetrospects } from 'components/project';
+import { ProjectCard } from 'components/common';
+import OthersProjectCard from 'components/project/OthersProjectCard';
+import { useEffect, useState } from 'react';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -32,18 +34,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
 getStaticPaths으로 동적 라우팅(PATH)를 생성해줘야
 getStaticProps의 Params 사용이 가능합니다. 
 */
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as SlugType;
   const projects = await getAllProjects();
 
-  const projectData = projects.find(
-    (project: any) => project.slug[1] === slug[1],
-  ); // 현재 PATH 와 맞는 프로젝트 찾기
+  // console.log('projects', projects);
+
+  const projectData = projects.find((project) => project.slug[1] === slug[1]); // 현재 PATH 와 맞는 프로젝트 찾기
+
+  const otherProjects = projects
+    .filter(
+      (otherProject) =>
+        otherProject.project.generation === projectData?.project.generation,
+    )
+    .map((otherProject) => {
+      return {
+        ...otherProject.project,
+        url: otherProject.slug.join('/'),
+      };
+    });
 
   if (projectData) {
     return {
       props: {
         project: projectData.project,
+        otherProjects,
       },
     };
   }
@@ -54,32 +70,52 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-// Project Detail View
-interface ProjectDetailProps {
-  project: Project;
+export interface OtherProject extends Project {
+  url: string;
 }
 
-function ProjectDetail({ project }: ProjectDetailProps) {
-  console.log(project); // 프로젝트 데이터 확인용
+interface Props {
+  project: Project;
+  otherProjects: OtherProject[];
+}
+
+function ProjectDetail({ project, otherProjects }: Props) {
+  const { content, retrospects, tags, title } = project;
+
+  const [randomProjects, setRandomProjects] = useState<OtherProject[]>([]);
+
+  useEffect(() => {
+    if (otherProjects.length > 3) {
+      const randomProjects = otherProjects.sort(() => 0.5 - Math.random());
+      setRandomProjects(randomProjects.slice(0, 3));
+    } else {
+      setRandomProjects(otherProjects);
+    }
+  }, []);
+
+  console.log('otherProjects', otherProjects);
+
   return (
     <Wrapper>
       <ResponsiveLayout>
-        {project.tags.map((tag) => (
+        {tags?.map((tag) => (
           <Tag label={tag} key={tag} className="tag" />
         ))}
-
-        <ProjectTitle
-          css={`
-            margin-top: 16px;
-            margin-bottom: 26px;
-          `}
-        >
-          {project.title}
-        </ProjectTitle>
+        <ProjectName>{title}</ProjectName>
         <ProjectContent project={project} />
       </ResponsiveLayout>
+      <ProjectImage src={content} alt="project-content-image" />
 
-      <ProjectImage src={project.content} alt="project-content-image" />
+      <ProjectSubTitle>팀 회고</ProjectSubTitle>
+      <ProjectRetrospects retrospects={retrospects} />
+
+      <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
+
+      <OtherProjectList>
+        {randomProjects.map((otherProject, i) => (
+          <OthersProjectCard key={i} otherProjects={otherProject} />
+        ))}
+      </OtherProjectList>
     </Wrapper>
   );
 }
@@ -94,9 +130,12 @@ const Wrapper = styled.div`
       margin-right: 12px;
     }
   }
-
   ${media.tablet} {
     width: 100%;
+    padding: 174px 0 200px 0;
+  }
+  ${media.mobile} {
+    padding: 80px 0 120px 0;
   }
 `;
 
@@ -109,11 +148,37 @@ const ResponsiveLayout = styled.div`
   }
 `;
 
+const ProjectName = styled.div`
+  ${({ theme }) => theme.textStyle.web.Title};
+  margin-top: 16px;
+  margin-bottom: 26px;
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyle.mobile.Title_1};
+    margin-bottom: 32px;
+  }
+`;
+
 const ProjectImage = styled.img`
   max-width: 100%;
   height: 100%;
   display: block;
   margin: 100px 0 200px;
+`;
+
+const ProjectSubTitle = styled.div`
+  ${({ theme }) => theme.textStyle.web.Title};
+  text-align: center;
+  margin-bottom: 72px;
+  ${media.mobile} {
+    margin-bottom: 32px;
+    ${({ theme }) => theme.textStyle.mobile.Title_2};
+  }
+`;
+
+const OtherProjectList = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export default ProjectDetail;
