@@ -1,8 +1,10 @@
+import React from 'react';
 import styled from 'styled-components';
 import { Badge } from 'components/common';
 import Link from 'next/link';
 import Image from 'next/image';
 import media from 'styles/media';
+import { fadeIn } from 'styles/utils-styles';
 
 interface ProjectCardProps {
   project: any;
@@ -70,6 +72,8 @@ const StyledProjectCard = styled.div`
     height: 100%;
     transition: transform 1s;
   }
+
+  animation: ${fadeIn} 0.5s ease-in-out;
 `;
 
 const ImageWrapper = styled.div`
@@ -122,4 +126,4 @@ const Tag = styled.div`
   }
 `;
 
-export default ProjectCard;
+export default React.memo(ProjectCard);
