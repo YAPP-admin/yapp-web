@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import styled from 'styled-components';
 import { TabMenu, ProjectCard, Button } from 'components/common';
@@ -6,6 +6,7 @@ import { getAllProjects } from 'utils/getAllProjects';
 import { PROJECT_CATEGORIES } from 'database/project';
 import media from 'styles/media';
 import { Project as ProjectType } from 'types/project';
+import useSmoothScroll from 'hooks/useSmoothScroll';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getAllProjects();
@@ -40,20 +41,43 @@ interface ProjectProps {
   projects: ProjectType[];
 }
 
-// Project Grid View
+const INITIAL_CARD_COUNT = 9; // '기본' 카드 표현 수
+const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
+
 function Project({ projects }: ProjectProps) {
+  const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
   const [category, setCategory] = useState<ProjectCategoryTypes>(
     PROJECT_CATEGORIES[0],
   );
+  const { ref: containerRef, trigger: triggerContainerScroll } =
+    useSmoothScroll<HTMLDivElement>({
+      block: 'end',
+    });
+  const { ref: categoryRef, trigger: triggerCategoryScroll } =
+    useSmoothScroll<HTMLDivElement>({
+      block: 'start',
+    });
+
+  const handleMoreButtonClick = () => {
+    setViewCardCount(() => viewCardCount + NEXT_CARD_COUNT);
+    setTimeout(() => {
+      triggerContainerScroll();
+    }, 100);
+  };
+
+  useEffect(() => {
+    setViewCardCount(INITIAL_CARD_COUNT);
+    triggerCategoryScroll();
+  }, [category]);
 
   return (
     <ProjectWrapper>
-      <ProjectContainer>
+      <ProjectContainer ref={containerRef}>
         <ProjectTitleWrapper>
           기획부터 런칭까지,
           <br /> 다양한 프로젝트를 경험해 보세요!
         </ProjectTitleWrapper>
-        <CategoriesWrapper>
+        <CategoriesWrapper ref={categoryRef}>
           <TabMenu
             tabs={PROJECT_CATEGORIES}
             currentTab={category}
@@ -63,7 +87,9 @@ function Project({ projects }: ProjectProps) {
         </CategoriesWrapper>
         <ProjectGridWrapper>
           {projects
-            .filter((project: any) => project.category.includes(category))
+            .filter((project: any) => project.category.includes(category)) // 현재 카테고리 필터링
+            .sort((a, b) => b.generation - a.generation) // 기수 순 정렬
+            .slice(0, viewCardCount) // 기본 9개 카드 표현
             .map((project: any) => (
               <ProjectCard key={project.title} project={project} />
             ))}
@@ -74,6 +100,7 @@ function Project({ projects }: ProjectProps) {
             height={65}
             fontColor="white"
             buttonColor="grey_850"
+            onClick={handleMoreButtonClick}
           >
             더보기
           </StyledButton>
@@ -101,10 +128,8 @@ const ProjectContainer = styled.section`
 `;
 
 const ProjectTitleWrapper = styled.div`
-  margin-bottom: 140px;
   ${({ theme }) => theme.textStyle.web.Title};
   ${media.mobile} {
-    margin-bottom: 80px;
     ${({ theme }) => theme.textStyle.mobile.Title_2};
   }
 `;
@@ -112,14 +137,16 @@ const ProjectTitleWrapper = styled.div`
 const CategoriesWrapper = styled.div`
   display: flex;
   justify-content: center;
+  padding-top: 140px;
+  ${media.mobile} {
+    padding-top: 80px;
+  }
 `;
 
 const ProjectGridWrapper = styled.div`
   display: grid;
-  row-gap: 30px;
-  column-gap: 30px;
+  gap: 30px;
   margin-top: 64px;
-
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   ${media.tablet} {
