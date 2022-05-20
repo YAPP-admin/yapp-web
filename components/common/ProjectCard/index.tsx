@@ -1,8 +1,7 @@
-import React from 'react';
+import { memo } from 'react';
 import styled from 'styled-components';
-import { Badge } from 'components/common';
+import { Badge, Card, AnimatedImage } from 'components/common';
 import Link from 'next/link';
-import Image from 'next/image';
 import media from 'styles/media';
 import { fadeIn } from 'styles/utils-styles';
 
@@ -16,17 +15,12 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`project/${url}`}>
       <StyledProjectCard>
-        <ImageWrapper>
-          <div className="image-scale-wrapper">
-            <Image
-              src={thumbnail}
-              alt="project-thumbnail"
-              layout="fill"
-              placeholder="blur"
-              blurDataURL={thumbnail}
-            />
-          </div>
-        </ImageWrapper>
+        <AnimatedImage
+          className="project-card-image"
+          src={thumbnail}
+          alt="project-image"
+          height={214}
+        />
         <ContentContainer>
           <DetailWrapper>
             <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
@@ -49,41 +43,29 @@ const StyledProjectCard = styled.div`
   border-radius: 25px;
   background-color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
+  overflow: hidden;
+  will-change: transform;
+
+  animation: ${fadeIn} 0.7s ease-in-out;
+  filter: drop-shadow(
+    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
+  );
+  transition: filter 0.5s;
+  :hover {
+    filter: drop-shadow(
+      0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
+    );
+  }
 
   ${media.mobile} {
     width: 335px;
     height: 294px;
   }
 
-  transition: filter 0.5s;
-  :hover {
-    filter: drop-shadow(
-      0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
-    );
-
-    .image-scale-wrapper {
-      transform: scale(1.05);
+  > .project-card-image {
+    ${media.mobile} {
+      height: 188px;
     }
-  }
-
-  .image-scale-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-  }
-
-  animation: ${fadeIn} 0.5s ease-in-out;
-`;
-
-const ImageWrapper = styled.div`
-  height: 214px;
-  overflow: hidden;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-
-  ${media.mobile} {
-    height: 188px;
   }
 `;
 
@@ -126,4 +108,4 @@ const Tag = styled.div`
   }
 `;
 
-export default React.memo(ProjectCard);
+export default memo(ProjectCard);
