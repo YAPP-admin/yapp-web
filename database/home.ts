@@ -108,4 +108,7 @@ export const SPONSOR_DATA = [
   {
     image: '/assets/images/sponsor6.png', // 게더타운
   },
+  {
+    image: '/assets/images/sponsor7.png', // 네이버 D2
+  },
 ];

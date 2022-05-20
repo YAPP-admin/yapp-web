@@ -1,8 +1,8 @@
 {
   "name": "YAPP 출석 체크 어플",
   "title": "20기 YAPP 출석 체크 어플 프로젝트",
-  "thumbnail": "/assets/project/17_thumbnail_picon.png",
-  "content": "/assets/project/17_content_picon.png",
+  "thumbnail": "/assets/project/20_thumbnail_attendance.png",
+  "content": "/assets/project/20_content_attendance.png",
   "tags": ["20기", "Android", "iOS"],
   "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
   "field": ["iOS", "Android"],
