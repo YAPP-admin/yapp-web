@@ -4,7 +4,7 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { Project } from 'types/project';
-import { ProjectTitle } from '../ProjectTitle';
+import { ProjectTitle } from '../ProjectText/ProjectTitle';
 
 interface Props {
   project: Project;
