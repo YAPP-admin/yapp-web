@@ -158,6 +158,9 @@ const ProjectImage = styled.img`
   height: 100%;
   display: block;
   margin: 100px 0 200px;
+  ${media.mobile} {
+    margin: 120px 0 120px;
+  }
 `;
 
 const ProjectSubTitle = styled.div`
