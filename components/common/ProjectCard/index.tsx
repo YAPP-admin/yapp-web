@@ -1,20 +1,22 @@
 import { memo } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Badge, Card, AnimatedImage } from 'components/common';
 import Link from 'next/link';
 import media from 'styles/media';
 import { fadeIn } from 'styles/utils-styles';
+import { ProjectUIModel } from 'types/project';
 
 interface ProjectCardProps {
-  project: any;
+  project: ProjectUIModel;
+  isSubCard?: boolean;
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
+function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   const { title, thumbnail, tags, generation, url } = project;
 
   return (
     <Link href={`project/${url}`}>
-      <StyledProjectCard>
+      <StyledProjectCard isShadow={!isSubCard}>
         <AnimatedImage
           className="project-card-image"
           src={thumbnail}
@@ -23,11 +25,17 @@ function ProjectCard({ project }: ProjectCardProps) {
         />
         <ContentContainer>
           <DetailWrapper>
-            <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
-            <Badge>{generation}</Badge>
+            {isSubCard ? (
+              <ProjectSubTitleWrapper>{title}</ProjectSubTitleWrapper>
+            ) : (
+              <>
+                <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
+                <Badge>{generation}</Badge>
+              </>
+            )}
           </DetailWrapper>
           <TagWrapper>
-            {tags.map((tag: string) => (
+            {tags.map((tag) => (
               <Tag key={tag}>{'#' + tag} </Tag>
             ))}
           </TagWrapper>
@@ -37,7 +45,7 @@ function ProjectCard({ project }: ProjectCardProps) {
   );
 }
 
-const StyledProjectCard = styled.div`
+const StyledProjectCard = styled.div<{ isShadow: boolean }>`
   width: 380px;
   height: 326px;
   border-radius: 25px;
@@ -47,9 +55,13 @@ const StyledProjectCard = styled.div`
   will-change: transform;
 
   animation: ${fadeIn} 0.7s ease-in-out;
-  filter: drop-shadow(
-    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
-  );
+  ${({ isShadow }) =>
+    isShadow &&
+    css`
+      filter: drop-shadow(
+        0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
+      );
+    `}
   transition: filter 0.5s;
   :hover {
     filter: drop-shadow(
@@ -89,6 +101,17 @@ const ProjectTitleWrapper = styled.span`
   text-overflow: ellipsis;
 
   ${({ theme }) => theme.textStyle.web.Subtitle_1};
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyle.mobile.Subtitle};
+  }
+`;
+
+const ProjectSubTitleWrapper = styled.span`
+  width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  ${({ theme }) => theme.textStyle.web.Subtitle_2};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Subtitle};
   }

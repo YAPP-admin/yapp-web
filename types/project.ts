@@ -19,3 +19,7 @@ export interface Project {
   deployLink: string | null;
   description: string;
 }
+
+export interface ProjectUIModel extends Project {
+  url: string;
+}

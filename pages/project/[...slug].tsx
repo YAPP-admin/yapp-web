@@ -3,12 +3,11 @@ import { getAllProjects } from 'utils/getAllProjects';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Breakpoints from 'constants/breakpoints';
-import { Project } from 'types/project';
+import { Project, ProjectUIModel } from 'types/project';
 import Tag from 'components/common/Tag';
 import media from 'styles/media';
 import { ProjectContent, ProjectRetrospects } from 'components/project';
 import { ProjectCard } from 'components/common';
-import OthersProjectCard from 'components/project/OthersProjectCard';
 import { useEffect, useState } from 'react';
 
 interface SlugType {
@@ -39,8 +38,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as SlugType;
   const projects = await getAllProjects();
 
-  // console.log('projects', projects);
-
   const projectData = projects.find((project) => project.slug[1] === slug[1]); // 현재 PATH 와 맞는 프로젝트 찾기
 
   const otherProjects = projects
@@ -70,19 +67,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export interface OtherProject extends Project {
-  url: string;
-}
-
 interface Props {
   project: Project;
-  otherProjects: OtherProject[];
+  otherProjects: ProjectUIModel[];
 }
 
 function ProjectDetail({ project, otherProjects }: Props) {
   const { content, retrospects, tags, title } = project;
 
-  const [randomProjects, setRandomProjects] = useState<OtherProject[]>([]);
+  const [randomProjects, setRandomProjects] = useState<ProjectUIModel[]>([]);
 
   useEffect(() => {
     if (otherProjects.length > 3) {
@@ -92,8 +85,6 @@ function ProjectDetail({ project, otherProjects }: Props) {
       setRandomProjects(otherProjects);
     }
   }, []);
-
-  console.log('otherProjects', otherProjects);
 
   return (
     <Wrapper>
@@ -113,7 +104,7 @@ function ProjectDetail({ project, otherProjects }: Props) {
 
       <OtherProjectList>
         {randomProjects.map((otherProject, i) => (
-          <OthersProjectCard key={i} otherProjects={otherProject} />
+          <ProjectCard key={i} project={otherProject} isSubCard />
         ))}
       </OtherProjectList>
     </Wrapper>
