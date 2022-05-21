@@ -9,8 +9,9 @@ function Tag({ label, ...rest }: Props): ReactElement {
   return <Container {...rest}>{label}</Container>;
 }
 
-const Container = styled.span`
+const Container = styled.div`
   padding: 5px 12px;
+  display: inline-block;
   background-color: ${({ theme }) => theme.palette.orange_400};
   color: ${({ theme }) => theme.palette.white};
   border-radius: 31px;
