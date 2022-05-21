@@ -33,7 +33,5 @@ export async function getAllProjects(): Promise<Array<ReturnTypes>> {
     ];
   }, []);
 
-  console.log(files);
-
   return projects;
 }

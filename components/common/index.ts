@@ -11,3 +11,5 @@ export { default as NewsCard } from './NewsCard';
 export { default as TabMenu } from './TabMenu';
 export { default as ProjectCard } from './ProjectCard';
 export { default as Badge } from './Badge';
+export { default as AnimatedImage } from './AnimatedImage';
+export { default as Card } from './Card';
