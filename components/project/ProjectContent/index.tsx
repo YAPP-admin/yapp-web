@@ -1,27 +1,16 @@
-import { Button } from 'components/common';
 import Tag from 'components/common/Tag';
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { Project } from 'types/project';
-import { ProjectTitle } from '../ProjectText/ProjectTitle';
 
 interface Props {
   project: Project;
 }
 
 function ProjectContent({ project }: Props): ReactElement {
-  const {
-    content,
-    deployLink,
-    description,
-    field,
-    generation,
-    program,
-    tags,
-    team,
-    thumbnail,
-  } = project;
+  const { deployLink, description, program, team } = project;
 
   return (
     <Container>
@@ -63,14 +52,11 @@ function ProjectContent({ project }: Props): ReactElement {
       </Block>
 
       {deployLink && (
-        <Button
-          width={148}
-          height={65}
-          buttonColor="grey_850"
-          fontColor="white"
-        >
-          App store
-        </Button>
+        <DeployBox>
+          <Link href={deployLink} passHref>
+            <DeployLinkButton target="_blank">App store</DeployLinkButton>
+          </Link>
+        </DeployBox>
       )}
     </Container>
   );
@@ -104,6 +90,35 @@ const BodyText = styled.div`
 
 const TextItem = styled.div`
   margin-right: 6px;
+`;
+
+const DeployBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  ${media.tablet} {
+    justify-content: center;
+  }
+`;
+
+const DeployLinkButton = styled.a`
+  padding: 20px 24px;
+  cursor: pointer;
+  border-radius: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 148px;
+  box-sizing: border-box;
+  ${({ theme }) => css`
+    background-color: ${theme.palette.grey_850};
+    color: ${theme.palette.white};
+    ${theme.textStyle.web.Button_Point};
+  `}
+  ${media.mobile} {
+    width: 122px;
+    padding: 18px 24px;
+    ${({ theme }) => theme.textStyle.mobile.Button_Point};
+  }
 `;
 
 export default ProjectContent;

@@ -23,7 +23,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
           alt="project-image"
           height={214}
         />
-        <ContentContainer>
+        <ContentContainer isSubCard={isSubCard}>
           <DetailWrapper>
             {isSubCard ? (
               <ProjectSubTitleWrapper>{title}</ProjectSubTitleWrapper>
@@ -53,21 +53,21 @@ const StyledProjectCard = styled.div<{ isShadow: boolean }>`
   cursor: pointer;
   overflow: hidden;
   will-change: transform;
-
   animation: ${fadeIn} 0.7s ease-in-out;
+
   ${({ isShadow }) =>
     isShadow &&
     css`
       filter: drop-shadow(
         0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
       );
+      transition: filter 0.5s;
+      :hover {
+        filter: drop-shadow(
+          0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
+        );
+      }
     `}
-  transition: filter 0.5s;
-  :hover {
-    filter: drop-shadow(
-      0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
-    );
-  }
 
   ${media.mobile} {
     width: 335px;
@@ -81,12 +81,19 @@ const StyledProjectCard = styled.div<{ isShadow: boolean }>`
   }
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.div<{ isSubCard?: boolean }>`
   margin: 24px;
-
   ${media.mobile} {
     margin: 20px 24px;
   }
+  ${({ isSubCard }) =>
+    isSubCard &&
+    css`
+      margin: 16px 0 0 0;
+      ${media.mobile} {
+        margin: 10px 0 0 0;
+      }
+    `}
 `;
 
 const DetailWrapper = styled.div`

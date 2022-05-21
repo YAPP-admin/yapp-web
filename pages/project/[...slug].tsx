@@ -97,8 +97,12 @@ function ProjectDetail({ project, otherProjects }: Props) {
       </ResponsiveLayout>
       <ProjectImage src={content} alt="project-content-image" />
 
-      <ProjectSubTitle>팀 회고</ProjectSubTitle>
-      <ProjectRetrospects retrospects={retrospects} />
+      {retrospects?.length > 0 && (
+        <>
+          <ProjectSubTitle>팀 회고</ProjectSubTitle>
+          <ProjectRetrospects retrospects={retrospects} />
+        </>
+      )}
 
       <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
 
@@ -169,7 +173,29 @@ const ProjectSubTitle = styled.div`
 const OtherProjectList = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  > div {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  ${media.tablet} {
+    flex-direction: column;
+    > div {
+      margin-bottom: 32px;
+      &:not(:last-child) {
+        margin-right: 0px;
+      }
+    }
+  }
+
+  ${media.mobile} {
+    > div {
+      margin-bottom: 20px;
+      height: 267px;
+    }
+  }
 `;
 
 export default ProjectDetail;
