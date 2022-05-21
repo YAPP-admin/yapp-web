@@ -38,6 +38,7 @@ const Container = styled(Box)`
   ${({ theme }) => theme.textStyle.web.Body_2};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Body_1};
+    margin-bottom: 20px;
   }
   .title {
     ${({ theme }) => theme.textStyle.web.Subtitle_2}

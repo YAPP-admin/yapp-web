@@ -44,6 +44,7 @@ const Container = styled.div`
   ${media.tablet} {
     width: auto;
     padding: 0 80px;
+    margin-bottom: 168px;
     .my-masonry-grid {
       flex-direction: column;
     }
@@ -54,6 +55,7 @@ const Container = styled.div`
 
   ${media.mobile} {
     padding: 0 20px;
+    margin-bottom: 100px;
   }
 `;
 
