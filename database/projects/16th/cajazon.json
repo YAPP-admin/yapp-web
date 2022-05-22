@@ -1,0 +1,30 @@
+{
+  "name": "찾아존",
+  "title": "만족스러운 출퇴근길을 위한 맞춤형 주거 지역 추천 서비스, 찾아존",
+  "thumbnail": "/assets/project/16_thumbnail_cajazon.png",
+  "content": "/assets/project/16_content_cajazon.png",
+  "tags": ["16기", "Web 2"],
+  "team": [
+    "임정환",
+    "장재영",
+    "안광호",
+    "노영지",
+    "이송원",
+    "정원희",
+    "허진호"
+  ],
+  "field": ["Web"],
+  "generation": 16,
+  "program": [
+    "Sketch",
+    "Adobe Illustrator",
+    "Docker",
+    "Nginx",
+    "swagger",
+    "mysql",
+    "rds"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "찾아존은 매물 탐색 전, 사용자에게 적합한 주거 지역을 추천해주는 맞춤형 위치 가이드라인 서비스입니다.<br /> 회사 위치와 선호하는 교통수단, 이동 시간을 설정하세요. 발견하지 못했던 새로운 주거 지역을 추천해드릴게요!"
+}

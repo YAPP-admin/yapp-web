@@ -1,0 +1,20 @@
+{
+  "name": "YAPP 웹 리뉴얼",
+  "title": "20기 YAPP 웹 리뉴얼 프로젝트",
+  "thumbnail": "/assets/project/20_thumbnail_renewal.png",
+  "content": "/assets/project/20_content_renewal.png",
+  "tags": ["20기", "Web"],
+  "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
+  "field": ["Web"],
+  "generation": 20,
+  "program": [
+    "Figma",
+    "Next.js",
+    "Typescript",
+    "styled-components",
+    "Storybook"
+  ],
+  "retrospects": [],
+  "deployLink": "https://www.yapp.co.kr/",
+  "description": "YAPP 20기 기획, 디자인, 프론트개발 분야의 운영진이 모여 공식 웹 리뉴얼 프로젝트를 진행하였습니다.<br /> 기존 홈페이지의 불편함을 없애고, 동아리의 방향성과 프로젝트들을 쉽게 확인하실 수 있도록 개편하였어요!<br /> 자, 이제 YAPP과 함께 여러분의 역량을 마음껏 펼쳐볼 준비 되셨나요?"
+}

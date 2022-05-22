@@ -1,5 +1,4 @@
 import type { ReactElement } from 'react';
-import styled from 'styled-components';
 import {
   AnimatedTextSection,
   GridSection,
@@ -7,22 +6,18 @@ import {
   ProjectSection,
   SponsorSection,
   SectionTemplate,
-} from 'pages-components/home';
+} from 'components/home';
 
 function Home(): ReactElement {
   return (
-    <HomeWrapper>
+    <>
       <AnimatedTextSection />
       <GridSection />
       <ProjectSection />
       <NewsSection />
       <SponsorSection />
-    </HomeWrapper>
+    </>
   );
 }
-
-const HomeWrapper = styled(SectionTemplate)`
-  background-color: ${({ theme }) => theme.palette.lightestGrey}; ;
-`;
 
 export default Home;

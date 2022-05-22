@@ -1,0 +1,22 @@
+{
+  "name": "위더뷰",
+  "title": "위더뷰",
+  "thumbnail": "/assets/project/17_thumbnail_wetheview.png",
+  "content": "/assets/project/17_content_wetheview.png",
+  "tags": ["17기", "Web 2"],
+  "team": [
+    "김병헌",
+    "김찬호",
+    "박기태",
+    "이용재",
+    "문예은",
+    "성재호",
+    "이은비"
+  ],
+  "field": ["Web"],
+  "generation": 17,
+  "program": ["XD", "Illustrator", "React", "Webpack", "Java", "Nginx"],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "처음부터 끝까지 필요한 기능만 간결하게 제시하여 편리한 사용을 도모하며, 공간과 시간의 제약이 없어 어느 누구와 면접 연습을 당장 할 수 있도록 제시합니다. 또한 개인 연습, 스터디를 통해 면접 과정을 연습하여 실제 면접에 자신감을 북돋아 주고자 합니다."
+}

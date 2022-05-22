@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import Image from 'next/image';
 import media from 'styles/media';
 import { useRouter } from 'next/router';
-import { Button } from 'components';
+import { Button } from 'components/common';
 import Illust_404 from 'public/assets/images/illust_404.png';
 
 function Custom404(): ReactElement {
@@ -14,7 +14,7 @@ function Custom404(): ReactElement {
       <ContentContainer>
         <TextContainer>
           <div className="main-text">
-            페이지 <span>공사중</span>입니다!
+            잘못된 <span>접근</span>입니다!
           </div>
         </TextContainer>
         <ImageContainer>

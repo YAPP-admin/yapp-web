@@ -1,0 +1,21 @@
+{
+  "name": "YAPP 출석 체크 어플",
+  "title": "20기 YAPP 출석 체크 어플 프로젝트",
+  "thumbnail": "/assets/project/20_thumbnail_attendance.png",
+  "content": "/assets/project/20_content_attendance.png",
+  "tags": ["20기", "Android", "iOS"],
+  "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
+  "field": ["iOS", "Android"],
+  "generation": 20,
+  "program": [
+    "Figma",
+    "Adobe Illustrator",
+    "Hilt",
+    "Coil",
+    "MVVVM pattern",
+    "Rxswift"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "YAPP 출석 체크 앱은 QR 체크인을 통해 운영진에게 더 빠르고 정확하게 멤버의 출결 상황을 확인할 수 있는 기능을 제공합니다.<br /> 또한 구글 스프레드 시트, 구글 독스, 슬랙에 각자 흩어져 있던 출결 점수 확인과 관련된 정보를 '출결 확인' 탭 하나에서 한꺼번에 모아볼 수 있도록 설계하여 멤버의 혼란을 줄입니다."
+}

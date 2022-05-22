@@ -1,0 +1,22 @@
+{
+  "name": "곳감",
+  "title": "가야하는 곳들을 잊지 않고 가게 해줘요, 곳감",
+  "thumbnail": "/assets/project/16_thumbnail_gotgam.png",
+  "content": "/assets/project/16_content_gotgam.png",
+  "tags": ["16기", "iOS 1"],
+  "team": [
+    "윤혜민",
+    "서희강",
+    "김보민",
+    "손병근",
+    "최철웅",
+    "김민종",
+    "심준식"
+  ],
+  "field": ["iOS"],
+  "generation": 16,
+  "program": ["Adobe XD", "Adobe Illustrator", "Swift", "Swagger", "Docker"],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "‘곳감’은 평소에 갈 생각이 있었지만 잊어버릴 만한 곳을 알려줍니다. 지도 위에 알림을 설정할 수 있고 근처에 도달하면 알림을 받을 수 있습니다.<br /> 가야할 곳에 해야할 일을 등록하면 위치와 일정을 알려주는 유용한 앱입니다."
+}

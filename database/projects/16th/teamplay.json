@@ -1,0 +1,14 @@
+{
+  "name": "TEAMPLAY",
+  "title": "세상의 모든 스포츠 동호회가 좀 더 쉽게 팀플레이 할 수 있도록, TEAMPLAY",
+  "thumbnail": "/assets/project/16_thumbnail_teamplay.png",
+  "content": "/assets/project/16_content_teamplay.png",
+  "tags": ["16기", "Android 2"],
+  "team": ["최민성", "김바다", "최창익", "오준택", "이오영", "오성진"],
+  "field": ["Android"],
+  "generation": 16,
+  "program": null,
+  "retrospects": [],
+  "deployLink": null,
+  "description": "팀플레이는 스포츠 동호회가 가진 폐쇄성을 개선하고, 동호회 간의 원활한 교류를 돕기 위해 만들어진 동호회 관리/매칭 서비스에요.<br />팀플레이는 동호회 관리자, 동호회원, 동호회 가입을 원하는 사람의 인터뷰를 통해 문제점을 도출하고 페르소나 등 UX 리서치를 통해<br />동호회를 관리하고 매치를 성사시키는데에 활용되는 많은 시간을 절약해 오롯이 좋은 사람들과 경기하는 데에만 집중할 수 있도록 했어요."
+}

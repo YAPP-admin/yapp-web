@@ -1,0 +1,35 @@
+{
+  "name": "머렝",
+  "title": "영어 질문에 뭐랭? 하는 순간, 머렝",
+  "thumbnail": "/assets/project/18_thumbnail_mureng.png",
+  "content": "/assets/project/18_content_mureng.png",
+  "tags": ["18기", "Android 1"],
+  "team": [
+    "최현정",
+    "김서정",
+    "김수현",
+    "김유나",
+    "한기호",
+    "박현국",
+    "조현우"
+  ],
+  "field": ["Android"],
+  "generation": 18,
+  "program": [
+    "Figma",
+    "Zeplin",
+    "Kotlin",
+    "MVVM(AAC)",
+    "Spring Boot",
+    "jpa&hibernate"
+  ],
+  "retrospects": [
+    {
+      "name": "최현정",
+      "field": "PM",
+      "content": "YAPP에서의 활동은 IT 서비스 기획자에게 필요한 하드 스킬과 소프트 스킬을 모두 기를 수 있었던 좋은 경험이었습니다. 특히 PM은 타 직군(디자이너, 개발자)분들과의 커뮤니케이션이 굉장히 많은데 소통하는 과정에서 백로그의 우선 순위를 선정하고 관리하는 방법, 기획할 때 고려하면 좋을 점 등을 많이 배울 수 있었습니다. 아쉬웠던 점은 코로나로 인해 대부분의 회의를 비대면으로 진행해서 팀원분들과 대면으로 많이 만나지 못했던 점인데, 이런 부분은 앞으로 거리두기 조치 상황에 따라 점점 좋아질 것 같습니다 :)"
+    }
+  ],
+  "deployLink": null,
+  "description": "머렝은 일상적인 질문들에 영어로 답변을 써보는 Q&A 영어 일기 서비스입니다. 그동안 영어를 사용하는 것이 막막하고 어려웠던 사람들에게, 다양한 질문에 답변하는 과정을 통해 영어에 대한 자신감을 심어주려고 합니다."
+}

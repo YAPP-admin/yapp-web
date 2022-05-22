@@ -1,0 +1,29 @@
+{
+  "name": "운동플래닛",
+  "title": "우리 오늘 운동해요, 운동플래닛",
+  "thumbnail": "/assets/project/17_thumbnail_exerciseplanet.png",
+  "content": "/assets/project/17_content_exerciseplanet.png",
+  "tags": ["17기", "Android 2"],
+  "team": [
+    "정예찬",
+    "박다영",
+    "김동환",
+    "김민호",
+    "박해민",
+    "박소연",
+    "원알렉스"
+  ],
+  "field": ["Android"],
+  "generation": 17,
+  "program": [
+    "Figma",
+    "Adobe Illustrator",
+    "Android Studio",
+    "Kotlin",
+    "SpringBoot",
+    "Microservice"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "수 많은 사람들 중에, 같이 운동할 사람 하나 없겠어? 사람들과 함께 운동하고 싶지만, 시간 맞추기가 어려울 때 나에게 꼭 맞는 운동메이트를 찾게 도와주는 앱입니다."
+}

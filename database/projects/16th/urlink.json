@@ -1,0 +1,22 @@
+{
+  "name": "urLink",
+  "title": "내가 수집하는 모든 정보를 관리해주는 웹 서핑 필수템, urLink",
+  "thumbnail": "/assets/project/16_thumbnail_urlink.png",
+  "content": "/assets/project/16_content_urlink.png",
+  "tags": ["16기", "Web 1"],
+  "team": [
+    "박건우",
+    "김수아",
+    "권영준",
+    "천이수",
+    "안수빈",
+    "조홍제",
+    "하동주"
+  ],
+  "field": ["Web"],
+  "generation": 16,
+  "program": null,
+  "retrospects": [],
+  "deployLink": null,
+  "description": "언젠가 보려 했던 그 정보! 어디다 보관했더라?<br /> 웹서핑 필수템, 유어링크로 내가 수집하는 모든 정보를 효과적으로 관리해보세요."
+}

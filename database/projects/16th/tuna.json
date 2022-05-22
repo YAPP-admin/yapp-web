@@ -1,0 +1,29 @@
+{
+  "name": "tuna",
+  "title": "뮤지션과 커스텀 음악 구매 희망자 매칭 서비스, tuna",
+  "thumbnail": "/assets/project/16_thumbnail_tuna.png",
+  "content": "/assets/project/16_content_tuna.png",
+  "tags": ["16기", "Web 3"],
+  "team": [
+    "유채화",
+    "김혜원",
+    "김관현",
+    "황선아",
+    "박은우",
+    "서지혜",
+    "정진리"
+  ],
+  "field": ["Web"],
+  "generation": 16,
+  "program": [
+    "Figma",
+    "Adobe Illustrator",
+    "React",
+    "Typescript",
+    "SpringBoot",
+    "SpringSecurity"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "태그로 구성된 4가지의 맞춤 뮤지션 질문 큐레이션으로 쉽고 간단하게 유저의 니즈에 맞는 뮤지션을 찾아요.<br /> 음악 의뢰내용을 간단히 확인하고 수락/거절을 결정할 수 있어요."
+}

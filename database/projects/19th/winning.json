@@ -1,0 +1,27 @@
+{
+  "name": "위닝",
+  "title": "우리 함께 성취하는 아침, 위닝",
+  "thumbnail": "/assets/project/19_thumbnail_winning.png",
+  "content": "/assets/project/19_content_winning.png",
+  "tags": ["19기", "iOS 1"],
+  "team": ["김태영", "고정빈", "고세림", "김태인", "박솔찬", "박수한"],
+  "field": ["iOS"],
+  "generation": 19,
+  "program": [
+    "Figma",
+    "Adobe illustrator",
+    "Swift",
+    "CoreData",
+    "SpringBoot",
+    "Swagger"
+  ],
+  "retrospects": [
+    {
+      "name": "고정빈",
+      "field": "Design",
+      "content": "처음으로 앱 런칭을 시도했던거라, 지금 생각하면 여러모로 부족한 점이 많았던 프로젝트였습니다. 디자이너로서 하나의 앱을 런칭하기 위해 많은 부분을 고려해야한다는 것을 직접 몸으로 느낄 수 있었는데요, 개인 프로젝트를 할 때 고려하지 않던 기기의 크기나 오류 페이지, 빈 페이지 등을 직접 제작해볼 수 있었다는 점이 가장 큰 장점이었다고 생각합니다. 직접 경험해보지 않으면 모르는 분야가 분명히 있고, 저에게 있어서 YAPP의 활동은 그러한 점을 해소시켜준 것 같습니다. "
+    }
+  ],
+  "deployLink": "https://apps.apple.com/kr/app/%EC%9C%84%EB%8B%9D-%ED%95%A8%EA%BB%98-%EC%84%B1%EC%B7%A8%ED%95%98%EB%8A%94-%EC%95%84%EC%B9%A8-%EC%9C%84%EB%8B%9D/id1615192954",
+  "description": "위닝은 미라클 모닝러들을 위한 아침 루틴 앱 서비스입니다.<br /> 다양한 아침 루틴을 수립하고 리포트로 나의 루틴을 점검하며, 그룹 기능으로 강력한 동기부여를 얻을 수 있는 기회를 제공합니다."
+}

@@ -1,0 +1,29 @@
+{
+  "name": "erooja",
+  "title": "함께 하는 목표 공유 앱 서비스, erooja",
+  "thumbnail": "/assets/project/16_thumbnail_erooja.png",
+  "content": "/assets/project/16_content_erooja.png",
+  "tags": ["16기", "Android 1"],
+  "team": [
+    "허수정",
+    "김채원",
+    "김도균",
+    "박정현",
+    "정세희",
+    "김승신",
+    "김현수"
+  ],
+  "field": ["Android"],
+  "generation": 16,
+  "program": [
+    "Sketch",
+    "Adobe Illustrator",
+    "Kotlin",
+    "Rxjava",
+    "SpringBoot",
+    "JPA"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "이루자는 IT 취업준비생들을 위한 목표 공유 앱서비스입니다. IT 직무 관련 목표를 세우거나 취업의 구체적인 가이드라인을 잡기 어려워하는 사용자들의 불편함에서 출발했습니다. 사용자는 서비스 내에서 직무 관련 목표를 탐색하고 다른 사용자들과 함께 목표를 달성할 수 있습니다."
+}

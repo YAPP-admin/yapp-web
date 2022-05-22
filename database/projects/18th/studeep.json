@@ -1,0 +1,23 @@
+{
+  "name": "STUDEEP",
+  "title": "집중력이 저하된 학생들을 위한 학습모니터링, STUDEEP",
+  "thumbnail": "/assets/project/18_thumbnail_studeep.png",
+  "content": "/assets/project/18_content_studeep.png",
+  "tags": ["18기", "ML Web"],
+  "team": [
+    "임유경",
+    "김소연",
+    "박윤우",
+    "김재희",
+    "서연주",
+    "임지훈",
+    "이태현",
+    "임준규"
+  ],
+  "field": ["ML", "Web"],
+  "generation": 18,
+  "program": ["Figma", "React", "Typescript", "Redis", "TensorFlow"],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "화면에 두 손만 나오게 해주세요. 스터딥은 스마트폰을 사용하는지, 자리를 비웠는지, 졸고 있는지 실시간으로 상태를 확인해서 몰입감을 도와드려요.<br /> 공부를 끝낸 후, 학습 레포트를 통해 순수 공부시간, 오늘의 집중도, 달성률은 기본. 집중 분산 요인을 파악해서 더 나은 공부 습관을 만들어나가요."
+}

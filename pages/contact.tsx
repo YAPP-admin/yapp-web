@@ -2,7 +2,7 @@ import {
   ContactLayout,
   ContactList,
   ContactTitle,
-} from 'pages-components/contact';
+} from 'components/contact';
 import React, { ReactElement } from 'react';
 
 function ContactPage(): ReactElement {

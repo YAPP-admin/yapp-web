@@ -1,0 +1,23 @@
+{
+  "name": "PiCON",
+  "title": "지도 위에 PICK한 나의 여행 다이어리, PiCON",
+  "thumbnail": "/assets/project/17_thumbnail_picon.png",
+  "content": "/assets/project/17_content_picon.png",
+  "tags": ["17기", "Android 1"],
+  "team": ["조현아", "이유림", "정상용", "김혜빈", "오준택", "라영지"],
+  "field": ["Android"],
+  "generation": 17,
+  "program": [
+    "Sketch",
+    "Adobe Illustrator",
+    "Kotlin",
+    "Clean architecture",
+    "Java",
+    "SpringBoot",
+    "JPA",
+    "Spring"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "PiCON은 간단하게 여행을 기록해 지도 위에 펼쳐진 여행의 흔적을 한 눈에 볼 수 있는 여행 다이어리 서비스입니다.<br /> PiCON과 함께 소중한 추억을 지도 위에 기록해보세요. 당신의 여행이 더욱 다채롭게 기억될 거에요."
+}

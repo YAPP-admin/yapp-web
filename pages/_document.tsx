@@ -6,7 +6,7 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { GoogleAnalyticsScript } from 'components/GoogleAnalytics';
+import { GoogleAnalyticsScript } from 'components/common/GoogleAnalytics';
 
 export default class MyDocument extends Document {
   // Styled-components

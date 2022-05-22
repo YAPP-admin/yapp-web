@@ -1,0 +1,20 @@
+{
+  "name": "doraboda",
+  "title": "오늘 하루가 유독 정신없고, 길고 지루하게 느껴졌다면? doraboda",
+  "thumbnail": "/assets/project/18_thumbnail_doraboda.png",
+  "content": "/assets/project/18_content_doraboda.png",
+  "tags": ["18기", "Web 1"],
+  "team": ["심재민", "김성규", "임인호", "곽형조", "허정민", "황종훈"],
+  "field": ["Web"],
+  "generation": 18,
+  "program": null,
+  "retrospects": [
+    {
+      "name": "곽형조",
+      "field": "Web Frontend",
+      "content": "취업 준비를 하면서 항상 아쉬웠던 점은 협업이었습니다. 협업은 쉽게 경험할 수 없는 일이기 때문에 YAPP 18기 기간은 소중한 경험이였어요. 당시에 제가 경험한 팀원들과의 협업부터 프로젝트 일정, 어떤 기술을 사용할지 결정하는 부분들이 실제 제가 실무에서 겪고 있는 일이라 더욱 도움이 되었습니다. 추후에도 YAPP 18기 회원분들과 네트워킹 하면서 많은 정보를 얻을 수 있었다는 점도 너무 좋았습니다."
+    }
+  ],
+  "deployLink": null,
+  "description": "메인화면에서 대화형 선택지를 통해 프로젝트 단위, 감정 상태 등을 선택해 회고 템플릿을 추천 받을 수 있어요.<br /> 언제 어느 화면에서든 간편하게 읽고 쓰기의 전환이 가능해요. 마이페이지에서 작성 중인 회고, 읽거나 스크랩한 회고를 확인하고 얼마나 회고했는지 확인할 수 있어요."
+}

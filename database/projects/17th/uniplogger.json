@@ -1,0 +1,29 @@
+{
+  "name": "Uniplogger",
+  "title": "환경을 생각하는 조깅&플로깅 앱, Uniplogger",
+  "thumbnail": "/assets/project/17_thumbnail_uniplogger.png",
+  "content": "/assets/project/17_content_uniplogger.png",
+  "tags": ["17기", "iOS 2"],
+  "team": [
+    "천승연",
+    "송윤서",
+    "고세림",
+    "손병근",
+    "최철웅",
+    "이서영",
+    "이주형"
+  ],
+  "field": ["iOS"],
+  "generation": 17,
+  "program": [
+    "Figma",
+    "Adobe Illustrator",
+    "Alamofire",
+    "Moya",
+    "Python3",
+    "JSON WEB TOKEN"
+  ],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "‘유니플로거’는 조깅을 하며(Jogging) 쓰레기를 줍는(Pick up) 운동인 ‘플로깅(Plogging)’ 전용 어플리케이션 입니다. 사용자는 플로깅의 개념과 방법을 제대로 학습하고, 일상에 습관화하며, 이를 다른 사람들과 함께 하는 것을 목표로 유용하게 앱을 사용할 수 있습니다."
+}
