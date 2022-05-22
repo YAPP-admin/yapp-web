@@ -36,11 +36,7 @@ function ProjectContent({ project }: Props): ReactElement {
         </BodyText>
       </Block>
 
-      <Block
-        css={`
-          margin: 38px 0 67px 0;
-        `}
-      >
+      <Description>
         <BodyText>
           {description.split('<br />').map((txt, index) => (
             <React.Fragment key={index}>
@@ -49,7 +45,7 @@ function ProjectContent({ project }: Props): ReactElement {
             </React.Fragment>
           ))}
         </BodyText>
-      </Block>
+      </Description>
 
       {deployLink && (
         <DeployBox>
@@ -71,6 +67,18 @@ const Block = styled.div`
   ${media.mobile} {
     flex-direction: column;
     align-items: unset;
+  }
+`;
+
+const Description = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 38px 0 67px 0;
+  ${media.tablet} {
+    margin: 38px 0 112px 0;
+  }
+  ${media.mobile} {
+    margin: 20px 0 32px 0;
   }
 `;
 
