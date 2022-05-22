@@ -4,7 +4,17 @@
   "thumbnail": "/assets/project/20_thumbnail_attendance.png",
   "content": "/assets/project/20_content_attendance.png",
   "tags": ["20기", "Android", "iOS"],
-  "team": ["최아현", "박소현", "이은비", "노경진", "이도현"],
+  "team": [
+    "정세희",
+    "고정빈",
+    "이슬기",
+    "전영상",
+    "김준영",
+    "추지온",
+    "한지희",
+    "이상희",
+    "김보민"
+  ],
   "field": ["iOS", "Android"],
   "generation": 20,
   "program": [
