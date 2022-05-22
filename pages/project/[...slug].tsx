@@ -43,7 +43,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const otherProjects = projects
     .filter(
       (otherProject) =>
-        otherProject.project.generation === projectData?.project.generation,
+        otherProject.project.generation === projectData?.project.generation, // 같은 기수 찾기
+    )
+    .filter(
+      (otherProject) =>
+        otherProject.project.title !== projectData?.project.title, // 현재 프로젝트는 제외
     )
     .map((otherProject) => {
       return {
