@@ -15,7 +15,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   const { title, thumbnail, tags, generation, url } = project;
 
   return (
-    <Link href={`project/${url}`}>
+    <Link href={isSubCard ? `${url}` : `project/${url}`}>
       <StyledProjectCard isSubCard={isSubCard}>
         <AnimatedImage
           className="project-card-image"
@@ -111,7 +111,6 @@ const ProjectTitleWrapper = styled.span`
   width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
-
   ${({ theme }) => theme.textStyle.web.Subtitle_1};
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Subtitle};
@@ -119,9 +118,9 @@ const ProjectTitleWrapper = styled.span`
 `;
 
 const ProjectSubTitleWrapper = styled.span`
-  width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 
   ${({ theme }) => theme.textStyle.web.Subtitle_2};
   ${media.mobile} {
