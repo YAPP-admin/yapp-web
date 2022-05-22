@@ -16,7 +16,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
 
   return (
     <Link href={`project/${url}`}>
-      <StyledProjectCard isShadow={!isSubCard}>
+      <StyledProjectCard isSubCard={isSubCard}>
         <AnimatedImage
           className="project-card-image"
           src={thumbnail}
@@ -45,7 +45,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   );
 }
 
-const StyledProjectCard = styled.div<{ isShadow: boolean }>`
+const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
   width: 380px;
   height: 326px;
   border-radius: 25px;
@@ -55,19 +55,24 @@ const StyledProjectCard = styled.div<{ isShadow: boolean }>`
   will-change: transform;
   animation: ${fadeIn} 0.7s ease-in-out;
 
-  ${({ isShadow }) =>
-    isShadow &&
-    css`
-      filter: drop-shadow(
-        0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
-      );
-      transition: filter 0.5s;
-      :hover {
-        filter: drop-shadow(
-          0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
-        );
-      }
-    `}
+  ${({ isSubCard }) =>
+    isSubCard
+      ? css`
+          .project-card-image {
+            border-radius: 20px;
+          }
+        `
+      : css`
+          filter: drop-shadow(
+            0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
+          );
+          transition: filter 0.5s;
+          :hover {
+            filter: drop-shadow(
+              0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
+            );
+          }
+        `}
 
   ${media.mobile} {
     width: 335px;
