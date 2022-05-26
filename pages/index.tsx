@@ -5,7 +5,6 @@ import {
   NewsSection,
   ProjectSection,
   SponsorSection,
-  SectionTemplate,
 } from 'components/home';
 
 function Home(): ReactElement {

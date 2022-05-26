@@ -3,9 +3,8 @@ import { GetStaticProps } from 'next';
 import styled from 'styled-components';
 import { TabMenu, ProjectCard, Button } from 'components/common';
 import { getAllProjects } from 'utils/getAllProjects';
-import { PROJECT_CATEGORIES } from 'database/project';
 import media from 'styles/media';
-import { Project as ProjectType } from 'types/project';
+import { ProjectCardType, ProjectField } from 'types/project';
 import useSmoothScroll from 'hooks/useSmoothScroll';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -16,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
       title: project.name,
       thumbnail: project.thumbnail,
       tags: project.tags,
-      category: project.field,
+      field: project.field,
       generation: project.generation,
       url: slug.join('/'),
     };
@@ -35,10 +34,11 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export type ProjectCategoryTypes = 'iOS' | 'Android' | 'Web' | 'ML';
+/* 프로젝트 분류 */
+const PROJECT_CATEGORIES: ProjectField[] = ['iOS', 'Android', 'Web', 'ML'];
 
 interface ProjectProps {
-  projects: ProjectType[];
+  projects: ProjectCardType[];
 }
 
 const INITIAL_CARD_COUNT = 9; // '기본' 카드 표현 수
@@ -46,9 +46,7 @@ const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
 
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
-  const [category, setCategory] = useState<ProjectCategoryTypes>(
-    PROJECT_CATEGORIES[0],
-  );
+  const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
   const { ref: containerRef, trigger: triggerContainerScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'end',
@@ -87,24 +85,27 @@ function Project({ projects }: ProjectProps) {
         </CategoriesWrapper>
         <ProjectGridWrapper>
           {projects
-            .filter((project: any) => project.category.includes(category)) // 현재 카테고리 필터링
+            .filter((project) => project.field.includes(category)) // 현재 카테고리 필터링
             .sort((a, b) => b.generation - a.generation) // 기수 순 정렬
             .slice(0, viewCardCount) // 기본 9개 카드 표현
-            .map((project: any) => (
+            .map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
         </ProjectGridWrapper>
-        <ButtonWrapper>
-          <StyledButton
-            width={148}
-            height={65}
-            fontColor="white"
-            buttonColor="grey_850"
-            onClick={handleMoreButtonClick}
-          >
-            더보기
-          </StyledButton>
-        </ButtonWrapper>
+        {projects.filter((project) => project.field.includes(category)).length >
+          viewCardCount && (
+          <ButtonWrapper>
+            <StyledButton
+              width={148}
+              height={65}
+              fontColor="white"
+              buttonColor="grey_850"
+              onClick={handleMoreButtonClick}
+            >
+              더보기
+            </StyledButton>
+          </ButtonWrapper>
+        )}
       </ProjectContainer>
     </ProjectWrapper>
   );
@@ -129,7 +130,11 @@ const ProjectContainer = styled.section`
 
 const ProjectTitleWrapper = styled.div`
   ${({ theme }) => theme.textStyle.web.Title};
+  ${media.tablet} {
+    padding: 0 80px;
+  }
   ${media.mobile} {
+    padding: 0 20px;
     ${({ theme }) => theme.textStyle.mobile.Title_2};
   }
 `;
