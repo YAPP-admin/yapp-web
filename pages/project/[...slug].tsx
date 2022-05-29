@@ -159,7 +159,6 @@ const ProjectName = styled.div`
 
 const ProjectImage = styled.img`
   max-width: 100%;
-  height: 100%;
   display: block;
   margin: 100px 0 200px;
   ${media.mobile} {
