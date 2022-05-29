@@ -143,10 +143,10 @@ function Project({ projects }: ProjectProps) {
 const ProjectWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center;
+  align-items: center;
   ${media.mobile} {
     align-items: normal;
-  } */
+  }
   padding: 174px 0;
   ${media.mobile} {
     padding: 80px 0;
