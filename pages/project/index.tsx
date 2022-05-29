@@ -89,7 +89,7 @@ function Project({ projects }: ProjectProps) {
           경험해 보세요!
         </ProjectTitleWrapper>
         <CategoriesWrapper ref={categoryRef}>
-          {windowWidth > Breakpoints.medium || windowWidth === 0 ? (
+          {windowWidth > Breakpoints.medium ? (
             <TabMenu
               tabs={PROJECT_CATEGORIES}
               currentTab={category}
