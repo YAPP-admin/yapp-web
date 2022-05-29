@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 /* 프로젝트 분류 */
-const PROJECT_CATEGORIES: ProjectField[] = [
+export const PROJECT_CATEGORIES: ProjectField[] = [
   'ALL',
   'iOS',
   'Android',
