@@ -29,6 +29,8 @@ module.exports = {
       ...(config.resolve.plugins || []),
       new TsconfigPathsPlugin({}),
     ];
+    // fs 모듈 오류 해결
+    config.resolve.fallback.fs = false;
 
     // next js router, link, image 이용
     config.resolve.alias['next/router'] = require.resolve(
