@@ -13,3 +13,4 @@ export { default as ProjectCard } from './ProjectCard';
 export { default as Badge } from './Badge';
 export { default as AnimatedImage } from './AnimatedImage';
 export { default as Card } from './Card';
+export { default as BubbleMenu } from './BubbleMenu';
