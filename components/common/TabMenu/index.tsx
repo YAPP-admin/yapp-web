@@ -1,10 +1,9 @@
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
-import media from 'styles/media';
-import { PaletteKeyTypes } from 'styles/theme';
-
-import { ProjectCategoryTypes } from 'pages/project';
 import { FieldNameTypes } from 'components/recruit/RecruitField';
+import { ProjectField } from 'types/project';
+import { PaletteKeyTypes } from 'styles/theme';
+import media from 'styles/media';
 
 interface ITabMenuStyle {
   backgroundColor?: PaletteKeyTypes;
@@ -12,10 +11,10 @@ interface ITabMenuStyle {
 
 export interface TabMenuProps extends ITabMenuStyle {
   className?: string;
-  tabs: (ProjectCategoryTypes | FieldNameTypes)[];
-  currentTab: ProjectCategoryTypes | FieldNameTypes;
+  tabs: (ProjectField | FieldNameTypes)[];
+  currentTab: ProjectField | FieldNameTypes;
   onClick:
-    | Dispatch<SetStateAction<ProjectCategoryTypes>>
+    | Dispatch<SetStateAction<ProjectField>>
     | Dispatch<SetStateAction<FieldNameTypes>>;
 }
 

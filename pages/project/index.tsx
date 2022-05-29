@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import styled from 'styled-components';
-import { TabMenu, ProjectCard, Button } from 'components/common';
+import { TabMenu, ProjectCard, Button, BubbleMenu } from 'components/common';
 import { getAllProjects } from 'utils/getAllProjects';
-import media from 'styles/media';
 import { ProjectCardType, ProjectField } from 'types/project';
 import useSmoothScroll from 'hooks/useSmoothScroll';
+import useWindowDimensions from 'hooks/useWindowDimensions';
+import media from 'styles/media';
+import Breakpoints from 'constants/breakpoints';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getAllProjects();
@@ -35,7 +37,13 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 /* 프로젝트 분류 */
-const PROJECT_CATEGORIES: ProjectField[] = ['iOS', 'Android', 'Web', 'ML'];
+const PROJECT_CATEGORIES: ProjectField[] = [
+  'ALL',
+  'iOS',
+  'Android',
+  'Web',
+  'ML',
+];
 
 interface ProjectProps {
   projects: ProjectCardType[];
@@ -47,6 +55,8 @@ const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
   const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
+  const { windowWidth } = useWindowDimensions();
+
   const { ref: containerRef, trigger: triggerContainerScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'end',
@@ -73,27 +83,46 @@ function Project({ projects }: ProjectProps) {
       <ProjectContainer ref={containerRef}>
         <ProjectTitleWrapper>
           기획부터 런칭까지,
-          <br /> 다양한 프로젝트를 경험해 보세요!
+          <br />
+          다양한 프로젝트를
+          {windowWidth <= Breakpoints.medium && <br />}
+          경험해 보세요!
         </ProjectTitleWrapper>
         <CategoriesWrapper ref={categoryRef}>
-          <TabMenu
-            tabs={PROJECT_CATEGORIES}
-            currentTab={category}
-            onClick={setCategory}
-            backgroundColor="white"
-          />
+          {windowWidth <= Breakpoints.medium ? (
+            <BubbleMenu
+              tabs={PROJECT_CATEGORIES}
+              currentTab={category}
+              onClick={setCategory}
+              backgroundColor="white"
+            />
+          ) : (
+            <TabMenu
+              tabs={PROJECT_CATEGORIES}
+              currentTab={category}
+              onClick={setCategory}
+              backgroundColor="white"
+            />
+          )}
         </CategoriesWrapper>
         <ProjectGridWrapper>
           {projects
-            .filter((project) => project.field.includes(category)) // 현재 카테고리 필터링
+            .filter((project) => {
+              // 현재 카테고리 필터링
+              if (category !== 'ALL') return project.field.includes(category);
+              else return true;
+            })
             .sort((a, b) => b.generation - a.generation) // 기수 순 정렬
             .slice(0, viewCardCount) // 기본 9개 카드 표현
             .map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
         </ProjectGridWrapper>
-        {projects.filter((project) => project.field.includes(category)).length >
-          viewCardCount && (
+        {projects.filter((project) => {
+          // 현재 카테고리 필터링
+          if (category !== 'ALL') return project.field.includes(category);
+          else return true;
+        }).length > viewCardCount && (
           <ButtonWrapper>
             <StyledButton
               width={148}
@@ -113,13 +142,16 @@ function Project({ projects }: ProjectProps) {
 
 const ProjectWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.palette.grey_100};
+  flex-direction: column;
+  align-items: center;
+  ${media.mobile} {
+    align-items: normal;
+  }
   padding: 174px 0;
-
   ${media.mobile} {
     padding: 80px 0;
   }
+  background-color: ${({ theme }) => theme.palette.grey_100};
 `;
 
 const ProjectContainer = styled.section`
@@ -129,7 +161,7 @@ const ProjectContainer = styled.section`
 `;
 
 const ProjectTitleWrapper = styled.div`
-  ${({ theme }) => theme.textStyle.web.Title};
+  ${({ theme }) => theme.textStyle.web.Title}
   ${media.tablet} {
     padding: 0 80px;
   }
