@@ -89,15 +89,15 @@ function Project({ projects }: ProjectProps) {
           경험해 보세요!
         </ProjectTitleWrapper>
         <CategoriesWrapper ref={categoryRef}>
-          {windowWidth <= Breakpoints.medium ? (
-            <BubbleMenu
+          {windowWidth > Breakpoints.medium || windowWidth === 0 ? (
+            <TabMenu
               tabs={PROJECT_CATEGORIES}
               currentTab={category}
               onClick={setCategory}
               backgroundColor="white"
             />
           ) : (
-            <TabMenu
+            <BubbleMenu
               tabs={PROJECT_CATEGORIES}
               currentTab={category}
               onClick={setCategory}
