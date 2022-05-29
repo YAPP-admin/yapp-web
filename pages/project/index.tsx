@@ -89,7 +89,7 @@ function Project({ projects }: ProjectProps) {
           경험해 보세요!
         </ProjectTitleWrapper>
         <CategoriesWrapper ref={categoryRef}>
-          {windowWidth > Breakpoints.medium || windowWidth === 0 ? (
+          {windowWidth > Breakpoints.medium ? (
             <TabMenu
               tabs={PROJECT_CATEGORIES}
               currentTab={category}
@@ -143,10 +143,10 @@ function Project({ projects }: ProjectProps) {
 const ProjectWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center;
   ${media.mobile} {
     align-items: normal;
-  }
+  } */
   padding: 174px 0;
   ${media.mobile} {
     padding: 80px 0;
