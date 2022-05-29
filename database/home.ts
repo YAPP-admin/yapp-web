@@ -30,32 +30,32 @@ export const CURRENT_INFO_DATA = [
 export const CAROUSEL_DATA = [
   {
     title: '냠냠박사',
-    link: '/project',
+    link: '/project/19th/yumyumdoctor',
     image: '/assets/images/19_냠냠박사.png',
   },
   {
     title: '도토리함',
-    link: '/project',
+    link: '/project/19th/dotori',
     image: '/assets/images/19_도토리함.png',
   },
   {
     title: '버디',
-    link: '/project',
+    link: '/project/19th/budi',
     image: '/assets/images/19_버디.png',
   },
   {
     title: '딜리버디 (DeliBuddy)',
-    link: '/project',
+    link: '/project/19th/delibuddy',
     image: '/assets/images/19_DeliBuddy.png',
   },
   {
     title: 'GILJOB (길잡)',
-    link: '/project',
+    link: '/project/19th/giljob',
     image: '/assets/images/19_GILJOB.png',
   },
   {
     title: '위닝',
-    link: '/project',
+    link: '/project/19th/winning',
     image: '/assets/images/19_위닝.jpeg',
   },
 ];

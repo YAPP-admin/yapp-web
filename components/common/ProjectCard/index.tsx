@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { Badge, Card, AnimatedImage } from 'components/common';
+import { Badge, AnimatedImage } from 'components/common';
 import Link from 'next/link';
 import media from 'styles/media';
 import { fadeIn } from 'styles/utils-styles';
-import { ProjectUIModel } from 'types/project';
+import { ProjectCardType } from 'types/project';
 
 interface ProjectCardProps {
-  project: ProjectUIModel;
+  project: ProjectCardType;
   isSubCard?: boolean;
 }
 
