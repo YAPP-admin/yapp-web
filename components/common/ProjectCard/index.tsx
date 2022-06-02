@@ -53,7 +53,7 @@ const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
   cursor: pointer;
   overflow: hidden;
   will-change: transform;
-  animation: ${fadeIn} 0.7s ease-in-out;
+  animation: ${fadeIn} 0.5s ease-in-out;
 
   ${({ isSubCard }) =>
     isSubCard
