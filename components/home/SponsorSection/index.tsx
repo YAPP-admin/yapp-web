@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
-import { Button } from 'components/common';
+import { Button, Image } from 'components/common';
 import { SectionTitle } from 'components/home';
 import SectionTemplate from '../SectionTemplate';
 import media from 'styles/media';
@@ -18,14 +17,7 @@ function SponsorSection(): ReactElement {
       <SponsorList>
         {SPONSOR_DATA.map(({ image }, index) => (
           <Sponsor key={index}>
-            <Image
-              src={image}
-              alt="sponsor image"
-              layout="fill"
-              objectFit="contain"
-              placeholder="blur"
-              blurDataURL={image}
-            />
+            <Image src={image} alt="sponsor image" />
           </Sponsor>
         ))}
       </SponsorList>
@@ -75,6 +67,7 @@ const SponsorList = styled.ul`
   width: 900px;
   margin: 64px 0 44px;
   text-align: center;
+
   ${media.custom(900)} {
     width: 100%;
   }

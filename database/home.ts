@@ -31,32 +31,32 @@ export const CAROUSEL_DATA = [
   {
     title: '냠냠박사',
     link: '/project/19th/yumyumdoctor',
-    image: '/assets/images/19_냠냠박사.png',
+    image: '/assets/project/19_thumbnail_yumyumdoctor.png',
   },
   {
     title: '도토리함',
     link: '/project/19th/dotori',
-    image: '/assets/images/19_도토리함.png',
+    image: '/assets/project/19_thumbnail_dotori.png',
   },
   {
     title: '버디',
     link: '/project/19th/budi',
-    image: '/assets/images/19_버디.png',
+    image: '/assets/project/19_thumbnail_budi.png',
   },
   {
     title: '딜리버디 (DeliBuddy)',
     link: '/project/19th/delibuddy',
-    image: '/assets/images/19_DeliBuddy.png',
+    image: '/assets/project/19_thumbnail_delibuddy.png',
   },
   {
     title: 'GILJOB (길잡)',
     link: '/project/19th/giljob',
-    image: '/assets/images/19_GILJOB.png',
+    image: '/assets/project/19_thumbnail_giljob.png',
   },
   {
     title: '위닝',
     link: '/project/19th/winning',
-    image: '/assets/images/19_위닝.jpeg',
+    image: '/assets/project/19_thumbnail_winning.png',
   },
 ];
 
@@ -91,24 +91,24 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/images/sponsor1.png', // 오늘의 집
+    image: '/assets/sponsors/sponsor1.png', // 오늘의 집
   },
   {
-    image: '/assets/images/sponsor2.png', // readyme
+    image: '/assets/sponsors/sponsor2.png', // readyme
   },
   {
-    image: '/assets/images/sponsor3.png', // 이지스퍼블리싱
+    image: '/assets/sponsors/sponsor3.png', // 이지스퍼블리싱
   },
   {
-    image: '/assets/images/sponsor4.png', // 한빛 미디어
+    image: '/assets/sponsors/sponsor4.png', // 한빛 미디어
   },
   {
-    image: '/assets/images/sponsor5.png', // 제로 베이스
+    image: '/assets/sponsors/sponsor5.png', // 제로 베이스
   },
   {
-    image: '/assets/images/sponsor6.png', // 게더타운
+    image: '/assets/sponsors/sponsor6.png', // 게더타운
   },
   {
-    image: '/assets/images/sponsor7.png', // 네이버 D2
+    image: '/assets/sponsors/sponsor7.png', // 네이버 D2
   },
 ];
