@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import styled from 'styled-components';
+import { Image } from 'components/common';
 
 interface AnimatedImageStyle {
   width?: number;
@@ -16,13 +16,7 @@ function AnimatedImage({ className, src, alt, ...rest }: AnimatedImageProps) {
   return (
     <ImageWrapper className={className} {...rest}>
       <ImageScaleWrapper>
-        <Image
-          src={src}
-          alt={alt}
-          layout="fill"
-          placeholder="blur"
-          blurDataURL={src}
-        />
+        <Image src={src} alt={alt} />
       </ImageScaleWrapper>
     </ImageWrapper>
   );
