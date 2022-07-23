@@ -10,7 +10,6 @@ import useToggle from 'hooks/useToggle';
 import HamburgerMenu from 'components/common/HamburgerMenu';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import Path from 'constants/path';
-import smoothscroll from 'smoothscroll-polyfill'; // Safari 에서 smooth 효과 적용
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
@@ -19,8 +18,6 @@ function Header(): ReactElement {
   const { windowWidth } = useWindowDimensions();
 
   useEffect(() => {
-    smoothscroll.polyfill();
-
     if (windowWidth > Breakpoints.medium) {
       setOpenMenu(false);
     }
