@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.2",
+    "@react-spring/types": "^9.5.2",
     "@storybook/addon-actions": "^6.5.0-alpha.39",
     "@storybook/addon-essentials": "^6.5.0-alpha.39",
     "@storybook/addon-links": "^6.5.0-alpha.39",
