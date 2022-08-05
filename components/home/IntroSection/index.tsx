@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import type { ReactElement, MouseEvent } from 'react';
 import styled from 'styled-components';
-import Router from 'next/router';
+import Image from 'next/image';
 import { Button } from 'components/common';
-import media from 'styles/media';
-import Yapp from 'constants/yapp';
 import { useSpring, animated } from '@react-spring/web';
 import { slideIn, slideOut } from 'styles/utils-styles';
+import media from 'styles/media';
+import IntroImage from 'public/assets/images/main.png';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -22,6 +22,7 @@ function IntroSection(): ReactElement {
   };
 
   const styles = useSpring({
+    delay: 200,
     to: isHover
       ? {
           transform: `scale(1.1) translateX(${move.ix}px) translateY(${move.iy}px)`,
@@ -38,7 +39,9 @@ function IntroSection(): ReactElement {
       onMouseMove={handleMove}
     >
       <Dimension />
-      <animated.div className="background" style={styles} />
+      <animated.div className="background" style={styles}>
+        <Image src={IntroImage} layout="fill" objectFit="cover" priority />
+      </animated.div>
       <ContentWrapper>
         <TitleContainer>
           <span className="main-text">
@@ -48,30 +51,6 @@ function IntroSection(): ReactElement {
           </span>
         </TitleContainer>
         <ButtonBlock>
-          {/* <RecruitButton
-            width={168}
-            height={65}
-            fontColor="white"
-            buttonColor="orange_400"
-            onClick={() => Router.push('/recruit')}
-          >
-            <svg
-              width="172px"
-              height="65px"
-              viewBox="0 0 168 65"
-              className="border"
-            >
-              <rect x="-0.9" y="1" width="166" height="63" rx="32" ry="32" />
-            </svg>
-            <span className="text-group">
-              <span className="main-text">
-                {Yapp.YAPP_GENERATION}기 지원하기
-              </span>
-              <span className="clone-text">
-                {Yapp.YAPP_GENERATION}기 지원하기
-              </span>
-            </span>
-          </RecruitButton> */}
           <RecruitButton
             width={190}
             height={65}
@@ -115,10 +94,6 @@ const IntroSectionContainer = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/images/main.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     z-index: 1;
     transition: all 0.5s ease-out;
   }
