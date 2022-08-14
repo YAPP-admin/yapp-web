@@ -4,9 +4,9 @@ import media from 'styles/media';
 import { slideIn, slideOut } from 'styles/utils-styles';
 import Button, { ButtonProps } from '../Button';
 
-type AnimatedButtonVariant = 'primary' | 'secondary';
+export type AnimatedButtonVariant = 'primary' | 'secondary';
 
-interface Props extends ButtonProps {
+export interface AnimatedButtonProps extends ButtonProps {
   width: number;
   height: number;
   buttonText: string;
@@ -21,7 +21,7 @@ function AnimatedButton({
   href,
   variant = 'primary',
   ...rest
-}: Props) {
+}: AnimatedButtonProps) {
   const linkParams = href ? { href, target: '_blank', rel: 'noreferrer' } : {};
 
   return (
