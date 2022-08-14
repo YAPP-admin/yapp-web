@@ -9,7 +9,7 @@ import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDevel
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
