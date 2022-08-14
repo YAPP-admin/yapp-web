@@ -1,6 +1,6 @@
 const Yapp = {
   YAPP_NAME: 'YAPP',
-  YAPP_GENERATION: '20', // 기수
+  YAPP_GENERATION: 20, // 기수
   YAPP_OFFICIAL_EMAIL: 'support@yapp.co.kr',
   YAPP_OFFICIAL_KAKAO: '@YAPP',
   YAPP_OFFICIAL_FACEBOOK: '@YAPP',
