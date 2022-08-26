@@ -6,17 +6,16 @@ import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDevel
  * 작성 Tip
  * - 줄바꿈은 <br /> 태그를 넣어주세요!
  * - <span class="test">테스트</span> 과 같은 html 태그와 class 를 넣어서 사용할 수 있습니다!
- * - html 태그 사용시 `` 백틱 으로 문자열을 감싸주세요!
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
   description: '현재 19기 활동 중! 다음 기수는 2022.03에 예정되어 있습니다',
-  buttonName: '모집 알림 신청',
+  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
 
 export const RECRUIT_BANNER_ACTIVE = {
