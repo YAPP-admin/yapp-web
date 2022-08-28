@@ -18,6 +18,7 @@ export interface Project {
   program: string[] | null;
   retrospects: Retrospect[];
   deployLink: string | null;
+  webLink?: string;
   description: string;
 }
 
