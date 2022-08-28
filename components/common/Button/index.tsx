@@ -39,6 +39,7 @@ const StyledButton = styled.button<IButtonStyle>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   ${({ width, height }) =>
     css`
@@ -65,6 +66,10 @@ const StyledButton = styled.button<IButtonStyle>`
   ${({ theme }) => theme.textStyle.web.Button}
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Button}
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 `;
 

@@ -1,0 +1,50 @@
+{
+  "name": "외딴섬",
+  "title": "유학생 미팅 & 소개팅 서비스, 외딴섬",
+  "thumbnail": "/assets/project/20_thumbnail_waetansome.png",
+  "content": "/assets/project/20_content_waetansome.png",
+  "tags": ["20기", "Web 2"],
+  "team": [
+    "이민석",
+    "복혜연",
+    "김지영",
+    "이지호",
+    "김찬현",
+    "최소현",
+    "홍성빈"
+  ],
+  "field": ["Web"],
+  "generation": 20,
+  "program": [
+    "Figma",
+    "React",
+    "Recoil",
+    "Typescript",
+    "Styled-Components",
+    "Next.js"
+  ],
+  "description": "설문으로 매칭받는 미팅ㆍ소개팅! 사진 첨부 없이 이상형 설문만 하고, 가까운 이상형 유학생을 매칭 받아 보세요!",
+  "retrospects": [
+    {
+      "name": "이민석",
+      "field": "PM",
+      "content": "유능한 팀원분들과 함께 실사용자가 있는 프로젝트를 만들어 볼 수 있다는 점에서 APP이 정말 좋은 것 같아요! 물론 워낙 유능하신 팀원분들이라 일정이 바쁘셔서 자주 함께 하지 못한 건 조금 아쉬운 것 같습니다. 그래도 그 과정에서 일정 조율이나 관계 형성 등 PM이 갖춰야 할 soft skills을 배운 것 같아서 너무나 좋은 기회였던 것 같습니다. 기회가 된다면 꼭 다시 한번 참여하고 싶네요!"
+    },
+    {
+      "name": "복혜연",
+      "field": "Design",
+      "content": "처음 동아리를 하면서 하나의 프로젝트를 완성한다는 것이 얼마나 큰 힘이 필요한지 깨달았습니다. 특히 개발자분들과의 협업이 어떤 부분이 필요하고,  어떻게 진행되는지에 대해 상세하게 알 수 있어서 큰 도움이 되었습니다."
+    },
+    {
+      "name": "이지호",
+      "field": "Web Frontend",
+      "content": "YAPP 20기 활동 회고는 개인 티스토리에 작성하였습니다. https://izizi.tistory.com/44"
+    },
+    {
+      "name": "김지영",
+      "field": "Web Frontend",
+      "content": "개발자 입장에서 비개발직군과 소통하며 프로젝트할 기회가 많지 않은데 회사 외적으로 이런 기회가 주어져서 감사했습니다. 평소에 하고 싶었던 아이디어들을 구체화하고 만들어가는 과정에서 고려해야할 점을 다양한 시각에서 주고받으며 다방면으로 생각해야한다는 점도 많이 배웠습니다."
+    }
+  ],
+  "webLink": "https://intro.lonessum.com/"
+}
