@@ -10,7 +10,7 @@ interface Props {
 }
 
 function ProjectContent({ project }: Props): ReactElement {
-  const { deployLink, description, program, team } = project;
+  const { deployLink, webLink, description, program, team } = project;
 
   return (
     <Container>
@@ -47,13 +47,20 @@ function ProjectContent({ project }: Props): ReactElement {
         </BodyText>
       </Description>
 
-      {deployLink && (
-        <DeployBox>
+      <DeployBox>
+        {/* App 링크 */}
+        {deployLink && (
           <Link href={deployLink} passHref>
             <DeployLinkButton target="_blank">App store</DeployLinkButton>
           </Link>
-        </DeployBox>
-      )}
+        )}
+        {/* Web 링크 */}
+        {webLink && (
+          <Link href={webLink} passHref>
+            <DeployLinkButton target="_blank">Web link</DeployLinkButton>
+          </Link>
+        )}
+      </DeployBox>
     </Container>
   );
 }
@@ -126,6 +133,10 @@ const DeployLinkButton = styled.a`
     width: 122px;
     padding: 18px 24px;
     ${({ theme }) => theme.textStyle.mobile.Button_Point};
+  }
+
+  &:not(:first-child) {
+    margin-left: 30px;
   }
 `;
 
