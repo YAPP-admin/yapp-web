@@ -1,7 +1,7 @@
 import Yapp from 'constants/yapp';
 import { FieldNameTypes } from 'components/recruit/RecruitField';
 
-const getRecruitLink = (field: FieldNameTypes) => {
+const getRecruitLink = (field?: FieldNameTypes) => {
   const {
     YAPP_RECRUIT_DESIGNER,
     YAPP_RECRUIT_PROJECT_MANAGER,
