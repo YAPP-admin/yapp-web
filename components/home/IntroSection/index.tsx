@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import type { ReactElement, MouseEvent } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import { useSpring, animated } from '@react-spring/web';
 import media from 'styles/media';
-import IntroImage from 'public/assets/images/main.png';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
@@ -12,6 +10,7 @@ import {
 } from 'database/recruit';
 import Yapp from 'constants/yapp';
 import { AnimatedButton } from 'components/common';
+import Spline from '@splinetool/react-spline';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -50,14 +49,14 @@ function IntroSection(): ReactElement {
     >
       <Dimension />
       <animated.div className="background" style={styles}>
-        <Image src={IntroImage} layout="fill" objectFit="cover" priority />
+        <Spline scene="https://prod.spline.design/HKqZopYQ1xZfXZFr/scene.splinecode" />
       </animated.div>
       <ContentWrapper>
         <TitleContainer>
           <span className="main-text">
-            작은 아이디어로
+            Sprint Time
             <br />
-            세상을 크게 변화시키다.
+            Open To Anyone
           </span>
         </TitleContainer>
 

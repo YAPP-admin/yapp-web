@@ -6,6 +6,7 @@ import { FieldNameTypes } from '.';
 import Breakpoints from 'constants/breakpoints';
 import media from 'styles/media';
 import getRecruitLink from 'utils/getRecruitLink';
+import { DeveloperFieldName } from './RecruitDeveloper';
 
 interface RecruitFieldExplainProps {
   fieldName: FieldNameTypes;
@@ -14,13 +15,18 @@ interface RecruitFieldExplainProps {
     content2: string;
     content3: string;
   };
+  isDeveloper: boolean;
+  developField: DeveloperFieldName;
 }
 
 function RecruitFieldExplain({
   fieldName,
   explainContents,
+  isDeveloper,
+  developField,
 }: RecruitFieldExplainProps): ReactElement {
   const { content1, content2, content3 } = explainContents;
+
   return (
     <RecruitFieldWrapper>
       <FieldBox backgroundColor="grey_50">
@@ -60,17 +66,17 @@ function RecruitFieldExplain({
 
       <ButtonBlock
         target="_blank"
-        href={getRecruitLink(fieldName)}
+        href={getRecruitLink(isDeveloper ? developField : fieldName)}
         rel="noreferrer"
       >
         <ApplyButton
-          width={176}
+          width={185}
           height={65}
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
         >
-          {fieldName} 지원하기
+          {isDeveloper ? developField : fieldName} 지원하기
         </ApplyButton>
       </ButtonBlock>
     </RecruitFieldWrapper>
