@@ -15,8 +15,8 @@ interface RecruitFieldExplainProps {
     content2: string;
     content3: string;
   };
-  isDeveloper: boolean;
-  developField: DeveloperFieldName;
+  isDeveloper?: boolean;
+  developField?: DeveloperFieldName;
 }
 
 function RecruitFieldExplain({
