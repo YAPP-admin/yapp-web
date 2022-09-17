@@ -12,7 +12,7 @@ const siteMetadata = {
   siteUrl: 'https://yapp.co.kr',
   siteRepo: 'https://https://github.com/YAPP-admin',
   siteLogo: '/static/images/logo.png',
-  image: 'https://i.ibb.co/3MJkrs0/image.png', // imgbb 서비스, 용량, 기간 제한 없음
+  image: '/assets/images/og.png', // imgbb 서비스, 용량, 기간 제한 없음
   github: 'https://github.com/YAPP-admin',
   facebook: 'https://ko-kr.facebook.com/yapp.co.kr/',
   locale: 'ko_KR',
