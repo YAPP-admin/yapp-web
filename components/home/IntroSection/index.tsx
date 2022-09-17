@@ -107,7 +107,7 @@ const Dimension = styled.span`
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.25;
+  opacity: 0.85;
   z-index: 2;
   background-color: ${({ theme }) => theme.palette.black};
 `;
@@ -118,9 +118,10 @@ const ContentWrapper = styled.div`
 `;
 
 const TitleContainer = styled.div`
+  margin: 0 5px 48px 5px;
   text-align: center;
   word-break: keep-all;
-  margin: 0 5px 48px 5px;
+  font-family: Poppins, sans-serif;
 
   .main-text {
     color: ${({ theme }) => theme.palette['white']};
