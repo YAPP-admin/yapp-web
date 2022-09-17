@@ -9,7 +9,7 @@ import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDevel
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = false;
+export const IS_RECRUITING = true;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
@@ -20,7 +20,7 @@ export const RECRUIT_BANNER = {
 
 export const RECRUIT_BANNER_ACTIVE = {
   title: `YAPP<br class="mobile" /> ${Yapp.YAPP_GENERATION}기 모집`,
-  description: `YAPP 20기에서 6개월간 활동할<br class="mobile" /> 기획자(PM)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
+  description: `YAPP 21기에서 6개월간 활동할<br class="mobile" /> 기획자(PM)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
     IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘쳐나고, 동아리에서 많은 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
   buttonName: '지원하기',
 };
