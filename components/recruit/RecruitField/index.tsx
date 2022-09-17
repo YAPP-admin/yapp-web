@@ -7,7 +7,14 @@ import RecruitDesigner from './RecruitDesigner';
 import RecruitDeveloper from './RecruitDeveloper';
 import RecruitProjectManager from './RecruitProjectManager';
 
-export type FieldNameTypes = '기획자' | '디자이너' | '개발자';
+export type FieldNameTypes =
+  | '기획자'
+  | '디자이너'
+  | '개발자'
+  | 'iOS'
+  | 'Android'
+  | 'Front-End'
+  | 'Back-End';
 
 function RecruitField(): ReactElement {
   const [field, setField] = useState<FieldNameTypes>(RECRUIT_FIELD_NAMES[0]);

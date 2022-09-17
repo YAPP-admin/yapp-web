@@ -37,6 +37,8 @@ function RecruitDeveloper(): ReactElement {
       <RecruitFieldExplain
         fieldName="개발자"
         explainContents={getDeveloperFieldExplain(developField)}
+        isDeveloper
+        developField={developField}
       />
     </RecruitDeveloperWrapper>
   );
