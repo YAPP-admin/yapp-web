@@ -91,24 +91,9 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor1.png', // 오늘의 집
+    image: '/assets/sponsors/sponsor1.png', // readyme
   },
   {
-    image: '/assets/sponsors/sponsor2.png', // readyme
-  },
-  {
-    image: '/assets/sponsors/sponsor3.png', // 이지스퍼블리싱
-  },
-  {
-    image: '/assets/sponsors/sponsor4.png', // 한빛 미디어
-  },
-  {
-    image: '/assets/sponsors/sponsor5.png', // 제로 베이스
-  },
-  {
-    image: '/assets/sponsors/sponsor6.png', // 게더타운
-  },
-  {
-    image: '/assets/sponsors/sponsor7.png', // 네이버 D2
+    image: '/assets/sponsors/sponsor2.png', // 제로 베이스
   },
 ];
