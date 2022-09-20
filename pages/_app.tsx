@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { SEO, LayoutWrapper } from 'components/common';
 import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
+import Font from 'styles/fonts';
 import * as ga from 'utils/gtag';
 
 function App({ Component, pageProps }: AppProps) {
@@ -31,6 +32,7 @@ function App({ Component, pageProps }: AppProps) {
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         <SEO />
+        <Font />
         <LayoutWrapper>
           <Component {...pageProps} />
         </LayoutWrapper>
