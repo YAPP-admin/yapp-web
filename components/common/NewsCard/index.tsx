@@ -70,7 +70,7 @@ const StyledNewsCard = styled.div`
 
   > .news-card-image {
     ${media.mobile} {
-      height: 355px;
+      height: 335px;
     }
   }
 `;
