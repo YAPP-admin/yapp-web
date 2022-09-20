@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import type { ReactElement, MouseEvent } from 'react';
 import styled from 'styled-components';
-import { useSpring, animated } from '@react-spring/web';
 import media from 'styles/media';
 import {
   IS_RECRUITING,
@@ -30,17 +29,6 @@ function IntroSection(): ReactElement {
     });
   };
 
-  const styles = useSpring({
-    delay: 200,
-    to: isHover
-      ? {
-          transform: `scale(1.1) translateX(${move.ix}px) translateY(${move.iy}px)`,
-        }
-      : {
-          transform: `scale(1) translateX(0px) translateY(0px)`,
-        },
-  });
-
   return (
     <IntroSectionContainer
       onMouseEnter={handleEnter}
@@ -48,9 +36,9 @@ function IntroSection(): ReactElement {
       onMouseMove={handleMove}
     >
       <Dimension />
-      <animated.div className="background" style={styles}>
+      <MainBanner>
         <Spline scene="https://prod.spline.design/HKqZopYQ1xZfXZFr/scene.splinecode" />
-      </animated.div>
+      </MainBanner>
       <ContentWrapper>
         <TitleContainer>
           <span className="main-text">
@@ -107,9 +95,15 @@ const Dimension = styled.span`
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.85;
+  opacity: 0.5;
   z-index: 2;
   background-color: ${({ theme }) => theme.palette.black};
+`;
+
+const MainBanner = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
 `;
 
 const ContentWrapper = styled.div`
@@ -121,14 +115,21 @@ const TitleContainer = styled.div`
   margin: 0 5px 48px 5px;
   text-align: center;
   word-break: keep-all;
-  font-family: Poppins, sans-serif;
 
   .main-text {
-    color: ${({ theme }) => theme.palette['white']};
+    ${({ theme }) => theme.textStyle.web.Head};
 
-    ${({ theme }) => theme.textStyle.web.Head}
+    color: ${({ theme }) => theme.palette['white']};
+    font-family: 'Syne-ExtraBold';
+
     ${media.mobile} {
-      ${({ theme }) => theme.textStyle.mobile.Head}
+      ${({ theme }) => theme.textStyle.mobile.Head_2};
+      line-height: 48px;
+    }
+
+    ${media.small} {
+      ${({ theme }) => theme.textStyle.mobile.Head_3};
+      line-height: 44.8px;
     }
   }
 `;

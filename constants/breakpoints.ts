@@ -3,8 +3,9 @@ enum Breakpoints {
   xlarge = 1920,
   large = 1200,
   medium = 836,
-  small = 400,
-  xSmall = 375,
+  small = 480,
+  xSmall = 400,
+  xxSmall = 375,
 }
 
 export default Breakpoints;
