@@ -102,6 +102,18 @@ const textStyle = {
       line-height: ${lineHeight.small};
       letter-spacing: ${letterSpacing.small};
     `,
+    Head_2: css`
+      font-size: ${fontSize.xxxxxxxLarge};
+      font-weight: ${fontWeight.extraBold};
+      line-height: ${lineHeight.small};
+      letter-spacing: ${letterSpacing.small};
+    `,
+    Head_3: css`
+      font-size: ${fontSize.xLarge};
+      font-weight: ${fontWeight.extraBold};
+      line-height: ${lineHeight.xSmall};
+      letter-spacing: ${letterSpacing.xSmall};
+    `,
     Title_1: css`
       font-size: ${fontSize.xxxLarge};
       font-weight: ${fontWeight.semibold};
@@ -184,7 +196,7 @@ const textStyle = {
     `,
     Head2: css`
       font-size: ${fontSize.xxxxxxxLarge};
-      font-weight: ${fontWeight.bold};
+      font-weight: ${fontWeight.extraBold};
       line-height: ${lineHeight.medium};
       letter-spacing: ${letterSpacing.medium};
     `,
