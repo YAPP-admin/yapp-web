@@ -95,7 +95,7 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor1.png', // Jpub
+    image: '/assets/sponsors/sponsor1.png', // jpub
   },
   {
     image: '/assets/sponsors/sponsor2.png', // 한빛 미디어
