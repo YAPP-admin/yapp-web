@@ -95,6 +95,9 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
+    image: '/assets/sponsors/sponsor0.png', // KakaoHairshop
+  },
+  {
     image: '/assets/sponsors/sponsor1.png', // Jpub
   },
   {
