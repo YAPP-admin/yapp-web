@@ -1489,6 +1489,20 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"
   integrity sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==
 
+"@splinetool/react-spline@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@splinetool/react-spline/-/react-spline-2.2.2.tgz#b6297471957e5c237ff20e05e007411a443e8a06"
+  integrity sha512-4OW2Y8ONHitNClB9bB0AJhVRXP2oakV5cLkbJE++wMsA7rFTWPAC74XM/pQlXYWix/lP+A8iUFi055IhewrC8A==
+  dependencies:
+    react-merge-refs "^1.1.0"
+
+"@splinetool/runtime@^0.9.106":
+  version "0.9.106"
+  resolved "https://registry.yarnpkg.com/@splinetool/runtime/-/runtime-0.9.106.tgz#e909c52397509b9cb6197e23b5ade3710dca2d8c"
+  integrity sha512-ivV8h1BrmJrZq1XVqXMPLn8QLpqT8zQqMRMd6v/io0TIL0F44RNcPIbaK+bAIxWlsIvdZMJH5Wqv9Cqo9FPyHw==
+  dependencies:
+    on-change "^4.0.0"
+
 "@storybook/addon-actions@6.5.0-alpha.39", "@storybook/addon-actions@^6.5.0-alpha.39":
   version "6.5.0-alpha.39"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.5.0-alpha.39.tgz#ad749fec23c1d513df883abe0c5a838ef4fa4e9c"
@@ -8398,6 +8412,11 @@ objectorarray@^1.0.5:
   resolved "https://registry.yarnpkg.com/objectorarray/-/objectorarray-1.0.5.tgz#2c05248bbefabd8f43ad13b41085951aac5e68a5"
   integrity sha512-eJJDYkhJFFbBBAxeh8xW+weHlkI28n2ZdQV/J/DNfWfSKlGEf2xcfAbZTv3riEXHAhL9SVOTs2pRmXiSTf78xg==
 
+on-change@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/on-change/-/on-change-4.0.1.tgz#a3fea9971748efab3560351c8278ea1a692b7c16"
+  integrity sha512-Gxmr/8NsLTigoUUEPvnAIUGl7uxwfC3Mm1G+qTmODEZcT4ZGfeaFyQgfGCdbKVS2pICIFYB82RH6MUHToPcS4Q==
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
@@ -9302,6 +9321,11 @@ react-masonry-css@^1.0.16:
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/react-masonry-css/-/react-masonry-css-1.0.16.tgz#72b28b4ae3484e250534700860597553a10f1a2c"
   integrity sha512-KSW0hR2VQmltt/qAa3eXOctQDyOu7+ZBevtKgpNDSzT7k5LA/0XntNa9z9HKCdz3QlxmJHglTZ18e4sX4V8zZQ==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 react-refresh@^0.11.0:
   version "0.11.0"

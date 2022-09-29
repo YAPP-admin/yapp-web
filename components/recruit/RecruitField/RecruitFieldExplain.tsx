@@ -75,8 +75,9 @@ function RecruitFieldExplain({
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
+          disabled
         >
-          {isDeveloper ? developField : fieldName} 지원하기
+          {isDeveloper ? developField : fieldName} 지원마감
         </ApplyButton>
       </ButtonBlock>
     </RecruitFieldWrapper>
