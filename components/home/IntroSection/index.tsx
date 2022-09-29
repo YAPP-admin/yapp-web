@@ -17,7 +17,7 @@ function IntroSection(): ReactElement {
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
   const { buttonName } = BannerInfo;
   const buttonParams = IS_RECRUITING
-    ? { href: Yapp.YAPP_RECRUIT, width: 168 }
+    ? { disabled: true, width: 168 }
     : { disabled: true, width: 190 };
 
   const handleEnter = () => setIsHover(!isHover);
