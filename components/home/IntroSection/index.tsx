@@ -7,7 +7,6 @@ import {
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
-import Yapp from 'constants/yapp';
 import { AnimatedButton } from 'components/common';
 import Spline from '@splinetool/react-spline';
 
@@ -37,14 +36,14 @@ function IntroSection(): ReactElement {
     >
       <Dimension />
       <MainBanner>
-        <Spline scene="https://prod.spline.design/HKqZopYQ1xZfXZFr/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/oefJFTsP9MuFSYvY/scene.splinecode" />
       </MainBanner>
       <ContentWrapper>
         <TitleContainer>
           <span className="main-text">
-            Sprint Time
+            Together We Gather,
             <br />
-            Open To Anyone
+            Together We Grow
           </span>
         </TitleContainer>
 
@@ -104,6 +103,7 @@ const MainBanner = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: ${({ theme }) => theme.palette.black};
 `;
 
 const ContentWrapper = styled.div`
@@ -117,19 +117,25 @@ const TitleContainer = styled.div`
   word-break: keep-all;
 
   .main-text {
-    ${({ theme }) => theme.textStyle.web.Head};
-
     color: ${({ theme }) => theme.palette['white']};
-    font-family: 'Syne-ExtraBold';
+    font-family: 'Poppins-ExtraBold';
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: 0;
 
     ${media.mobile} {
-      ${({ theme }) => theme.textStyle.mobile.Head_2};
-      line-height: 48px;
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: 0;
     }
 
     ${media.small} {
-      ${({ theme }) => theme.textStyle.mobile.Head_3};
-      line-height: 44.8px;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: 0;
     }
   }
 `;
