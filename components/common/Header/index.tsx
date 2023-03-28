@@ -82,8 +82,6 @@ const HeaderInner = styled.div`
 `;
 
 const Logo = styled(YappLogo)`
-  width: 48px;
-  height: 48px;
   cursor: pointer;
 `;
 

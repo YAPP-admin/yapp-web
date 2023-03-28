@@ -9,7 +9,7 @@ export { default as Hamburger } from 'public/assets/icons/hamburger.svg';
 export { default as Facebook_13 } from 'public/assets/icons/facebook_13.svg';
 export { default as Github } from 'public/assets/icons/github.svg';
 export { default as SnsGroup } from 'public/assets/icons/sns_group.svg';
-export { default as YappLogo } from 'public/assets/icons/logo.svg';
+export { default as YappLogo } from 'public/assets/icons/yapp_logo.svg';
 
 // constants
 export const Mail_24 = 'assets/icons/mail_24.svg';
