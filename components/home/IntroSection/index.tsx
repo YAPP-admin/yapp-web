@@ -7,17 +7,19 @@ import {
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
-import Yapp from 'constants/yapp';
 import { AnimatedButton } from 'components/common';
 import Spline from '@splinetool/react-spline';
+import Path from 'constants/path';
+import { useRouter } from 'next/router';
 
 function IntroSection(): ReactElement {
+  const router = useRouter();
   const [isHover, setIsHover] = useState(false);
   const [move, setMove] = useState({ ix: 0, iy: 0 });
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
   const { buttonName } = BannerInfo;
   const buttonParams = IS_RECRUITING
-    ? { disabled: true, width: 168 }
+    ? { width: 168 }
     : { disabled: true, width: 190 };
 
   const handleEnter = () => setIsHover(!isHover);
@@ -37,14 +39,14 @@ function IntroSection(): ReactElement {
     >
       <Dimension />
       <MainBanner>
-        <Spline scene="https://prod.spline.design/HKqZopYQ1xZfXZFr/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/oefJFTsP9MuFSYvY/scene.splinecode" />
       </MainBanner>
       <ContentWrapper>
         <TitleContainer>
           <span className="main-text">
-            Sprint Time
+            Together We Gather,
             <br />
-            Open To Anyone
+            Together We Grow
           </span>
         </TitleContainer>
 
@@ -54,6 +56,9 @@ function IntroSection(): ReactElement {
           buttonColor="orange_400"
           className="recruitButton"
           buttonText={buttonName}
+          onClick={() => {
+            router.push(Path.Recruit);
+          }}
           {...buttonParams}
         />
       </ContentWrapper>
@@ -104,6 +109,7 @@ const MainBanner = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: ${({ theme }) => theme.palette.black};
 `;
 
 const ContentWrapper = styled.div`
@@ -117,19 +123,25 @@ const TitleContainer = styled.div`
   word-break: keep-all;
 
   .main-text {
-    ${({ theme }) => theme.textStyle.web.Head};
-
     color: ${({ theme }) => theme.palette['white']};
-    font-family: 'Syne-ExtraBold';
+    font-family: 'Poppins-ExtraBold';
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: 0;
 
     ${media.mobile} {
-      ${({ theme }) => theme.textStyle.mobile.Head_2};
-      line-height: 48px;
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: 0;
     }
 
     ${media.small} {
-      ${({ theme }) => theme.textStyle.mobile.Head_3};
-      line-height: 44.8px;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: 0;
     }
   }
 `;

@@ -1,6 +1,6 @@
 // 사이트의 메타 데이터 수정은 여기서 진행합니다.
 
-const siteMetadata = {
+const metaData = {
   title: 'YAPP',
   sitename: '연합동아리 YAPP',
   author: 'YAPP-admin',
@@ -10,15 +10,11 @@ const siteMetadata = {
     'YAPP, yapp, 동아리, 연합 동아리, IT 동아리, 개발 동아리, 대학교 동아리, 대학생 연합 동아리, 대외활동, 외부활동, 사이드 프로젝트, 개발, 개발자, 프론트엔드, 백엔드, 디자이너, PM',
   type: 'website',
   siteUrl: 'https://yapp.co.kr',
-  siteRepo: 'https://https://github.com/YAPP-admin',
-  siteLogo: '/static/images/logo.png',
-  image: '/assets/images/og.png', // imgbb 서비스, 용량, 기간 제한 없음
-  github: 'https://github.com/YAPP-admin',
-  facebook: 'https://ko-kr.facebook.com/yapp.co.kr/',
+  image: '/assets/images/og.png',
   locale: 'ko_KR',
   analytics: {
     google: 'G-MPQ55K4DB3',
   },
 };
 
-export default siteMetadata;
+export default metaData;

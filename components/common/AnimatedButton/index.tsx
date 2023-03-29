@@ -22,53 +22,30 @@ function AnimatedButton({
   variant = 'primary',
   ...rest
 }: AnimatedButtonProps) {
-  const linkParams = href ? { href, target: '_blank', rel: 'noreferrer' } : {};
-
   return (
-    <Container {...linkParams}>
-      <ButtonStyled width={width} height={height} variant={variant} {...rest}>
-        <svg
-          width={`${width + 2}px`}
-          height={`${height}px`}
-          viewBox={`0 0 ${width} ${height}`}
-          className="border"
-        >
-          <rect
-            x="-0.9"
-            y="1"
-            width={width}
-            height={height - 2}
-            rx="32"
-            ry="32"
-          />
-        </svg>
-        <span className="textgroup">
-          <span className="mainText">{buttonText}</span>
-          <span className="cloneText">{buttonText}</span>
-        </span>
-      </ButtonStyled>
-    </Container>
+    <ButtonStyled width={width} height={height} variant={variant} {...rest}>
+      <svg
+        width={`${width + 2}px`}
+        height={`${height}px`}
+        viewBox={`0 0 ${width} ${height}`}
+        className="border"
+      >
+        <rect
+          x="-0.9"
+          y="1"
+          width={width}
+          height={height - 2}
+          rx="32"
+          ry="32"
+        />
+      </svg>
+      <span className="textgroup">
+        <span className="mainText">{buttonText}</span>
+        <span className="cloneText">{buttonText}</span>
+      </span>
+    </ButtonStyled>
   );
 }
-
-const Container = styled.a`
-  ${media.mobile} {
-    display: flex;
-    justify-content: center;
-  }
-  svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 20px;
-    fill: none;
-    stroke: ${({ theme }) => theme.palette.orange_400};
-    stroke-width: 2px;
-    stroke-dasharray: 168 480;
-    stroke-dashoffset: 168;
-    transition: 1s ease-in-out;
-  }
-`;
 
 const ButtonStyled = styled(Button)<{ variant?: AnimatedButtonVariant }>`
   position: relative;
@@ -88,6 +65,19 @@ const ButtonStyled = styled(Button)<{ variant?: AnimatedButtonVariant }>`
     left: 0;
     opacity: 0;
     display: inline-block;
+  }
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    fill: none;
+    stroke: ${({ theme }) => theme.palette.orange_400};
+    stroke-width: 2px;
+    stroke-dasharray: 168 480;
+    stroke-dashoffset: 168;
+    transition: 1s ease-in-out;
   }
 
   &:hover {

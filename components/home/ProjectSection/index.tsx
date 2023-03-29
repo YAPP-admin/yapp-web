@@ -9,7 +9,7 @@ import media from 'styles/media';
 function ProjectSection(): ReactElement {
   return (
     <ProjectContainer>
-      <SectionTitle>6개월 협업과 결과물</SectionTitle>
+      <SectionTitle>협업 결과물</SectionTitle>
       <Carousel data={CAROUSEL_DATA} />
       <StyledButton
         width={176}

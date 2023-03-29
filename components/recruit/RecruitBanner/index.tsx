@@ -1,7 +1,6 @@
 import { AnimatedButton } from 'components/common';
 import DOMPurify from 'isomorphic-dompurify';
 import Breakpoints from 'constants/breakpoints';
-import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
@@ -13,10 +12,7 @@ import media from 'styles/media';
 
 function RecruitBanner() {
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
-  const { title, buttonName, description } = BannerInfo;
-  const buttonParams = IS_RECRUITING
-    ? { width: 168, disabled: true }
-    : { disabled: true, width: 190 };
+  const { title, description } = BannerInfo;
 
   return (
     <RecruitBannerContainer>
@@ -26,16 +22,6 @@ function RecruitBanner() {
         />
         <BannerDescription
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
-        />
-
-        <RecruitButton
-          height={65}
-          fontColor="black"
-          buttonColor="grey_850"
-          borderColor="lightGrey"
-          variant="secondary"
-          buttonText={buttonName}
-          {...buttonParams}
         />
       </BannerInner>
     </RecruitBannerContainer>
