@@ -36,14 +36,12 @@ function FrequentlyAskedQuestions(): ReactElement {
                   <ArrowButton />
                 </TitleButton>
               </FAQSubTitle>
-              {/* {isOpen && ( */}
               <FQASubContent
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(description),
                 }}
                 isOpen={isOpen}
               />
-              {/* )} */}
             </FAQBoxInner>
           </FAQBox>
         ))}

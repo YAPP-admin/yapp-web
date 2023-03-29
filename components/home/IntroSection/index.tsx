@@ -9,14 +9,17 @@ import {
 } from 'database/recruit';
 import { AnimatedButton } from 'components/common';
 import Spline from '@splinetool/react-spline';
+import Path from 'constants/path';
+import { useRouter } from 'next/router';
 
 function IntroSection(): ReactElement {
+  const router = useRouter();
   const [isHover, setIsHover] = useState(false);
   const [move, setMove] = useState({ ix: 0, iy: 0 });
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
   const { buttonName } = BannerInfo;
   const buttonParams = IS_RECRUITING
-    ? { disabled: true, width: 168 }
+    ? { width: 168 }
     : { disabled: true, width: 190 };
 
   const handleEnter = () => setIsHover(!isHover);
@@ -53,6 +56,9 @@ function IntroSection(): ReactElement {
           buttonColor="orange_400"
           className="recruitButton"
           buttonText={buttonName}
+          onClick={() => {
+            router.push(Path.Recruit);
+          }}
           {...buttonParams}
         />
       </ContentWrapper>
