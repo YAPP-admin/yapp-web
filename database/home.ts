@@ -6,7 +6,7 @@ export const CURRENT_INFO_DATA = [
   },
   {
     title: '운영 기수 ⛳️',
-    content: '21기',
+    content: '22기',
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',

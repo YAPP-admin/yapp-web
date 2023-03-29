@@ -14,15 +14,15 @@ export const IS_RECRUITING = true;
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
-  description: '현재 19기 활동 중! 다음 기수는 2022.03에 예정되어 있습니다',
+  description: `현재 ${Yapp.YAPP_GENERATION}기 활동 중! 다음 기수는 2022.03에 예정되어 있습니다`,
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
 
 export const RECRUIT_BANNER_ACTIVE = {
   title: `YAPP<br class="mobile" /> ${Yapp.YAPP_GENERATION}기 모집`,
-  description: `YAPP 21기에서 6개월간 활동할<br class="mobile" /> 기획자(PM)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
-    IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘쳐나고, 동아리에서 많은 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
-  buttonName: '21기 지원마감',
+  description: `YAPP ${Yapp.YAPP_GENERATION}기에서 4개월간 활동할<br class="mobile" /> 기획자(PM)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
+    IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘치고, 동아리에서 다양한 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
+  buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,
 };
 
 /**지원 방법 */
@@ -37,7 +37,7 @@ export const RECRUIT_APPLY_WAY = {
     },
     {
       subTitle: '지원자격',
-      description: `6개월 동안 활동하는데<br  />
+      description: `4개월 동안 활동하는데<br  />
                     문제가 없고,<br />
                     실력을 키우기 위해 배우려는<br />
                     의지가 있는 누구나
@@ -58,21 +58,21 @@ export const RECRUIT_SCHEDULE = {
   schedules: [
     {
       subTitle: '서류 접수',
-      description: `2022. 09. 18. (일)<br />
-                    ~ 09. 29. (목)`,
+      description: `2023. 03. 31 (금)<br />
+                    ~ 04. 08. (토) 23:00`,
     },
     {
       subTitle: '서류 결과 발표',
-      description: `2022. 10. 05. (수)`,
+      description: `2023. 04. 11. (화)`,
     },
     {
       subTitle: '면접',
-      description: `2022. 10. 08. (토)<br />
-                    ~ 10. 10. (월)`,
+      description: `2023. 04. 15. (토)<br />
+                    ~ 04. 16. (일)`,
     },
     {
       subTitle: '최종 발표',
-      description: `2022. 10. 14. (금)`,
+      description: `2023. 04. 18. (화)`,
     },
   ],
 };
@@ -83,7 +83,7 @@ export const RECRUIT_FAQ = {
   faqs: [
     {
       subTitle: 'YAPP은 어떤 동아리인가요?',
-      description: `YAPP은 기획자, 디자이너, 개발자로 팀을 구성하여 <b>6개월간 하나의 IT 서비스(웹,앱,etc.)를 제작</b>하는 연합 동아리입니다.<br class="br" /> 
+      description: `YAPP은 기획자, 디자이너, 개발자로 팀을 구성하여 <b>4개월간 하나의 IT 서비스(웹,앱,etc.)를 제작</b>하는 연합 동아리입니다.<br class="br" /> 
       프로젝트는 기업형 프로세스에 따라 진행하고 런칭하여, 팀원들의 아이디어를 실제 IT 서비스로 구체화
                     시키는 경험을 할 수 있습니다.`,
       isOpen: false,
@@ -91,29 +91,29 @@ export const RECRUIT_FAQ = {
     {
       subTitle:
         '대학생이 아닌 고졸/재직자/졸업자 등도 YAPP에서 활동할 수 있을까요?',
-      description: `6개월 내내 꾸준히 활동할 수 있고 배우고자 하는 <b>열의가 충분하다면, 누구든 지원이 가능</b>합니다.<br class="br" />
+      description: `4개월간 꾸준히 활동할 수 있고 배우고자 하는 <b>열의가 충분하다면, 누구든 지원이 가능</b>합니다.<br class="br" />
                     현재도 고졸/재직자/졸업자 중 활발히 활동하시는 분들이 계십니다.<br class="br" />
-                    하지만 매주 진행하는 <b>정기 세션</b>과 기수당 3회 열리는 <b>DevCamp(당일 및 1박 2일 해커톤)</b>에 필수적으로 참여해야 하며,<br class="br" />
+                    하지만 매주 진행하는 <b>정기 세션</b>과 기수당 3회 열리는 <b>해커톤 Dev. Camp</b>에 필수적으로 참여해야 하며,<br class="br" />
                     특히 방학 중에는 원활한 프로젝트 진행을 위해 추가적인 팀 활동에 모여야 한다는 점을 숙지해주세요!`,
       isOpen: false,
     },
     {
       subTitle: '실력이 뛰어난 사람만 지원할 수 있나요?',
-      description: `YAPP에서는 6개월간 <b>꾸준히 활동</b>할 수 있는지, 그리고 <b>발전하고자 하는 의지가 충분한지</b>를 가장 중요하게 생각합니다.<br class="br" />
+      description: `YAPP에서는 4개월간 <b>꾸준히 활동</b>할 수 있는지, 그리고 <b>발전하고자 하는 의지가 충분한지</b>를 가장 중요하게 생각합니다.<br class="br" />
                     그러나 교육보다는 프로젝트 진행이 중심이기 때문에 자율 스터디나 특강 이외의 교육 커리큘럼을 따로 진행하고 있지 않습니다.<br class="br" />
                     따라서 동아리 활동 이외에 <b>개인적으로도 시간과 노력을 투자해야 한다는 점</b>을 알아주시길 바랍니다.`,
       isOpen: false,
     },
     {
       subTitle: '정기 모임(세션)은 언제, 어디서 하나요?',
-      description: `<b>매주 일요일 오후 2시-5시</b>, 세션은 서로 간의 지식 공유&친목 도모를 위해 진행되며 가벼운 뒤풀이도 있을 수 있습니다.<br class="br" />
-                    다만, 코로나 상황에 따라 현재는 <b>온라인/오프라인 병행</b>으로 진행되고 있으며 각 기수별 상황에 따라 달라질 수 있습니다.<br class="br" />
+      description: `<b>매주 토요일 오후 2시-5시</b>, 세션은 서로 간의 지식 공유&친목 도모를 위해 진행되며 가벼운 뒤풀이도 있을 수 있습니다.<br class="br" />
+                    주로 <b>온라인/오프라인 병행</b>으로 진행되고 있으며 각 기수별 상황에 따라 달라질 수 있습니다.<br class="br" />
                     오프라인으로 진행될 경우 섭외 장소에 따라 장소가 변경될 수 있으며 일정, 장소 등 자세한 정보는 사전 공지해드릴 예정입니다.`,
       isOpen: false,
     },
     {
       subTitle: '동아리 활동은 어떤 게 있나요?',
-      description: `1. 아이디어를 서비스로 구체화시킬 수 있는 해커톤 Dev. Camp 3회 (3회 중 2회는 무박 2일 해커톤으로 진행됩니다)<br />
+      description: `1. 아이디어를 서비스로 구체화시킬 수 있는 해커톤 Dev. Camp 3회<br />
                     2. 정기 전체 세션: 프로젝트 팀 회의, 직군 간 커뮤니케이션, 진행현황 발표 등을 진행합니다.<br />
                     3. 직군 세션: 직군 특성을 반영한 발표, 초청 취업 강연, 현직자 선배의 조언을 들을 수 있는 Networking Day 등<br />
                     4. 성과공유회: 실제 현업에서 활동 중인 선배들에게 프로젝트를 발표하고, 피드백을 받을 수 있는 시간<br />
@@ -139,7 +139,7 @@ export const RECRUIT_DEVELOPER_FIELD_NAMES: DeveloperFieldName[] = [
 
 /* 기획자 */
 export const RECRUIT_EXPLAIN_PROJECT_MANAGER = {
-  content1: `디자이너, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
+  content1: `디자이너, 개발자와 함께 4개월 간 프로젝트를 수행합니다.<br />
   서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
   서비스 런칭을 목표로 프로젝트를 주도적으로 관리하고 진행합니다.
   `,
@@ -154,7 +154,7 @@ export const RECRUIT_EXPLAIN_PROJECT_MANAGER = {
 
 /* 디자이너 */
 export const RECRUIT_EXPLAIN_DESIGNER = {
-  content1: `기획자, 개발자와 함께 6개월 간 프로젝트를 수행합니다.<br />
+  content1: `기획자, 개발자와 함께 4개월 간 프로젝트를 수행합니다.<br />
   기획을 바탕으로 개별 팀의 아이디어에 따라<br />
   UX/UI/GUI 디자인을 담당합니다.`,
   content2: `1. UX/UI 디자인에 관심이 있고, UX/UI 디자인을 경험해보신 분<br />
@@ -194,7 +194,7 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
 
 /* Front_End */
 export const RECRUIT_EXPLAIN_FRONTEND_DEVELOPER = {
-  content1: `팀 내에서 웹 프론트앤드 개발을 담당합니다.<br />
+  content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
   Back-End, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. HTML과 CSS 기본을 이해하고 계신 분<br />

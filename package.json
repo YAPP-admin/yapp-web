@@ -23,7 +23,7 @@
   "dependencies": {
     "@react-spring/web": "^9.4.3",
     "@splinetool/react-spline": "^2.2.2",
-    "@splinetool/runtime": "^0.9.106",
+    "@splinetool/runtime": "^0.9.273",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "glob": "^8.0.1",
     "isomorphic-dompurify": "^0.18.0",
