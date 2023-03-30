@@ -69,8 +69,7 @@ export const NEWS_DATA = [
     content: `🧡 IT연합동아리 YAPP 22기 신규 회원 모집 시작(~4/8) 🧡
     👨‍👩‍👧‍👦 Gather, Together!
     3월 31일(금)부터 4월 8일(토) 밤 11시 00분까지
-    YAPP 22기로 함께 할 신규 회원을 모집합니다!
-    이렇게 부탁드려요~ 늦은 시간까지 고생 많으십니다 정진님`,
+    YAPP 22기로 함께 할 신규 회원을 모집합니다!`,
   },
   {
     image: '/assets/images/social2.png',

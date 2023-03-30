@@ -75,10 +75,8 @@ function RecruitFieldExplain({
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
-          disabled // NOTE 3/31 모집공고 오픈일에 삭제 예정
         >
-          {/* {isDeveloper ? developField : fieldName} 지원하기  */}
-          🚀 3/31 OPEN 🚀
+          {isDeveloper ? developField : fieldName} 지원하기
         </ApplyButton>
       </ButtonBlock>
     </RecruitFieldWrapper>
