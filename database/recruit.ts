@@ -59,7 +59,7 @@ export const RECRUIT_SCHEDULE = {
     {
       subTitle: '서류 접수',
       description: `2023. 03. 31 (금)<br />
-                    ~ 04. 08. (토) 23:00`,
+                    ~ 04. 09. (토) 23:00`,
     },
     {
       subTitle: '서류 결과 발표',
