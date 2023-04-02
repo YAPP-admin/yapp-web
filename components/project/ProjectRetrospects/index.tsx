@@ -29,6 +29,8 @@ function ProjectRetrospects({ retrospects }: Props): ReactElement {
 
 const Container = styled.div`
   margin-bottom: 230px;
+  white-space: pre-wrap;
+
   .my-masonry-grid {
     display: -webkit-box;
     display: -ms-flexbox;

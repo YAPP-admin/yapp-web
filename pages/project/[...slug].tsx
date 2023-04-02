@@ -160,7 +160,7 @@ const ProjectName = styled.div`
 const ProjectImage = styled.img`
   max-width: 100%;
   display: block;
-  margin: 100px 0 200px;
+  margin: 100px auto 200px;
   ${media.mobile} {
     margin: 120px 0 120px;
   }
