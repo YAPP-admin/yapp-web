@@ -29,34 +29,49 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: '냠냠박사',
-    link: '/project/19th/yumyumdoctor',
-    image: '/assets/project/19_thumbnail_yumyumdoctor.png',
+    title: 'ARTIE',
+    link: '/project/21th/artie',
+    image: '/assets/project/21_thumbnail_artie.png',
   },
   {
-    title: '도토리함',
-    link: '/project/19th/dotori',
-    image: '/assets/project/19_thumbnail_dotori.png',
+    title: 'buddycon',
+    link: '/project/21th/buddycon',
+    image: '/assets/project/21_thumbnail_buddycon.png',
   },
   {
-    title: '버디',
-    link: '/project/19th/budi',
-    image: '/assets/project/19_thumbnail_budi.png',
+    title: '동네한입',
+    link: '/project/21th/dongnehanip',
+    image: '/assets/project/21_thumbnail_dongnehanip.jpeg',
   },
   {
-    title: '딜리버디 (DeliBuddy)',
-    link: '/project/19th/delibuddy',
-    image: '/assets/project/19_thumbnail_delibuddy.png',
+    title: '파인드띵스',
+    link: '/project/21th/findthings',
+    image: '/assets/project/21_thumbnail_findthings.png',
   },
   {
-    title: 'GILJOB (길잡)',
-    link: '/project/19th/giljob',
-    image: '/assets/project/19_thumbnail_giljob.png',
+    title: '핏프티',
+    link: '/project/21th/fitfty',
+    image: '/assets/project/21_thumbnail_fitfty.png',
   },
   {
-    title: '위닝',
-    link: '/project/19th/winning',
-    image: '/assets/project/19_thumbnail_winning.png',
+    title: 'Pump',
+    link: '/project/21th/pump',
+    image: '/assets/project/21_thumbnail_pump.png',
+  },
+  {
+    title: '그밈',
+    link: '/project/21th/thismeme',
+    image: '/assets/project/21_thumbnail_thismeme.jpg',
+  },
+  {
+    title: 'Thumbs Up',
+    link: '/project/21th/thumbsup',
+    image: '/assets/project/21_thumbnail_thumbsup.jpg',
+  },
+  {
+    title: '티미티미',
+    link: '/project/21th/tmtm',
+    image: '/assets/project/21_thumbnail_tmtm.png',
   },
 ];
 
