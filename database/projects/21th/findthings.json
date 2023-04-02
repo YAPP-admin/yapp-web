@@ -4,18 +4,10 @@
   "thumbnail": "/assets/project/21_thumbnail_findthings.png",
   "content": "/assets/project/21_content_findthings.png",
   "tags": ["21기", "Android"],
-  "team": [
-    "김효진",
-    "김지윤",
-    "옥혜원",
-    "한지혜",
-    "이기정",
-    "조서연",
-    "고세진"
-  ],
+  "team": ["김지윤", "옥혜원", "한지혜", "이기정", "조서연", "고세진"],
   "field": ["Android"],
   "generation": 21,
-  "program": ["Figma", "SpringBoot", "SpringSecurity", "SpringData"],
+  "program": ["Figma", "SpringBoot", "SpringSecurity", "SpringData", "Kotlin"],
   "retrospects": [
     {
       "name": "이기정",
