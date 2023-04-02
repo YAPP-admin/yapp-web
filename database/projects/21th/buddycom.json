@@ -15,7 +15,7 @@
   ],
   "field": ["Android"],
   "generation": 21,
-  "program": ["Figma", "SpringBoot", "SpringSecurity", "SpringData"],
+  "program": ["Figma", "SpringBoot", "SpringSecurity", "SpringData", "Kotlin"],
   "retrospects": [
     {
       "name": "황선아",
