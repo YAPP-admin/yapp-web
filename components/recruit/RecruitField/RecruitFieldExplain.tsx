@@ -7,6 +7,7 @@ import Breakpoints from 'constants/breakpoints';
 import media from 'styles/media';
 import getRecruitLink from 'utils/getRecruitLink';
 import { DeveloperFieldName } from './RecruitDeveloper';
+import { IS_RECRUITING } from 'database/recruit';
 
 interface RecruitFieldExplainProps {
   fieldName: FieldNameTypes;
@@ -75,8 +76,10 @@ function RecruitFieldExplain({
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
+          disabled={!IS_RECRUITING}
         >
-          {isDeveloper ? developField : fieldName} 지원하기
+          {isDeveloper ? developField : fieldName}{' '}
+          {IS_RECRUITING ? '지원하기' : '지원마감'}
         </ApplyButton>
       </ButtonBlock>
     </RecruitFieldWrapper>
