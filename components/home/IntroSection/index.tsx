@@ -2,25 +2,11 @@ import { useState } from 'react';
 import type { ReactElement, MouseEvent } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import {
-  IS_RECRUITING,
-  RECRUIT_BANNER,
-  RECRUIT_BANNER_ACTIVE,
-} from 'database/recruit';
-import { AnimatedButton } from 'components/common';
 import Spline from '@splinetool/react-spline';
-import Path from 'constants/path';
-import { useRouter } from 'next/router';
 
 function IntroSection(): ReactElement {
-  const router = useRouter();
   const [isHover, setIsHover] = useState(false);
   const [move, setMove] = useState({ ix: 0, iy: 0 });
-  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
-  const { buttonName } = BannerInfo;
-  const buttonParams = IS_RECRUITING
-    ? { width: 168 }
-    : { disabled: true, width: 190 };
 
   const handleEnter = () => setIsHover(!isHover);
 
@@ -49,18 +35,6 @@ function IntroSection(): ReactElement {
             Together We Grow
           </span>
         </TitleContainer>
-
-        <AnimatedButton
-          height={65}
-          fontColor="white"
-          buttonColor="orange_400"
-          className="recruitButton"
-          buttonText={buttonName}
-          onClick={() => {
-            router.push(Path.Recruit);
-          }}
-          {...buttonParams}
-        />
       </ContentWrapper>
     </IntroSectionContainer>
   );
