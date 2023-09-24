@@ -1,5 +1,10 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
-import { Header, Footer, FloatingButton } from 'components/common';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import {
+  Header,
+  Footer,
+  FloatingButton,
+  FloatingArrow,
+} from 'components/common';
 import { useRouter } from 'next/router';
 import { IntroSection } from 'components/home';
 import PATH from 'constants/path';
@@ -62,6 +67,7 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
       <Header />
       <div ref={contentRef}>{children}</div>
       <Footer />
+      <FloatingArrow />
       <FloatingButton />
     </div>
   );
