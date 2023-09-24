@@ -21,7 +21,7 @@
     ]
   },
   "dependencies": {
-    "@react-spring/web": "^9.4.3",
+    "@react-spring/web": "^9.7.3",
     "@splinetool/react-spline": "^2.2.2",
     "@splinetool/runtime": "^0.9.273",
     "@types/smoothscroll-polyfill": "^0.3.1",
