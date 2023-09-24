@@ -82,6 +82,10 @@ const EnquiryContent = styled.div`
       display: block;
     }
   }
+  .ps {
+    font-size: 14px;
+    font-weight: 200;
+  }
 `;
 
 const ButtonLinked = styled.a``;

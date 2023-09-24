@@ -71,7 +71,7 @@ function RecruitFieldExplain({
         rel="noreferrer"
       >
         <ApplyButton
-          width={185}
+          width={220}
           height={65}
           fontColor="white"
           buttonColor="grey_850"
