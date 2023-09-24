@@ -14,7 +14,8 @@ export type FieldNameTypes =
   | 'iOS'
   | 'Android'
   | 'Front-End'
-  | 'Back-End';
+  | 'Back-End'
+  | 'Cross-Flatform';
 
 function RecruitField(): ReactElement {
   const [field, setField] = useState<FieldNameTypes>(RECRUIT_FIELD_NAMES[0]);

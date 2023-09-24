@@ -9,6 +9,7 @@ const getRecruitLink = (field?: FieldNameTypes) => {
     YAPP_RECRUIT_ANDROID,
     YAPP_RECRUIT_FRONT_END,
     YAPP_RECRUIT_BACK_END,
+    YAPP_RECRUIT_CROSS_PLATFORM,
   } = Yapp;
   switch (field) {
     case '기획자':
@@ -23,6 +24,8 @@ const getRecruitLink = (field?: FieldNameTypes) => {
       return YAPP_RECRUIT_FRONT_END;
     case 'Back-End':
       return YAPP_RECRUIT_BACK_END;
+    case 'Cross-Flatform':
+      return YAPP_RECRUIT_CROSS_PLATFORM;
   }
 };
 
