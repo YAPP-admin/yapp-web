@@ -1,6 +1,7 @@
 import {
   RECRUIT_EXPLAIN_ANDROID_DEVELOPER,
   RECRUIT_EXPLAIN_BACKEND_DEVELOPER,
+  RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER,
   RECRUIT_EXPLAIN_FRONTEND_DEVELOPER,
   RECRUIT_EXPLAIN_IOS_DEVELOPER,
 } from 'database/recruit';
@@ -16,6 +17,8 @@ const getDeveloperFieldExplain = (field: DeveloperFieldName) => {
       return RECRUIT_EXPLAIN_FRONTEND_DEVELOPER;
     case 'Back-End':
       return RECRUIT_EXPLAIN_BACKEND_DEVELOPER;
+    case 'Cross-Flatform':
+      return RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER;
   }
 };
 

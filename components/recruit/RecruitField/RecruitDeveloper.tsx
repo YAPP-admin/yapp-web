@@ -5,7 +5,12 @@ import media from 'styles/media';
 import getDeveloperFieldExplain from 'utils/getDeveloperFieldExplain';
 import RecruitFieldExplain from './RecruitFieldExplain';
 
-export type DeveloperFieldName = 'iOS' | 'Android' | 'Front-End' | 'Back-End';
+export type DeveloperFieldName =
+  | 'iOS'
+  | 'Android'
+  | 'Front-End'
+  | 'Back-End'
+  | 'Cross-Flatform';
 
 function RecruitDeveloper(): ReactElement {
   const [developField, setDevelopField] = useState<DeveloperFieldName>(
