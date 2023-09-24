@@ -3,6 +3,7 @@ import type { ReactElement, MouseEvent } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import VideoPlayer from 'components/common/videoPlayer';
+import { FloatingArrow } from 'components/common';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -26,6 +27,7 @@ function IntroSection(): ReactElement {
       <MainBanner>
         <VideoPlayer src="/assets/video/index.mp4" />
       </MainBanner>
+      <FloatingArrow />
     </IntroSectionContainer>
   );
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { Header, Footer, FloatingButton } from 'components/common';
 import { useRouter } from 'next/router';
 import { IntroSection } from 'components/home';
