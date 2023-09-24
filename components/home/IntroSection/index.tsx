@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ReactElement, MouseEvent } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import Spline from '@splinetool/react-spline';
+import VideoPlayer from 'components/common/videoPlayer';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -23,19 +23,9 @@ function IntroSection(): ReactElement {
       onMouseLeave={handleEnter}
       onMouseMove={handleMove}
     >
-      <Dimension />
       <MainBanner>
-        <Spline scene="https://prod.spline.design/oefJFTsP9MuFSYvY/scene.splinecode" />
+        <VideoPlayer src="/assets/video/index.mp4" />
       </MainBanner>
-      <ContentWrapper>
-        <TitleContainer>
-          <span className="main-text">
-            Together We Gather,
-            <br />
-            Together We Grow
-          </span>
-        </TitleContainer>
-      </ContentWrapper>
     </IntroSectionContainer>
   );
 }
@@ -70,19 +60,40 @@ const IntroSectionContainer = styled.div`
   }
 `;
 
-const Dimension = styled.span`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  z-index: 2;
-  background-color: ${({ theme }) => theme.palette.black};
+const ArrowDownConatiner = styled.div`
+  position: fixed;
+  bottom: 70px;
+  left: 0px;
+  transform: translateX(calc(50vw - 50%));
+
+  svg {
+    width: 64px;
+    height: 64px;
+    transform: translateY(-30px);
+  }
+
+  ${media.mobile} {
+    & > svg {
+      width: 48px;
+      height: 48px;
+      transform: translateY(-36px);
+    }
+  }
 `;
 
 const MainBanner = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: ${({ theme }) => theme.palette.black};
+`;
+
+const Dimension = styled.span`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 2;
   background-color: ${({ theme }) => theme.palette.black};
 `;
 
