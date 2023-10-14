@@ -156,6 +156,12 @@ const textStyle = {
       line-height: 19px; // @Note 모집 분야 개발자 탭에 아래 IOS, Android 텍스트가 Body_point2라고 나와있는데 디자인 시스템에 안나와있고, line-height고 19로 나와있네요 이 부분 나중에 물어보겠습니다!
       letter-spacing: ${letterSpacing.small};
     `,
+    Body_Point3: css`
+      font-size: ${fontSize.xxxxxSmall};
+      font-weight: ${fontWeight.bold};
+      line-height: 19px; // @Note 모집 분야 개발자 탭에 아래 IOS, Android 텍스트가 Body_point2라고 나와있는데 디자인 시스템에 안나와있고, line-height고 19로 나와있네요 이 부분 나중에 물어보겠습니다!
+      letter-spacing: ${letterSpacing.small};
+    `,
     Body_1: css`
       font-size: ${fontSize.xxxSmall};
       font-weight: ${fontWeight.regular};

@@ -63,9 +63,9 @@ const DeveloperListStyled = styled.div`
   ${({ theme }) => theme.textStyle.web.Subtitle};
   color: #898989; // @Todo 와이어프레임 임시 컬러
   ${media.mobile} {
-    width: 300px;
+    width: 360px;
     height: 21px;
-    ${({ theme }) => theme.textStyle.mobile.Body_Point2};
+    ${({ theme }) => theme.textStyle.mobile.Body_Point3};
   }
 `;
 
