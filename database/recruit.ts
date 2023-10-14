@@ -9,12 +9,12 @@ import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDevel
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
-  description: `현재 ${Yapp.YAPP_GENERATION}기 활동 중! 다음 기수는 2023.09에 예정되어 있습니다`,
+  description: `현재 ${Yapp.YAPP_GENERATION}기 활동 중! 다음 기수는 2024년 4월에 예정되어 있습니다`,
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
 
