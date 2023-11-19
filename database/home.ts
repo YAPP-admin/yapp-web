@@ -110,21 +110,9 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor0.png', // KakaoHairshop
+    image: '/assets/sponsors/sponsor_ncp.png',
   },
   {
-    image: '/assets/sponsors/sponsor1.png', // 인프런
-  },
-  {
-    image: '/assets/sponsors/sponsor2.png', // 제이펍
-  },
-  {
-    image: '/assets/sponsors/sponsor3.png', // 한빛 미디어
-  },
-  {
-    image: '/assets/sponsors/sponsor4.png', // readyme
-  },
-  {
-    image: '/assets/sponsors/sponsor5.png', // 제로 베이스
+    image: '/assets/sponsors/sponsor_catch.png',
   },
 ];
