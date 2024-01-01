@@ -2,11 +2,11 @@
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간 🕙',
-    content: '12년',
+    content: '13년',
   },
   {
     title: '운영 기수 ⛳️',
-    content: '22기',
+    content: '23기',
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',
@@ -78,6 +78,15 @@ export const CAROUSEL_DATA = [
 /** Social News Card */
 // 태그 형식 가능합니다.
 export const NEWS_DATA = [
+  {
+    image: '/assets/images/social_recruit_23.jpeg',
+    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    content: `📢 주목! YAPP 23기 신규 회원 모집을 시작합니다! 
+    🌱 Gather, Together! 🌱
+    9월 25일(월)부터 10월 1일(일) 23시 59분 까지
+    YAPP 23기 신규 회원을 모집합니다!
+    `,
+  },
   {
     image: '/assets/images/social1.png',
     link: 'https://ko-kr.facebook.com/yapp.co.kr/',
