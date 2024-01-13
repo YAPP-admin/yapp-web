@@ -1,0 +1,22 @@
+{
+  "name": "ONBOARD",
+  "title": "보드게임 랭킹 기록 서비스, Onboard",
+  "thumbnail": "/assets/project/22_thumbnail_onboard.png",
+  "content": "/assets/project/22_content_onboard.png",
+  "tags": ["22기", "Android"],
+  "team": [
+    "이규리",
+    "이승은",
+    "박재홍",
+    "정은정",
+    "차경민",
+    "오승영",
+    "이호연"
+  ],
+  "field": ["Android"],
+  "generation": 22,
+  "program": [],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "신나게 보드게임을 즐기고 게임결과를 기록으로 남겨보세요! 모임을 등록하고 함께 추억을 관리해요"
+}

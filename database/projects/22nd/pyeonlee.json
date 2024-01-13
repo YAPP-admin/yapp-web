@@ -1,0 +1,22 @@
+{
+  "name": "편리",
+  "title": "세상 편한 편의점 음식 리뷰 서비스, '편리'",
+  "thumbnail": "/assets/project/22_thumbnail_pyeonlee.png",
+  "content": "/assets/project/22_content_pyeonlee.png",
+  "tags": ["22기", "Android"],
+  "team": [
+    "안나영",
+    "하지은",
+    "현명준",
+    "진연주",
+    "정지원",
+    "유효상",
+    "노경민"
+  ],
+  "field": ["Android"],
+  "generation": 22,
+  "program": [],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "세상 편한 편의점 음식 리뷰, 편의점 음식을 찾아보고, 리뷰를 확인하세요"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "COFFICE",
+  "title": "카페에서 작업하는 당신을 위한 작업하기 좋은 카페 지도 서비스, Coffice",
+  "thumbnail": "/assets/project/22_thumbnail_coffice.png",
+  "content": "/assets/project/22_content_coffice.png",
+  "tags": ["22기", "iOS"],
+  "team": ["김수민", "한울", "민경태", "정세훈", "천수현", "김승우", "전해성"],
+  "field": ["iOS"],
+  "generation": 22,
+  "program": [],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "작업하기 좋은 카페 지도를 검색하고, 내 취향의 카페를 한눈에 확인해요!"
+}

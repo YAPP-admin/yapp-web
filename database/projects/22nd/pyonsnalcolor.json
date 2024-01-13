@@ -1,0 +1,22 @@
+{
+  "name": "편스널컬러",
+  "title": "나에게 딱 맞는 편의점 상품 정보를 모아볼 수 있는 서비스, '편스널컬러'",
+  "thumbnail": "/assets/project/22_thumbnail_pyonsnalcolor.png",
+  "content": "/assets/project/22_content_pyonsnalcolor.png",
+  "tags": ["22기", "iOS"],
+  "team": [
+    "김승한",
+    "김연수",
+    "김인호",
+    "김진우",
+    "조소정",
+    "홍성빈",
+    "황수영"
+  ],
+  "field": ["iOS"],
+  "generation": 22,
+  "program": [],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "편의점의 모든 차별화 상품, 행사 상품 및 편의점 이벤트를 한눈에 모아보고, 상세 필터 및 추천을 통해 나에게 딱 맞는 편의점 상품을 탐색하고 발견해보세요"
+}
