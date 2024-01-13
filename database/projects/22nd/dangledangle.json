@@ -1,0 +1,24 @@
+{
+  "name": "댕글댕글",
+  "title": "유기견 봉사 스케줄링 플랫폼, 댕글댕글",
+  "thumbnail": "/assets/project/22_thumbnail_dangledangle.png",
+  "content": "/assets/project/22_content_dangledangle.png",
+  "tags": ["22기", "Web"],
+  "team": [
+    "김성현",
+    "김수연",
+    "김혜리",
+    "이상준",
+    "김종이",
+    "정하영",
+    "김태준",
+    "조소연",
+    "강정현"
+  ],
+  "field": ["Web"],
+  "generation": 22,
+  "program": [],
+  "retrospects": [],
+  "deployLink": null,
+  "description": "봉사자를 관리하기 힘든 보호소와 봉사 신청을 어려워하는 봉사자 모두에게 도움을 줄 수 있는 서비스입니다."
+}
