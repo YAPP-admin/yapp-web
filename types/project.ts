@@ -10,7 +10,7 @@ export interface Project {
   name: string;
   title: string;
   thumbnail: string;
-  content: string;
+  content: string | string[];
   tags: string[];
   team: string[];
   field: ProjectField[];
