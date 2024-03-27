@@ -99,8 +99,14 @@ function ProjectDetail({ project, otherProjects }: Props) {
         <ProjectName>{title}</ProjectName>
         <ProjectContent project={project} />
       </ResponsiveLayout>
-      <ProjectImage src={content} alt="project-content-image" />
 
+      {[...(Array.isArray(content) ? content : [content])].map((contentSrc) => (
+        <ProjectImage
+          key={contentSrc}
+          src={contentSrc}
+          alt="project-content-image"
+        />
+      ))}
       {retrospects?.length > 0 && (
         <>
           <ProjectSubTitle>팀 회고</ProjectSubTitle>

@@ -29,49 +29,34 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: 'ARTIE',
-    link: '/project/21th/artie',
-    image: '/assets/project/21_thumbnail_artie.png',
+    title: '바로',
+    link: '/project/23rd/baro',
+    image: '/assets/project/23_thumbnail_baro.png',
   },
   {
-    title: 'buddycon',
-    link: '/project/21th/buddycon',
-    image: '/assets/project/21_thumbnail_buddycon.png',
+    title: 'fullcar',
+    link: '/project/23rd/fullcar',
+    image: '/assets/project/23_thumbnail_fullcar.png',
   },
   {
-    title: '동네한입',
-    link: '/project/21th/dongnehanip',
-    image: '/assets/project/21_thumbnail_dongnehanip.jpeg',
+    title: '링커',
+    link: '/project/23rd/linker',
+    image: '/assets/project/23_thumbnail_linker.png',
   },
   {
-    title: '파인드띵스',
-    link: '/project/21th/findthings',
-    image: '/assets/project/21_thumbnail_findthings.png',
+    title: '머니몽',
+    link: '/project/23rd/moneymong',
+    image: '/assets/project/23_thumbnail_moneymong.png',
   },
   {
-    title: '핏프티',
-    link: '/project/21th/fitfty',
-    image: '/assets/project/21_thumbnail_fitfty.png',
+    title: '수수',
+    link: '/project/23rd/susu',
+    image: '/assets/project/23_thumbnail_susu.png',
   },
   {
-    title: 'Pump',
-    link: '/project/21th/pump',
-    image: '/assets/project/21_thumbnail_pump.png',
-  },
-  {
-    title: '그밈',
-    link: '/project/21th/thismeme',
-    image: '/assets/project/21_thumbnail_thismeme.jpg',
-  },
-  {
-    title: 'Thumbs Up',
-    link: '/project/21th/thumbsup',
-    image: '/assets/project/21_thumbnail_thumbsup.jpg',
-  },
-  {
-    title: '티미티미',
-    link: '/project/21th/tmtm',
-    image: '/assets/project/21_thumbnail_tmtm.png',
+    title: '여비',
+    link: '/project/23rd/yeobee',
+    image: '/assets/project/23_thumbnail_yeobee.png',
   },
 ];
 
