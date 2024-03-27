@@ -23,18 +23,20 @@ function ProjectContent({ project }: Props): ReactElement {
         </BodyText>
       </Block>
 
-      <Block>
-        <SubTitle>프로그램</SubTitle>
-        <BodyText>
-          {program ? (
-            program.map((program) => (
-              <TextItem key={program}>{program}</TextItem>
-            ))
-          ) : (
-            <>-</>
-          )}
-        </BodyText>
-      </Block>
+      {program?.length ? (
+        <Block>
+          <SubTitle>프로그램</SubTitle>
+          <BodyText>
+            {program ? (
+              program.map((program) => (
+                <TextItem key={program}>{program}</TextItem>
+              ))
+            ) : (
+              <>-</>
+            )}
+          </BodyText>
+        </Block>
+      ) : null}
 
       <Description>
         <BodyText>
