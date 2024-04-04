@@ -33,8 +33,20 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding: 0;
   }
+
   a {
     text-decoration: none ;
+  }
+
+
+  /* for. chrome, safari, opera, edge */
+  .scroll-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-none {
+    -ms-overflow-style: none; /* for. internet explorer */
+    scrollbar-width: none; /* for. firefox */
   }
 `;
 
