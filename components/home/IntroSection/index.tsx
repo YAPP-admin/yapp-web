@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import type { ReactElement, MouseEvent } from 'react';
+import { FloatingArrow } from 'components/common';
+import type { MouseEvent, ReactElement } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import VideoPlayer from 'components/common/videoPlayer';
-import { FloatingArrow } from 'components/common';
+import Banner24th from './Banner24th';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -24,9 +24,7 @@ function IntroSection(): ReactElement {
       onMouseLeave={handleEnter}
       onMouseMove={handleMove}
     >
-      <MainBanner>
-        <VideoPlayer src="/assets/video/index.mp4" />
-      </MainBanner>
+      <Banner24th />
       <FloatingArrow />
     </IntroSectionContainer>
   );

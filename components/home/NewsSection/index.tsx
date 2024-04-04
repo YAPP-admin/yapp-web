@@ -1,10 +1,10 @@
+import { Button, NewsCard } from 'components/common';
+import { SectionTemplate, SectionTitle } from 'components/home';
+import Yapp from 'constants/yapp';
+import { NEWS_DATA } from 'database/home';
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
-import { SectionTitle, SectionTemplate } from 'components/home';
-import { Button, NewsCard } from 'components/common';
-import { NEWS_DATA } from 'database/home';
 import media from 'styles/media';
-import Yapp from 'constants/yapp';
 
 function MainContainer(): ReactElement {
   return (
