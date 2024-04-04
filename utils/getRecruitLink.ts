@@ -1,5 +1,5 @@
-import Yapp from 'constants/yapp';
 import { FieldNameTypes } from 'components/recruit/RecruitField';
+import Yapp from 'constants/yapp';
 
 const getRecruitLink = (field?: FieldNameTypes) => {
   const {
@@ -12,7 +12,7 @@ const getRecruitLink = (field?: FieldNameTypes) => {
     YAPP_RECRUIT_CROSS_PLATFORM,
   } = Yapp;
   switch (field) {
-    case '기획자':
+    case 'PM':
       return YAPP_RECRUIT_PROJECT_MANAGER;
     case '디자이너':
       return YAPP_RECRUIT_DESIGNER;
@@ -24,7 +24,7 @@ const getRecruitLink = (field?: FieldNameTypes) => {
       return YAPP_RECRUIT_FRONT_END;
     case 'Back-End':
       return YAPP_RECRUIT_BACK_END;
-    case 'Cross-Flatform':
+    case 'Flutter':
       return YAPP_RECRUIT_CROSS_PLATFORM;
   }
 };

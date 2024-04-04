@@ -64,6 +64,15 @@ export const CAROUSEL_DATA = [
 // 태그 형식 가능합니다.
 export const NEWS_DATA = [
   {
+    image: '/assets/images/og_24th.png',
+    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    content: `📢 주목! YAPP 24기 신규 회원 모집을 시작합니다! 
+    🌱 Gather, Together! 🌱
+    4월 5일(금)부터 4월 13일(토) 23시 59분 까지
+    YAPP 24기 신규 회원을 모집합니다!
+    `,
+  },
+  {
     image: '/assets/images/social_recruit_23.jpeg',
     link: 'https://ko-kr.facebook.com/yapp.co.kr/',
     content: `📢 주목! YAPP 23기 신규 회원 모집을 시작합니다! 
@@ -108,5 +117,8 @@ export const SPONSOR_DATA = [
   },
   {
     image: '/assets/sponsors/sponsor_catch.png',
+  },
+  {
+    image: '/assets/sponsors/sponsor_greeting.png',
   },
 ];
