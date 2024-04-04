@@ -10,7 +10,7 @@ export type DeveloperFieldName =
   | 'Android'
   | 'Front-End'
   | 'Back-End'
-  | 'Cross-Flatform';
+  | 'Flutter';
 
 function RecruitDeveloper(): ReactElement {
   const [developField, setDevelopField] = useState<DeveloperFieldName>(

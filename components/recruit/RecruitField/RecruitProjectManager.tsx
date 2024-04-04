@@ -1,11 +1,11 @@
 import { RECRUIT_EXPLAIN_PROJECT_MANAGER } from 'database/recruit';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import RecruitFieldExplain from './RecruitFieldExplain';
 
 function RecruitProjectManager(): ReactElement {
   return (
     <RecruitFieldExplain
-      fieldName="기획자"
+      fieldName="PM"
       explainContents={RECRUIT_EXPLAIN_PROJECT_MANAGER}
     />
   );

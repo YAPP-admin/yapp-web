@@ -1,13 +1,13 @@
 import { Box, Button } from 'components/common';
-import React, { ReactElement } from 'react';
-import DOMPurify from 'isomorphic-dompurify';
-import styled from 'styled-components';
-import { FieldNameTypes } from '.';
 import Breakpoints from 'constants/breakpoints';
+import { IS_RECRUITING } from 'database/recruit';
+import DOMPurify from 'isomorphic-dompurify';
+import { ReactElement } from 'react';
+import styled from 'styled-components';
 import media from 'styles/media';
 import getRecruitLink from 'utils/getRecruitLink';
+import { FieldNameTypes } from '.';
 import { DeveloperFieldName } from './RecruitDeveloper';
-import { IS_RECRUITING } from 'database/recruit';
 
 interface RecruitFieldExplainProps {
   fieldName: FieldNameTypes;

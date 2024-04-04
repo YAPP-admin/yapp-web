@@ -1,12 +1,12 @@
-import { AnimatedButton } from 'components/common';
-import DOMPurify from 'isomorphic-dompurify';
+import { AnimatedButton, Button } from 'components/common';
 import Breakpoints from 'constants/breakpoints';
+import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
-import React from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 import styled from 'styled-components';
 import media from 'styles/media';
 
@@ -23,10 +23,48 @@ function RecruitBanner() {
         <BannerDescription
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
         />
+        <ButtonBlock
+          target="_blank"
+          href={Yapp.YAPP_RECRUIT_ALL}
+          rel="noreferrer"
+        >
+          <ApplyButton
+            width={220}
+            height={65}
+            fontColor="white"
+            buttonColor="grey_850"
+            borderColor="lightGrey"
+            disabled={!IS_RECRUITING}
+          >
+            {IS_RECRUITING ? '모든 공고 보기' : '지원마감'}
+          </ApplyButton>
+        </ButtonBlock>
       </BannerInner>
     </RecruitBannerContainer>
   );
 }
+
+const ButtonBlock = styled.a`
+  width: fit-content;
+  height: fit-content;
+  display: block;
+
+  ${media.xSmall} {
+    margin: 0 auto;
+  }
+`;
+
+const ApplyButton = styled(Button)`
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.grey_700};
+  }
+  ${media.mobile} {
+    width: 162px;
+    height: 56px;
+  }
+`;
 
 const RecruitBannerContainer = styled.div`
   width: 100%;
