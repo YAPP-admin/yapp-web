@@ -1,8 +1,8 @@
+import { FieldNameTypes } from 'components/recruit/RecruitField';
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
-import { FieldNameTypes } from 'components/recruit/RecruitField';
-import { ProjectField } from 'types/project';
 import { PaletteKeyTypes } from 'styles/theme';
+import { ProjectField } from 'types/project';
 
 interface IButtonMenuStyle {
   backgroundColor?: PaletteKeyTypes;

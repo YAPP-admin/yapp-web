@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { slideIn, slideOut } from 'styles/utils-styles';
@@ -24,7 +23,7 @@ function AnimatedButton({
 }: AnimatedButtonProps) {
   return (
     <ButtonStyled width={width} height={height} variant={variant} {...rest}>
-      <svg
+      {/* <svg
         width={`${width + 2}px`}
         height={`${height}px`}
         viewBox={`0 0 ${width} ${height}`}
@@ -38,7 +37,7 @@ function AnimatedButton({
           rx="32"
           ry="32"
         />
-      </svg>
+      </svg> */}
       <span className="textgroup">
         <span className="mainText">{buttonText}</span>
         <span className="cloneText">{buttonText}</span>
