@@ -2,27 +2,27 @@
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간 🕙',
-    content: '13년',
+    content: '14년',
   },
   {
     title: '운영 기수 ⛳️',
-    content: '23기',
+    content: '24기',
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',
-    content: '72명',
+    content: '65명',
   },
   {
     title: '누적 활동 인원 👩🏻',
-    content: '400+명',
+    content: '450+명',
   },
   {
     title: '런칭 서비스 📱',
-    content: '50+개',
+    content: '55+개',
   },
   {
     title: '누적 앱 다운로드 ⬇️',
-    content: '377,658',
+    content: '378,658',
   },
 ];
 
