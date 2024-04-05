@@ -64,7 +64,7 @@ export const CAROUSEL_DATA = [
 // 태그 형식 가능합니다.
 export const NEWS_DATA = [
   {
-    image: '/assets/images/og_24th.png',
+    image: '/assets/images/24th/social.webp',
     link: 'https://ko-kr.facebook.com/yapp.co.kr/',
     content: `📢 주목! YAPP 24기 신규 회원 모집을 시작합니다! 
     🌱 Gather, Together! 🌱
