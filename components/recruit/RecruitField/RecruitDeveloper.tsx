@@ -8,9 +8,9 @@ import RecruitFieldExplain from './RecruitFieldExplain';
 export type DeveloperFieldName =
   | 'iOS'
   | 'Android'
-  | 'Front-End'
-  | 'Back-End'
-  | 'Cross-Flatform';
+  | 'Web'
+  | 'Server'
+  | 'Flutter';
 
 function RecruitDeveloper(): ReactElement {
   const [developField, setDevelopField] = useState<DeveloperFieldName>(

@@ -1,14 +1,14 @@
 import { Box } from 'components/common';
-import { RECRUIT_APPLY_WAY } from 'database/recruit';
+import { RECRUIT_OVERVIEW } from 'database/recruit';
 import useDragScroll from 'hooks/useDragScroll';
-import React, { ReactElement } from 'react';
 import DOMPurify from 'isomorphic-dompurify';
+import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate, SectionTitle } from '..';
 
-function ApplyWay(): ReactElement {
-  const { title, ways } = RECRUIT_APPLY_WAY;
+function RecruitOverview(): ReactElement {
+  const { title, overviewContents } = RECRUIT_OVERVIEW;
 
   const { handleDragEnd, handleDragMove, handleDragStart, scrollRef } =
     useDragScroll();
@@ -23,22 +23,20 @@ function ApplyWay(): ReactElement {
         onMouseLeave={handleDragEnd}
         ref={scrollRef}
       >
-        {ways.map(({ subTitle, description }) => (
-          <WayBox
-            width={380}
-            height={258}
+        {overviewContents.map(({ subTitle, description }) => (
+          <OverviewContentBox
             backgroundColor="grey_50"
-            key={`applyWay-${subTitle}`}
+            key={`recruit-overview-${subTitle}`}
           >
-            <WayInnerBox>
-              <WaySubTitle>{subTitle}</WaySubTitle>
-              <WayContent
+            <OverviewContentInnerBox>
+              <OverviewContentSubTitle>{subTitle}</OverviewContentSubTitle>
+              <OverviewContentContent
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(description),
                 }}
               />
-            </WayInnerBox>
-          </WayBox>
+            </OverviewContentInnerBox>
+          </OverviewContentBox>
         ))}
       </SectionContent>
     </SectionTemplate>
@@ -47,12 +45,16 @@ function ApplyWay(): ReactElement {
 
 const SectionContent = styled.div`
   display: flex;
+  gap: 30px;
   width: 100%;
   justify-content: space-between;
+
   ${media.tablet} {
+    gap: 0px;
     width: auto;
     overflow: auto;
     margin-left: 22px;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -62,6 +64,7 @@ const SectionContent = styled.div`
   }
   ${media.mobile} {
     flex-direction: column;
+    gap: 16px;
     margin: 0 22px;
     .tablet {
       display: none;
@@ -72,16 +75,16 @@ const SectionContent = styled.div`
   }
 `;
 
-const WayBox = styled(Box)`
+const OverviewContentBox = styled(Box)`
+  flex: 1;
   padding: 0px;
-  white-space: nowrap;
+
   ${media.tablet} {
-    margin-right: 30px;
+    margin-left: 30px;
     min-width: 380px;
   }
   ${media.mobile} {
     margin: 0 auto;
-    margin-bottom: 16px;
     min-width: auto;
     white-space: normal;
     min-height: 191px;
@@ -90,11 +93,11 @@ const WayBox = styled(Box)`
   }
 `;
 
-const WayInnerBox = styled.div`
+const OverviewContentInnerBox = styled.div`
   padding: 32px;
 `;
 
-const WaySubTitle = styled.div`
+const OverviewContentSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Subtitle}
   color: ${({ theme }) => theme.palette.grey_1000};
   margin-bottom: 8px;
@@ -103,7 +106,7 @@ const WaySubTitle = styled.div`
   }
 `;
 
-const WayContent = styled.div`
+const OverviewContentContent = styled.div`
   ${({ theme }) => theme.textStyle.web.Body_1};
   color: ${({ theme }) => theme.palette.grey_850};
   .smallBox {
@@ -135,4 +138,4 @@ const WayContent = styled.div`
   }
 `;
 
-export default ApplyWay;
+export default RecruitOverview;

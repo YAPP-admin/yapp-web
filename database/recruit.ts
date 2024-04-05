@@ -1,6 +1,6 @@
-import Yapp from 'constants/yapp';
 import { FieldNameTypes } from 'components/recruit/RecruitField';
 import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDeveloper';
+import Yapp from 'constants/yapp';
 
 /**
  * 작성 Tip
@@ -9,7 +9,7 @@ import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDevel
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = false;
+export const IS_RECRUITING = true;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
@@ -20,35 +20,33 @@ export const RECRUIT_BANNER = {
 
 export const RECRUIT_BANNER_ACTIVE = {
   title: `YAPP<br class="mobile" /> ${Yapp.YAPP_GENERATION}기 모집`,
-  description: `YAPP ${Yapp.YAPP_GENERATION}기에서 4개월간 활동할<br class="mobile" /> 기획자(PM)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
+  description: `YAPP ${Yapp.YAPP_GENERATION}기에서 4개월간 활동할<br class="mobile" /> PM(기획자)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
     IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘치고, 동아리에서 다양한 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
   buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,
 };
 
-/**지원 방법 */
-export const RECRUIT_APPLY_WAY = {
-  title: '지원 방법',
-  ways: [
+/** 모집 개요 */
+export const RECRUIT_OVERVIEW = {
+  title: '모집 개요',
+  overviewContents: [
     {
-      subTitle: '모집기간',
-      description: `YAPP에서는 1년에 두번<br />
-                    열정을  가지고 활동에 함께할<br />
-                    YAPPian을 모집합니다`,
+      subTitle: '인재상',
+      description: `프로덕트 오너십을 가지고 능동적으로
+      문제를 해결하는 열정적인 누구나`,
     },
     {
       subTitle: '지원자격',
-      description: `4개월 동안 활동하는데<br  />
-                    문제가 없고,<br />
-                    실력을 키우기 위해 배우려는<br />
-                    의지가 있는 누구나
-                    <span class="small">대학생이 아닌 졸업생, 직장인도 가능합니다.</span>`,
+      description: `<li>매주 토요일에 진행되는 정규세션에 참여할 수 있는 분</li>
+      <li>PM, 디자이너, 개발와 1회 이상 협업 경험이 있는 분</li>
+      <span class="small">대학생, 졸업생, 직장인 소속에 제한 없음</span>
+      `,
     },
     {
       subTitle: '지원방법',
-      description: `1차 서류<br />
-                      <div class="smallGrey">지원서 작성 및 포트폴리오 제출</div>
-                    2차 면접 <br />
-                    <div class="smallGrey">온라인 인터뷰 이후 최종합격</div>`,
+      description: `1차 서류
+      <div class="smallGrey">지원서 작성 및 포트폴리오 제출</div>
+      2차 인터뷰
+      <div class="smallGrey">온라인 인터뷰 이후 최종합격</div>`,
     },
   ],
 };
@@ -59,21 +57,23 @@ export const RECRUIT_SCHEDULE = {
   schedules: [
     {
       subTitle: '서류 접수',
-      description: `2023. 09. 25 (월)<br />
-                    ~ 10. 01. (일) 23:59`,
+      description: `2024. 04. 05. (금)
+      ~ 04. 13. (토) 23:59
+      ※ PM : 04. 16 (화) 23:59`,
     },
     {
       subTitle: '서류 결과 발표',
-      description: `2023. 10. 05. (목)`,
+      description: `2024. 04. 17. (수)
+      ※ PM : 04. 21 (일) 발표 예정`,
     },
     {
       subTitle: '온라인 인터뷰',
-      description: `2023. 10. 07. (토)<br />
-                    ~ 10. 09. (월)`,
+      description: `2024. 04. 26. (금)
+      ~ 04. 30. (화)`,
     },
     {
       subTitle: '최종 발표',
-      description: `2023. 10. 14. (토)`,
+      description: `2024. 05. 03. (금)`,
     },
   ],
 };
@@ -84,7 +84,7 @@ export const RECRUIT_FAQ = {
   faqs: [
     {
       subTitle: 'YAPP은 어떤 동아리인가요?',
-      description: `YAPP은 기획자, 디자이너, 개발자로 팀을 구성하여 <b>4개월간 하나의 IT 서비스(웹,앱,etc.)를 제작</b>하는 기업형 IT연합 커뮤니티입니다.<br class="br" /> 
+      description: `YAPP은 PM(기획자), 디자이너, 개발자로 팀을 구성하여 <b>4개월간 하나의 IT 서비스(웹,앱,etc.)를 제작</b>하는 기업형 IT연합 커뮤니티입니다.<br class="br" /> 
       서비스 문제 정의, 출시, 제작, 운영까지 팀원들의 아이디어를 실제 IT 서비스로 구체화하며 성장할 수 있습니다.`,
       isOpen: false,
     },
@@ -126,7 +126,7 @@ export const RECRUIT_FAQ = {
 
 /* 모집 분야 */
 export const RECRUIT_FIELD_NAMES: FieldNameTypes[] = [
-  '기획자',
+  'PM',
   '디자이너',
   '개발자',
 ];
@@ -134,12 +134,12 @@ export const RECRUIT_FIELD_NAMES: FieldNameTypes[] = [
 export const RECRUIT_DEVELOPER_FIELD_NAMES: DeveloperFieldName[] = [
   'iOS',
   'Android',
-  'Front-End',
-  'Back-End',
-  'Cross-Flatform',
+  'Web',
+  'Server',
+  'Flutter',
 ];
 
-/* 기획자 */
+/* PM */
 export const RECRUIT_EXPLAIN_PROJECT_MANAGER = {
   content1: `디자이너, 개발자와 함께 4개월 간 프로젝트를 수행합니다.<br />
   서비스의 기획에 대한 아이디어를 수집, 제시하며<br />
@@ -157,21 +157,21 @@ export const RECRUIT_EXPLAIN_PROJECT_MANAGER = {
 
 /* 디자이너 */
 export const RECRUIT_EXPLAIN_DESIGNER = {
-  content1: `기획자, 개발자와 함께 4개월 간 프로젝트를 수행합니다.<br />
+  content1: `PM, 개발자와 함께 4개월 간 프로젝트를 수행합니다.<br />
   기획을 바탕으로 개별 팀의 아이디어에 따라<br />
   UX/UI/GUI 디자인을 담당합니다.`,
   content2: `1. UX/UI 디자인에 관심이 있고, UX/UI 디자인을 경험해보신 분<br />
   2. 서비스 아이디어를 시각적으로 표현하실 수 있는 분<br />
   3. 열린 자세로 다른 직군과 소통하실 수 있는 분<br />
   4. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
-  content3: `1. 기획자, 개발 직군과의 프로젝트 경험<br />
+  content3: `1. PM, 개발 직군과의 프로젝트 경험<br />
   2. 프리젠테이션 발표 경험<br />`,
 };
 
 /* iOS */
 export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
   content1: `팀 내에서 iOS 클라이언트 개발을 담당합니다.<br />
-Back-End, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
+Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. Swift, UIKit, SwiftUI와 아이폰 앱 개발에 대한 기본적 이해를 가지신 분<br />
   2. 프로젝트를 완성시키고자 하는 의지와 열정을 가지신 분<br />
@@ -186,7 +186,7 @@ Back-End, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
 /* Android */
 export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   content1: `팀 내에서 Android 클라이언트 개발을 담당합니다.<br />
-  Back-End, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. java, kotlin 등 안드로이드 개발 언어를 사용하신 분<br />
   2. 모르는 부분이 생기면 주저않고 질문이 가능하신 분<br />
@@ -196,10 +196,10 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   2. GitHub를 사용한 협업 프로젝트 경험`,
 };
 
-/* Front_End */
-export const RECRUIT_EXPLAIN_FRONTEND_DEVELOPER = {
+/* Web */
+export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
-  Back-End, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. HTML과 CSS 기본을 이해하고 계신 분<br />
   2. 자바스크립트로 프로젝트를 해보고 싶은 분<br />
@@ -207,33 +207,33 @@ export const RECRUIT_EXPLAIN_FRONTEND_DEVELOPER = {
   4. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
   content3: `1. react vue angular중 하나 이상 다뤄 본 경험<br />
   2. Git을 이용한 프로젝트 관리 경험<br />
-  3. 디자이너, 백엔드 개발자, 기획자와 소통 경험`,
+  3. 디자이너, 백엔드 개발자, PM과 소통 경험`,
 };
 
-/* Back_End */
-export const RECRUIT_EXPLAIN_BACKEND_DEVELOPER = {
-  content1: `팀 내에서 Back-End 개발을 담당합니다.<br />
-클라이언트 개발자, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
+/* Server */
+export const RECRUIT_EXPLAIN_SERVER_DEVELOPER = {
+  content1: `팀 내에서 Server 개발을 담당합니다.<br />
+클라이언트 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. 데이터베이스의 기초가 있으신 분<br />
 2. 일반적으로 사용하는 RESTful에 대한 이해가 있으신 분<br />
 3. 마지막까지 프로젝트를 완수하실분<br />
 4. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
   content3: `1. 언어 상관 없이 RESTful API를 만들어 본 경험<br />
-2. 기획자와의 소통 경험<br />
+2. PM와의 소통 경험<br />
 3. Git을 이용한 프로젝트 관리 경험`,
 };
-/*Cross Flatform */
 
-export const RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER = {
-  content1: `팀 내에서 Cross-Platform(React-Native, Flutter) 클라이언트 개발을 담당합니다.<br />
-  Back-End, 기획, 디자인분들과 함께 프로젝트를 진행하며,<br />
+/* Flutter (24기 기준 Cross-Flatform flutter 팀만 모집 <= 최종적으로 모집 안하면 닫기) */
+export const RECRUIT_EXPLAIN_FLUTTER_DEVELOPER = {
+  content1: `팀 내에서 Flutter 개발을 담당합니다.<br />
+  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.<br />
   <br />
   <b>해당 직군은 YAPP 내에서 프로젝트성으로 진행하는 직군으로<br />
   지원 인원에 따라 직군 모집이 취소될 수 있습니다.</b>`,
-  content2: `1. React-Native나 Flutter를 이용한 개발 경력이 있으신 분<br />
-  2. React-Native나 Flutter로 하나의 서비스를 완성해본 경험이 있으신 분<br />
+  content2: `1. Flutter 를 이용한 개발 경력이 있으신 분<br />
+  2. Flutter 로 하나의 서비스를 완성해본 경험이 있으신 분<br />
   3. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분<br />`,
   content3: `1. 디자이너와의 프로젝트 경험<br />
   2. iOS 또는 Android 앱 개발 및 운영 경험<br />
@@ -244,6 +244,7 @@ export const RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER = {
 export const RECRUIT_ENQUIRY = {
   title: '더 궁금하신 내용이 있거나<br /> 문의 사항이 있으신가요?',
   description: `동아리 관련, 프로젝트, 후원 등<br class="mobile" /> 언제든지 문의해 주세요.<br/>
-  <span class="ps">문의는 메일 혹은 카카오톡 채널로 남겨주세요. (페이스북 메시지, 인스타그램 DM은 받지 않습니다)</span>`,
+  <span class="ps">문의는 메일 혹은 카카오톡 채널로 남겨주세요.</span><br />
+  <span class="ps">(페이스북 메시지, 인스타그램 DM은 받지 않습니다)</span>`,
   buttonName: '문의 하기',
 };

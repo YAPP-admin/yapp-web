@@ -1,28 +1,28 @@
-import React, { ReactElement, useState } from 'react';
-import styled from 'styled-components';
-import { SectionTemplate, SectionTitle } from '..';
 import { TabMenu } from 'components/common';
 import { RECRUIT_FIELD_NAMES } from 'database/recruit';
+import { ReactElement, useState } from 'react';
+import styled from 'styled-components';
+import { SectionTemplate, SectionTitle } from '..';
 import RecruitDesigner from './RecruitDesigner';
 import RecruitDeveloper from './RecruitDeveloper';
 import RecruitProjectManager from './RecruitProjectManager';
 
 export type FieldNameTypes =
-  | '기획자'
+  | 'PM'
   | '디자이너'
   | '개발자'
   | 'iOS'
   | 'Android'
-  | 'Front-End'
-  | 'Back-End'
-  | 'Cross-Flatform';
+  | 'Web'
+  | 'Server'
+  | 'Flutter';
 
 function RecruitField(): ReactElement {
   const [field, setField] = useState<FieldNameTypes>(RECRUIT_FIELD_NAMES[0]);
 
   const printField = () => {
     switch (field) {
-      case '기획자':
+      case 'PM':
         return <RecruitProjectManager />;
       case '디자이너':
         return <RecruitDesigner />;

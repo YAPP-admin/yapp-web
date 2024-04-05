@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { GetStaticProps } from 'next';
-import styled from 'styled-components';
-import { TabMenu, ProjectCard, Button, BubbleMenu } from 'components/common';
-import { getAllProjects } from 'utils/getAllProjects';
-import { ProjectCardType, ProjectField } from 'types/project';
+import { BubbleMenu, Button, ProjectCard, TabMenu } from 'components/common';
+import Breakpoints from 'constants/breakpoints';
 import useSmoothScroll from 'hooks/useSmoothScroll';
 import useWindowDimensions from 'hooks/useWindowDimensions';
+import { GetStaticProps } from 'next';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import media from 'styles/media';
-import Breakpoints from 'constants/breakpoints';
+import { ProjectCardType, ProjectField } from 'types/project';
+import { getAllProjects } from 'utils/getAllProjects';
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getAllProjects();
@@ -98,6 +98,7 @@ function Project({ projects }: ProjectProps) {
             />
           ) : (
             <BubbleMenu
+              className="scroll-none"
               tabs={PROJECT_CATEGORIES}
               currentTab={category}
               onClick={setCategory}
