@@ -31,6 +31,7 @@ function IntroSection(): ReactElement {
 }
 
 const IntroSectionContainer = styled.div`
+  background-color: black;
   position: relative;
   display: flex;
   flex-direction: column;
