@@ -66,10 +66,9 @@ export const NEWS_DATA = [
   {
     image: '/assets/images/24th/social.webp',
     link: 'https://ko-kr.facebook.com/yapp.co.kr/',
-    content: `📢 주목! YAPP 24기 신규 회원 모집을 시작합니다! 
-    🌱 Gather, Together! 🌱
-    4월 5일(금)부터 4월 13일(토) 23시 59분 까지
-    YAPP 24기 신규 회원을 모집합니다!
+    content: `🧡YAPP 24기 신규 회원 모집 OPEN🧡<br />
+    4월 5일(금) ~ 4월 13일(토) 23시 59분까지 YAPP 24기 신규 회원을 모집해요!
+    나만의 아이디어로 세상을 바꾸고 싶은 예비 야뿌들의 많은 지원 부탁드립니다!
     `,
   },
   {
