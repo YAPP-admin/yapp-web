@@ -2,9 +2,9 @@ import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDevel
 import {
   RECRUIT_EXPLAIN_ANDROID_DEVELOPER,
   RECRUIT_EXPLAIN_BACKEND_DEVELOPER,
-  RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER,
-  RECRUIT_EXPLAIN_FRONTEND_DEVELOPER,
+  RECRUIT_EXPLAIN_FLUTTER_DEVELOPER,
   RECRUIT_EXPLAIN_IOS_DEVELOPER,
+  RECRUIT_EXPLAIN_WEB_DEVELOPER,
 } from 'database/recruit';
 
 const getDeveloperFieldExplain = (field: DeveloperFieldName) => {
@@ -13,12 +13,12 @@ const getDeveloperFieldExplain = (field: DeveloperFieldName) => {
       return RECRUIT_EXPLAIN_IOS_DEVELOPER;
     case 'Android':
       return RECRUIT_EXPLAIN_ANDROID_DEVELOPER;
-    case 'Front-End':
-      return RECRUIT_EXPLAIN_FRONTEND_DEVELOPER;
+    case 'Web':
+      return RECRUIT_EXPLAIN_WEB_DEVELOPER;
     case 'Back-End':
       return RECRUIT_EXPLAIN_BACKEND_DEVELOPER;
     case 'Flutter':
-      return RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER;
+      return RECRUIT_EXPLAIN_FLUTTER_DEVELOPER;
   }
 };
 

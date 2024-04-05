@@ -134,7 +134,7 @@ export const RECRUIT_FIELD_NAMES: FieldNameTypes[] = [
 export const RECRUIT_DEVELOPER_FIELD_NAMES: DeveloperFieldName[] = [
   'iOS',
   'Android',
-  'Front-End',
+  'Web',
   'Back-End',
   'Flutter',
 ];
@@ -196,8 +196,8 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   2. GitHub를 사용한 협업 프로젝트 경험`,
 };
 
-/* Front_End */
-export const RECRUIT_EXPLAIN_FRONTEND_DEVELOPER = {
+/* Web */
+export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
   Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
@@ -224,8 +224,8 @@ export const RECRUIT_EXPLAIN_BACKEND_DEVELOPER = {
 3. Git을 이용한 프로젝트 관리 경험`,
 };
 
-/* Cross Flatform (24기 기준 flutter 팀만 모집 <= 최종적으로 모집 안하면 닫기) */
-export const RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER = {
+/* Flutter (24기 기준 Cross-Flatform flutter 팀만 모집 <= 최종적으로 모집 안하면 닫기) */
+export const RECRUIT_EXPLAIN_FLUTTER_DEVELOPER = {
   content1: `팀 내에서 Flutter 개발을 담당합니다.<br />
   Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.<br />

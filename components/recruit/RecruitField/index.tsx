@@ -13,7 +13,7 @@ export type FieldNameTypes =
   | '개발자'
   | 'iOS'
   | 'Android'
-  | 'Front-End'
+  | 'Web'
   | 'Back-End'
   | 'Flutter';
 

@@ -8,7 +8,7 @@ import RecruitFieldExplain from './RecruitFieldExplain';
 export type DeveloperFieldName =
   | 'iOS'
   | 'Android'
-  | 'Front-End'
+  | 'Web'
   | 'Back-End'
   | 'Flutter';
 
