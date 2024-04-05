@@ -23,7 +23,7 @@ const Banner24th = () => {
 
       <Banner24thCardsBox className={mounted ? 'appear' : ''}>
         <Image
-          src={'/assets/images/24th/bg-cards-pc.webp'}
+          src={'/assets/images/24th/banner-bg-cards.webp'}
           alt="banner-cards"
           width={0}
           height={0}
@@ -35,7 +35,7 @@ const Banner24th = () => {
 
       <Banner24thMaskBox className={mounted ? 'appear' : ''}>
         <Image
-          src={'/assets/images/24th/bg-mask-pc.webp'}
+          src={'/assets/images/24th/banner-bg-mask.webp'}
           alt="banner-mask"
           width={0}
           height={0}
