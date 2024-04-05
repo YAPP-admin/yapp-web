@@ -1,9 +1,9 @@
-import DOMPurify from 'isomorphic-dompurify';
 import { Box } from 'components/common';
 import Breakpoints from 'constants/breakpoints';
 import { RECRUIT_SCHEDULE } from 'database/recruit';
 import useDragScroll from 'hooks/useDragScroll';
-import React, { ReactElement } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
+import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate, SectionTitle } from '..';
@@ -25,12 +25,7 @@ function RecruitSchedule(): ReactElement {
         ref={scrollRef}
       >
         {schedules.map(({ subTitle, description }) => (
-          <ScheduleBox
-            width={278}
-            height={188}
-            backgroundColor="grey_50"
-            key={`schedule-${subTitle}`}
-          >
+          <ScheduleBox backgroundColor="grey_50" key={`schedule-${subTitle}`}>
             <ScheduleBoxInner>
               <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
               <ScheduleContent
@@ -48,9 +43,12 @@ function RecruitSchedule(): ReactElement {
 
 const SectionContent = styled.div`
   display: flex;
+  gap: 30px;
   width: ${Breakpoints.large}px;
   justify-content: space-between;
+
   ${media.tablet} {
+    gap: 0px;
     width: auto;
     overflow: auto;
     margin-left: 22px;
@@ -61,15 +59,15 @@ const SectionContent = styled.div`
 `;
 
 const ScheduleBox = styled(Box)`
+  flex: 1;
   padding: 0;
-  white-space: nowrap;
+  white-space: pre-line;
   ${media.tablet} {
     margin-right: 30px;
     min-width: 278px;
   }
   ${media.mobile} {
     min-width: 225px;
-    height: 172px;
   }
 `;
 
@@ -79,6 +77,7 @@ const ScheduleBoxInner = styled.div`
 
 const ScheduleSubTitle = styled.div`
   ${({ theme }) => theme.textStyle.web.Subtitle};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme }) => theme.palette.grey_1000};
   margin-bottom: 12px;
   ${media.mobile} {

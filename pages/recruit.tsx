@@ -1,19 +1,19 @@
-import React, { ReactElement } from 'react';
-import styled from 'styled-components';
 import {
-  ApplyWay,
   Enquiry,
   FrequentlyAskedQuestions,
   RecruitBanner,
   RecruitField,
   RecruitSchedule,
 } from 'components/recruit';
+import RecruitOverview from 'components/recruit/RecruitOverview';
+import { ReactElement } from 'react';
+import styled from 'styled-components';
 
 function RecruitPage(): ReactElement {
   return (
     <Wrapper>
       <RecruitBanner />
-      <ApplyWay />
+      <RecruitOverview />
       <RecruitSchedule />
       <RecruitField />
       <FrequentlyAskedQuestions />

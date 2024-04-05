@@ -1,11 +1,11 @@
+import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDeveloper';
 import {
   RECRUIT_EXPLAIN_ANDROID_DEVELOPER,
-  RECRUIT_EXPLAIN_BACKEND_DEVELOPER,
-  RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER,
-  RECRUIT_EXPLAIN_FRONTEND_DEVELOPER,
+  RECRUIT_EXPLAIN_FLUTTER_DEVELOPER,
   RECRUIT_EXPLAIN_IOS_DEVELOPER,
+  RECRUIT_EXPLAIN_SERVER_DEVELOPER,
+  RECRUIT_EXPLAIN_WEB_DEVELOPER,
 } from 'database/recruit';
-import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDeveloper';
 
 const getDeveloperFieldExplain = (field: DeveloperFieldName) => {
   switch (field) {
@@ -13,12 +13,12 @@ const getDeveloperFieldExplain = (field: DeveloperFieldName) => {
       return RECRUIT_EXPLAIN_IOS_DEVELOPER;
     case 'Android':
       return RECRUIT_EXPLAIN_ANDROID_DEVELOPER;
-    case 'Front-End':
-      return RECRUIT_EXPLAIN_FRONTEND_DEVELOPER;
-    case 'Back-End':
-      return RECRUIT_EXPLAIN_BACKEND_DEVELOPER;
-    case 'Cross-Flatform':
-      return RECRUIT_EXPLAIN_CROSSFLATFORM_DEVELOPER;
+    case 'Web':
+      return RECRUIT_EXPLAIN_WEB_DEVELOPER;
+    case 'Server':
+      return RECRUIT_EXPLAIN_SERVER_DEVELOPER;
+    case 'Flutter':
+      return RECRUIT_EXPLAIN_FLUTTER_DEVELOPER;
   }
 };
 

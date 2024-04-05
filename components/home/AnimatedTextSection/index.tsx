@@ -1,17 +1,17 @@
-import { useEffect, useRef } from 'react';
-import type { ReactElement } from 'react';
-import lottie from 'lottie-web';
-import styled from 'styled-components';
-import media from 'styles/media';
-import { SectionTemplate } from 'components/home';
 import { AnimatedButton } from 'components/common';
+import { SectionTemplate } from 'components/home';
+import Path from 'constants/path';
 import {
   IS_RECRUITING,
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
+import lottie from 'lottie-web';
 import { useRouter } from 'next/router';
-import Path from 'constants/path';
+import type { ReactElement } from 'react';
+import { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import media from 'styles/media';
 
 function AnimatedTextSection(): ReactElement {
   const animatedTextRef = useRef<HTMLDivElement>(null);
@@ -37,7 +37,6 @@ function AnimatedTextSection(): ReactElement {
       <div ref={animatedTextRef} />
       <AnimatedButton
         height={65}
-        style={{ marginTop: 120 }}
         fontColor="white"
         buttonColor="orange_400"
         className="recruitButton"

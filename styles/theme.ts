@@ -26,6 +26,7 @@ const palette = {
   orange_200: '#FFB27C',
   orange_300: '#FA9855',
   orange_400: '#F48132',
+  orange_450: '#FF7739',
   orange_500: '#F06C11',
   orange_600: '#DF5E15',
 

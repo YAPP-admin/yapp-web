@@ -2,27 +2,27 @@
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간 🕙',
-    content: '13년',
+    content: '14년',
   },
   {
     title: '운영 기수 ⛳️',
-    content: '23기',
+    content: '24기',
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',
-    content: '72명',
+    content: '65명',
   },
   {
     title: '누적 활동 인원 👩🏻',
-    content: '400+명',
+    content: '450+명',
   },
   {
     title: '런칭 서비스 📱',
-    content: '50+개',
+    content: '55+개',
   },
   {
     title: '누적 앱 다운로드 ⬇️',
-    content: '377,658',
+    content: '378,658',
   },
 ];
 
@@ -64,8 +64,16 @@ export const CAROUSEL_DATA = [
 // 태그 형식 가능합니다.
 export const NEWS_DATA = [
   {
+    image: '/assets/images/24th/social.webp',
+    link: 'https://www.instagram.com/about.yapp/',
+    content: `🧡YAPP 24기 신규 회원 모집 OPEN🧡<br />
+    4월 5일(금) ~ 4월 13일(토) 23시 59분까지 YAPP 24기 신규 회원을 모집해요!
+    나만의 아이디어로 세상을 바꾸고 싶은 예비 야뿌들의 많은 지원 부탁드립니다!
+    `,
+  },
+  {
     image: '/assets/images/social_recruit_23.jpeg',
-    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    link: 'https://www.instagram.com/about.yapp/',
     content: `📢 주목! YAPP 23기 신규 회원 모집을 시작합니다! 
     🌱 Gather, Together! 🌱
     9월 25일(월)부터 10월 1일(일) 23시 59분 까지
@@ -74,7 +82,7 @@ export const NEWS_DATA = [
   },
   {
     image: '/assets/images/social1.png',
-    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    link: 'https://www.instagram.com/about.yapp/',
     content: `🧡 IT연합동아리 YAPP 22기 신규 회원 모집 시작(~4/9) 🧡
     👨‍👩‍👧‍👦 Gather, Together!
     3월 31일(금)부터 4월 9일(일) 밤 11시 00분까지
@@ -82,7 +90,7 @@ export const NEWS_DATA = [
   },
   {
     image: '/assets/images/social2.png',
-    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    link: 'https://www.instagram.com/about.yapp/',
     content: `🧡 IT연합동아리 YAPP 21기 신규 회원 모집 시작(~9/29) 🧡
     🏃‍♂️ Sprint Time, Open to Anyone!
     9월 18일(일)부터 9월 29일(목) 밤 11시 59분까지
@@ -93,7 +101,7 @@ export const NEWS_DATA = [
   },
   {
     image: '/assets/images/social3.png',
-    link: 'https://ko-kr.facebook.com/yapp.co.kr/',
+    link: 'https://www.instagram.com/about.yapp/',
     content: `안녕하세요! YAPP 20기 운영진입니다 🤗
     드디어 3월 6일 오늘부터, 3월 17일(목) 오후 11시 59분까지
     YAPP의 20기로 함께할 신규 회원을 모집합니다!
@@ -108,5 +116,8 @@ export const SPONSOR_DATA = [
   },
   {
     image: '/assets/sponsors/sponsor_catch.png',
+  },
+  {
+    image: '/assets/sponsors/sponsor_greeting.png',
   },
 ];
