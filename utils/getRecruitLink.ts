@@ -22,7 +22,7 @@ const getRecruitLink = (field?: FieldNameTypes) => {
       return YAPP_RECRUIT_ANDROID;
     case 'Web':
       return YAPP_RECRUIT_FRONT_END;
-    case 'Back-End':
+    case 'Server':
       return YAPP_RECRUIT_BACK_END;
     case 'Flutter':
       return YAPP_RECRUIT_CROSS_PLATFORM;

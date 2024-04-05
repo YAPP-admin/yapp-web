@@ -14,7 +14,7 @@ export type FieldNameTypes =
   | 'iOS'
   | 'Android'
   | 'Web'
-  | 'Back-End'
+  | 'Server'
   | 'Flutter';
 
 function RecruitField(): ReactElement {

@@ -9,7 +9,7 @@ export type DeveloperFieldName =
   | 'iOS'
   | 'Android'
   | 'Web'
-  | 'Back-End'
+  | 'Server'
   | 'Flutter';
 
 function RecruitDeveloper(): ReactElement {

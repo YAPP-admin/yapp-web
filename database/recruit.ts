@@ -135,7 +135,7 @@ export const RECRUIT_DEVELOPER_FIELD_NAMES: DeveloperFieldName[] = [
   'iOS',
   'Android',
   'Web',
-  'Back-End',
+  'Server',
   'Flutter',
 ];
 
@@ -171,7 +171,7 @@ export const RECRUIT_EXPLAIN_DESIGNER = {
 /* iOS */
 export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
   content1: `팀 내에서 iOS 클라이언트 개발을 담당합니다.<br />
-Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. Swift, UIKit, SwiftUI와 아이폰 앱 개발에 대한 기본적 이해를 가지신 분<br />
   2. 프로젝트를 완성시키고자 하는 의지와 열정을 가지신 분<br />
@@ -186,7 +186,7 @@ Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 /* Android */
 export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   content1: `팀 내에서 Android 클라이언트 개발을 담당합니다.<br />
-  Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. java, kotlin 등 안드로이드 개발 언어를 사용하신 분<br />
   2. 모르는 부분이 생기면 주저않고 질문이 가능하신 분<br />
@@ -199,7 +199,7 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
 /* Web */
 export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
-  Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. HTML과 CSS 기본을 이해하고 계신 분<br />
   2. 자바스크립트로 프로젝트를 해보고 싶은 분<br />
@@ -210,9 +210,9 @@ export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   3. 디자이너, 백엔드 개발자, PM과 소통 경험`,
 };
 
-/* Back_End */
-export const RECRUIT_EXPLAIN_BACKEND_DEVELOPER = {
-  content1: `팀 내에서 Back-End 개발을 담당합니다.<br />
+/* Server */
+export const RECRUIT_EXPLAIN_SERVER_DEVELOPER = {
+  content1: `팀 내에서 Server 개발을 담당합니다.<br />
 클라이언트 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. 데이터베이스의 기초가 있으신 분<br />
@@ -227,7 +227,7 @@ export const RECRUIT_EXPLAIN_BACKEND_DEVELOPER = {
 /* Flutter (24기 기준 Cross-Flatform flutter 팀만 모집 <= 최종적으로 모집 안하면 닫기) */
 export const RECRUIT_EXPLAIN_FLUTTER_DEVELOPER = {
   content1: `팀 내에서 Flutter 개발을 담당합니다.<br />
-  Back-End, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.<br />
   <br />
   <b>해당 직군은 YAPP 내에서 프로젝트성으로 진행하는 직군으로<br />
