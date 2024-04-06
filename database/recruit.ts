@@ -37,7 +37,7 @@ export const RECRUIT_OVERVIEW = {
     {
       subTitle: '지원자격',
       description: `<li>매주 토요일에 진행되는 정규세션에 참여할 수 있는 분</li>
-      <li>PM, 디자이너, 개발와 1회 이상 협업 경험이 있는 분</li>
+      <li>PM, 디자이너, 개발자와 1회 이상 협업 경험이 있는 분</li>
       <span class="small">대학생, 졸업생, 직장인 소속에 제한 없음</span>
       `,
     },
