@@ -1,6 +1,6 @@
 import { Box, Button } from 'components/common';
 import Breakpoints from 'constants/breakpoints';
-import { IS_RECRUITING } from 'database/recruit';
+import { IS_RECRUITING, IS_RECRUIT_CLOSED_EXCEPT_PM } from 'database/recruit';
 import DOMPurify from 'isomorphic-dompurify';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -27,6 +27,8 @@ function RecruitFieldExplain({
   developField,
 }: RecruitFieldExplainProps): ReactElement {
   const { content1, content2, content3 } = explainContents;
+
+  const isPM = fieldName === 'PM';
 
   return (
     <RecruitFieldWrapper>
@@ -76,10 +78,14 @@ function RecruitFieldExplain({
           fontColor="white"
           buttonColor="grey_850"
           borderColor="lightGrey"
-          disabled={!IS_RECRUITING}
+          disabled={!IS_RECRUITING || (IS_RECRUIT_CLOSED_EXCEPT_PM && !isPM)}
         >
           {isDeveloper ? developField : fieldName}{' '}
-          {IS_RECRUITING ? '지원하기' : '지원마감'}
+          {IS_RECRUITING && !IS_RECRUIT_CLOSED_EXCEPT_PM
+            ? '지원하기'
+            : IS_RECRUIT_CLOSED_EXCEPT_PM && isPM
+            ? '지원하기'
+            : '지원마감'}
         </ApplyButton>
       </ButtonBlock>
     </RecruitFieldWrapper>
