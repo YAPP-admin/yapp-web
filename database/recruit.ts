@@ -11,6 +11,11 @@ import Yapp from 'constants/yapp';
 /* 현재 모집중이면 true 아니면 false */
 export const IS_RECRUITING = true;
 
+// TODO : remove (= PM 직군만 연장하므로 다른 직군은 지원버튼 비활성화하기 위해 마감일 생성)
+const recruitCloseDateExceptPM = new Date(2024, 3, 14, 0, 0, 0);
+const now = new Date();
+export const IS_RECRUIT_CLOSED_EXCEPT_PM = now > recruitCloseDateExceptPM;
+
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
