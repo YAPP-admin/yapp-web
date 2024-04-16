@@ -9,17 +9,12 @@ import Yapp from 'constants/yapp';
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
-
-// TODO : remove (= PM 직군만 연장하므로 다른 직군은 지원버튼 비활성화하기 위해 마감일 생성)
-const recruitCloseDateExceptPM = new Date(2024, 3, 14, 0, 0, 0);
-const now = new Date();
-export const IS_RECRUIT_CLOSED_EXCEPT_PM = now > recruitCloseDateExceptPM;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
-  description: `현재 ${Yapp.YAPP_GENERATION}기 활동 중! 다음 기수는 2024년 4월에 예정되어 있습니다`,
+  description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2024년 10월에 예정되어 있습니다.`,
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
 
