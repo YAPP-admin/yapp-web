@@ -243,8 +243,7 @@ export const RECRUIT_EXPLAIN_FLUTTER_DEVELOPER = {
 /* 문의 사항 */
 export const RECRUIT_ENQUIRY = {
   title: '더 궁금하신 내용이 있거나<br /> 문의 사항이 있으신가요?',
-  description: `동아리 관련, 프로젝트, 후원 등<br class="mobile" /> 언제든지 문의해 주세요.<br/>
-  <span class="ps">문의는 메일 혹은 카카오톡 채널로 남겨주세요.</span><br />
-  <span class="ps">(페이스북 메시지, 인스타그램 DM은 받지 않습니다)</span>`,
+  description: `리쿠르팅 관련 문의는<br class="mobile" /> 카카오톡 채널을 이용해 주세요.<br/>
+  <span class="ps">(페이스북 메시지 및 인스타그램 DM은 받지 않습니다)</span>`,
   buttonName: '문의 하기',
 };
