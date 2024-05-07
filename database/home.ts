@@ -113,8 +113,14 @@ export const NEWS_DATA = [
 export const SPONSOR_DATA = [
   {
     image: '/assets/sponsors/sponsor_ncp.png',
+    alt: 'sponsor ncp',
   },
   {
     image: '/assets/sponsors/sponsor_greeting.png',
+    alt: 'sponsor greeting',
+  },
+  {
+    image: '/assets/sponsors/sponsor_elice.png',
+    alt: 'sponsor elice',
   },
 ];
