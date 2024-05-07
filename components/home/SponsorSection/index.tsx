@@ -1,11 +1,11 @@
-import type { ReactElement } from 'react';
-import styled from 'styled-components';
 import { Button, Image } from 'components/common';
 import { SectionTitle } from 'components/home';
-import SectionTemplate from '../SectionTemplate';
-import media from 'styles/media';
-import { SPONSOR_DATA } from 'database/home';
 import Yapp from 'constants/yapp';
+import { SPONSOR_DATA } from 'database/home';
+import type { ReactElement } from 'react';
+import styled from 'styled-components';
+import media from 'styles/media';
+import SectionTemplate from '../SectionTemplate';
 
 function SponsorSection(): ReactElement {
   return (
@@ -15,9 +15,9 @@ function SponsorSection(): ReactElement {
         운영을 위한 다양한 후원사를 기다리고 있습니다.
       </span>
       <SponsorList>
-        {SPONSOR_DATA.map(({ image }, index) => (
+        {SPONSOR_DATA.map(({ image, alt }, index) => (
           <Sponsor key={index}>
-            <Image src={image} alt="sponsor image" />
+            <Image src={image} alt={alt} priority />
           </Sponsor>
         ))}
       </SponsorList>
