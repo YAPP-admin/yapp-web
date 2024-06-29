@@ -64,7 +64,7 @@ const SponsorSectionContainer = styled(SectionTemplate)`
 `;
 
 const SponsorList = styled.ul`
-  width: 900px;
+  width: 800px;
   margin: 64px 0 44px;
   text-align: center;
 
