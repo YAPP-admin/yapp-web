@@ -1,4 +1,3 @@
-import Tag from 'components/common/Tag';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import styled, { css } from 'styled-components';
@@ -10,7 +9,15 @@ interface Props {
 }
 
 function ProjectContent({ project }: Props): ReactElement {
-  const { deployLink, webLink, description, program, team } = project;
+  const {
+    deployLink,
+    playStoreLink,
+    webLink,
+    linkTreeLink,
+    description,
+    program,
+    team,
+  } = project;
 
   return (
     <Container>
@@ -50,16 +57,31 @@ function ProjectContent({ project }: Props): ReactElement {
       </Description>
 
       <DeployBox>
-        {/* App 링크 */}
+        {/* LinkTree 링크 */}
+        {linkTreeLink && (
+          <Link href={linkTreeLink} passHref>
+            <DeployLinkButton target="_blank">Link Tree</DeployLinkButton>
+          </Link>
+        )}
+
+        {/* Web 링크 */}
+        {webLink && (
+          <Link href={webLink} passHref>
+            <DeployLinkButton target="_blank">Web</DeployLinkButton>
+          </Link>
+        )}
+
+        {/* App 링크(24기 이전에는 aos 또는 ios, 24기 이후로는 ios) */}
         {deployLink && (
           <Link href={deployLink} passHref>
             <DeployLinkButton target="_blank">App store</DeployLinkButton>
           </Link>
         )}
-        {/* Web 링크 */}
-        {webLink && (
-          <Link href={webLink} passHref>
-            <DeployLinkButton target="_blank">Web link</DeployLinkButton>
+
+        {/* Play Store 링크 */}
+        {playStoreLink && (
+          <Link href={playStoreLink} passHref>
+            <DeployLinkButton target="_blank">Play Store</DeployLinkButton>
           </Link>
         )}
       </DeployBox>
@@ -115,6 +137,11 @@ const DeployBox = styled.div`
   ${media.tablet} {
     justify-content: center;
   }
+
+  ${media.mobile} {
+    flex-direction: column;
+    row-gap: 1.2rem;
+  }
 `;
 
 const DeployLinkButton = styled.a`
@@ -131,14 +158,18 @@ const DeployLinkButton = styled.a`
     color: ${theme.palette.white};
     ${theme.textStyle.web.Button_Point};
   `}
+
   ${media.mobile} {
-    width: 122px;
+    flex: 1;
+    width: 100%;
     padding: 18px 24px;
     ${({ theme }) => theme.textStyle.mobile.Button_Point};
+
+    margin-left: 0px !important;
   }
 
   &:not(:first-child) {
-    margin-left: 30px;
+    margin-left: 20px;
   }
 `;
 
