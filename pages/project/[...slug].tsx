@@ -170,10 +170,6 @@ const ProjectName = styled.div`
 const ProjectImage = styled.img`
   max-width: 100%;
   display: block;
-
-  ${media.mobile} {
-    margin: 120px 0 120px;
-  }
 `;
 
 const ProjectSubTitle = styled.div`
