@@ -17,7 +17,9 @@ export interface Project {
   generation: number;
   program: string[] | null;
   retrospects: Retrospect[];
-  deployLink: string | null;
+  deployLink?: string | null;
+  playStoreLink?: string;
+  linkTreeLink?: string;
   webLink?: string;
   description: string;
 }

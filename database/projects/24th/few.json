@@ -1,0 +1,61 @@
+{
+  "name": "Few",
+  "title": "퀴즈로 뉴스레터 끝까지 읽기, few",
+  "thumbnail": "/assets/project/24_thumbnail_few.png",
+  "content": ["/assets/project/24_content_few.png"],
+  "tags": ["24기", "Web", "Android", "iOS"],
+  "team": ["송영모", "이태영", "홍서희", "임수민", "김종준", "황지훈"],
+  "field": ["Web", "Android", "iOS"],
+  "generation": 24,
+  "program": [
+    "Figma",
+    "Next.js",
+    "TypeScript",
+    "TanStack",
+    "Query tailwind zustand",
+    "shadcn/ui",
+    "vitest",
+    "msw",
+    "Springboot",
+    "Kotlin",
+    "jOOQ",
+    "terraform",
+    "pinpoint"
+  ],
+  "retrospects": [
+    {
+      "name": "송영모",
+      "field": "PM",
+      "content": "좋은 팀을 이끌수 있어서 감사했고 많이 성장했습니다. 서비스가 망하더라도 배우는 점이 있도록 계속해서 시도하고 열심히 노력하겠습니다😃"
+    },
+    {
+      "name": "이태영",
+      "field": "Design",
+      "content": "YAPP활동과 FEW를 통해 많이 성장할 수 있었습니다! 퓨의 메이커들, 작가님들, 유저들이 있는 프로덕트라 다양한 이해관계를 고려하여 디자인하는 지점이 가장 즐거웠습니다! 모두가 프로덕트에 대한 애정을 갖고 임했던 4개월이었습니다. 팀 퓨퓨 최고!"
+    },
+    {
+      "name": "김종준",
+      "field": "Server",
+      "content": "FEW를 잘 만들기 위해서 함께 고민하였던 시간이 가장 재미있었던 것 같습니다. 팀원 모두 함께 고민하였기에 더욱더 서로를 믿으며 개발할 수 있었다고 생각합니다. 이제 시작이기에 앞으로 더 많은 문제를 만나겠지만 팀원들과 함께라면 잘 해결해 나갈 수 있을 것이라 믿고 있습니다! YAPP 활동 기간 동안 덕분에 너무 재미있고 좋은 추억들을 쌓아나갔고 앞으로도 즐거운 시간을 함께 만들어 나갈 수 있었으면 좋겠습니다. 감사합니다!"
+    },
+    {
+      "name": "황지훈",
+      "field": "Server",
+      "content": "YAPP 활동을 통해 다양한 직군 사람들과 의견을 나누며 새로운 지식과 경험을 얻을 수 있었습니다. 특히 FEW 프로젝트는 팀원들과 함께 서비스 방향을 고민하고 기술적으로 발전시키며 의미 있는 결과를 만들어가는 과정이 정말 즐거웠습니다. 서로 신뢰하며 협업했던 덕분에 더 좋은 성과를 낼 수 있었던 것 같습니다. YAPP은 끝났지만, FEW 프로젝트는 계속 이어질 예정입니다!"
+    },
+    {
+      "name": "임수민",
+      "field": "Web",
+      "content": "함께 프로덕트에 대해 토의하고 녹여내는 작업을 하면서 많이 성장 했던 것 같습니다. 기술적으로도, 협업적으로도 뛰어난 팀원분들을 만나 많이 배울 수 있었던 것 같습니다! 서비스를 기획하고 직접 출시까지 할 수 있어서 더 유의미한 프로젝트 기간이었던 것 같습니😃"
+    },
+    {
+      "name": "홍서희",
+      "field": "Web",
+      "content": "YAPP을 통해서 WEB 직군 사람들이랑 인사이트를 교류하면서 새로운 지식과 경험을 얻어갈 수 있어서 좋았습니다. 그 중심은 FEW 프로젝트로 진행되었으며, 좋은 사람들을 만나 함께 프로젝트의 방향성을 만들어가고, 기술적으로 논의해보면서 서비스를 완성해 갈 수 있어서 좋았습니다!  YAPP은 끝났지만, FEW는 계속되길...💛"
+    }
+  ],
+  "webLink": "https://www.fewletter.com",
+  "deployLink": "https://apple.co/3B91bZh",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.yapp.few&pcampaignid=web_share",
+  "description": "Just a few minutes!<br />다양한 분야의 학습지, 원하는대로 골라서 구독하면<br />few가 매일 오전 이메일로 아티클과 퀴즈를 보내드려요!"
+}

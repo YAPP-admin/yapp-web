@@ -1,14 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { getAllProjects } from 'utils/getAllProjects';
-import Image from 'next/image';
-import styled from 'styled-components';
-import Breakpoints from 'constants/breakpoints';
-import { Project, ProjectUIModel } from 'types/project';
-import Tag from 'components/common/Tag';
-import media from 'styles/media';
-import { ProjectContent, ProjectRetrospects } from 'components/project';
 import { ProjectCard } from 'components/common';
+import Tag from 'components/common/Tag';
+import { ProjectContent, ProjectRetrospects } from 'components/project';
+import Breakpoints from 'constants/breakpoints';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import media from 'styles/media';
+import { Project, ProjectUIModel } from 'types/project';
+import { getAllProjects } from 'utils/getAllProjects';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -100,13 +99,18 @@ function ProjectDetail({ project, otherProjects }: Props) {
         <ProjectContent project={project} />
       </ResponsiveLayout>
 
-      {[...(Array.isArray(content) ? content : [content])].map((contentSrc) => (
-        <ProjectImage
-          key={contentSrc}
-          src={contentSrc}
-          alt="project-content-image"
-        />
-      ))}
+      <div style={{ margin: '100px auto 200px' }}>
+        {[...(Array.isArray(content) ? content : [content])].map(
+          (contentSrc) => (
+            <ProjectImage
+              key={contentSrc}
+              src={contentSrc}
+              alt="project-content-image"
+            />
+          ),
+        )}
+      </div>
+
       {retrospects?.length > 0 && (
         <>
           <ProjectSubTitle>팀 회고</ProjectSubTitle>
@@ -166,10 +170,6 @@ const ProjectName = styled.div`
 const ProjectImage = styled.img`
   max-width: 100%;
   display: block;
-  margin: 100px auto 200px;
-  ${media.mobile} {
-    margin: 120px 0 120px;
-  }
 `;
 
 const ProjectSubTitle = styled.div`
