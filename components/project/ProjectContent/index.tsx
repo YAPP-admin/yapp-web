@@ -122,6 +122,7 @@ const SubTitle = styled.div`
 
 const BodyText = styled.div`
   display: flex;
+  flex: 1;
   ${({ theme }) => theme.textStyle.web.Body_1};
   color: ${({ theme }) => theme.palette.grey_850};
   flex-wrap: wrap;
