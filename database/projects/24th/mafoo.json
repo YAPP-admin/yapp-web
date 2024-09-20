@@ -1,0 +1,59 @@
+{
+  "name": "Mafoo",
+  "title": "평생 간직하는 우리들의 프레임, MAFOO",
+  "thumbnail": "/assets/project/24_thumbnail_mafoo.png",
+  "content": ["/assets/project/24_content_mafoo.png"],
+  "tags": ["24기", "Web", "Android"],
+  "team": ["하규원", "염수연", "박민수", "이지은", "송영민", "김경민"],
+  "field": ["Web", "Android"],
+  "generation": 24,
+  "program": [
+    "next.js",
+    "next-auth",
+    "react-query",
+    "react-qr-scanner",
+    "zustand",
+    "html-to-image",
+    "ffmpeg/ffmpeg",
+    "web RTC",
+    "aws amplify",
+    "Java",
+    "SpringBoot",
+    "R2DBC",
+    "WebFlux",
+    "Reactor",
+    "Kubernetes",
+    "MSA(Micro Service Architecture)",
+    "ArgoCD"
+  ],
+  "retrospects": [
+    {
+      "name": "하규원",
+      "field": "PM",
+      "content": "4개월이라는 시간동안 본업 이외로도 시간을 내서 서비스를 런칭해보는 귀중한 경험이었습니다. 회사에서 PM으로서는 경험해보기 어려웠던, 0인 상태에서 낸 아이디어를 제품으로 만드는 경험이 즐거웠습니다. 그 과정에서 얍의 활동과 프로그램들이 협업을 이어갈 수 있도록하는 가이드가 되어주었다고 생각합니다. 함께 고민하고 시간을 내준 시금치 파슷하팀 너무 고생많았어요. 언제나 말하지만 우리가 짱이에요:)"
+    },
+    {
+      "name": "염수연",
+      "field": "Design",
+      "content": "열정있고 능력있는 팀원 분들과 만나면서 재밌게 프로덕트를 만들어 나갈 수 있어서 많이 기뻤습니다 :) 또 한번 배우고 성장할 수 있었던 시간이었어요! 열심히 함께 프로덕트를 만들어준 팀원분들께 너무 수고했다고 얘기해주고 싶네요 ㅎㅎ 그리고 4개월간 대인원의 야뿌들을 이끌어주신 24기 운영진분들께도 감사인사를 전하고 싶습니다!  덕분에 행복한 2024년 여름이었습니다 ~ 🫶 "
+    },
+    {
+      "name": "김경민",
+      "field": "iOS",
+      "content": "간만에 굉장히 신선하고 즐거웠던 프로젝트였습니다! 길다면 길고 짧다면 짧은 기간이었지만 팀원들에게 모두 너무 고생 많았다고 말해주고 싶어요 :)"
+    },
+    {
+      "name": "송영민",
+      "field": "iOS",
+      "content": "좋은 분들과 짧은 기간동안 함께 멋진 프로덕트를 만들 수 있어서 행복했어요 🍀🍀"
+    },
+    {
+      "name": "박민수",
+      "field": "iOS",
+      "content": "인생에 있어서 좋은 도전이었고, 좋은 경험이었습니다."
+    }
+  ],
+  "webLink": "https://mafoo.kr",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.mafooapp",
+  "description": "'마푸(MAFOO)'는 인생네컷 전용 모바일 앨범 서비스예요.<br />QR스캔을 통해 간편하게 인생네컷 디지털 이미지 불러오기 할 수 있고, 원하는 만큼 앨범을 만들어 인생네컷을 앨범별로 정리할 수 있습니다.<br />또, 여러장의 인생네컷을 보관해두면 공유하기 좋은 리캡을 만들 수 있답니다.<br />지금 바로 구글 플레이스토어 '마푸', 또는 웹사이트 mafoo.kr 를 통해 마푸를 이용해보세요."
+}
