@@ -36,7 +36,9 @@ function RecruitBanner() {
             buttonColor="grey_850"
             borderColor="lightGrey"
             onClick={() => {
-              window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
+              if (!IS_RECRUITING) {
+                window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
+              }
             }}
           >
             {IS_RECRUITING ? '모든 공고 보기' : '지원마감'}
