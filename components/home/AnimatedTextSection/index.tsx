@@ -3,6 +3,7 @@ import { SectionTemplate } from 'components/home';
 import Path from 'constants/path';
 import {
   IS_RECRUITING,
+  NEXT_GENERATION_RECRUIT_LINK,
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
@@ -17,9 +18,7 @@ function AnimatedTextSection(): ReactElement {
   const animatedTextRef = useRef<HTMLDivElement>(null);
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
   const { buttonName } = BannerInfo;
-  const buttonParams = IS_RECRUITING
-    ? { width: 168 }
-    : { disabled: true, width: 190 };
+  const buttonParams = IS_RECRUITING ? { width: 168 } : { width: 190 };
 
   const router = useRouter();
   useEffect(() => {
@@ -42,6 +41,11 @@ function AnimatedTextSection(): ReactElement {
         className="recruitButton"
         buttonText={buttonName}
         onClick={() => {
+          if (!IS_RECRUITING) {
+            window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
+            return;
+          }
+
           router.push(Path.Recruit);
         }}
         {...buttonParams}
