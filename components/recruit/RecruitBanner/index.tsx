@@ -3,6 +3,7 @@ import Breakpoints from 'constants/breakpoints';
 import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
+  NEXT_GENERATION_RECRUIT_LINK,
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
@@ -34,7 +35,9 @@ function RecruitBanner() {
             fontColor="white"
             buttonColor="grey_850"
             borderColor="lightGrey"
-            disabled={!IS_RECRUITING}
+            onClick={() => {
+              window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
+            }}
           >
             {IS_RECRUITING ? '모든 공고 보기' : '지원마감'}
           </ApplyButton>

@@ -25,6 +25,9 @@ export const RECRUIT_BANNER_ACTIVE = {
   buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,
 };
 
+export const NEXT_GENERATION_RECRUIT_LINK =
+  'https://docs.google.com/forms/d/1Pz_bPLk7olNj45XnakQIB6LNGE9MnaZenzowIQ-mPQ8/viewform?pli=1&pli=1&pli=1&edit_requested=true';
+
 /** 모집 개요 */
 export const RECRUIT_OVERVIEW = {
   title: '모집 개요',
