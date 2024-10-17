@@ -3,7 +3,7 @@ import type { MouseEvent, ReactElement } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import Banner24th from './Banner24th';
+import Banner25th from './Banner25th';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -24,7 +24,7 @@ function IntroSection(): ReactElement {
       onMouseLeave={handleEnter}
       onMouseMove={handleMove}
     >
-      <Banner24th />
+      <Banner25th />
       <FloatingArrow />
     </IntroSectionContainer>
   );
@@ -78,56 +78,6 @@ const ArrowDownConatiner = styled.div`
       width: 48px;
       height: 48px;
       transform: translateY(-36px);
-    }
-  }
-`;
-
-const MainBanner = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.palette.black};
-`;
-
-const Dimension = styled.span`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  z-index: 2;
-  background-color: ${({ theme }) => theme.palette.black};
-`;
-
-const ContentWrapper = styled.div`
-  text-align: center;
-  z-index: 3;
-`;
-
-const TitleContainer = styled.div`
-  margin: 0 5px 48px 5px;
-  text-align: center;
-  word-break: keep-all;
-
-  .main-text {
-    color: ${({ theme }) => theme.palette['white']};
-    font-family: 'Poppins-ExtraBold';
-    font-size: 80px;
-    font-weight: 800;
-    line-height: 100%;
-    letter-spacing: 0;
-
-    ${media.mobile} {
-      font-size: 58px;
-      font-weight: 800;
-      line-height: 100%;
-      letter-spacing: 0;
-    }
-
-    ${media.small} {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 100%;
-      letter-spacing: 0;
     }
   }
 `;
