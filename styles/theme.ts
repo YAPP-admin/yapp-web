@@ -21,6 +21,10 @@ const palette = {
   yellow_500: '#FABB00',
   yellow_600: '#F5A810',
 
+  //blue
+  blue_100: '#007CFF',
+  blue_200: '#00B5FE',
+
   // Orange
   orange_100: '#FFC9A5',
   orange_200: '#FFB27C',
