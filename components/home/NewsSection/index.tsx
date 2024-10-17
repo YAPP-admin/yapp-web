@@ -35,6 +35,16 @@ const SocialContainer = styled(SectionTemplate)`
 const CardContainer = styled.article`
   margin: 49px 0;
   text-align: center;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  ${media.mobile} {
+    grid-template-columns: 1fr 1fr;
+  }
+  ${media.small} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const StyledButton = styled(Button)`
