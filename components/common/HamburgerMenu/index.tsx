@@ -1,9 +1,9 @@
-import { ReactElement, useEffect } from 'react';
 import { HEADER_MENUS } from 'constants/headerMenus';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { ReactElement, useEffect } from 'react';
 import styled from 'styled-components';
 import { fadeIn } from 'styles/utils-styles';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 interface HamburgerMenuProps {
   handleOpenMenu: () => void;
@@ -72,7 +72,7 @@ const MenuItem = styled.a<{ active: boolean }>`
   cursor: pointer;
   ${({ theme }) => theme.textStyle.mobile.Title_1}
   color: ${({ theme, active }) =>
-    active ? theme.palette.orange_400 : theme.palette.white};
+    active ? theme.palette.blue_100 : theme.palette.white};
 `;
 
 const Background = styled.div`

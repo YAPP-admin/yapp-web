@@ -1,9 +1,9 @@
+import { FieldNameTypes } from 'components/recruit/RecruitField';
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
-import { FieldNameTypes } from 'components/recruit/RecruitField';
-import { ProjectField } from 'types/project';
-import { PaletteKeyTypes } from 'styles/theme';
 import media from 'styles/media';
+import { PaletteKeyTypes } from 'styles/theme';
+import { ProjectField } from 'types/project';
 
 interface ITabMenuStyle {
   backgroundColor?: PaletteKeyTypes;
@@ -105,7 +105,7 @@ const AnimatedBackground = styled.span<
   }
 
   border-radius: 124px;
-  background-color: ${({ theme }) => theme.palette.orange_400};
+  background-color: ${({ theme }) => theme.palette.blue_100};
   transition: all 0.2s ease-in-out;
 `;
 

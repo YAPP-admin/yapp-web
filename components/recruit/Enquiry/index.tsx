@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react';
-import DOMPurify from 'isomorphic-dompurify';
 import { Button } from 'components/common';
 import Breakpoints from 'constants/breakpoints';
+import Yapp from 'constants/yapp';
 import { RECRUIT_ENQUIRY } from 'database/recruit';
+import DOMPurify from 'isomorphic-dompurify';
+import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import Yapp from 'constants/yapp';
 
 function Enquiry(): ReactElement {
   const { title, description, buttonName } = RECRUIT_ENQUIRY;
@@ -22,7 +22,7 @@ function Enquiry(): ReactElement {
           <EnquiryButton
             width={148}
             height={65}
-            buttonColor="yellow_400"
+            buttonColor="blue_200"
             borderColor="white"
             fontColor="black"
           >
@@ -95,7 +95,7 @@ const EnquiryButton = styled(Button)`
 
   &:hover {
     color: ${({ theme }) => theme.palette.white};
-    background-color: ${({ theme }) => theme.palette.yellow_600};
+    background-color: ${({ theme }) => theme.palette.blue_100};
   }
 
   ${media.mobile} {

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import type { ReactElement } from 'react';
-import styled, { css } from 'styled-components';
 import Button from 'components/common/Button';
-import { Mail, Facebook, Plus, Kakao } from 'public/assets/icons';
-import media from 'styles/media';
 import Yapp from 'constants/yapp';
+import { Facebook, Kakao, Mail, Plus } from 'public/assets/icons';
+import type { ReactElement } from 'react';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
+import media from 'styles/media';
 
 function FloatingButton(): ReactElement {
   const [visible, setVisible] = useState(false);
@@ -80,7 +80,7 @@ const TriggerButton = styled(Button)<{ visible: boolean }>`
   right: 48px;
   z-index: 10000;
   background: ${({ theme }) =>
-    `linear-gradient(208.15deg, ${theme.palette.orange_300} 12.08%, ${theme.palette.orange_500} 86.71%)`};
+    `linear-gradient(208.15deg, ${theme.palette.blue_100} 12.08%, ${theme.palette.blue_100} 86.71%)`};
 
   ${media.mobile} {
     width: 48px;
