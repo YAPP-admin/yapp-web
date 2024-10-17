@@ -18,7 +18,7 @@ const Yapp = {
   YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/o/106736',
   YAPP_RECRUIT_ANDROID: 'https://yapp-recruit.career.greetinghr.com/o/106737',
   YAPP_RECRUIT_FRONT_END: 'https://yapp-recruit.career.greetinghr.com/o/106738',
-  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/106739',
+  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/129838',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
 } as const;
