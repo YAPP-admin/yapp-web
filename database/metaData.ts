@@ -10,7 +10,7 @@ const metaData = {
     'YAPP, yapp, 동아리, 연합 동아리, IT 동아리, 개발 동아리, 대학교 동아리, 대학생 연합 동아리, 대외활동, 외부활동, 사이드 프로젝트, 개발, 개발자, 프론트엔드, 백엔드, 디자이너, PM',
   type: 'website',
   siteUrl: 'https://yapp.co.kr',
-  image: '/assets/images/og_24th.png',
+  image: '/assets/images/og_25th.png',
   locale: 'ko_KR',
   analytics: {
     google: 'G-MPQ55K4DB3',
