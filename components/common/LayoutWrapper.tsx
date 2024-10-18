@@ -1,8 +1,8 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { Header, Footer, FloatingButton } from 'components/common';
-import { useRouter } from 'next/router';
+import { FloatingButton, Footer, Header } from 'components/common';
 import { IntroSection } from 'components/home';
 import PATH from 'constants/path';
+import { useRouter } from 'next/router';
+import { ReactNode, useEffect, useRef } from 'react';
 import smoothscroll from 'smoothscroll-polyfill'; // Safari 에서 smooth 효과 적용
 
 interface LayoutWrapperProps {
@@ -51,8 +51,10 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
       };
 
       outerRefCurrent.addEventListener('wheel', wheelAnimationHandler);
-      return () =>
+      return () => {
         outerRefCurrent.removeEventListener('wheel', wheelAnimationHandler);
+        scrollEventRef.current = false;
+      };
     }
   }, [asPath]);
 
