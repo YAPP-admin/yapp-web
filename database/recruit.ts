@@ -171,10 +171,10 @@ export const RECRUIT_EXPLAIN_DESIGNER = {
 
 /* iOS */
 export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
-  content1: `팀 내에서 iOS 클라이언트 개발을 담당합니다.<br />
+  content1: `팀 내에서 iOS 네이티브 앱 개발을 담당합니다.<br />
 클라이언트 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
-  content2: `1.Swift와 UIKit/SwiftUI를 이용해 아이폰 앱 개발이 가능하신 분<br />
+  content2: `1. Swift와 UIKit/SwiftUI를 이용해 아이폰 앱 개발이 가능하신 분<br />
   2. 프로젝트의 좋은 결과 만들어내고자 하는 열정과 의지를 가지신 분<br />
   3. 주도적으로 문제 해결에 참여하고, 책임감이 있으신 분<br />
   4. 코드리뷰에 관심이 있고 기술 관련 논의에 적극적이신분<br />
@@ -205,7 +205,7 @@ export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content2: `1. HTML, CSS, Javascript, React를 이해하고 계신 분<br />
   2. 코드 리뷰와 기술 관련 논의에 적극적이며 열정과 의지를 가지신 분<br />
   3. 마지막까지 책임감을 가지고 프로젝트를 완수하실 분<br />
-  4. 우리의 서비스를 만들어서 YAPP 활동이후 운영까지 진행해 보고 싶으신 분`,
+  4. 우리의 서비스를 만들어서 YAPP 활동 이후 운영까지 진행해 보고 싶으신 분`,
   content3: `1. Server 개발자, PM, 디자이너와의 소통 경험<br />
   2. GitHub를 사용한 협업 프로젝트 경험<br />
   3. 새로운 프론트엔드 기술에 도전해본 경험`,
