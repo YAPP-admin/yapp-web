@@ -9,7 +9,7 @@ import Yapp from 'constants/yapp';
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = false;
+export const IS_RECRUITING = true;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
@@ -34,8 +34,7 @@ export const RECRUIT_OVERVIEW = {
   overviewContents: [
     {
       subTitle: '인재상',
-      description: `프로덕트 오너십을 가지고 능동적으로
-      문제를 해결하는 열정적인 누구나`,
+      description: `책임감을 가지고 팀과 함께 프로덕트를 만들어나갈 수 있는 누구나`,
     },
     {
       subTitle: '지원자격',
@@ -60,23 +59,22 @@ export const RECRUIT_SCHEDULE = {
   schedules: [
     {
       subTitle: '서류 접수',
-      description: `2024. 04. 05. (금)
-      ~ 04. 13. (토) 23:59
-      ※ PM : 04. 16 (화) 23:59`,
+      description: `2024. 10. 19. (토)
+      ~ 10. 26. (토) 23:59`,
     },
     {
       subTitle: '서류 결과 발표',
-      description: `2024. 04. 17. (수)
-      ※ PM : 04. 21 (일) 발표 예정`,
+      description: `2024. 10. 30. (수)
+     `,
     },
     {
       subTitle: '온라인 인터뷰',
-      description: `2024. 04. 26. (금)
-      ~ 04. 30. (화)`,
+      description: `2024. 11. 01. (금)
+      ~ 11. 3. (일)`,
     },
     {
       subTitle: '최종 발표',
-      description: `2024. 05. 03. (금)`,
+      description: `2024. 11. 09. (토)`,
     },
   ],
 };
@@ -139,7 +137,7 @@ export const RECRUIT_DEVELOPER_FIELD_NAMES: DeveloperFieldName[] = [
   'Android',
   'Web',
   'Server',
-  'Flutter',
+  // 'Flutter',
 ];
 
 /* PM */
@@ -173,29 +171,29 @@ export const RECRUIT_EXPLAIN_DESIGNER = {
 
 /* iOS */
 export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
-  content1: `팀 내에서 iOS 클라이언트 개발을 담당합니다.<br />
-Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  content1: `팀 내에서 iOS 네이티브 앱 개발을 담당합니다.<br />
+클라이언트 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
-  content2: `1. Swift, UIKit, SwiftUI와 아이폰 앱 개발에 대한 기본적 이해를 가지신 분<br />
-  2. 프로젝트를 완성시키고자 하는 의지와 열정을 가지신 분<br />
-  3. 주도적으로 문제를 해결하고 책임감이 있으신 분<br />
-  4. 코드리뷰에 적극적으로 참여하시는 분<br />
-  5. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
-  content3: `1. 디자이너와의 프로젝트 경험<br />
-  2. RESTful API에 대한 이해<br />
+  content2: `1. Swift와 UIKit/SwiftUI를 이용해 아이폰 앱 개발이 가능하신 분<br />
+  2. 프로젝트의 좋은 결과 만들어내고자 하는 열정과 의지를 가지신 분<br />
+  3. 주도적으로 문제 해결에 참여하고, 책임감이 있으신 분<br />
+  4. 코드리뷰에 관심이 있고 기술 관련 논의에 적극적이신분<br />
+  5. 자신만의 프로젝트를 출시하고 운영까지 해보고 싶으신 분`,
+  content3: `1. 다른 개발자 및 직군과의 프로젝트 경험<br />
+  2. RESTful API에 대한 이해와 활용 능력<br />
   3. MVC, MVVM 등 아키텍쳐 패턴과 iOS Platform Architecture에 대한 이해`,
 };
 
 /* Android */
 export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
-  content1: `팀 내에서 Android 클라이언트 개발을 담당합니다.<br />
+  content1: `팀 내에서 Android 네이티브 앱 개발을 담당합니다.<br />
   Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
-  content2: `1. java, kotlin 등 안드로이드 개발 언어를 사용하신 분<br />
+  content2: `1. Java, Kotlin와 XML 또는 Jetpack Compose 기반 UI 개발 경험이 있으신 분<br />
   2. 모르는 부분이 생기면 주저않고 질문이 가능하신 분<br />
-  3. 끈기있게 프로젝트를 진행해주실 분<br />
-  4. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
-  content3: `1. 디자이너, 백엔드 개발자와의 소통 경험<br />
+  3. 코드 리뷰와 기술 관련 논의에 적극적이며 열정과 의지를 가지신 분<br />
+  4. 마지막까지 프로젝트를 책임감 있게 완수하실 분`,
+  content3: `1. Server 개발자, PM, 디자이너와의 소통 경험<br />
   2. GitHub를 사용한 협업 프로젝트 경험`,
 };
 
@@ -204,13 +202,13 @@ export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
   Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
-  content2: `1. HTML과 CSS 기본을 이해하고 계신 분<br />
-  2. 자바스크립트로 프로젝트를 해보고 싶은 분<br />
-  3. 마지막까지 프로젝트를 완수하실 분<br />
-  4. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
-  content3: `1. react vue angular중 하나 이상 다뤄 본 경험<br />
-  2. Git을 이용한 프로젝트 관리 경험<br />
-  3. 디자이너, 백엔드 개발자, PM과 소통 경험`,
+  content2: `1. HTML, CSS, Javascript, React를 이해하고 계신 분<br />
+  2. 코드 리뷰와 기술 관련 논의에 적극적이며 열정과 의지를 가지신 분<br />
+  3. 마지막까지 책임감을 가지고 프로젝트를 완수하실 분<br />
+  4. 우리의 서비스를 만들어서 YAPP 활동 이후 운영까지 진행해 보고 싶으신 분`,
+  content3: `1. Server 개발자, PM, 디자이너와의 소통 경험<br />
+  2. GitHub를 사용한 협업 프로젝트 경험<br />
+  3. 새로운 프론트엔드 기술에 도전해본 경험`,
 };
 
 /* Server */
@@ -218,12 +216,13 @@ export const RECRUIT_EXPLAIN_SERVER_DEVELOPER = {
   content1: `팀 내에서 Server 개발을 담당합니다.<br />
 클라이언트 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
 원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
-  content2: `1. 데이터베이스의 기초가 있으신 분<br />
-2. 일반적으로 사용하는 RESTful에 대한 이해가 있으신 분<br />
-3. 마지막까지 프로젝트를 완수하실분<br />
-4. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
-  content3: `1. 언어 상관 없이 RESTful API를 만들어 본 경험<br />
-2. PM와의 소통 경험<br />
+  content2: `1. Kotlin/Java와 Spring Framework에 대한 이해가 있으신 분<br />
+2. 데이터베이스의 기초가 있으신 분<br />
+3. 일반적으로 사용하는 RESTful에 대한 이해가 있으신 분<br />
+4. 책임감을 가지고 마지막까지 프로젝트를 완수하실 분<br />
+5. 나만의 서비스를 만들어서 운영까지 진행해 보고 싶으신 분`,
+  content3: `1. Kotlin/Java로 Spring Framework 기반의 서비스를 개발한 경험<br />
+2. PM 직군과의 소통 경험<br />
 3. Git을 이용한 프로젝트 관리 경험`,
 };
 

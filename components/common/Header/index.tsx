@@ -1,15 +1,15 @@
+import HamburgerMenu from 'components/common/HamburgerMenu';
 import Breakpoints from 'constants/breakpoints';
 import { HEADER_MENUS } from 'constants/headerMenus';
+import Path from 'constants/path';
+import useToggle from 'hooks/useToggle';
+import useWindowDimensions from 'hooks/useWindowDimensions';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Hamburger, YappLogo } from 'public/assets/icons';
-import React, { ReactElement, useEffect, useRef } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import useToggle from 'hooks/useToggle';
-import HamburgerMenu from 'components/common/HamburgerMenu';
-import useWindowDimensions from 'hooks/useWindowDimensions';
-import Path from 'constants/path';
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
@@ -98,7 +98,7 @@ const HeaderMenu = styled.div`
 const MenuText = styled.a<{ active: boolean }>`
   cursor: pointer;
   color: ${({ theme, active }) =>
-    active ? theme.palette.orange_400 : theme.palette.white};
+    active ? theme.palette.blue_100 : theme.palette.white};
   ${({ theme }) => theme.textStyle.web.Category};
 `;
 

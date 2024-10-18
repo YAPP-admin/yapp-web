@@ -6,7 +6,7 @@ export const CURRENT_INFO_DATA = [
   },
   {
     title: '운영 기수 ⛳️',
-    content: '24기',
+    content: '25기',
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',
@@ -29,40 +29,53 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: '바로',
-    link: '/project/23rd/baro',
-    image: '/assets/project/23_thumbnail_baro.png',
+    title: 'Few',
+    link: '/project/24th/few',
+    image: '/assets/project/24_thumbnail_few.png',
   },
   {
-    title: 'fullcar',
-    link: '/project/23rd/fullcar',
-    image: '/assets/project/23_thumbnail_fullcar.png',
+    title: 'InspoMailClub',
+    link: '/project/24th/inspo_mail_club',
+    image: '/assets/project/24_thumbnail_inspo_mail_club.png',
   },
   {
-    title: '링커',
-    link: '/project/23rd/linker',
-    image: '/assets/project/23_thumbnail_linker.png',
+    title: 'MAFOO',
+    link: '/project/24th/mafoo',
+    image: '/assets/project/24_thumbnail_mafoo.png',
   },
   {
-    title: '머니몽',
-    link: '/project/23rd/moneymong',
-    image: '/assets/project/23_thumbnail_moneymong.png',
+    title: 'Wespot',
+    link: '/project/24th/wespot',
+    image: '/assets/project/24_thumbnail_wespot.png',
   },
   {
-    title: '수수',
-    link: '/project/23rd/susu',
-    image: '/assets/project/23_thumbnail_susu.png',
+    title: 'Trouble Painter',
+    link: '/project/24th/trouble_painter',
+    image: '/assets/project/24_thumbnail_trouble_painter.png',
   },
   {
-    title: '여비',
-    link: '/project/23rd/yeobee',
-    image: '/assets/project/23_thumbnail_yeobee.png',
+    title: 'Showpot',
+    link: '/project/24th/showpot',
+    image: '/assets/project/24_thumbnail_showpot.png',
+  },
+  {
+    title: 'Pokit',
+    link: '/project/24th/pokit',
+    image: '/assets/project/24_thumbnail_pokit.png',
   },
 ];
 
 /** Social News Card */
 // 태그 형식 가능합니다.
 export const NEWS_DATA = [
+  {
+    image: '/assets/images/25th/social.png',
+    link: 'https://www.instagram.com/about.yapp/',
+    content: `🧡YAPP 25기 신규 회원 모집 OPEN🧡<br />
+10월 19일 (토) ~ 10월 26일 (토) 23시 59분까지 YAPP 25기 신규 회원을 모집해요! 
+함께 큐브를 완성해줄 예비 야뿌들의 많은 지원 부탁드립니다!
+    `,
+  },
   {
     image: '/assets/images/24th/social.webp',
     link: 'https://www.instagram.com/about.yapp/',

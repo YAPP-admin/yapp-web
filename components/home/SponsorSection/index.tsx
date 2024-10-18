@@ -30,7 +30,7 @@ function SponsorSection(): ReactElement {
           width={148}
           height={65}
           fontColor="white"
-          buttonColor="orange_400"
+          buttonColor="blue_100"
         >
           후원 문의
         </StyledButton>
@@ -88,7 +88,7 @@ const Sponsor = styled.li`
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
   &:hover {
-    background-color: ${({ theme }) => theme.palette.orange_600};
+    background-color: ${({ theme }) => theme.palette.blue_200};
   }
 
   ${media.mobile} {

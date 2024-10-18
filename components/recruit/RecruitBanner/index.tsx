@@ -70,7 +70,7 @@ const ApplyButton = styled(Button)`
 
 const RecruitBannerContainer = styled.div`
   width: 100%;
-  background-color: ${({ theme }) => theme.palette.yellow_400};
+  background-color: ${({ theme }) => theme.palette.blue_200};
 `;
 
 const BannerInner = styled.div`
