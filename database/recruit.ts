@@ -187,7 +187,7 @@ export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
 /* Android */
 export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   content1: `팀 내에서 Android 네이티브 앱 개발을 담당합니다.<br />
-  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  서버 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. Java, Kotlin와 XML 또는 Jetpack Compose 기반 UI 개발 경험이 있으신 분<br />
   2. 모르는 부분이 생기면 주저않고 질문이 가능하신 분<br />
@@ -200,7 +200,7 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
 /* Web */
 export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
-  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  서버 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. HTML, CSS, Javascript, React를 이해하고 계신 분<br />
   2. 코드 리뷰와 기술 관련 논의에 적극적이며 열정과 의지를 가지신 분<br />
