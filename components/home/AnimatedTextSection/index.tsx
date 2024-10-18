@@ -37,7 +37,7 @@ function AnimatedTextSection(): ReactElement {
       <AnimatedButton
         height={65}
         fontColor="white"
-        buttonColor="orange_400"
+        buttonColor="blue_100"
         className="recruitButton"
         buttonText={buttonName}
         onClick={() => {

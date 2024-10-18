@@ -85,7 +85,7 @@ const ButtonStyled = styled(Button)<{ variant?: AnimatedButtonVariant }>`
       variant === 'primary'
         ? css`
             background: ${({ theme }) => theme.palette.grey_900};
-            color: ${({ theme }) => theme.palette.orange_300};
+            color: ${({ theme }) => theme.palette.blue_200};
           `
         : css`
             background: ${({ theme }) => theme.palette.orange_400};

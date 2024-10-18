@@ -1,6 +1,6 @@
 const Yapp = {
   YAPP_NAME: 'YAPP',
-  YAPP_GENERATION: 24, // 기수
+  YAPP_GENERATION: 25, // 기수
   YAPP_OFFICIAL_EMAIL: 'support@yapp.co.kr',
   YAPP_OFFICIAL_KAKAO: '@YAPP',
   YAPP_OFFICIAL_FACEBOOK: '@YAPP',
@@ -18,7 +18,7 @@ const Yapp = {
   YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/o/106736',
   YAPP_RECRUIT_ANDROID: 'https://yapp-recruit.career.greetinghr.com/o/106737',
   YAPP_RECRUIT_FRONT_END: 'https://yapp-recruit.career.greetinghr.com/o/106738',
-  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/106739',
+  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/129838',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
 } as const;

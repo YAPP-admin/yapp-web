@@ -74,10 +74,10 @@ const DeveloperItem = styled.button<{ isSelected: boolean }>`
   ${({ isSelected }) =>
     isSelected &&
     css`
-      color: ${({ theme }) => theme.palette.orange_500};
-      border-bottom: 4px solid ${({ theme }) => theme.palette.orange_500};
+      color: ${({ theme }) => theme.palette.blue_100};
+      border-bottom: 4px solid ${({ theme }) => theme.palette.blue_100};
       ${media.mobile} {
-        border-bottom: 2px solid ${({ theme }) => theme.palette.orange_500};
+        border-bottom: 2px solid ${({ theme }) => theme.palette.blue_100};
       }
     `}
   height: 100%;
