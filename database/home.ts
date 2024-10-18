@@ -72,7 +72,7 @@ export const NEWS_DATA = [
     image: '/assets/images/25th/social.png',
     link: 'https://www.instagram.com/about.yapp/',
     content: `🧡YAPP 25기 신규 회원 모집 OPEN🧡<br />
-10월 19일 (토) ~ 10월 26일 (토) 23시 59분 YAPP 25기 신규 회원을 모집해요! 
+10월 19일 (토) ~ 10월 26일 (토) 23시 59분까지 YAPP 25기 신규 회원을 모집해요! 
 함께 큐브를 완성해줄 예비 야뿌들의 많은 지원 부탁드립니다!
     `,
   },
