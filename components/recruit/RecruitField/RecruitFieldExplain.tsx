@@ -45,7 +45,9 @@ function RecruitFieldExplain({
       <FieldBox backgroundColor="grey_50">
         <FieldBoxInner>
           <SubTitleStyled>
-            이런 {fieldName}를<br /> 찾습니다 🔎
+            이런 {fieldName}
+            {fieldName === 'PM' ? '을' : '를'}
+            <br /> 찾습니다 🔎
           </SubTitleStyled>
           <ContentStyled
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content2) }}
