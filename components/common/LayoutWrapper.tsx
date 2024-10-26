@@ -15,15 +15,20 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
   const contentRef = useRef<any>(null);
   const scrollEventRef = useRef(false);
 
-  //@Note 페이지 이동 시에도 항상 스크롤 맨 위 고정
-  useEffect(() => {
+  const moveToScrollTop = () => {
     smoothscroll.polyfill();
     if (!outerRef.current) return;
+
     outerRef.current.scrollIntoView({
       behavior: 'auto',
       block: 'start',
       inline: 'nearest',
     });
+  };
+
+  //@Note 페이지 이동 시에도 항상 스크롤 맨 위 고정
+  useEffect(() => {
+    moveToScrollTop();
   }, [asPath]);
 
   // 랜딩페이지 IntroSection Scroll 이벤트
@@ -31,7 +36,7 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
     if (asPath === PATH.Home) {
       const outerRefCurrent = outerRef.current;
       if (!outerRefCurrent) return;
-
+      moveToScrollTop();
       const wheelAnimationHandler = (e: WheelEvent) => {
         e.preventDefault();
 

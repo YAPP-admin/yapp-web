@@ -9,12 +9,12 @@ import Yapp from 'constants/yapp';
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
-  description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2024년 10월에 예정되어 있습니다.`,
+  description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2025년 4월에 예정되어 있습니다.`,
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
 
@@ -108,7 +108,7 @@ export const RECRUIT_FAQ = {
     {
       subTitle: '정기 모임(세션)은 언제, 어디서 하나요?',
       description: `<b>매주 토요일 오후 2시-5시</b>, 세션은 서로 간의 지식 공유&친목 도모를 위해 진행되며 가벼운 뒤풀이도 있을 수 있습니다.<br class="br" />
-                    주로 <b>온라인/오프라인 병행</b>으로 진행되고 있으며 각 기수별 상황에 따라 달라질 수 있습니다.<br class="br" />
+                    <b>오프라인 대면</b>으로 진행되고 있으며 각 기수별 상황에 따라 달라질 수 있습니다.<br class="br" />
                     오프라인으로 대부분 수도권에서 세션이 진행되며, 장소 섭외 상황에 따라 변경될 수 있습니다.<br class="br" />
                     일정, 장소 등 자세한 정보는 내부 채널을 통해 사전 공지해드릴 예정입니다.`,
       isOpen: false,
@@ -187,7 +187,7 @@ export const RECRUIT_EXPLAIN_IOS_DEVELOPER = {
 /* Android */
 export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
   content1: `팀 내에서 Android 네이티브 앱 개발을 담당합니다.<br />
-  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  서버 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. Java, Kotlin와 XML 또는 Jetpack Compose 기반 UI 개발 경험이 있으신 분<br />
   2. 모르는 부분이 생기면 주저않고 질문이 가능하신 분<br />
@@ -200,7 +200,7 @@ export const RECRUIT_EXPLAIN_ANDROID_DEVELOPER = {
 /* Web */
 export const RECRUIT_EXPLAIN_WEB_DEVELOPER = {
   content1: `팀 내에서 웹 프론트엔드 개발을 담당합니다.<br />
-  Server, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
+  서버 개발자, PM, 디자인분들과 함께 프로젝트를 진행하며,<br />
   원할 경우 팀 내에서 세미나를 열 수도 있으며 스터디를 진행할 수도 있습니다.`,
   content2: `1. HTML, CSS, Javascript, React를 이해하고 계신 분<br />
   2. 코드 리뷰와 기술 관련 논의에 적극적이며 열정과 의지를 가지신 분<br />
