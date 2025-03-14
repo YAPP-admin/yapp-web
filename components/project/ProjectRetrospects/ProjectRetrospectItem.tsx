@@ -16,7 +16,14 @@ function ProjectRetrospectItem({ retrospect }: Props): ReactElement {
         <span>{name}</span> / <span>{field}</span>
       </div>
 
-      <div className="content">{content}</div>
+      <div className="content">
+        {content.split('<br />').map((txt, index) => (
+          <div key={index}>
+            {txt}
+            <br />
+          </div>
+        ))}
+      </div>
     </Container>
   );
 }
