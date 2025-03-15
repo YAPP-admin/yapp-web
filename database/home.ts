@@ -29,39 +29,34 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: 'Few',
-    link: '/project/24th/few',
-    image: '/assets/project/24_thumbnail_few.png',
+    title: 'BREWLOUNGE 브루라운지',
+    link: '/project/25th/brewlounge',
+    image: '/assets/project/25_thumbnail_brewlounge.png',
   },
   {
-    title: 'InspoMailClub',
-    link: '/project/24th/inspo_mail_club',
-    image: '/assets/project/24_thumbnail_inspo_mail_club.png',
+    title: '그라밋',
+    link: '/project/25th/gradmeet',
+    image: '/assets/project/25_thumbnail_gradmeet.png',
   },
   {
-    title: 'MAFOO',
-    link: '/project/24th/mafoo',
-    image: '/assets/project/24_thumbnail_mafoo.png',
+    title: '인스테드',
+    link: '/project/25th/instead',
+    image: '/assets/project/25_thumbnail_instead.png',
   },
   {
-    title: 'Wespot',
-    link: '/project/24th/wespot',
-    image: '/assets/project/24_thumbnail_wespot.png',
+    title: 'Orbit',
+    link: '/project/25th/orbit',
+    image: '/assets/project/25_thumbnail_orbit.png',
   },
   {
-    title: 'Trouble Painter',
-    link: '/project/24th/trouble_painter',
-    image: '/assets/project/24_thumbnail_trouble_painter.png',
+    title: 'Piece',
+    link: '/project/25th/piece',
+    image: '/assets/project/25_thumbnail_piece.png',
   },
   {
-    title: 'Showpot',
-    link: '/project/24th/showpot',
-    image: '/assets/project/24_thumbnail_showpot.png',
-  },
-  {
-    title: 'Pokit',
-    link: '/project/24th/pokit',
-    image: '/assets/project/24_thumbnail_pokit.png',
+    title: 'TnT',
+    link: '/project/25th/TnT',
+    image: '/assets/project/25_thumbnail_TnT.png',
   },
 ];
 

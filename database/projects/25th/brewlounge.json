@@ -1,0 +1,73 @@
+{
+  "name": "브루라운지",
+  "title": "BREWLOUNGE",
+  "thumbnail": "/assets/project/25_thumbnail_brewlounge.png",
+  "content": [
+    "/assets/project/25_content_brewlounge_1.png",
+    "/assets/project/25_content_brewlounge_2.png",
+    "/assets/project/25_content_brewlounge_3.png"
+  ],
+  "tags": ["25기", "Web"],
+  "team": [
+    "방지원",
+    "윤채영",
+    "장민정",
+    "박한영",
+    "황유빈",
+    "김수민",
+    "이재혁"
+  ],
+  "field": ["Web"],
+  "generation": 25,
+  "program": [
+    "Next.js",
+    "TypeScript",
+    "Tanstack Query",
+    "Vanilla-Extract",
+    "Zustand",
+    "Kotlin",
+    "Spring Boot",
+    "MySQL",
+    "Docker"
+  ],
+  "retrospects": [
+    {
+      "name": "방지원",
+      "field": "PM",
+      "content": "부족한 PM 거둬주시느라 수고 많으셨습니다… 정말x3 많이 배웠어요. 앞으로도 커피 한 잔 마시는 사이가 되길 바라며…. ☕️🌿"
+    },
+    {
+      "name": "윤채영",
+      "field": "Design",
+      "content": "다함께 의견을 나누고, 피드백을 주고받는 과정에서 많은 걸 배울 수 있었습니다. 좋은 팀원들과 함께할 수 있어 즐겁고 값진 경험이었습니다.🥳"
+    },
+    {
+      "name": "장민정",
+      "field": "Design",
+      "content": "많이 배웠고 새로운 자극을 얻을 수 있어 좋았습니다. 특히 잘 몰랐던 커피의 세계를 알게되어 즐거웠어요. 고생 많으셨습니다!"
+    },
+    {
+      "name": "박한영",
+      "field": "Web",
+      "content": "멋진 사람들과 함께 해서 즐거운 시간이었습니다 ㅎㅎㅎㅎ"
+    },
+    {
+      "name": "황유빈",
+      "field": "Web",
+      "content": "짧은시간이었지만 좋은 만남 얻어가는 것 같아 앞으로도 많이 추억할 것 같습니다 😊"
+    },
+
+    {
+      "name": "김수민",
+      "field": "Server",
+      "content": "많이 부족하다는 걸 깨닫는 시간이었습니다. 부족한 부분을 채우고 싶었지만 그러지 못해 아쉬움이 남습니다. 앞으로도 이 팀과 함께하며 부족한 점을 보완하고 성장하는 모습을 보여드리겠습니다."
+    },
+    {
+      "name": "이재혁",
+      "field": "Server",
+      "content": "4개월이 짧게 느껴질만큼 열심히 해서 다들 고생하셨습니다."
+    }
+  ],
+  "webLink": "https://brewlounge.kr/",
+  "description": "맛있는 커피를 더 쉽게 찾아 마실 순 없을까요?<br />브루라운지는 카페의 공간, 거리, 가격 보다는 커피의 맛에 집중해 카페를 큐레이팅하는 서비스입니다. <br />주요 원두부터 산지, 향미, 시그니처 메뉴를 한눈에 파악하고, 선정 기준을 통해 카페에 어떤 스토리가 있는지 확인할 수 있어요. <br /><br />지금 브루라운지에서 당신만의 완벽한 커피를 찾아보세요!"
+}

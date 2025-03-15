@@ -12,7 +12,7 @@ function Tag({ label, ...rest }: Props): ReactElement {
 const Container = styled.div`
   padding: 5px 12px;
   display: inline-block;
-  background-color: ${({ theme }) => theme.palette.orange_400};
+  background-color: ${({ theme }) => theme.palette.blue_100};
   color: ${({ theme }) => theme.palette.white};
   border-radius: 31px;
   ${({ theme }) => theme.textStyle.web.Body_1};
