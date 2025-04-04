@@ -125,7 +125,7 @@ const BannerTitleBox = styled.div`
   ${media.mobile} {
     & > h3 {
       font-size: 3.6rem;
-      letter-spacing: -1rem;
+      letter-spacing: -0.032rem;
     }
   }
   ${media.small} {
