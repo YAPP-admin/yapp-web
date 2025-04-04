@@ -3,7 +3,7 @@ import type { MouseEvent, ReactElement } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import Banner25th from './Banner25th';
+import Banner26th from './Banner26th';
 
 function IntroSection(): ReactElement {
   const [isHover, setIsHover] = useState(false);
@@ -24,14 +24,14 @@ function IntroSection(): ReactElement {
       onMouseLeave={handleEnter}
       onMouseMove={handleMove}
     >
-      <Banner25th />
+      <Banner26th />
       <FloatingArrow />
     </IntroSectionContainer>
   );
 }
 
 const IntroSectionContainer = styled.div`
-  background-color: black;
+  background: linear-gradient(#bdeaff, #67b2ff);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -39,6 +39,9 @@ const IntroSectionContainer = styled.div`
   align-items: center;
   width: 100%;
   height: calc(100vh - 70px);
+  @media (max-height: 874px) {
+    height: 110vh;
+  }
   ${media.mobile} {
     height: calc(100vh - 64px);
   }
