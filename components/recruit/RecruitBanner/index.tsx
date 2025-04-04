@@ -4,15 +4,15 @@ import Yapp from 'constants/yapp';
 import {
   IS_RECRUITING,
   NEXT_GENERATION_RECRUIT_LINK,
-  RECRUIT_BANNER,
-  RECRUIT_BANNER_ACTIVE,
+  RECRUIT_BANNER_PRE,
 } from 'database/recruit';
 import DOMPurify from 'isomorphic-dompurify';
 import styled from 'styled-components';
 import media from 'styles/media';
 
 function RecruitBanner() {
-  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
+  // const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
+  const BannerInfo = RECRUIT_BANNER_PRE;
   const { title, description } = BannerInfo;
 
   return (
@@ -38,7 +38,8 @@ function RecruitBanner() {
             buttonColor="grey_850"
             borderColor="lightGrey"
           >
-            {IS_RECRUITING ? '모든 공고 보기' : '지원마감'}
+            {/* {IS_RECRUITING ? '모든 공고 보기' : '지원마감'} */}
+            모집 알림 신청하기
           </ApplyButton>
         </ButtonBlock>
       </BannerInner>

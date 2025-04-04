@@ -17,6 +17,11 @@ export const RECRUIT_BANNER = {
   description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2025년 4월에 예정되어 있습니다.`,
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
+export const RECRUIT_BANNER_PRE = {
+  title: 'YAPP 26기 모집 준비 중 🚧',
+  description: `YAPP 26기에서 6개월간 활동할 기획자(PM)/디자이너/개발자 신입 회원을 모집합니다.<br />IT 분야에 대한 열정과 의지가 넘쳐나고, 동아리에서 많은 사람들과 즐겁게 활동하고 싶은 분들의 많은 지원 바랍니다!`,
+  buttonName: '모집 알림 신청하기',
+};
 
 export const RECRUIT_BANNER_ACTIVE = {
   title: `YAPP<br class="mobile" /> ${Yapp.YAPP_GENERATION}기 모집`,
@@ -26,7 +31,7 @@ export const RECRUIT_BANNER_ACTIVE = {
 };
 
 export const NEXT_GENERATION_RECRUIT_LINK =
-  'https://docs.google.com/forms/d/1Pz_bPLk7olNj45XnakQIB6LNGE9MnaZenzowIQ-mPQ8/viewform?pli=1&pli=1&pli=1&edit_requested=true';
+  'https://forms.gle/Ag7ZHViSHX8m6R3V8';
 
 /** 모집 개요 */
 export const RECRUIT_OVERVIEW = {
