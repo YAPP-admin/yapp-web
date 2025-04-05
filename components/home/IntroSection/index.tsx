@@ -43,6 +43,9 @@ const IntroSectionContainer = styled.div`
     height: 110vh;
   }
   ${media.mobile} {
+    height: 110vh;
+  }
+  ${media.small} {
     height: calc(100vh - 64px);
   }
   overflow: hidden;
