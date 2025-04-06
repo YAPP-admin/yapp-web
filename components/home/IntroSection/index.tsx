@@ -1,4 +1,3 @@
-import { FloatingArrow } from 'components/common';
 import type { MouseEvent, ReactElement } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -25,7 +24,6 @@ function IntroSection(): ReactElement {
       onMouseMove={handleMove}
     >
       <Banner26th />
-      <FloatingArrow />
     </IntroSectionContainer>
   );
 }
@@ -40,10 +38,10 @@ const IntroSectionContainer = styled.div`
   width: 100%;
   height: calc(100vh - 70px);
   @media (max-height: 874px) {
-    height: 110vh;
+    height: 120vh;
   }
   ${media.mobile} {
-    height: 110vh;
+    height: 120vh;
   }
   ${media.small} {
     height: calc(100vh - 64px);

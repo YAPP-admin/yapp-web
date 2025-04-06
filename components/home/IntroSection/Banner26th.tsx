@@ -103,6 +103,9 @@ const Banner25thTextContentBox = styled.div`
     transform: translate3d(-50%, 0, 0);
     opacity: 1;
   }
+  ${media.small} {
+    gap: 4rem;
+  }
 `;
 
 const BannerTitleBox = styled.div`
