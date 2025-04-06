@@ -29,7 +29,7 @@ const Banner26th = () => {
         <StyledButton
           width={265}
           height={72}
-          borderRadius={20}
+          borderRadius={16}
           buttonColor={'blue_100'}
           fontColor={'white'}
           onClick={() => (window.location.href = NEXT_GENERATION_RECRUIT_LINK)}
@@ -37,7 +37,7 @@ const Banner26th = () => {
           ⏰ 26기 모집 알림 신청하기
         </StyledButton>
       </Banner25thTextContentBox>
-      <BannerBackgroundInner className={mounted ? 'appear' : ''} />;
+      <BannerBackgroundInner className={mounted ? 'appear' : ''} />
     </>
   );
 };
@@ -103,6 +103,9 @@ const Banner25thTextContentBox = styled.div`
     transform: translate3d(-50%, 0, 0);
     opacity: 1;
   }
+  ${media.small} {
+    gap: 4rem;
+  }
 `;
 
 const BannerTitleBox = styled.div`
@@ -122,18 +125,13 @@ const BannerTitleBox = styled.div`
     letter-spacing: -0.07rem;
     color: ${({ theme }) => theme.palette.black};
   }
-  ${media.mobile} {
-    & > h3 {
-      font-size: 3.6rem;
-      letter-spacing: -0.032rem;
-    }
-  }
+
   ${media.small} {
     top: 20%;
     gap: 1rem;
 
     & > h3 {
-      font-size: 2rem;
+      font-size: 3.6rem;
       letter-spacing: -0.032rem;
     }
   }
@@ -156,17 +154,24 @@ const BannerRecruitDateBox = styled.div`
 const YappuLogoBox = styled(YappuLogo)``;
 
 const YappSubTitleBox = styled.div`
-  font-size: 2.8rem;
+  font-size: 2.6rem;
+  font-weight: 600;
   color: ${({ theme }) => theme.palette.grey_700};
   margin-top: 1.4rem;
 
   ${media.small} {
+    font-size: 1.6rem;
   }
 `;
 
 const StyledButton = styled(Button)`
   ${media.mobile} {
+    font-size: 2rem;
+  }
+  ${media.small} {
+    font-size: 1.6rem;
     width: 229px;
     height: 59px;
+    border-radius: 12px;
   }
 `;
