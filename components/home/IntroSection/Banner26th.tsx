@@ -142,7 +142,7 @@ const BannerTitleBox = styled.div`
 `;
 const BannerTitleSpan = styled.span`
   color: ${({ theme }) => theme.palette.blue_100};
-  font-weight: 600;
+  font-weight: 800;
 `;
 const BannerRecruitDateBox = styled.div`
   color: ${({ theme }) => theme.palette.grey_700};
