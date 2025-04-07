@@ -120,7 +120,7 @@ const BannerTitleBox = styled.div`
     margin: 0;
     text-align: center;
     font-size: 6.8rem;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 125%;
     letter-spacing: -0.07rem;
     color: ${({ theme }) => theme.palette.black};
@@ -142,7 +142,6 @@ const BannerTitleBox = styled.div`
 `;
 const BannerTitleSpan = styled.span`
   color: ${({ theme }) => theme.palette.blue_100};
-  font-weight: 600;
 `;
 const BannerRecruitDateBox = styled.div`
   color: ${({ theme }) => theme.palette.grey_700};
