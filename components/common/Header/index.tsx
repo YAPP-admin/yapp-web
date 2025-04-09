@@ -10,8 +10,6 @@ import { Hamburger, YappLogo } from 'public/assets/icons';
 import { ReactElement, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import Button from '../Button';
-import { NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
@@ -48,17 +46,6 @@ function Header(): ReactElement {
                 <MenuText active={asPath === path}>{name}</MenuText>
               </Link>
             ))}
-            <Button
-              buttonColor={'blue_100'}
-              width={129}
-              height={39}
-              borderRadius={150}
-              onClick={() =>
-                (window.location.href = NEXT_GENERATION_RECRUIT_LINK)
-              }
-            >
-              <ButtonText>알림 신청하기</ButtonText>
-            </Button>
           </HeaderMenu>
           <MobileHeaderMenu onClick={handleToggleMenu} />
         </HeaderInner>
@@ -121,10 +108,6 @@ const MobileHeaderMenu = styled(Hamburger)`
     display: block;
     cursor: pointer;
   }
-`;
-const ButtonText = styled.span`
-  color: white;
-  font-size: 1.6rem;
 `;
 
 export default Header;
