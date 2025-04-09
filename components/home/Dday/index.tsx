@@ -18,7 +18,7 @@ function Dday(): ReactElement {
 
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       const diffHours = Math.floor(
-        (diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        (diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) - 9,
       );
       const diffMinutes = Math.floor(
         (diffTime % (1000 * 60 * 60)) / (1000 * 60),
