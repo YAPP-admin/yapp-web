@@ -29,7 +29,7 @@ function IntroSection(): ReactElement {
 }
 
 const IntroSectionContainer = styled.div`
-  background: linear-gradient(#bdeaff, #67b2ff);
+  background: linear-gradient(#d0efff, #76bbff);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -38,10 +38,10 @@ const IntroSectionContainer = styled.div`
   width: 100%;
   height: calc(100vh - 70px);
   @media (max-height: 874px) {
-    height: 120vh;
+    height: 100vh;
   }
   ${media.mobile} {
-    height: 120vh;
+    height: 100vh;
   }
   ${media.small} {
     height: calc(100vh - 64px);
