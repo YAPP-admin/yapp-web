@@ -21,24 +21,20 @@
   "field": ["Android", "iOS"],
   "generation": 25,
   "program": [
-    "next.js",
-    "next-auth",
-    "react-query",
-    "react-qr-scanner",
-    "zustand",
-    "html-to-image",
-    "ffmpeg/ffmpeg",
-    "web RTC",
-    "aws amplify",
     "Java",
-    "SpringBoot",
+    "Spring Boot",
     "MySQL",
-    "R2DBC",
-    "WebFlux",
-    "Reactor",
-    "Kubernetes",
-    "MSA(Micro Service Architecture)",
-    "ArgoCD"
+    "Redis",
+    "AWS",
+    "FCM",
+    "Scouter",
+    "Tuist",
+    "TCA",
+    "Swift-Dependencies",
+    "Clean Architecture",
+    "MVI",
+    "Jetpack Compose",
+    "Kotlin"
   ],
   "retrospects": [
     {
@@ -88,5 +84,7 @@
       "content": "팀원분들이 다들 잘하시면서 열정까지 있으신 덕분에 부족한 부분에 대해 배워가는 것도 많고, 좋은 사람들 알게 되어서 만족합니다.<br /><br />특히 문제점을 끊임없이 찾고 해결 방안에 대해 깊게 생각하는 과정을 통해 개발과 서비스 관점에서 바라보는 시각이나 생각의 폭을 넓힐 수 있어서 좋았습니다.<br /><br />TnT 서비스는 앞으로도 계속 디벨롭이 될 예정이고 많은 어려움을 마주하겠지만, 이렇게 훌륭한 팀원들과 함께라면 두려울 것이 없다고 생각합니다."
     }
   ],
+  "deployLink": "https://apps.apple.com/kr/app/tnt-트레이너와-회원의-pt-관리/id6741855834",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=co.kr.tnt&hl=ko",
   "description": "트레이너는 회원 개개인의 운동 진행 상황을 체계적으로 관리하기 어렵고, 효과적인 피드백을 제공하는 과정이 비효율적입니다.<br />트레이니는 수업 외에도 지속적인 운동 및 식단 관리를 원하지만 트레이너와의 원활한 소통이 쉽지 않아 PT 효과가 반감되는 경우가 많죠.<br /><br />트레이너를 위해선 PT 수업의 스케쥴 및 회원 관리, 트레이니를 위해선 수업 및 기록 관리가 결합된 서비스가 필요합니다.<br />TnT를 통해 PT 운동을 더 효율적으로 관리하며 트레이너와 회원 간 케미를 터트려 보세요!"
 }
