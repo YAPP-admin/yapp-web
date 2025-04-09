@@ -1,46 +1,36 @@
-import { Box, Button } from 'components/common';
+import { Box } from 'components/common';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import Dday from '../Dday';
-import YappuLogo from 'public/assets/images/26th/illust_mini.svg';
-import { NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
 
 const Banner26th = () => {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
     <>
-      <Banner25thTextContentBox className={mounted ? 'appear' : ''}>
+      <Banner26thTextContentBox className={mounted ? 'appear' : ''}>
         <BannerTitleBox>
-          <YappuLogoBox />
-          <YappSubTitleBox>탐색을 넘어 세상을 넓혀가는</YappSubTitleBox>
+          <StyledBox width={143} height={35} borderRadius={999} color="white">
+            26th Recruiting
+          </StyledBox>
           <h3>
-            <BannerTitleSpan>26기의 주인공</BannerTitleSpan>이
-            <br />
-            되어주세요
+            <BannerSubTitleBox>
+              <span>야뿌 동산에</span> <MoYappBox />
+            </BannerSubTitleBox>
+            26기에 함께 할 야뿌를 찾습니다
           </h3>
-          <BannerRecruitDateBox>4.10 (목) - 4.20 (일)</BannerRecruitDateBox>
         </BannerTitleBox>
-        <Dday />
-        <StyledButton
-          width={265}
-          height={72}
-          borderRadius={16}
-          buttonColor={'blue_100'}
-          fontColor={'white'}
-          onClick={() => (window.location.href = NEXT_GENERATION_RECRUIT_LINK)}
-        >
-          ⏰ 26기 모집 알림 신청하기
-        </StyledButton>
-      </Banner25thTextContentBox>
+      </Banner26thTextContentBox>
+
       <BannerBackgroundInner className={mounted ? 'appear' : ''} />
     </>
   );
 };
+
 export default Banner26th;
 
 const BannerBackgroundInner = styled.div`
@@ -50,9 +40,8 @@ const BannerBackgroundInner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('/assets/images/26th/banner-pc.png'),
-    linear-gradient(#bdeaff, #67b2ff);
-  transform: scale(0.8);
+
+  transform: scale(1.2);
   opacity: 0;
   transition: transform 2s ease, opacity 2s ease;
 
@@ -64,27 +53,20 @@ const BannerBackgroundInner = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background-image: url('/assets/images/26th/banner-pc.png');
 
   ${media.mobile} {
-    background: url('/assets/images/26th/banner-tablet.png'),
-      linear-gradient(#bdeaff, #67b2ff);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-image: url('/assets/images/26th/banner-tablet.png');
   }
 
   ${media.small} {
-    background: url('/assets/images/26th/banner-mobile.png'),
-      linear-gradient(#bdeaff, #67b2ff);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-image: url('/assets/images/26th/banner-mobile.png');
   }
 `;
 
-const Banner25thTextContentBox = styled.div`
+const Banner26thTextContentBox = styled.div`
   position: absolute;
-  top: 10%;
+  top: 10.4rem;
   left: 50%;
   z-index: 20;
   flex: 1;
@@ -94,7 +76,8 @@ const Banner25thTextContentBox = styled.div`
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  gap: 8rem;
+  gap: 43px;
+
   transition: transform 2s ease, opacity 2s ease;
   transform: translate3d(-50%, -2rem, 0);
   opacity: 0;
@@ -104,13 +87,13 @@ const Banner25thTextContentBox = styled.div`
     opacity: 1;
   }
   ${media.small} {
-    gap: 4rem;
+    top: 8.4rem;
   }
 `;
 
 const BannerTitleBox = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 1.6rem;
   height: fit-content;
   flex-direction: column;
   justify-content: center;
@@ -119,58 +102,69 @@ const BannerTitleBox = styled.div`
   & > h3 {
     margin: 0;
     text-align: center;
-    font-size: 6.8rem;
+    font-size: 6rem;
     font-weight: 800;
-    line-height: 125%;
-    letter-spacing: -0.07rem;
+    line-height: 140%;
+    letter-spacing: -4%;
     color: ${({ theme }) => theme.palette.black};
   }
-
-  ${media.small} {
-    top: 20%;
-    gap: 1rem;
-
+  ${media.mobile} {
     & > h3 {
-      font-size: 3.6rem;
-      letter-spacing: -0.032rem;
+      font-size: 5.4rem;
     }
   }
-
   ${media.small} {
-    gap: 0.8rem;
-  }
-`;
-const BannerTitleSpan = styled.span`
-  color: ${({ theme }) => theme.palette.blue_100};
-`;
-const BannerRecruitDateBox = styled.div`
-  color: ${({ theme }) => theme.palette.grey_700};
-  font-weight: 600;
-  font-size: 2.6rem;
-  margin-top: 4rem;
-`;
-
-const YappuLogoBox = styled(YappuLogo)``;
-
-const YappSubTitleBox = styled.div`
-  font-size: 2.6rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.palette.grey_700};
-  margin-top: 1.4rem;
-
-  ${media.small} {
-    font-size: 1.6rem;
+    gap: 1.2rem;
+    & > h3 {
+      font-size: 2.6rem;
+    }
   }
 `;
 
-const StyledButton = styled(Button)`
+const BannerSubTitleBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > span {
+    font-size: 5.6rem;
+  }
   ${media.mobile} {
-    font-size: 2rem;
+    & > span {
+      font-size: 5rem;
+    }
   }
   ${media.small} {
-    font-size: 1.6rem;
-    width: 229px;
-    height: 59px;
-    border-radius: 12px;
+    & > span {
+      font-size: 2.2rem;
+    }
+  }
+`;
+const MoYappBox = styled.div`
+  width: 411px;
+  height: 92px;
+  background: url('/assets/images/26th/moyapp.png') no-repeat center;
+
+  ${media.small} {
+    width: 193px;
+    height: 43.15px;
+    background: url('/assets/images/26th/moyapp-mobile.png') no-repeat center;
+  }
+`;
+
+const StyledBox = styled(Box)`
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -2%;
+  text-align: center;
+  line-height: 35px;
+
+  ${media.small} {
+    width: 108px;
+    height: 29px;
+    font-size: 1.1rem;
+    line-height: 29px;
   }
 `;

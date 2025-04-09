@@ -2,11 +2,11 @@
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간 🕙',
-    content: '14년',
+    content: '15년',
   },
   {
     title: '운영 기수 ⛳️',
-    content: '25기',
+    content: '26기',
   },
   {
     title: '현재 활동 회원 🏃🏻‍♀️',
@@ -14,15 +14,15 @@ export const CURRENT_INFO_DATA = [
   },
   {
     title: '누적 활동 인원 👩🏻',
-    content: '450+명',
+    content: '500+명',
   },
   {
     title: '런칭 서비스 📱',
-    content: '55+개',
+    content: '60+개',
   },
   {
     title: '누적 앱 다운로드 ⬇️',
-    content: '378,658',
+    content: '400,000+',
   },
 ];
 
@@ -63,6 +63,14 @@ export const CAROUSEL_DATA = [
 /** Social News Card */
 // 태그 형식 가능합니다.
 export const NEWS_DATA = [
+  {
+    image: '/assets/images/26th/social.png',
+    link: 'https://www.instagram.com/about.yapp/',
+    content: `🌱 YAPP 26기 신규 회원 모집 OPEN 🌱<br />
+4월 10일 (목) ~ 4월 20일 (일) 23시 59분까지 YAPP 26기 신규 회원을 모집해요.
+야뿌 동산에서 함께 탐색하고 시너지를 만들며, 더 멀리 나아갈 예비 야뿌들을 기다립니다! 많은 관심과 지원 부탁드려요!
+    `,
+  },
   {
     image: '/assets/images/25th/social.png',
     link: 'https://www.instagram.com/about.yapp/',
@@ -106,14 +114,6 @@ export const NEWS_DATA = [
     🙋‍♀️ YAPP?
     YAPP은 다양한 아이디어와 열정, 그리고 가능성을 바탕으로 의미있는 일을 추구하는, 기존에 없던 새로운 가치를 만들기 위해 노력하는 '기업형 IT 연합 동아리'입니다.
     열정 넘치는 기획자 / 디자이너 / 개발자를 기다리고 있습니다. 서비스 런칭을 꿈꾸는 모든 분들의 많은 관심과 지원 부탁드립니다.`,
-  },
-  {
-    image: '/assets/images/social3.png',
-    link: 'https://www.instagram.com/about.yapp/',
-    content: `안녕하세요! YAPP 20기 운영진입니다 🤗
-    드디어 3월 6일 오늘부터, 3월 17일(목) 오후 11시 59분까지
-    YAPP의 20기로 함께할 신규 회원을 모집합니다!
-    YAPP에서 열정과 아이디어 충만한 기획자, 사용자 중심의 UI와 UX를 설계하는 디자이너, 직접 새로운 서비스를 런칭해보...`,
   },
 ];
 
