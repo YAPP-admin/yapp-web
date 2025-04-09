@@ -84,7 +84,7 @@ function Project({ projects }: ProjectProps) {
         <ProjectTitleWrapper>
           기획부터 런칭까지,
           <br />
-          다양한 프로젝트를
+          다양한 프로젝트를&nbsp;
           {windowWidth <= Breakpoints.medium && <br />}
           경험해 보세요!
         </ProjectTitleWrapper>
