@@ -40,7 +40,7 @@ function AnimatedButton({
       </svg> */}
       <span className="textgroup">
         <span className="mainText">{buttonText}</span>
-        <span className="cloneText">{buttonText}</span>
+        <span className="cloneText">{`모집 알림 신청`}</span>
       </span>
     </ButtonStyled>
   );
@@ -59,6 +59,7 @@ const ButtonStyled = styled(Button)<{ variant?: AnimatedButtonVariant }>`
   }
 
   .cloneText {
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
