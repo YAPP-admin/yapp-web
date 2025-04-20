@@ -9,12 +9,12 @@ import Yapp from 'constants/yapp';
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
-  description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2025년 4월에 예정되어 있습니다.`,
+  description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2025년 10월에 예정되어 있습니다.`,
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
 };
 export const RECRUIT_BANNER_PRE = {
@@ -31,7 +31,7 @@ export const RECRUIT_BANNER_ACTIVE = {
 };
 
 export const NEXT_GENERATION_RECRUIT_LINK =
-  'https://forms.gle/Ag7ZHViSHX8m6R3V8';
+  'https://forms.gle/9nABygW4JPaX5rfv6';
 
 /** 모집 개요 */
 export const RECRUIT_OVERVIEW = {
