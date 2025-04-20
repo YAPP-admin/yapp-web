@@ -3,6 +3,7 @@ import { SectionTemplate } from 'components/home';
 import Path from 'constants/path';
 import {
   IS_RECRUITING,
+  NEXT_GENERATION_RECRUIT_LINK,
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
@@ -41,7 +42,7 @@ function AnimatedTextSection(): ReactElement {
         buttonText={buttonName}
         onClick={() => {
           if (!IS_RECRUITING) {
-            // window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
+            window.location.href = NEXT_GENERATION_RECRUIT_LINK;
             return;
           }
 
