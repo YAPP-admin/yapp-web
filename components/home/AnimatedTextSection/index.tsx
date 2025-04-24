@@ -55,7 +55,7 @@ function AnimatedTextSection(): ReactElement {
 }
 
 const AnimatedTextSectionContainer = styled(SectionTemplate)`
-  height: 100vh;
+  min-height: 100vh;
   ${({ theme }) => theme.textStyle.web.Body_Point}
   ${media.mobile} {
     .intro-text {
