@@ -132,7 +132,11 @@ export const SPONSOR_DATA = [
     alt: 'sponsor elice',
   },
   {
-    image: '/assets/sponsors/sponsor_inflearn.png',
-    alt: 'sponsor inflearn',
+    image: '/assets/sponsors/sponsor_goorm.png',
+    alt: 'sponsor goorm',
+  },
+  {
+    image: '/assets/sponsors/sponsor_fiveSpot.png',
+    alt: 'sponsor fiveSpot',
   },
 ];
