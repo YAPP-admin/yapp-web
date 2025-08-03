@@ -7,7 +7,7 @@ import {
   RECRUIT_BANNER,
   RECRUIT_BANNER_ACTIVE,
 } from 'database/recruit';
-import lottie from 'lottie-web';
+
 import { useRouter } from 'next/router';
 import type { ReactElement } from 'react';
 import { useEffect, useRef } from 'react';
@@ -22,13 +22,18 @@ function AnimatedTextSection(): ReactElement {
 
   const router = useRouter();
   useEffect(() => {
-    lottie.loadAnimation({
-      container: animatedTextRef.current as HTMLDivElement,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: require('public/assets/lottie/motion.json'),
-    });
+    const loadAnimation = async () => {
+      const lottie = await import('lottie-web');
+      const animationData = await import('public/assets/lottie/motion.json');
+      lottie.default.loadAnimation({
+        container: animatedTextRef.current as HTMLDivElement,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: animationData.default,
+      });
+    };
+    loadAnimation();
   }, []);
 
   return (
