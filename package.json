@@ -1,9 +1,6 @@
 {
   "name": "yapp-web",
   "private": true,
-  "engines": {
-    "node": "v22.14.0"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
