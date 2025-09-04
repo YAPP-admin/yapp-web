@@ -12,6 +12,7 @@ function ProjectContent({ project }: Props): ReactElement {
   const {
     deployLink,
     playStoreLink,
+    oneStoreLink,
     webLink,
     linkTreeLink,
     description,
@@ -82,6 +83,12 @@ function ProjectContent({ project }: Props): ReactElement {
         {playStoreLink && (
           <Link href={playStoreLink} passHref>
             <DeployLinkButton target="_blank">Play Store</DeployLinkButton>
+          </Link>
+        )}
+        {/* One Store 링크 */}
+        {oneStoreLink && (
+          <Link href={oneStoreLink} passHref>
+            <DeployLinkButton target="_blank">One Store</DeployLinkButton>
           </Link>
         )}
       </DeployBox>
