@@ -20,6 +20,7 @@ export interface Project {
   deployLink?: string | null;
   playStoreLink?: string;
   linkTreeLink?: string;
+  oneStoreLink?: string;
   webLink?: string;
   description: string;
 }

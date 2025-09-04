@@ -29,34 +29,39 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: 'BREWLOUNGE 브루라운지',
-    link: '/project/25th/brewlounge',
-    image: '/assets/project/25_thumbnail_brewlounge.png',
+    title: 'Lettie',
+    link: '/project/26th/lettie',
+    image: '/assets/project/26_thumbnail_lettie.png',
   },
   {
-    title: '그라밋',
-    link: '/project/25th/gradmeet',
-    image: '/assets/project/25_thumbnail_gradmeet.png',
+    title: 'Ssok',
+    link: '/project/26th/ssok',
+    image: '/assets/project/26_thumbnail_ssok.png',
   },
   {
-    title: '인스테드',
-    link: '/project/25th/instead',
-    image: '/assets/project/25_thumbnail_instead.png',
+    title: '잇다',
+    link: '/project/26th/eatda',
+    image: '/assets/project/26_thumbnail_eatda.png',
   },
   {
-    title: 'Orbit',
-    link: '/project/25th/orbit',
-    image: '/assets/project/25_thumbnail_orbit.png',
+    title: 'FitRun',
+    link: '/project/26th/fitrun',
+    image: '/assets/project/26_thumbnail_fitrun.png',
   },
   {
-    title: 'Piece',
-    link: '/project/25th/piece',
-    image: '/assets/project/25_thumbnail_piece.png',
+    title: '빛나길',
+    link: '/project/26th/bitnagil',
+    image: '/assets/project/26_thumbnail_bitnagil.png',
   },
   {
-    title: 'TnT',
-    link: '/project/25th/TnT',
-    image: '/assets/project/25_thumbnail_TnT.png',
+    title: 'brake',
+    link: '/project/26th/brake',
+    image: '/assets/project/26_thumbnail_brake.png',
+  },
+  {
+    title: 'Reed',
+    link: '/project/26th/reed',
+    image: '/assets/project/26_thumbnail_reed.jpg',
   },
 ];
 
