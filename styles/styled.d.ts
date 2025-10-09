@@ -11,6 +11,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     palette: PaletteTypes;
     textStyle: TextStyleTypes;
+    textStyleV2: TextStyleV2Types;
     fontSize: FontSizeTypes;
     fontWeight: FontWeightTypes;
     lineHeight: LineHeightTypes;
