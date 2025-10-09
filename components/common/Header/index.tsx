@@ -57,8 +57,9 @@ function Header(): ReactElement {
 
 const HeaderBlock = styled.header`
   width: 100%;
-  background-color: ${({ theme }) => theme.palette.grey_900};
-  color: ${({ theme }) => theme.palette.white};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
+  background-color: ${({ theme }) => theme.palette.black_10};
+  color: ${({ theme }) => theme.palette.white_50};
   position: sticky;
   top: 0;
   z-index: 5000;
@@ -98,7 +99,7 @@ const HeaderMenu = styled.div`
 const MenuText = styled.a<{ active: boolean }>`
   cursor: pointer;
   color: ${({ theme, active }) =>
-    active ? theme.palette.blue_100 : theme.palette.white};
+    active ? theme.palette.white : theme.palette.white_50};
   ${({ theme }) => theme.textStyle.web.Category};
 `;
 

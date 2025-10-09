@@ -38,6 +38,8 @@ function HamburgerMenu({ handleOpenMenu }: HamburgerMenuProps): ReactElement {
 }
 
 const HamburgerMenuContainer = styled.div`
+  background-color: ${({ theme }) => theme.palette.black_50};
+  backdrop-filter: blur(30px);
   position: fixed;
   top: 0;
   width: 100%;
@@ -65,14 +67,15 @@ const MenuList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 32px;
 `;
 
 const MenuItem = styled.a<{ active: boolean }>`
   cursor: pointer;
-  ${({ theme }) => theme.textStyle.mobile.Title_1}
+  ${({ theme }) => theme.textStyleV2.fix.font_20}
   color: ${({ theme, active }) =>
-    active ? theme.palette.blue_100 : theme.palette.white};
+    active ? theme.palette.white : theme.palette.white_50};
 `;
 
 const Background = styled.div`

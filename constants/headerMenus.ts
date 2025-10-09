@@ -2,19 +2,19 @@ import Path from './path';
 
 export const HEADER_MENUS = [
   {
-    name: 'HOME',
+    name: '얍 소개',
     path: Path.Home,
   },
   {
-    name: 'PROJECT',
+    name: '모집 안내',
     path: Path.Project,
   },
   {
-    name: 'RECRUIT',
+    name: '프로젝트',
     path: Path.Recruit,
   },
   {
-    name: 'CONTACT',
-    path: Path.Contact,
+    name: '얍 활동',
+    path: Path.Activity,
   },
 ];

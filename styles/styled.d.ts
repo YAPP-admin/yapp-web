@@ -3,6 +3,7 @@ import {
   LineHeightTypes,
   FontSizeTypes,
   FontWeightTypes,
+  TextStyleV2Types,
   PaletteTypes,
   TextStyleTypes,
 } from './theme';
