@@ -1,5 +1,5 @@
 import fs from 'fs';
-import glob from 'glob';
+import * as glob from 'glob';
 import { Project } from 'types/project';
 
 const POSTS_PATH = `${process.cwd()}/database/projects`; // Database 위치

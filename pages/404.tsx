@@ -18,7 +18,12 @@ function Custom404(): ReactElement {
           </div>
         </TextContainer>
         <ImageContainer>
-          <Image src={Illust_404} layout="fill" objectFit="contain"></Image>
+          <Image
+            src={Illust_404}
+            layout="fill"
+            objectFit="contain"
+            alt="404 illustration"
+          ></Image>
         </ImageContainer>
       </ContentContainer>
       <StyledButton
