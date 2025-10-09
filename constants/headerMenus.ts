@@ -15,6 +15,6 @@ export const HEADER_MENUS = [
   },
   {
     name: '얍 활동',
-    path: Path.Activity,
+    path: Path.Story,
   },
 ];

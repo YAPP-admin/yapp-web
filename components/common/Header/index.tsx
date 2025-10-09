@@ -100,7 +100,7 @@ const MenuText = styled.a<{ active: boolean }>`
   cursor: pointer;
   color: ${({ theme, active }) =>
     active ? theme.palette.white : theme.palette.white_50};
-  ${({ theme }) => theme.textStyle.web.Category};
+  ${({ theme }) => theme.textStyleV2.fix.font_15};
 `;
 
 const MobileHeaderMenu = styled(Hamburger)`
