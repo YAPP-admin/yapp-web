@@ -20,6 +20,8 @@ const Yapp = {
   YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/152056',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
+  YAPP_MEDIUM: 'https://medium.com/@about.yapp',
+  YAPP_LINKEDIN: 'https://www.linkedin.com/company/yappu/',
 } as const;
 
 export default Yapp;
