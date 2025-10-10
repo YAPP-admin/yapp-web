@@ -21,6 +21,13 @@ const nextConfig = {
   },
   images: {
     formats: ['image/webp'],
+    domains: ['miro.medium.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'miro.medium.com',
+      },
+    ],
   },
 };
 
