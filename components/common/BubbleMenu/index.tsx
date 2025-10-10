@@ -1,8 +1,9 @@
 import { FieldNameTypes } from 'components/recruit/RecruitField';
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
+import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
-import { ProjectField } from 'types/project';
+import { ProjectField, TAB_LABELS } from 'types/project';
 
 interface IButtonMenuStyle {
   backgroundColor?: PaletteKeyTypes;
@@ -35,7 +36,7 @@ function ButtonMenu({
           onClick={() => onClick(tab)}
           isActive={currentTab === tab}
         >
-          {tab}
+          {TAB_LABELS[tab] || tab}
         </ButtonMenuButton>
       ))}
     </ButtonMenuContainer>
@@ -57,8 +58,12 @@ const ButtonMenuButton = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   z-index: 100;
 
-  ${({ theme }) => theme.textStyle.mobile.Body_Point2};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   transition: all 0.5s;
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  }
+
   ${({ isActive, theme }) =>
     isActive
       ? css`
@@ -66,7 +71,7 @@ const ButtonMenuButton = styled.div<{ isActive: boolean }>`
           background-color: ${theme.palette.orange_400};
         `
       : css`
-          color: ${theme.palette.black};
+          color: ${theme.palette.black_50};
           background-color: ${theme.palette.white};
         `}
 `;

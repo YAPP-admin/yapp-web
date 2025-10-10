@@ -7,11 +7,11 @@ export const HEADER_MENUS = [
   },
   {
     name: '모집 안내',
-    path: Path.Project,
+    path: Path.Recruit,
   },
   {
     name: '프로젝트',
-    path: Path.Recruit,
+    path: Path.Project,
   },
   {
     name: '얍 활동',

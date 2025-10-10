@@ -40,6 +40,7 @@ const StyledButton = styled.button<IButtonStyle>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  padding: 8px 20px;
 
   ${({ width, height }) =>
     css`
@@ -52,18 +53,18 @@ const StyledButton = styled.button<IButtonStyle>`
     fontColor = 'black',
     buttonColor = 'white',
     hasBorder = false,
-    borderRadius = 150,
+    borderRadius = 99,
     borderColor = 'white',
   }) => css`
     border-radius: ${borderRadius}px;
     color: ${theme.palette[fontColor]};
     background-color: ${theme.palette[buttonColor]};
     border: ${hasBorder ? '1px solid' : 'none'};
-    border-color: ${theme.palette[borderColor]}};
+    border-color: ${theme.palette[borderColor]};
   `};
 
   /* Text Style */
-  ${({ theme }) => theme.textStyle.web.Button}
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md}
   ${media.mobile} {
     ${({ theme }) => theme.textStyle.mobile.Button}
   }

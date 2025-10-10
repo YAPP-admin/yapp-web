@@ -63,19 +63,16 @@ const HeaderBlock = styled.header`
   position: sticky;
   top: 0;
   z-index: 5000;
+  margin-top: -100px;
 `;
 
 const HeaderInner = styled.div`
-  width: ${Breakpoints.large}px;
   height: 70px;
-  margin: 0 auto;
+  margin: 0 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${media.tablet} {
-    width: auto;
-    padding: 0 81px;
-  }
+
   ${media.mobile} {
     padding: 0 20px;
     height: 64px;

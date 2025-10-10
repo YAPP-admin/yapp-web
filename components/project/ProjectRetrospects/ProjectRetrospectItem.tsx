@@ -1,4 +1,4 @@
-import { Box } from 'components/common';
+import { Badge, Box } from 'components/common';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -13,7 +13,10 @@ function ProjectRetrospectItem({ retrospect }: Props): ReactElement {
   return (
     <Container width={585} backgroundColor="grey_50">
       <div className="title">
-        <span>{name}</span> / <span>{field}</span>
+        <Badge backgroundColor="black_100" typoColor="white_100">
+          {field}
+        </Badge>
+        <span>{name}</span>
       </div>
 
       <div className="content">
@@ -48,12 +51,21 @@ const Container = styled(Box)`
     margin-bottom: 20px;
   }
   .title {
-    ${({ theme }) => theme.textStyle.web.Subtitle_2}
-    margin-bottom:24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    ${({ theme }) => theme.textStyleV2.resp.subtitle_md}
+    margin-bottom:10px;
     ${media.mobile} {
-      ${({ theme }) => theme.textStyle.mobile.Subtitle};
+      ${({ theme }) => theme.textStyleV2.resp.subtitle_sm}
       margin-bottom: 10px;
     }
+  }
+
+  .content {
+    color: ${({ theme }) => theme.palette.black_100};
+    ${({ theme }) => theme.textStyleV2.fix.font_15}
+    white-space: normal;
   }
 `;
 

@@ -1,8 +1,15 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media from 'styles/media';
+import theme from 'styles/theme';
 import { Project } from 'types/project';
+import {
+  BtnArrowRight,
+  AppStore,
+  PlayStore,
+  WebLink,
+} from 'public/assets/icons';
 
 interface Props {
   project: Project;
@@ -68,21 +75,33 @@ function ProjectContent({ project }: Props): ReactElement {
         {/* Web 링크 */}
         {webLink && (
           <Link href={webLink} passHref>
-            <DeployLinkButton target="_blank">Web</DeployLinkButton>
+            <DeployLinkButton target="_blank">
+              <WebLink />
+              Web
+              <BtnArrowRight />
+            </DeployLinkButton>
           </Link>
         )}
 
         {/* App 링크(24기 이전에는 aos 또는 ios, 24기 이후로는 ios) */}
         {deployLink && (
           <Link href={deployLink} passHref>
-            <DeployLinkButton target="_blank">App store</DeployLinkButton>
+            <DeployLinkButton target="_blank">
+              <AppStore />
+              App Store
+              <BtnArrowRight />
+            </DeployLinkButton>
           </Link>
         )}
 
         {/* Play Store 링크 */}
         {playStoreLink && (
           <Link href={playStoreLink} passHref>
-            <DeployLinkButton target="_blank">Play Store</DeployLinkButton>
+            <DeployLinkButton target="_blank">
+              <PlayStore />
+              Play Store
+              <BtnArrowRight />
+            </DeployLinkButton>
           </Link>
         )}
         {/* One Store 링크 */}
@@ -123,15 +142,18 @@ const Description = styled.div`
 const SubTitle = styled.div`
   display: inline-block;
   width: 170px;
-  ${({ theme }) => theme.textStyle.web.Subtitle_2};
-  color: ${({ theme }) => theme.palette.grey_800};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+  color: ${({ theme }) => theme.palette.black_100};
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  }
 `;
 
 const BodyText = styled.div`
   display: flex;
   flex: 1;
-  ${({ theme }) => theme.textStyle.web.Body_1};
-  color: ${({ theme }) => theme.palette.grey_850};
+  ${({ theme }) => theme.textStyleV2.fix.font_18};
+  color: ${({ theme }) => theme.palette.black_70};
   flex-wrap: wrap;
 `;
 
@@ -142,6 +164,7 @@ const TextItem = styled.div`
 const DeployBox = styled.div`
   display: flex;
   justify-content: flex-start;
+  gap: 12px;
   ${media.tablet} {
     justify-content: center;
   }
@@ -153,27 +176,20 @@ const DeployBox = styled.div`
 `;
 
 const DeployLinkButton = styled.a`
-  padding: 20px 24px;
   cursor: pointer;
-  border-radius: 150px;
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  padding: 7px 18px 8px 18px;
   justify-content: center;
-  width: 148px;
-  box-sizing: border-box;
-  ${({ theme }) => css`
-    background-color: ${theme.palette.grey_850};
-    color: ${theme.palette.white};
-    ${theme.textStyle.web.Button_Point};
-  `}
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+
+  background-color: ${theme.palette.grey_850};
+  color: ${theme.palette.white};
+  ${theme.textStyleV2.resp.body_point_md};
 
   ${media.mobile} {
-    flex: 1;
-    width: 100%;
-    padding: 18px 24px;
-    ${({ theme }) => theme.textStyle.mobile.Button_Point};
-
-    margin-left: 0px !important;
+    ${theme.textStyleV2.resp.body_point_sm};
   }
 
   &:not(:first-child) {

@@ -1,4 +1,5 @@
 import { BubbleMenu, Button, ProjectCard, TabMenu } from 'components/common';
+import Banner from 'components/common/Banner';
 import Breakpoints from 'constants/breakpoints';
 import useSmoothScroll from 'hooks/useSmoothScroll';
 import useWindowDimensions from 'hooks/useWindowDimensions';
@@ -80,14 +81,11 @@ function Project({ projects }: ProjectProps) {
 
   return (
     <ProjectWrapper>
+      <Banner
+        title={`아이디어에서 런칭까지,\nYAPP의 서비스들`}
+        description={`YAPP에서 활동하는 구성원인\n‘야뿌’들이 만들어낸 프로젝트들이에요.`}
+      />
       <ProjectContainer ref={containerRef}>
-        <ProjectTitleWrapper>
-          기획부터 런칭까지,
-          <br />
-          다양한 프로젝트를&nbsp;
-          {windowWidth <= Breakpoints.medium && <br />}
-          경험해 보세요!
-        </ProjectTitleWrapper>
         <CategoriesWrapper ref={categoryRef}>
           {windowWidth > Breakpoints.medium ? (
             <TabMenu
@@ -126,13 +124,12 @@ function Project({ projects }: ProjectProps) {
         }).length > viewCardCount && (
           <ButtonWrapper>
             <StyledButton
-              width={148}
-              height={65}
               fontColor="white"
               buttonColor="grey_850"
+              borderRadius={99}
               onClick={handleMoreButtonClick}
             >
-              더보기
+              프로젝트 더보기
             </StyledButton>
           </ButtonWrapper>
         )}
@@ -148,11 +145,7 @@ const ProjectWrapper = styled.div`
   ${media.mobile} {
     align-items: normal;
   }
-  padding: 174px 0;
-  ${media.mobile} {
-    padding: 80px 0;
-  }
-  background-color: ${({ theme }) => theme.palette.grey_100};
+  background-color: ${({ theme }) => theme.palette.white};
 `;
 
 const ProjectContainer = styled.section`
@@ -161,21 +154,11 @@ const ProjectContainer = styled.section`
   margin: 0 10px;
 `;
 
-const ProjectTitleWrapper = styled.div`
-  ${({ theme }) => theme.textStyle.web.Title}
-  ${media.tablet} {
-    padding: 0 80px;
-  }
-  ${media.mobile} {
-    padding: 0 20px;
-    ${({ theme }) => theme.textStyle.mobile.Title_2};
-  }
-`;
-
 const CategoriesWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 140px;
+
   ${media.mobile} {
     padding-top: 80px;
   }
@@ -197,7 +180,7 @@ const ProjectGridWrapper = styled.div`
 
 const ButtonWrapper = styled.div`
   text-align: center;
-  margin-top: 56px;
+  margin: 56px 0 80px 0;
 `;
 
 const StyledButton = styled(Button)`

@@ -3,7 +3,7 @@ import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
-import { ProjectField } from 'types/project';
+import { ProjectField, TAB_LABELS } from 'types/project';
 
 interface ITabMenuStyle {
   backgroundColor?: PaletteKeyTypes;
@@ -33,18 +33,18 @@ function TabMenu({
           onClick={() => onClick(tab)}
           isActive={currentTab === tab}
         >
-          {tab}
+          {TAB_LABELS[tab] || tab}
         </TabMenuButton>
       ))}
-      <AnimatedBackground tabs={tabs} currentTab={currentTab} />
     </TabMenuContainer>
   );
 }
 
 const TabMenuContainer = styled.div<ITabMenuStyle>`
   display: inline-flex;
+  gap: 32px;
   position: relative;
-  height: 64px;
+  height: 48px;
   ${media.mobile} {
     height: 43px;
   }
@@ -57,56 +57,29 @@ const TabMenuButton = styled.div<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 196px;
   height: inherit;
+  cursor: pointer;
+  z-index: 2;
 
   ${media.tablet} {
-    min-width: 164px;
   }
   ${media.mobile} {
-    min-width: 95px;
-    ${({ theme }) => theme.textStyle.mobile.Body_Point2};
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 
-  ${({ theme }) => theme.textStyle.web.Subtitle};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   ${({ isActive }) =>
     isActive
       ? css`
-          color: ${({ theme }) => theme.palette.white};
+          color: #25282d;
+          border-bottom: 3px solid #25282d;
         `
       : css`
-          color: ${({ theme }) => theme.palette.grey_700};
+          color: ${({ theme }) => theme.palette.black_50};
         `}
 
   cursor: pointer;
   z-index: 100;
-`;
-
-// 움직이는 배경
-const AnimatedBackground = styled.span<
-  Pick<TabMenuProps, 'tabs' | 'currentTab'>
->`
-  position: absolute;
-  top: 0;
-  left: ${({ tabs, currentTab }) => tabs.indexOf(currentTab) * 196}px;
-  ${media.tablet} {
-    left: ${({ tabs, currentTab }) => tabs.indexOf(currentTab) * 164}px;
-  }
-  ${media.mobile} {
-    left: ${({ tabs, currentTab }) => tabs.indexOf(currentTab) * 95}px;
-  }
-  width: 196px;
-  height: inherit;
-  ${media.tablet} {
-    width: 164px;
-  }
-  ${media.mobile} {
-    width: 95px;
-  }
-
-  border-radius: 124px;
-  background-color: ${({ theme }) => theme.palette.blue_100};
-  transition: all 0.2s ease-in-out;
 `;
 
 export default TabMenu;
