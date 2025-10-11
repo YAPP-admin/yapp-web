@@ -61,8 +61,6 @@ const TabMenuButton = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   z-index: 2;
 
-  ${media.tablet} {
-  }
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }

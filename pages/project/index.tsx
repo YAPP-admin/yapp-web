@@ -1,6 +1,5 @@
-import { BubbleMenu, Button, ProjectCard, TabMenu } from 'components/common';
+import { Button, ProjectCard, TabMenu } from 'components/common';
 import Banner from 'components/common/Banner';
-import Breakpoints from 'constants/breakpoints';
 import useSmoothScroll from 'hooks/useSmoothScroll';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import { GetStaticProps } from 'next';
@@ -87,22 +86,12 @@ function Project({ projects }: ProjectProps) {
       />
       <ProjectContainer ref={containerRef}>
         <CategoriesWrapper ref={categoryRef}>
-          {windowWidth > Breakpoints.medium ? (
-            <TabMenu
-              tabs={PROJECT_CATEGORIES}
-              currentTab={category}
-              onClick={setCategory}
-              backgroundColor="white"
-            />
-          ) : (
-            <BubbleMenu
-              className="scroll-none"
-              tabs={PROJECT_CATEGORIES}
-              currentTab={category}
-              onClick={setCategory}
-              backgroundColor="white"
-            />
-          )}
+          <TabMenu
+            tabs={PROJECT_CATEGORIES}
+            currentTab={category}
+            onClick={setCategory}
+            backgroundColor="white"
+          />
         </CategoriesWrapper>
         <ProjectGridWrapper>
           {projects
