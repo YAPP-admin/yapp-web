@@ -15,8 +15,6 @@ function JoinSection(): ReactElement {
           <SectionTitle
             title="FIND YOUR BALANCE"
             subTitle={`지원하기 버튼 하나로\nYAPP 27기의 야뿌가 되어보세요.`}
-            fontColor="white_100"
-            subFontColor="white_50"
             align="center"
           />
           <StyledButton type="button" onClick={() => router.push('/recruit')}>

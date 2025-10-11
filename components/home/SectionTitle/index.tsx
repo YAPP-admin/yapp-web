@@ -14,8 +14,8 @@ interface SectionTitleProps {
 
 function SectionTitle({
   className,
-  fontColor = 'white_50',
-  subFontColor = 'white',
+  fontColor = 'white',
+  subFontColor = 'white_50',
   title = '',
   subTitle = '',
   align = 'left',
