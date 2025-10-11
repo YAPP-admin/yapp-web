@@ -11,7 +11,7 @@ interface BannerProps {
 
 function Banner({
   className,
-  backgroundImg = '',
+  backgroundImg = '/assets/images/27th/banner_project_story.png',
   title,
   description,
 }: BannerProps): ReactElement {
@@ -24,6 +24,8 @@ function Banner({
 }
 
 const StyledBox = styled.div<BannerProps>`
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url(${({ backgroundImg }) => backgroundImg});
   background-color: ${({ theme, backgroundImg }) =>
     !backgroundImg && theme.palette.grey_800};
@@ -39,8 +41,12 @@ const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   margin: 0 80px;
-  white-space: nowrap ${media.mobile} {
+  white-space: nowrap;
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.title1_sm};
     white-space: pre-line;
+    margin: 0 24px;
   }
 `;
 
@@ -48,8 +54,12 @@ const StyledDescription = styled.p`
   color: ${({ theme }) => theme.palette.white_50};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   margin: 0 80px;
-  white-space: nowrap ${media.mobile} {
+  white-space: nowrap;
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
     white-space: pre-line;
+    margin: 0 24px;
   }
 `;
 
