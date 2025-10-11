@@ -1,11 +1,21 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import SectionTemplate from '../SectionTemplate';
-import SectionTitle from '../SectionTitle';
+import SectionTemplate from '../../home/SectionTemplate';
+import SectionTitle from '../../home/SectionTitle';
 import { useRouter } from 'next/router';
 
-function JoinSection(): ReactElement {
+interface JoinSectionProps {
+  title?: string;
+  subTitle?: string;
+  btnText?: string;
+}
+
+function JoinSection({
+  title,
+  subTitle,
+  btnText,
+}: JoinSectionProps): ReactElement {
   const router = useRouter();
 
   return (
@@ -13,12 +23,14 @@ function JoinSection(): ReactElement {
       <ImageContainer>
         <InnerContainer>
           <SectionTitle
-            title="FIND YOUR BALANCE"
-            subTitle={`지원하기 버튼 하나로\nYAPP 27기의 야뿌가 되어보세요.`}
+            title={title || 'FIND YOUR BALANCE'}
+            subTitle={
+              subTitle || `지원하기 버튼 하나로\nYAPP 27기의 야뿌가 되어보세요.`
+            }
             align="center"
           />
           <StyledButton type="button" onClick={() => router.push('/recruit')}>
-            27기 지원하기
+            {btnText || '27기 지원하기'}
           </StyledButton>
         </InnerContainer>
       </ImageContainer>
@@ -55,7 +67,7 @@ const InnerContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 40px;
   top: 148px;
   left: 50%;
   transform: translateX(-50%);

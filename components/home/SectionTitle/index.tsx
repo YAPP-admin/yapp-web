@@ -35,13 +35,13 @@ const TitleBox = styled.div<{ align: 'left' | 'center' | 'right' }>`
   display: flex;
   flex-direction: column;
   align-items: ${({ align }) => align};
-  white-space: nowrap;
 `;
 
 const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
   margin-top: 8px;
   color: ${({ theme, subFontColor }) => theme.palette[subFontColor]};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
+  white-space: pre;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
@@ -51,6 +51,7 @@ const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
 const StyledTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
   color: ${({ theme, fontColor }) => theme.palette[fontColor]};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
+  white-space: pre;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
