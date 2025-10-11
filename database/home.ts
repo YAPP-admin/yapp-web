@@ -143,12 +143,8 @@ export const NEWS_DATA = [
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor_ncp.png',
-    alt: 'sponsor ncp',
-  },
-  {
-    image: '/assets/sponsors/sponsor_greeting.png',
-    alt: 'sponsor greeting',
+    image: '/assets/sponsors/sponsor_flab.png',
+    alt: 'sponsor F-Lab',
   },
   {
     image: '/assets/sponsors/sponsor_elice.png',
@@ -161,5 +157,9 @@ export const SPONSOR_DATA = [
   {
     image: '/assets/sponsors/sponsor_fiveSpot.png',
     alt: 'sponsor fiveSpot',
+  },
+  {
+    image: '/assets/sponsors/sponsor_greeting.png',
+    alt: 'sponsor greeting',
   },
 ];

@@ -66,7 +66,10 @@ const StyledButton = styled.button<IButtonStyle>`
   /* Text Style */
   ${({ theme }) => theme.textStyleV2.resp.body_point_md}
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Button}
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm}
+  }
+
+  &:hover {
   }
 
   &:disabled {

@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import {
   AnimatedTextSection,
   GridSection,
+  JoinSection,
   NewsSection,
   ProjectSection,
   SponsorSection,
@@ -17,6 +18,7 @@ function Home(): ReactElement {
       <ProjectSection />
       <NewsSection />
       <SponsorSection />
+      <JoinSection />
     </>
   );
 }

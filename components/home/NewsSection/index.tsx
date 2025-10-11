@@ -9,27 +9,34 @@ import media from 'styles/media';
 function MainContainer(): ReactElement {
   return (
     <SocialContainer>
-      <SectionTitle>따끈한 최신 소식</SectionTitle>
+      <SectionTitle
+        fontColor="black_100"
+        subFontColor="black_60"
+        align="left"
+        title="YAPP의 서비스들"
+        subTitle="YAPP에서 활동하는 구성원인 ‘야뿌’들이 만들어낸 프로젝트들이에요."
+      />
       <CardContainer>
         {NEWS_DATA.map((data, index) => {
           return <NewsCard key={index} data={data} />;
         })}
       </CardContainer>
-      <StyledButton
-        width={176}
-        height={65}
+      <Button
         fontColor="white"
         buttonColor="grey_850"
         onClick={() => window.open(Yapp.YAPP_FACEBOOK, '_blank')}
       >
-        소식 더보기
-      </StyledButton>
+        이야기 더보기
+      </Button>
     </SocialContainer>
   );
 }
 
 const SocialContainer = styled(SectionTemplate)`
-  padding: 200px 0;
+  padding: 200px 80px;
+  ${media.mobile} {
+    padding: 120px 20px;
+  }
 `;
 
 const CardContainer = styled.article`

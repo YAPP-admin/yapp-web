@@ -1,27 +1,54 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
 
 interface SectionTitleProps {
-  children: string | ReactNode;
   className?: string;
   fontColor?: PaletteKeyTypes;
+  subFontColor?: PaletteKeyTypes;
+  title?: string;
+  subTitle?: string;
+  align?: 'left' | 'center' | 'right';
 }
 
 function SectionTitle({
-  children,
   className,
-  fontColor = 'black',
+  fontColor = 'white_50',
+  subFontColor = 'white',
+  title = '',
+  subTitle = '',
+  align = 'left',
 }: SectionTitleProps): ReactElement {
   return (
-    <StyledSectionTitle className={className} fontColor={fontColor}>
-      {children}
-    </StyledSectionTitle>
+    <TitleBox align={align}>
+      <StyledTitle className={className} fontColor={fontColor}>
+        {title}
+      </StyledTitle>
+      <StyledSubTitle subFontColor={subFontColor}>{subTitle}</StyledSubTitle>
+    </TitleBox>
   );
 }
 
-const StyledSectionTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
+const TitleBox = styled.div<{ align: 'left' | 'center' | 'right' }>`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: ${({ align }) => align};
+  white-space: nowrap;
+`;
+
+const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
+  margin-top: 8px;
+  color: ${({ theme, subFontColor }) => theme.palette[subFontColor]};
+  ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
+  }
+`;
+
+const StyledTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
   color: ${({ theme, fontColor }) => theme.palette[fontColor]};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
 

@@ -9,17 +9,21 @@ import media from 'styles/media';
 function ProjectSection(): ReactElement {
   return (
     <ProjectContainer>
-      <SectionTitle>협업 결과물</SectionTitle>
+      <SectionTitle
+        fontColor="black_100"
+        subFontColor="black_60"
+        align="center"
+        title="YAPP 안의 사람들, 그리고 이야기"
+        subTitle="야뿌들의 성장 과정, 활동 후기, 밋업 현장과 다양한 이야기를 담고 있어요."
+      />
       <Carousel data={CAROUSEL_DATA} />
-      <StyledButton
-        width={176}
-        height={65}
+      <Button
         fontColor="white"
         buttonColor="grey_850"
         onClick={() => Router.push('/project')}
       >
         프로젝트 더보기
-      </StyledButton>
+      </Button>
     </ProjectContainer>
   );
 }
@@ -30,6 +34,7 @@ const ProjectContainer = styled(SectionTemplate)`
 
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
+
   &:hover {
     background-color: ${({ theme }) => theme.palette.grey_700};
   }

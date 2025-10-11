@@ -11,14 +11,10 @@ import CircusCard from 'components/common/CircusCard';
 function GridSection(): ReactElement {
   return (
     <GridSectionContainer>
-      <TitleBox>
-        <SectionTitle fontColor="white">
-          지금 YAPP은 이렇게 움직여요
-        </SectionTitle>
-        <SubTitle>
-          실무 기반 협업 시스템으로 운영되는 연합 기업형 IT 동아리
-        </SubTitle>
-      </TitleBox>
+      <SectionTitle
+        title="지금 YAPP은 이렇게 움직여요"
+        subTitle="실무 기반 협업 시스템으로 운영되는 연합 기업형 IT 동아리"
+      />
       <GridContainer>
         {CURRENT_INFO_DATA.map(
           ({ title, content, icon, color, fontColor }, index) => (
@@ -36,26 +32,6 @@ function GridSection(): ReactElement {
     </GridSectionContainer>
   );
 }
-
-const TitleBox = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-
-  color: ${({ theme }) => theme.palette.circus_blue};
-`;
-
-const SubTitle = styled.span`
-  margin-top: 8px;
-  color: ${({ theme }) => theme.palette.white_50};
-  ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
-
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
-  }
-`;
-
 const GridSectionContainer = styled(SectionTemplate)`
   width: auto;
   background-color: ${({ theme }) => theme.palette.black};
