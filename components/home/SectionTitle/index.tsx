@@ -1,27 +1,32 @@
 import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
+import { PaletteKeyTypes } from 'styles/theme';
 
 interface SectionTitleProps {
   children: string | ReactNode;
   className?: string;
+  fontColor?: PaletteKeyTypes;
 }
 
 function SectionTitle({
   children,
   className,
+  fontColor = 'black',
 }: SectionTitleProps): ReactElement {
   return (
-    <StyledSectionTitle className={className}>{children}</StyledSectionTitle>
+    <StyledSectionTitle className={className} fontColor={fontColor}>
+      {children}
+    </StyledSectionTitle>
   );
 }
 
-const StyledSectionTitle = styled.span`
-  text-align: center;
+const StyledSectionTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
+  color: ${({ theme, fontColor }) => theme.palette[fontColor]};
+  ${({ theme }) => theme.textStyleV2.resp.title1_md};
 
-  ${({ theme }) => theme.textStyle.web.Title};
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Title_2};
+    ${({ theme }) => theme.textStyleV2.resp.title1_sm};
   }
 `;
 

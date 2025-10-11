@@ -42,7 +42,7 @@ function Header(): ReactElement {
           <Logo onClick={() => router.push(Path.Home)} />
           <HeaderMenu>
             {HEADER_MENUS.map(({ name, path }) => (
-              <Link key={`${name}_${path}`} href={path} scroll={false}>
+              <Link key={`${name}_${path}`} href={path} scroll={false} passHref>
                 <MenuText active={asPath === path}>{name}</MenuText>
               </Link>
             ))}
@@ -60,15 +60,14 @@ const HeaderBlock = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
   background-color: ${({ theme }) => theme.palette.black_10};
   color: ${({ theme }) => theme.palette.white_50};
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 5000;
-  margin-top: -100px;
 `;
 
 const HeaderInner = styled.div`
   height: 70px;
-  margin: 0 80px;
+  padding: 0 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;

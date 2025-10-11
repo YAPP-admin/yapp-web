@@ -25,6 +25,7 @@
     "@splinetool/react-spline": "^2.2.2",
     "@splinetool/runtime": "^0.9.273",
     "@types/smoothscroll-polyfill": "^0.3.1",
+    "framer-motion": "^12.23.24",
     "glob": "^11.0.3",
     "isomorphic-dompurify": "^0.18.0",
     "lottie-web": "^5.8.1",
