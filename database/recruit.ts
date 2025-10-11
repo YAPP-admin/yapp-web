@@ -9,22 +9,20 @@ import Yapp from 'constants/yapp';
  */
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = false;
+export const IS_RECRUITING = true;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
   title: '지금은 모집기간이 아닙니다',
-  description: `${Yapp.YAPP_GENERATION}기 모집이 완료되었습니다!<br />다음 기수는 2025년 10월에 예정되어 있습니다.`,
-  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기에서 만나요!`,
+  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
 };
 export const RECRUIT_BANNER_PRE = {
-  title: 'YAPP 26기 모집 준비 중 🚧',
-  description: `YAPP 26기에서 6개월간 활동할 기획자(PM)/디자이너/개발자 신입 회원을 모집합니다.<br />IT 분야에 대한 열정과 의지가 넘쳐나고, 동아리에서 많은 사람들과 즐겁게 활동하고 싶은 분들의 많은 지원 바랍니다!`,
-  buttonName: '모집 알림 신청하기',
+  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 마감까지`,
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
 };
 
 export const RECRUIT_BANNER_ACTIVE = {
-  title: `YAPP<br class="mobile" /> ${Yapp.YAPP_GENERATION}기 모집`,
+  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 마감까지`,
   description: `YAPP ${Yapp.YAPP_GENERATION}기에서 4개월간 활동할<br class="mobile" /> PM(기획자)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
     IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘치고, 동아리에서 다양한 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
   buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,
