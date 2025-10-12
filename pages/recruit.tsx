@@ -3,7 +3,7 @@ import {
   FrequentlyAskedQuestions,
   RecruitBanner,
   FindMember,
-  // RecruitField,
+  RecruitField,
   SessionOverview,
   RecruitSchedule,
 } from 'components/recruit';
@@ -16,10 +16,10 @@ function RecruitPage(): ReactElement {
   return (
     <Wrapper>
       <RecruitBanner />
+      <RecruitField />
       <FindMember />
       <RecruitSchedule />
       <SessionOverview />
-      {/* <RecruitField /> */}
       <FrequentlyAskedQuestions />
       <JoinSection
         title={title}
