@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import SectionTemplate from '../../home/SectionTemplate';
-import SectionTitle from '../../home/SectionTitle';
+import SectionTitle from '../SectionTitle';
 import { useRouter } from 'next/router';
 
 interface JoinSectionProps {

@@ -2,10 +2,11 @@ import { TabMenu } from 'components/common';
 import { RECRUIT_FIELD_NAMES } from 'database/recruit';
 import { ReactElement, useState } from 'react';
 import styled from 'styled-components';
-import { SectionTemplate, SectionTitle } from '..';
+import { SectionTemplate } from '..';
 import RecruitDesigner from './RecruitDesigner';
 import RecruitDeveloper from './RecruitDeveloper';
 import RecruitProjectManager from './RecruitProjectManager';
+import SectionTitle from 'components/common/SectionTitle';
 
 export type FieldNameTypes =
   | 'PM'

@@ -1,12 +1,13 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
-import { SectionTitle, SectionTemplate } from 'components/home';
+import { SectionTemplate } from 'components/home';
 import { AnimatedBox } from 'components/common';
 import { CURRENT_INFO_DATA } from 'database/home';
 import media from 'styles/media';
 import Image from 'next/image';
 import { PaletteKeyTypes } from 'styles/theme';
 import CircusCard from 'components/common/CircusCard';
+import SectionTitle from 'components/common/SectionTitle';
 
 function GridSection(): ReactElement {
   return (

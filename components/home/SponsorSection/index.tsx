@@ -1,5 +1,3 @@
-import { Button } from 'components/common';
-import { SectionTitle } from 'components/home';
 import Yapp from 'constants/yapp';
 import { SPONSOR_DATA } from 'database/home';
 import type { ReactElement } from 'react';
@@ -7,6 +5,7 @@ import styled from 'styled-components';
 import media from 'styles/media';
 import SectionTemplate from '../SectionTemplate';
 import Image from 'next/image';
+import SectionTitle from 'components/common/SectionTitle';
 
 function SponsorSection(): ReactElement {
   return (

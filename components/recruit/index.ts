@@ -5,4 +5,3 @@ export { default as RecruitField } from './RecruitField';
 export { default as RecruitOverview } from './RecruitOverview';
 export { default as RecruitSchedule } from './RecruitSchedule';
 export { default as SectionTemplate } from './SectionTemplate';
-export { default as SectionTitle } from './SectionTitle';

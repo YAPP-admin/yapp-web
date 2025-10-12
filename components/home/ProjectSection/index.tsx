@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import Router from 'next/router';
-import { SectionTitle, SectionTemplate } from 'components/home';
+import { SectionTemplate } from 'components/home';
 import { Button, Carousel } from 'components/common';
 import { CAROUSEL_DATA } from 'database/home';
 import media from 'styles/media';
+import SectionTitle from 'components/common/SectionTitle';
 
 function ProjectSection(): ReactElement {
   return (

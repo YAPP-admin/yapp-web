@@ -20,11 +20,15 @@ function SectionTemplate({
 }
 
 const TemplateBlock = styled.div`
-  width: 100%;
+  width: auto;
+  padding: 0 80px;
+
+  ${media.mobile} {
+    padding: 0 20px;
+  }
 `;
 
 const TemplateInner = styled.div`
-  width: ${Breakpoints.large}px;
   margin: 0 auto;
   padding: 100px 0;
   ${media.tablet} {

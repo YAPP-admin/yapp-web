@@ -6,7 +6,8 @@ import DOMPurify from 'isomorphic-dompurify';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate, SectionTitle } from '..';
+import { SectionTemplate } from '..';
+import SectionTitle from 'components/common/SectionTitle';
 
 function RecruitSchedule(): ReactElement {
   const { title, schedules } = RECRUIT_SCHEDULE;

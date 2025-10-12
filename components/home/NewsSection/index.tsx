@@ -1,5 +1,5 @@
 import { Button, NewsCard } from 'components/common';
-import { SectionTemplate, SectionTitle } from 'components/home';
+import { SectionTemplate } from 'components/home';
 import Yapp from 'constants/yapp';
 import { useEffect, useRef, useState, type ReactElement } from 'react';
 import styled from 'styled-components';
@@ -7,6 +7,7 @@ import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
 import { Medium } from 'types/medium';
 import { motion } from 'framer-motion';
+import SectionTitle from 'components/common/SectionTitle';
 
 const colors = [
   'circus_red',
