@@ -7,7 +7,7 @@ import { PaletteKeyTypes } from 'styles/theme';
 interface CardProps {
   title: string;
   content: string;
-  icon: string;
+  icon?: string;
   color?: PaletteKeyTypes;
   fontColor?: PaletteKeyTypes;
 }
@@ -26,7 +26,7 @@ function CircusCard(
         <CardSubTitle>{title}</CardSubTitle>
         <CardTitle>{content}</CardTitle>
       </CardInnerBox>
-      <Image src={icon} alt={title} width={70} height={70} />
+      {icon && <Image src={icon} alt={title} width={70} height={70} />}
     </AnimatedBox>
   );
 }
@@ -34,12 +34,14 @@ function CircusCard(
 export default CircusCard;
 
 const CardInnerBox = styled.div`
+  padding-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
 
 const CardSubTitle = styled.span`
+  margin: 0;
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
 
   ${media.mobile} {

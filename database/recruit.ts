@@ -34,6 +34,8 @@ export const NEXT_GENERATION_RECRUIT_LINK =
 /** 모집 개요 */
 export const RECRUIT_OVERVIEW = {
   title: '모집 개요',
+  subtitle:
+    '모집부터 최종 합류까지의 모든 과정은 아래 일정을 기준으로 진행됩니다.',
   overviewContents: [
     {
       subTitle: '인재상',
@@ -59,24 +61,43 @@ export const RECRUIT_OVERVIEW = {
 /* 모집 일정 */
 export const RECRUIT_SCHEDULE = {
   title: '모집 일정',
+  subTitle:
+    '모집부터 최종 합류까지의 모든 과정은 아래 일정을 기준으로 진행됩니다.',
   schedules: [
     {
-      subTitle: '서류 접수',
-      description: `2025. 04. 10. (목)
-      ~ 04. 20. (일) 23:59`,
+      title: '서류 접수',
+      content: '10.16',
+      icon: '/assets/icons/running_year.svg',
+      color: 'circus_red',
+      fontColor: 'white_100',
     },
     {
-      subTitle: '서류 결과 발표',
-      description: `2025. 4. 23. (수)`,
+      title: '서류 마감',
+      content: '10.25',
+      icon: '/assets/icons/cohort.svg',
+      color: 'circus_gray',
+      fontColor: 'black_100',
     },
     {
-      subTitle: '온라인 인터뷰',
-      description: `2025. 04. 25. (금)
-      ~ 04. 29. (화)`,
+      title: '서류 결과 발표',
+      content: '10.29',
+      icon: '/assets/icons/members.svg',
+      color: 'circus_blue',
+      fontColor: 'white_100',
     },
     {
-      subTitle: '최종 발표',
-      description: `2025. 05. 02. (금)`,
+      title: '면접',
+      content: '11.01-05',
+      icon: '/assets/icons/total_members.svg',
+      color: 'circus_red',
+      fontColor: 'white_100',
+    },
+    {
+      title: '최종 발표',
+      content: '11.07',
+      icon: '/assets/icons/service.svg',
+      color: 'circus_gray',
+      fontColor: 'black_100',
     },
   ],
 };

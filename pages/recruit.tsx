@@ -1,12 +1,9 @@
 import { JoinSection } from 'components/home';
 import {
-  Enquiry,
   FrequentlyAskedQuestions,
   RecruitBanner,
-  RecruitField,
   RecruitSchedule,
 } from 'components/recruit';
-import RecruitOverview from 'components/recruit/RecruitOverview';
 import { RECRUIT_ENQUIRY } from 'database/recruit';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -16,9 +13,9 @@ function RecruitPage(): ReactElement {
   return (
     <Wrapper>
       <RecruitBanner />
-      <RecruitOverview />
+      {/* <RecruitOverview /> */}
       <RecruitSchedule />
-      <RecruitField />
+      {/* <RecruitField /> */}
       <FrequentlyAskedQuestions />
       <JoinSection
         title={title}

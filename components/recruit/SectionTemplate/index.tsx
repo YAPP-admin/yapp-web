@@ -1,4 +1,3 @@
-import Breakpoints from 'constants/breakpoints';
 import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
