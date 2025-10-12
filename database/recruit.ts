@@ -31,29 +31,35 @@ export const RECRUIT_BANNER_ACTIVE = {
 export const NEXT_GENERATION_RECRUIT_LINK =
   'https://forms.gle/9nABygW4JPaX5rfv6';
 
-/** 모집 개요 */
-export const RECRUIT_OVERVIEW = {
-  title: '모집 개요',
-  subtitle:
-    '모집부터 최종 합류까지의 모든 과정은 아래 일정을 기준으로 진행됩니다.',
+/** 세션일정 개요 */
+export const SESSION_OVERVIEW = {
+  title: '세션 일정',
+  subtitle: '세션 일정은 내부 사정에 따라 조정될 수 있습니다.',
   overviewContents: [
     {
-      subTitle: '인재상',
-      description: `새로운 가능성을 탐색하고, 주도적인 협업을 통해 의미 있는 프로젝트를 만들어가는 사람`,
+      date: '1-4주차',
+      programs: ['OT', '팀매칭', '팀세션', '팀세션'],
+      backgroundColor: 'circus_red',
     },
     {
-      subTitle: '지원자격',
-      description: `<li>매주 토요일에 진행되는 정규세션에 참여할 수 있는 분</li>
-      <li>타 직군과의 1회 이상 협업 경험이 있는 분</li>
-      <span class="small">대학생, 졸업생, 직장인 소속에 제한 없음</span>
-      `,
+      date: '5-8주차',
+      programs: ['휴-얍', '기획세션', '팀세션', `1차 데브캠프\n(UT)`],
+      backgroundColor: 'circus_blue',
     },
     {
-      subTitle: '지원방법',
-      description: `1차 서류
-      <div class="smallGrey">지원서 작성 및 포트폴리오 제출</div>
-      2차 인터뷰
-      <div class="smallGrey">온라인 인터뷰 이후 최종합격</div>`,
+      date: '9-12주차',
+      programs: [
+        '팀세션',
+        `개발/디자인\n세션`,
+        '팀세션',
+        `2차 데브캠프\n(해커톤)`,
+      ],
+      backgroundColor: 'black_100',
+    },
+    {
+      date: '13-17주차',
+      programs: [`3차 데브캠프\n(UT)`, '팀세션', '데모데이', '최종 발표회'],
+      backgroundColor: 'circus_red',
     },
   ],
 };
