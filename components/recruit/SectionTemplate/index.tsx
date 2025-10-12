@@ -15,9 +15,7 @@ function SectionTemplate({
   className,
 }: SectionTemplateProps): ReactElement {
   return (
-    <TemplateBlock backgroundColor={backgroundColor}>
-      <TemplateInner className={className}>{children}</TemplateInner>
-    </TemplateBlock>
+    <TemplateBlock backgroundColor={backgroundColor}>{children}</TemplateBlock>
   );
 }
 
@@ -27,22 +25,10 @@ const TemplateBlock = styled.div<{
   background-color: ${({ backgroundColor, theme }) =>
     theme.palette[backgroundColor]};
   width: auto;
-  padding: 0 80px;
+  padding: 160px 80px;
 
   ${media.mobile} {
-    padding: 0 20px;
-  }
-`;
-
-const TemplateInner = styled.div`
-  height: auto;
-  margin: 0 auto;
-  padding: 100px 0;
-  ${media.tablet} {
-    width: 100%;
-  }
-  ${media.mobile} {
-    padding: 0 0 120px 0;
+    padding: 100px 20px;
   }
 `;
 
