@@ -2,12 +2,6 @@ import { FieldNameTypes } from 'components/recruit/RecruitField';
 import { DeveloperFieldName } from 'components/recruit/RecruitField/RecruitDeveloper';
 import Yapp from 'constants/yapp';
 
-/**
- * 작성 Tip
- * - 줄바꿈은 <br /> 태그를 넣어주세요!
- * - <span class="test">테스트</span> 과 같은 html 태그와 class 를 넣어서 사용할 수 있습니다!
- */
-
 /* 현재 모집중이면 true 아니면 false */
 export const IS_RECRUITING = true;
 
@@ -63,6 +57,35 @@ export const SESSION_OVERVIEW = {
     },
   ],
 };
+
+/* 이런 사람을 찾아요 부분 */
+export const FIND_YAPPU = [
+  {
+    textParts: [
+      '새로운 가능성을',
+      { img: '/assets/icons/yappu_red.svg' },
+      '탐색하고,\n',
+      '주도적인 협업을 통해 ',
+      '의미있는 프로젝트를 만들어가는 사람을 찾아요',
+    ],
+  },
+  {
+    textParts: [
+      '매주 토요일 정규 세션에\n',
+      '참여 가능한 분을',
+      { img: '/assets/icons/yappu_blue.svg' },
+      '찾아요',
+    ],
+  },
+  {
+    textParts: [
+      '타 직군과의 1회 이상\n',
+      '협업 경험이 있는 분',
+      { img: '/assets/icons/yappu_white.svg' },
+      '을 찾아요',
+    ],
+  },
+];
 
 /* 모집 일정 */
 export const RECRUIT_SCHEDULE = {

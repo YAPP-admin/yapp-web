@@ -2,6 +2,7 @@ import { JoinSection } from 'components/home';
 import {
   FrequentlyAskedQuestions,
   RecruitBanner,
+  FindMember,
   // RecruitField,
   SessionOverview,
   RecruitSchedule,
@@ -15,6 +16,7 @@ function RecruitPage(): ReactElement {
   return (
     <Wrapper>
       <RecruitBanner />
+      <FindMember />
       <RecruitSchedule />
       <SessionOverview />
       {/* <RecruitField /> */}
