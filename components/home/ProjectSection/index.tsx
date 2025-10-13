@@ -6,10 +6,28 @@ import { Button, Carousel } from 'components/common';
 import { CAROUSEL_DATA } from 'database/home';
 import media from 'styles/media';
 import SectionTitle from 'components/common/SectionTitle';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function ProjectSection(): ReactElement {
+  const { ref, controls, containerVariants } = useScrollAnimation({
+    containerVariants: {
+      hidden: { opacity: 0, y: 40 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: 'easeInOut' },
+      },
+    },
+  });
+
   return (
-    <ProjectContainer>
+    <ProjectContainer
+      as={motion.section}
+      ref={ref}
+      animate={controls}
+      variants={containerVariants}
+    >
       <SectionTitle
         fontColor="black_100"
         subFontColor="black_60"
@@ -18,15 +36,19 @@ function ProjectSection(): ReactElement {
         subTitle="YAPP에서 활동하는 구성원인 ‘야뿌’들이 만들어낸 프로젝트들이에요."
       />
       <Carousel data={CAROUSEL_DATA} />
-      <Button variant="black" onClick={() => Router.push('/project')}>
+      <StyledButton variant="black" onClick={() => Router.push('/project')}>
         프로젝트 더보기
-      </Button>
+      </StyledButton>
     </ProjectContainer>
   );
 }
 
 const ProjectContainer = styled(SectionTemplate)`
   padding: 200px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
 `;
 
 const StyledButton = styled(Button)`

@@ -7,33 +7,54 @@ import SectionTemplate from '../SectionTemplate';
 import Image from 'next/image';
 import SectionTitle from 'components/common/SectionTitle';
 import { Button } from 'components/common';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function SponsorSection(): ReactElement {
+  const { ref, controls, containerVariants, itemVariants } = useScrollAnimation(
+    {
+      threshold: 0.2,
+      triggerOnce: false,
+    },
+  );
+
   return (
-    <SponsorSectionContainer>
-      <SectionTitle
-        fontColor="black_100"
-        subFontColor="black_60"
-        align="left"
-        title="YAPP의 후원사"
-        subTitle="YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의, 언제든 기다리고 있습니다."
-      />
-      <SponsorList>
+    <SponsorSectionContainer
+      as={motion.section}
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+    >
+      <motion.div variants={itemVariants}>
+        <SectionTitle
+          fontColor="black_100"
+          subFontColor="black_60"
+          align="left"
+          title="YAPP의 후원사"
+          subTitle="YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의, 언제든 기다리고 있습니다."
+        />
+      </motion.div>
+
+      <SponsorList as={motion.ul} variants={containerVariants}>
         {SPONSOR_DATA.map(({ image, alt }, index) => (
-          <Sponsor key={index}>
+          <Sponsor as={motion.li} key={index} variants={itemVariants}>
             <Image src={image} alt={alt} width={137} height={50} />
           </Sponsor>
         ))}
       </SponsorList>
-      <Button variant="black">
-        <ButtonLinked
-          href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
-          rel="noreferrer"
-          target="_blank"
-        >
-          후원 문의하기
-        </ButtonLinked>
-      </Button>
+
+      <motion.div variants={itemVariants} style={{ textAlign: 'center' }}>
+        <Button variant="black">
+          <ButtonLinked
+            href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            후원 문의하기
+          </ButtonLinked>
+        </Button>
+      </motion.div>
     </SponsorSectionContainer>
   );
 }

@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
 import { Medium } from 'types/medium';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import SectionTitle from 'components/common/SectionTitle';
 
 const colors = [
@@ -24,6 +25,19 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
   const speed = 50;
   const duration = trackWidth / speed;
 
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: 'easeInOut' },
+      });
+    }
+  }, [inView, controls]);
+
   useEffect(() => {
     function updateWidth() {
       if (trackRef.current) {
@@ -34,8 +48,14 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
     window.addEventListener('resize', updateWidth);
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
+
   return (
-    <SocialContainer>
+    <SocialContainer
+      as={motion.section}
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={controls}
+    >
       <PaddingSection>
         <SectionTitle
           fontColor="black_100"
@@ -44,6 +64,7 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
           subTitle="야뿌들의 성장 과정, 활동 후기, 밋업 현장과 다양한 이야기를 담고 있어요."
         />
       </PaddingSection>
+
       <CarouselContainer>
         <CarouselTrack
           ref={trackRef}
@@ -72,6 +93,9 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
 }
 
 const SocialContainer = styled(SectionTemplate)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 200px 0;
 
   ${media.mobile} {
@@ -93,6 +117,7 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   width: 100%;
   margin: 48px 0;
+  position: relative;
 
   &::before,
   &::after {
