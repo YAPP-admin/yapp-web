@@ -1,4 +1,3 @@
-import { FieldNameTypes } from 'components/recruit/RecruitField';
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
@@ -11,11 +10,9 @@ interface ITabMenuStyle {
 
 export interface TabMenuProps extends ITabMenuStyle {
   className?: string;
-  tabs: (ProjectField | FieldNameTypes)[];
-  currentTab: ProjectField | FieldNameTypes;
-  onClick:
-    | Dispatch<SetStateAction<ProjectField>>
-    | Dispatch<SetStateAction<FieldNameTypes>>;
+  tabs: ProjectField[];
+  currentTab: ProjectField;
+  onClick: Dispatch<SetStateAction<ProjectField>>;
 }
 
 function TabMenu({

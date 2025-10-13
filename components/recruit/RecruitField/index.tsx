@@ -3,7 +3,7 @@ import { ReactElement, useState } from 'react';
 import SectionTitle from 'components/common/SectionTitle';
 import styled from 'styled-components';
 import media from 'styles/media';
-import theme, { PaletteKeyTypes } from 'styles/theme';
+import theme from 'styles/theme';
 import RecruitCard from '../RecuitCard';
 
 function RecruitField(): ReactElement {
