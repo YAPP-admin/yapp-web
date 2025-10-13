@@ -30,7 +30,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
             ) : (
               <>
                 <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
-                <Badge>{generation}</Badge>
+                <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
               </>
             )}
           </DetailWrapper>
@@ -111,9 +111,11 @@ const ProjectTitleWrapper = styled.span`
   width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
-  ${({ theme }) => theme.textStyle.web.Subtitle_1};
+  color: ${({ theme }) => theme.palette.grey_850};
+
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Subtitle};
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
 
@@ -122,23 +124,24 @@ const ProjectSubTitleWrapper = styled.span`
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  ${({ theme }) => theme.textStyle.web.Subtitle_2};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Subtitle};
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
 
 const TagWrapper = styled.div`
-  margin-top: 6px;
+  margin: 0;
 `;
 
 const Tag = styled.div`
   display: inline;
   margin-right: 4px;
   color: ${({ theme }) => theme.palette.grey_500};
-  ${({ theme }) => theme.textStyle.web.Body_2};
+  ${({ theme }) => theme.textStyleV2.resp.caption_md};
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Body_3};
+    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
   }
 `;
 

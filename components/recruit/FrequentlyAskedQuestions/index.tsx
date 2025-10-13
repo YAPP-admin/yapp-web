@@ -1,13 +1,15 @@
-import { Box } from 'components/common';
 import { RECRUIT_FAQ } from 'database/recruit';
 import DOMPurify from 'isomorphic-dompurify';
 import React, { ReactElement, useState } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate, SectionTitle } from '..';
+
+import SectionTemplate from '../SectionTemplate';
+import SectionTitle from 'components/common/SectionTitle';
+import { Button } from 'components/common';
 
 function FrequentlyAskedQuestions(): ReactElement {
-  const { faqs, title } = RECRUIT_FAQ;
+  const { faqs, title, subTitle } = RECRUIT_FAQ;
   const [faqList, setFaqList] = useState(faqs);
 
   const handleToggleFaq = (subTitle: string) => {
@@ -20,13 +22,16 @@ function FrequentlyAskedQuestions(): ReactElement {
 
   return (
     <SectionTemplate>
-      <SectionTitle title={title} />
+      <SectionTitle
+        title={title}
+        subTitle={subTitle}
+        fontColor="black"
+        subFontColor="black_50"
+      />
       <SectionContent>
         {faqList.map(({ subTitle, description, isOpen }) => (
           <FAQBox
             onClick={() => handleToggleFaq(subTitle)}
-            isFullWidth
-            backgroundColor="grey_50"
             key={`faq-${subTitle}`}
           >
             <FAQBoxInner>
@@ -45,6 +50,12 @@ function FrequentlyAskedQuestions(): ReactElement {
             </FAQBoxInner>
           </FAQBox>
         ))}
+        <Button
+          variant="black"
+          style={{ width: 'fit-content', marginTop: '32px' }}
+        >
+          27기 채용 FAQ 바로가기
+        </Button>
       </SectionContent>
     </SectionTemplate>
   );
@@ -53,14 +64,13 @@ function FrequentlyAskedQuestions(): ReactElement {
 const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
-  ${media.tablet} {
-    padding: 0 22px;
-  }
+  align-items: center;
 `;
 
-const FAQBox = styled(Box)`
+const FAQBox = styled.section`
+  width: 100%;
   padding: 0;
-  margin-bottom: 24px;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
   height: auto;
   cursor: pointer;
   &:last-child {
@@ -72,18 +82,18 @@ const FAQBox = styled(Box)`
 `;
 
 const FAQBoxInner = styled.div`
-  padding: 32px;
+  padding: 32px 0;
   ${media.mobile} {
-    padding: 24px;
+    padding: 24px 0;
   }
 `;
 
 const FAQSubTitle = styled.div`
-  ${({ theme }) => theme.textStyle.web.Body_Point}
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md}
   display: flex;
   justify-content: space-between;
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Body_Point}
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm}
     align-items: flex-start;
   }
 `;
@@ -104,7 +114,8 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
 `;
 
 const FQASubContent = styled.div<{ isOpen: boolean }>`
-  ${({ theme }) => theme.textStyle.web.Body_1};
+  ${({ theme }) => theme.textStyleV2.resp.body_md};
+  color: ${({ theme }) => theme.palette.black_60};
   width: 1056px;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
@@ -127,7 +138,7 @@ const FQASubContent = styled.div<{ isOpen: boolean }>`
     width: 100%;
   }
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Body_1};
+    ${({ theme }) => theme.textStyleV2.resp.body_sm};
     .br {
       display: none;
     }

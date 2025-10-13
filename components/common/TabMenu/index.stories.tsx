@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 import TabMenu, { TabMenuProps } from 'components/common/TabMenu';
-import { RECRUIT_FIELD_NAMES } from 'database/recruit';
 import { PROJECT_CATEGORIES } from 'pages/project';
 import { useState } from 'react';
 
@@ -25,11 +24,6 @@ const Template: Story<TabMenuProps> = (args) => {
 
 export const RecruitTabMenu = Template.bind({});
 export const ProjectsTabMenu = Template.bind({});
-
-RecruitTabMenu.args = {
-  tabs: RECRUIT_FIELD_NAMES,
-  currentTab: RECRUIT_FIELD_NAMES[0],
-};
 
 ProjectsTabMenu.args = {
   tabs: PROJECT_CATEGORIES,

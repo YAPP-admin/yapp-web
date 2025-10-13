@@ -5,4 +5,4 @@ export { default as GridSection } from './GridSection';
 export { default as IntroSection } from './IntroSection';
 export { default as NewsSection } from './NewsSection';
 export { default as ProjectSection } from './ProjectSection';
-export { default as SectionTitle } from './SectionTitle';
+export { default as JoinSection } from '../common/JoinSection';

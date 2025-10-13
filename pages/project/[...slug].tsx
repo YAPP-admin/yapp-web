@@ -1,4 +1,5 @@
-import { ProjectCard } from 'components/common';
+import { Badge, ProjectCard } from 'components/common';
+import Banner from 'components/common/Banner';
 import Tag from 'components/common/Tag';
 import { ProjectContent, ProjectRetrospects } from 'components/project';
 import Breakpoints from 'constants/breakpoints';
@@ -90,49 +91,55 @@ function ProjectDetail({ project, otherProjects }: Props) {
   }, []);
 
   return (
-    <Wrapper>
-      <ResponsiveLayout>
-        {tags?.map((tag) => (
-          <Tag label={tag} key={tag} className="tag" />
-        ))}
-        <ProjectName>{title}</ProjectName>
-        <ProjectContent project={project} />
-      </ResponsiveLayout>
+    <>
+      <Banner
+        title={`아이디어에서 런칭까지,\nYAPP의 서비스들`}
+        description={`YAPP에서 활동하는 구성원인\n‘야뿌’들이 만들어낸 프로젝트들이에요.`}
+      />
+      <Wrapper>
+        <ResponsiveLayout>
+          <BadgeList>
+            {tags?.map((tag) => (
+              <Badge key={tag}>{`#${tag}`}</Badge>
+            ))}
+          </BadgeList>
+          <ProjectName>{title}</ProjectName>
+          <ProjectContent project={project} />
+        </ResponsiveLayout>
+        <div style={{ margin: '100px auto 100px' }}>
+          {[...(Array.isArray(content) ? content : [content])].map(
+            (contentSrc) => (
+              <ProjectImage
+                key={contentSrc}
+                src={contentSrc}
+                alt="project-content-image"
+              />
+            ),
+          )}
+        </div>
 
-      <div style={{ margin: '100px auto 200px' }}>
-        {[...(Array.isArray(content) ? content : [content])].map(
-          (contentSrc) => (
-            <ProjectImage
-              key={contentSrc}
-              src={contentSrc}
-              alt="project-content-image"
-            />
-          ),
+        {retrospects?.length > 0 && (
+          <>
+            <ProjectSubTitle>팀 회고</ProjectSubTitle>
+            <ProjectRetrospects retrospects={retrospects} />
+          </>
         )}
-      </div>
+        <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
 
-      {retrospects?.length > 0 && (
-        <>
-          <ProjectSubTitle>팀 회고</ProjectSubTitle>
-          <ProjectRetrospects retrospects={retrospects} />
-        </>
-      )}
-
-      <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
-
-      <OtherProjectList>
-        {randomProjects.map((otherProject, i) => (
-          <ProjectCard key={i} project={otherProject} isSubCard />
-        ))}
-      </OtherProjectList>
-    </Wrapper>
+        <OtherProjectList>
+          {randomProjects.map((otherProject, i) => (
+            <ProjectCard key={i} project={otherProject} />
+          ))}
+        </OtherProjectList>
+      </Wrapper>
+    </>
   );
 }
 
 const Wrapper = styled.div`
   width: ${Breakpoints.large}px;
   margin: 0 auto;
-  padding: 174px 0 209px 0;
+  padding: 64px 0 209px 0;
   height: 100%;
   .tag {
     &:not(:last-child) {
@@ -148,6 +155,12 @@ const Wrapper = styled.div`
   }
 `;
 
+const BadgeList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
+
 const ResponsiveLayout = styled.div`
   ${media.tablet} {
     padding: 0 76px 0 80px;
@@ -158,11 +171,11 @@ const ResponsiveLayout = styled.div`
 `;
 
 const ProjectName = styled.div`
-  ${({ theme }) => theme.textStyle.web.Title};
+  ${({ theme }) => theme.textStyleV2.resp.title1_md};
   margin-top: 16px;
   margin-bottom: 26px;
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Title_1};
+    ${({ theme }) => theme.textStyleV2.resp.title2_md};
     margin-bottom: 32px;
   }
 `;
@@ -173,18 +186,25 @@ const ProjectImage = styled.img`
 `;
 
 const ProjectSubTitle = styled.div`
-  ${({ theme }) => theme.textStyle.web.Title};
-  text-align: center;
+  ${({ theme }) => theme.textStyleV2.resp.title1_md};
+  text-align: start;
   margin-bottom: 72px;
+
+  ${media.tablet} {
+    padding: 0 80px;
+  }
+
   ${media.mobile} {
+    padding: 0 20px;
     margin-bottom: 32px;
-    ${({ theme }) => theme.textStyle.mobile.Title_2};
+    ${({ theme }) => theme.textStyleV2.resp.title1_sm};
   }
 `;
 
 const OtherProjectList = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   > div {
     &:not(:last-child) {

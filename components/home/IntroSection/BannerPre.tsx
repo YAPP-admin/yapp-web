@@ -27,11 +27,8 @@ const BannerPre = () => {
         </BannerTitleBox>
         <Dday />
         <StyledButton
-          width={265}
-          height={72}
+          variant="primary"
           borderRadius={16}
-          buttonColor={'blue_100'}
-          fontColor={'white'}
           onClick={() => (window.location.href = NEXT_GENERATION_RECRUIT_LINK)}
         >
           ⏰ 26기 모집 알림 신청하기

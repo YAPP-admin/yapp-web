@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+import media from 'styles/media';
 
 interface Props extends React.HTMLAttributes<HTMLSpanElement> {
   label: string;
@@ -10,12 +11,17 @@ function Tag({ label, ...rest }: Props): ReactElement {
 }
 
 const Container = styled.div`
-  padding: 5px 12px;
-  display: inline-block;
-  background-color: ${({ theme }) => theme.palette.blue_100};
-  color: ${({ theme }) => theme.palette.white};
-  border-radius: 31px;
-  ${({ theme }) => theme.textStyle.web.Body_1};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 8px;
+  border-radius: 4px;
+  color: ${({ theme }) => theme.palette.black_60};
+
+  ${({ theme }) => theme.textStyleV2.resp.caption_md};
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
+  }
 `;
 
 export default Tag;

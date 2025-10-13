@@ -4,6 +4,7 @@ import theme, { PaletteKeyTypes } from 'styles/theme';
 
 interface IBoxStyle {
   backgroundColor?: PaletteKeyTypes;
+  fontColor?: PaletteKeyTypes;
   width?: number;
   height?: number;
   borderRadius?: number;
@@ -22,6 +23,7 @@ function Box({
   height,
   backgroundColor = 'grey',
   borderRadius = 20,
+  fontColor = 'black',
   ...rest
 }: BoxProps): ReactElement {
   return (
@@ -44,6 +46,7 @@ const StyledBox = styled.div<IBoxStyle>`
   border-radius: ${({ borderRadius }) => borderRadius}px;
   background-color: ${({ backgroundColor }) =>
     backgroundColor && theme.palette[backgroundColor]};
+  color: ${({ fontColor }) => fontColor && theme.palette[fontColor]};
 `;
 
 export default Box;

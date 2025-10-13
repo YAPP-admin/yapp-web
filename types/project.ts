@@ -1,5 +1,13 @@
 export type ProjectField = 'ALL' | 'Android' | 'iOS' | 'Web' | 'ML';
 
+export const TAB_LABELS: Record<string, string> = {
+  ALL: '전체',
+  Android: '안드로이드',
+  iOS: 'iOS',
+  Web: '웹',
+  ML: 'ML',
+};
+
 export interface Retrospect {
   name: string;
   field: string;

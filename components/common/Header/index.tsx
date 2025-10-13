@@ -42,7 +42,7 @@ function Header(): ReactElement {
           <Logo onClick={() => router.push(Path.Home)} />
           <HeaderMenu>
             {HEADER_MENUS.map(({ name, path }) => (
-              <Link key={`${name}_${path}`} href={path} scroll={false}>
+              <Link key={`${name}_${path}`} href={path} scroll={false} passHref>
                 <MenuText active={asPath === path}>{name}</MenuText>
               </Link>
             ))}
@@ -57,24 +57,23 @@ function Header(): ReactElement {
 
 const HeaderBlock = styled.header`
   width: 100%;
-  background-color: ${({ theme }) => theme.palette.grey_900};
-  color: ${({ theme }) => theme.palette.white};
-  position: sticky;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
+  background-color: ${({ theme }) => theme.palette.black_10};
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: ${({ theme }) => theme.palette.white_50};
+  position: fixed;
   top: 0;
   z-index: 5000;
 `;
 
 const HeaderInner = styled.div`
-  width: ${Breakpoints.large}px;
   height: 70px;
-  margin: 0 auto;
+  padding: 0 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${media.tablet} {
-    width: auto;
-    padding: 0 81px;
-  }
+
   ${media.mobile} {
     padding: 0 20px;
     height: 64px;
@@ -98,8 +97,8 @@ const HeaderMenu = styled.div`
 const MenuText = styled.a<{ active: boolean }>`
   cursor: pointer;
   color: ${({ theme, active }) =>
-    active ? theme.palette.blue_100 : theme.palette.white};
-  ${({ theme }) => theme.textStyle.web.Category};
+    active ? theme.palette.white : theme.palette.white_50};
+  ${({ theme }) => theme.textStyleV2.fix.font_15};
 `;
 
 const MobileHeaderMenu = styled(Hamburger)`

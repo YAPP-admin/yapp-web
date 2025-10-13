@@ -1,6 +1,6 @@
 const Yapp = {
   YAPP_NAME: 'YAPP',
-  YAPP_GENERATION: 26, // 기수
+  YAPP_GENERATION: 27, // 기수
   YAPP_OFFICIAL_EMAIL: 'support@yapp.co.kr',
   YAPP_OFFICIAL_KAKAO: '@YAPP',
   YAPP_OFFICIAL_FACEBOOK: '@YAPP',
@@ -20,6 +20,8 @@ const Yapp = {
   YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/152056',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
+  YAPP_MEDIUM: 'https://medium.com/@about.yapp',
+  YAPP_LINKEDIN: 'https://www.linkedin.com/company/yappu/',
 } as const;
 
 export default Yapp;

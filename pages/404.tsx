@@ -18,16 +18,15 @@ function Custom404(): ReactElement {
           </div>
         </TextContainer>
         <ImageContainer>
-          <Image src={Illust_404} layout="fill" objectFit="contain"></Image>
+          <Image
+            src={Illust_404}
+            layout="fill"
+            objectFit="contain"
+            alt="404 illustration"
+          ></Image>
         </ImageContainer>
       </ContentContainer>
-      <StyledButton
-        width={176}
-        height={65}
-        fontColor="white"
-        buttonColor="grey_850"
-        onClick={() => Router.push('/')}
-      >
+      <StyledButton variant="black" onClick={() => Router.push('/')}>
         홈으로 돌아가기
       </StyledButton>
     </Custom404Wrapper>
