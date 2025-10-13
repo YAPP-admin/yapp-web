@@ -1,41 +1,47 @@
 import { useEffect, useState } from 'react';
 
 interface DdayTime {
-  days: number;
-  hrs: number;
-  mins: number;
-  secs: number;
+  days: string;
+  hrs: string;
+  mins: string;
+  secs: string;
 }
+
+const calculateTimeLeft = (targetDate: Date): DdayTime => {
+  const diffTime = targetDate.getTime() - new Date().getTime();
+
+  if (diffTime <= 0) return { days: '00', hrs: '00', mins: '00', secs: '00' };
+
+  const days = String(Math.floor(diffTime / (1000 * 60 * 60 * 24))).padStart(
+    2,
+    '0',
+  );
+  const hrs = String(Math.floor((diffTime / (1000 * 60 * 60)) % 24)).padStart(
+    2,
+    '0',
+  );
+  const mins = String(Math.floor((diffTime / (1000 * 60)) % 60)).padStart(
+    2,
+    '0',
+  );
+  const secs = String(Math.floor((diffTime / 1000) % 60)).padStart(2, '0');
+
+  return { days, hrs, mins, secs };
+};
 
 /**
  * targetDate까지 남은 시간을 days, hrs, mins, secs로 반환
  * @param targetDate 목표 날짜
  */
+
 export function useDday(targetDate: Date): DdayTime {
-  const [timeLeft, setTimeLeft] = useState<DdayTime>({
-    days: 0,
-    hrs: 0,
-    mins: 0,
-    secs: 0,
-  });
+  const [timeLeft, setTimeLeft] = useState<DdayTime>(() =>
+    calculateTimeLeft(targetDate),
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date();
-      const diffTime = targetDate.getTime() - now.getTime();
-
-      if (diffTime <= 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: 0, hrs: 0, mins: 0, secs: 0 });
-        return;
-      }
-
-      const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      const hrs = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diffTime / (1000 * 60)) % 60);
-      let secs = Math.floor((diffTime / 1000) % 60);
-      secs = Number(String(secs).padStart(2, '0'));
-      setTimeLeft({ days, hrs, mins, secs });
+      setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
 
     return () => clearInterval(interval);

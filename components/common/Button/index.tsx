@@ -60,10 +60,16 @@ const StyledButton = styled.button<IButtonStyle>`
     ${({ theme, variant }) => css`
       background-color: ${variant === 'black' && theme.palette.black_70};
     `};
+    ${({ theme, variant }) => css`
+      opacity: ${variant === 'primary' && 0.6};
+    `};
   }
 
   &:active {
     transform: scale(0.9);
+    ${({ variant }) => css`
+      opacity: ${variant === 'primary' && 1};
+    `};
   }
 
   &:disabled {

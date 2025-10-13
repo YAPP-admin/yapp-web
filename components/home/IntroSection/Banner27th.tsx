@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import RecuitBtn from '../RecuitBtn';
+import Image from 'next/image';
 
 const Banner27th = () => {
   const [mounted, setMounted] = useState(false);
@@ -14,14 +14,16 @@ const Banner27th = () => {
     <>
       <Banner27thTextContentBox className={mounted ? 'appear' : ''}>
         <TextBox>
-          <BannerTitleBox>채용 타이틀을 입력해주세요</BannerTitleBox>
-          <BannerSubTitleBox>세부 설명이 들어갑니다</BannerSubTitleBox>
+          <Image
+            src="/assets/images/27th/title.png"
+            alt="27th Title"
+            width={580}
+            height={309}
+          />
         </TextBox>
       </Banner27thTextContentBox>
 
-      <BannerBackgroundInner className={mounted ? 'appear' : ''}>
-        <RecuitBtn />
-      </BannerBackgroundInner>
+      <BannerBackgroundInner className={mounted ? 'appear' : ''} />
     </>
   );
 };
@@ -60,7 +62,8 @@ const BannerBackgroundInner = styled.div`
 
 const TextBox = styled.div`
   position: absolute;
-  top: 150px;
+  top: 80px;
+  z-index: 20;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,6 +72,10 @@ const TextBox = styled.div`
 
   ${media.tablet} {
     top: 220px;
+    img {
+      width: 340px;
+      height: 181px;
+    }
   }
 `;
 
@@ -90,27 +97,16 @@ const Banner27thTextContentBox = styled.div`
   &.appear {
     transform: translate3d(-50%, 0, 0);
     opacity: 1;
+
+    animation: floatY 1s ease-in-out infinite alternate;
   }
-`;
 
-const BannerTitleBox = styled.h1`
-  margin: 0;
-  ${({ theme }) => theme.textStyleV2.resp.head_lg};
-  color: ${({ theme }) => theme.palette.white_100};
-
-  ${media.tablet} {
-    ${({ theme }) => theme.textStyleV2.resp.head_md};
-  }
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.head_sm};
-  }
-`;
-
-const BannerSubTitleBox = styled.div`
-  ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
-  color: ${({ theme }) => theme.palette.white_70};
-
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
+  @keyframes floatY {
+    0% {
+      transform: translate3d(-50%, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 10px, 0);
+    }
   }
 `;

@@ -9,19 +9,26 @@ const Yapp = {
   YAPP_INSTAGRAM: 'https://www.instagram.com/about.yapp/',
   YAPP_KAKAO: 'http://pf.kakao.com/_aGxofd',
   YAPP_GITHUB: 'https://github.com/YAPP-Github',
-  YAPP_RECRUIT: 'https://linktr.ee/yappian',
-  YAPP_RECRUIT_ALL: 'https://yapp-recruit.career.greetinghr.com/guide',
+  // 지원하기 관련 링크
+  YAPP_RECRUIT_ALL: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
   YAPP_RECRUIT_PROJECT_MANAGER:
-    'https://yapp-recruit.career.greetinghr.com/o/151959',
-  YAPP_RECRUIT_DESIGNER: 'https://yapp-recruit.career.greetinghr.com/o/152043',
-  YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/o/152051',
-  YAPP_RECRUIT_ANDROID: 'https://yapp-recruit.career.greetinghr.com/o/152047',
-  YAPP_RECRUIT_FRONT_END: 'https://yapp-recruit.career.greetinghr.com/o/152053',
-  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/152056',
+    'https://yapp-recruit.career.greetinghr.com/ko/o/177927',
+  YAPP_RECRUIT_DESIGNER:
+    'https://yapp-recruit.career.greetinghr.com/ko/o/177931',
+  YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/ko/o/177938',
+  YAPP_RECRUIT_ANDROID:
+    'https://yapp-recruit.career.greetinghr.com/ko/o/177938',
+  YAPP_RECRUIT_FRONT_END:
+    'https://yapp-recruit.career.greetinghr.com/ko/o/177934',
+  YAPP_RECRUIT_BACK_END:
+    'https://yapp-recruit.career.greetinghr.com/ko/o/176953',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
   YAPP_MEDIUM: 'https://medium.com/@about.yapp',
   YAPP_LINKEDIN: 'https://www.linkedin.com/company/yappu/',
-} as const;
 
+  // FAQ 관련 링크
+  YAPP_FAQ_NOTION:
+    'https://www.notion.so/yapp-workspace/YAPP-27-FAQ-2812106a0e8480b28cc3f89e3bd6ffe1',
+};
 export default Yapp;

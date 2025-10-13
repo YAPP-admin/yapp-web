@@ -194,7 +194,7 @@ export const RECRUIT_FIELD_NAMES = [
   {
     name: 'PM',
     description: `서비스의 기획에 대한 아이디어를 수집, 제시하며 서비스 런칭을 목표로 프로젝트를 주도적으로 관리하고 진행합니다.`,
-    url: '',
+    url: Yapp.YAPP_RECRUIT_PROJECT_MANAGER,
     backInfo: [
       '아이디어를 제시하고 협업을 이끌며 프로젝트를 관리할 수 있는 사람을 찾습니다.',
       '디자이너·개발자와의 협업 경험, UX 설계나 발표 경험이 있다면 더욱 좋습니다.',
@@ -204,7 +204,7 @@ export const RECRUIT_FIELD_NAMES = [
   {
     name: '디자인',
     description: `기획을 바탕으로 개별 팀의 아이디어에 따라 UX/UI/GUI 디자인을 담당합니다.`,
-    url: '',
+    url: Yapp.YAPP_RECRUIT_DESIGNER,
     backInfo: [
       `UI/UX 설계 역량과 기획·개발 직군과의 협업 능력, 피드백을 반영하는 태도를 가진 분을 찾습니다. `,
       `프로젝트 경험이나 기획·리서치·데이터 기반 문제 해결 경험이 있다면 더욱 환영합니다.`,
@@ -214,7 +214,7 @@ export const RECRUIT_FIELD_NAMES = [
   {
     name: 'Web',
     description: `팀 내에서 웹 프론트엔드 개발을 담당합니다.`,
-    url: '',
+    url: Yapp.YAPP_RECRUIT_FRONT_END,
     backInfo: [
       `HTML, CSS, JavaScript, React에 대한 이해를 바탕으로 프로젝트를 끝까지 책임감 있게 완수할 수 있는 분을 찾습니다.
 협업 경험이나 GitHub 활용, 새로운 기술에 도전한 경험이 있다면 더욱 환영합니다.`,
@@ -224,7 +224,7 @@ export const RECRUIT_FIELD_NAMES = [
   {
     name: 'Android',
     description: `팀 내에서 Android 네이티브 앱 개발을 담당합니다.`,
-    url: '',
+    url: Yapp.YAPP_RECRUIT_ANDROID,
     backInfo: [
       `Kotlin 기반 프로젝트 경험과 책임감, 기술 논의에 적극적인 자세를 갖춘 분을 찾습니다. 타 직군 협업 경험이나 Git 활용, MVP, MVVM 등 디자인 패턴 이해도가 있다면 더욱 환영합니다.`,
     ],
@@ -233,7 +233,7 @@ export const RECRUIT_FIELD_NAMES = [
   {
     name: 'iOS',
     description: `팀 내에서 iOS 네이티브 앱 개발을 담당합니다.`,
-    url: '',
+    url: Yapp.YAPP_RECRUIT_IOS,
     backInfo: [
       `Swift 기반 프로젝트 경험이 있고, 책임감과 개발 열정으로 문제 해결과 협업에 적극적인 분을 찾습니다.`,
       `타 직군 협업 경험이나 Git 활용, MVC, MVVM 등 디자인 패턴 이해도가 있다면 더욱 환영합니다.`,
@@ -243,7 +243,7 @@ export const RECRUIT_FIELD_NAMES = [
   {
     name: 'Server',
     description: `팀 내에서 Server 개발을 담당합니다.`,
-    url: '',
+    url: Yapp.YAPP_RECRUIT_BACK_END,
     backInfo: [
       `Kotlin/Java와 Spring, 데이터베이스 및 RESTful에 대한 이해를 바탕으로 책임감 있게 프로젝트를 완수할 수 있는 분을 찾습니다.`,
       `PM과의 소통 경험 또는 Git 활용 경험이 있다면 더욱 환영합니다.`,

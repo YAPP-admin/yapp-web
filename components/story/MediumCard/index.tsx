@@ -40,6 +40,12 @@ const MediumCardContainer = styled.article`
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    opacity: 0.6;
+  }
 
   ${media.mobile} {
     flex-direction: row;
