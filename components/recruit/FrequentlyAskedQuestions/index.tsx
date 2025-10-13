@@ -7,10 +7,23 @@ import media from 'styles/media';
 import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
 import { Button } from 'components/common';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title, subTitle } = RECRUIT_FAQ;
   const [faqList, setFaqList] = useState(faqs);
+
+  const { ref, controls, containerVariants } = useScrollAnimation({
+    containerVariants: {
+      hidden: { opacity: 0, y: 40 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: 'easeInOut' },
+      },
+    },
+  });
 
   const handleToggleFaq = (subTitle: string) => {
     setFaqList(
@@ -19,7 +32,6 @@ function FrequentlyAskedQuestions(): ReactElement {
       ),
     );
   };
-
   return (
     <SectionTemplate>
       <SectionTitle
@@ -28,11 +40,17 @@ function FrequentlyAskedQuestions(): ReactElement {
         fontColor="black"
         subFontColor="black_50"
       />
-      <SectionContent>
+      <SectionContent
+        as={motion.div}
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+      >
         {faqList.map(({ subTitle, description, isOpen }) => (
           <FAQBox
-            onClick={() => handleToggleFaq(subTitle)}
             key={`faq-${subTitle}`}
+            onClick={() => handleToggleFaq(subTitle)}
           >
             <FAQBoxInner>
               <FAQSubTitle>
@@ -73,9 +91,11 @@ const FAQBox = styled.section`
   border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
   height: auto;
   cursor: pointer;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   ${media.mobile} {
     min-height: 77px;
   }
@@ -92,6 +112,7 @@ const FAQSubTitle = styled.div`
   ${({ theme }) => theme.textStyleV2.resp.body_point_md}
   display: flex;
   justify-content: space-between;
+
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm}
     align-items: flex-start;
@@ -107,6 +128,7 @@ const TitleText = styled.span`
 const TitleButton = styled.button<{ isOpen: boolean }>`
   ${({ isOpen }) => (isOpen ? `transform: rotate(180deg);` : '')}
   transition: all ease .5s;
+
   ${media.mobile} {
     margin-top: 8px;
     margin-left: 12px;
@@ -119,6 +141,7 @@ const FQASubContent = styled.div<{ isOpen: boolean }>`
   width: 1056px;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
+
   ${({ isOpen }) =>
     isOpen
       ? css`
@@ -131,9 +154,11 @@ const FQASubContent = styled.div<{ isOpen: boolean }>`
           opacity: 0;
           height: 0px;
         `}
+
   b {
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
+
   ${media.tablet} {
     width: 100%;
   }
@@ -152,6 +177,7 @@ const ArrowButton = styled.div`
   background-position: center center;
   width: 20px;
   height: 15px;
+
   ${media.mobile} {
     width: 20px;
     height: 10px;

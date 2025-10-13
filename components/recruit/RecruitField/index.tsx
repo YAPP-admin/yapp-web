@@ -1,29 +1,43 @@
 import { RECRUIT_FIELD_NAMES, RECRUIT_TITLE } from 'database/recruit';
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import SectionTitle from 'components/common/SectionTitle';
 import styled from 'styled-components';
 import media from 'styles/media';
 import theme from 'styles/theme';
 import RecruitCard from '../RecuitCard';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function RecruitField(): ReactElement {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const { ref, controls, containerVariants, itemVariants } =
+    useScrollAnimation();
 
   return (
-    <SectionLayout>
-      <SectionTitle title={RECRUIT_TITLE} align="center" />
-      <CardGrid>
+    <SectionLayout
+      ref={ref}
+      as={motion.section}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+    >
+      <motion.div variants={itemVariants}>
+        <SectionTitle title={RECRUIT_TITLE} align="center" />
+      </motion.div>
+      <CardGrid as={motion.ul} variants={containerVariants}>
         {RECRUIT_FIELD_NAMES.map((field, index) => (
-          <RecruitCard
-            key={field.name}
-            name={field.name}
-            description={field.description}
-            backInfo={field.backInfo}
-            backgroundColor={field.backgroundColor as any}
-            isFlipped={flippedIndex === index}
-            onHoverStart={() => setFlippedIndex(index)}
-            onHoverEnd={() => setFlippedIndex(null)}
-          />
+          <motion.li key={field.name} variants={itemVariants}>
+            <RecruitCard
+              name={field.name}
+              description={field.description}
+              backInfo={field.backInfo}
+              backgroundColor={field.backgroundColor as any}
+              isFlipped={flippedIndex === index}
+              onHoverStart={() => setFlippedIndex(index)}
+              onHoverEnd={() => setFlippedIndex(null)}
+            />
+          </motion.li>
         ))}
       </CardGrid>
     </SectionLayout>
@@ -55,7 +69,6 @@ const CardGrid = styled.ul`
   justify-content: center;
   padding: 32px;
   overflow: hidden;
-
   grid-template-columns: repeat(3, 1fr);
 
   ${media.tablet} {

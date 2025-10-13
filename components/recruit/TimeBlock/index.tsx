@@ -3,7 +3,7 @@ import media from 'styles/media';
 
 interface TimeBlockProps {
   type: 'DAYS' | 'HRS' | 'MINS' | 'SECS';
-  time: number;
+  time: string;
 }
 
 function TimeBlock({ type, time }: TimeBlockProps) {

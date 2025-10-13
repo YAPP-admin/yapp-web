@@ -1,6 +1,5 @@
 import { RECRUIT_SCHEDULE } from 'database/recruit';
-import useDragScroll from 'hooks/useDragScroll';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { SectionTemplate } from '..';
@@ -8,6 +7,9 @@ import SectionTitle from 'components/common/SectionTitle';
 import CircusCard from 'components/common/CircusCard';
 import { PaletteKeyTypes } from 'styles/theme';
 import { AnimatedBox } from 'components/common';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 const additionalSchedule = {
   contents: [
@@ -20,59 +22,78 @@ const additionalSchedule = {
 
 function RecruitSchedule(): ReactElement {
   const { title, schedules, subTitle } = RECRUIT_SCHEDULE;
-  const { handleDragEnd, handleDragMove, handleDragStart, scrollRef } =
-    useDragScroll();
+  const { ref, controls, containerVariants, itemVariants } =
+    useScrollAnimation();
 
   return (
-    <SectionTemplate>
-      <SectionTitle
-        title={title}
-        subTitle={subTitle}
-        fontColor="black_100"
-        subFontColor="black_50"
-        align="left"
-      />
+    <SectionLayout
+      ref={ref}
+      as={motion.section}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+    >
+      <motion.div variants={itemVariants}>
+        <SectionTitle
+          title={title}
+          subTitle={subTitle}
+          fontColor="black_100"
+          subFontColor="black_50"
+          align="left"
+        />
+      </motion.div>
       <SectionContent
-        onMouseDown={handleDragStart}
-        onMouseMove={handleDragMove}
-        onMouseUp={handleDragEnd}
-        onMouseLeave={handleDragEnd}
-        ref={scrollRef}
+        as={motion.div}
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
       >
-        <GridContainer>
+        <GridContainer as={motion.div} variants={containerVariants}>
           {schedules.map(
             ({ title, content, icon, color, fontColor }, index) => (
-              <CircusCard
-                key={index}
-                title={title}
-                content={content}
-                icon={icon}
-                color={color as PaletteKeyTypes}
-                fontColor={fontColor as PaletteKeyTypes}
-              />
+              <motion.div key={index} variants={itemVariants}>
+                <CircusCard
+                  title={title}
+                  content={content}
+                  icon={icon}
+                  color={color as PaletteKeyTypes}
+                  fontColor={fontColor as PaletteKeyTypes}
+                />
+              </motion.div>
             ),
           )}
-          <AnimatedBox
-            key={6}
-            color={additionalSchedule.color as PaletteKeyTypes}
-            fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
-          >
-            <CardInnerBox>
-              {additionalSchedule.contents.map((item, index) => (
-                <CardInnerLine key={index}>
-                  <CardLabel>{item.label}</CardLabel>
-                  <CardInnerText style={{ marginTop: '4px' }}>
-                    {item.text}
-                  </CardInnerText>
-                </CardInnerLine>
-              ))}
-            </CardInnerBox>
-          </AnimatedBox>
+          <motion.div key="additional" variants={itemVariants}>
+            <AnimatedBox
+              color={additionalSchedule.color as PaletteKeyTypes}
+              fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
+            >
+              <CardInnerBox>
+                {additionalSchedule.contents.map((item, index) => (
+                  <CardInnerLine key={index}>
+                    <CardLabel>{item.label}</CardLabel>
+                    <CardInnerText style={{ marginTop: '4px' }}>
+                      {item.text}
+                    </CardInnerText>
+                  </CardInnerLine>
+                ))}
+              </CardInnerBox>
+            </AnimatedBox>
+          </motion.div>
         </GridContainer>
       </SectionContent>
-    </SectionTemplate>
+    </SectionLayout>
   );
 }
+
+const SectionLayout = styled(SectionTemplate)`
+  width: auto;
+  padding: 160px 80px;
+
+  ${media.mobile} {
+    padding: 100px 20px;
+  }
+`;
 
 const SectionContent = styled.div`
   width: auto;
@@ -98,7 +119,7 @@ const GridContainer = styled.article`
   align-items: stretch;
 
   ${media.mobile} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     align-items: stretch;
   }
 `;
@@ -117,7 +138,6 @@ const CardInnerLine = styled.li`
   gap: 16px;
 `;
 
-// Card 내부 label + text
 const CardLabel = styled.span`
   padding: 4px;
   border-radius: 4px;

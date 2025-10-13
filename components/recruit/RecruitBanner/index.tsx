@@ -1,4 +1,4 @@
-import { AnimatedButton, Button } from 'components/common';
+import { Button } from 'components/common';
 import Path from 'constants/path';
 import {
   IS_RECRUITING,
@@ -8,7 +8,7 @@ import {
 } from 'database/recruit';
 import { useDday } from 'hooks/useDday';
 import { useRouter } from 'next/router';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 import TimeBlock from '../TimeBlock';
 
@@ -50,9 +50,22 @@ function RecruitBanner() {
 
 const RecruitBannerContainer = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
   background: url('/assets/images/27th/recruit.png') no-repeat center/cover;
+`;
+
+const slideUp = keyframes`
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `;
 
 const BannerTitle = styled.div`
@@ -65,18 +78,16 @@ const BannerTitle = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  position: absolute;
-  top: 338px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding-top: 238px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: center;
   text-align: center;
+  animation: ${slideUp} 1s ease-in-out forwards;
 
   ${media.mobile} {
-    top: 344px;
+    padding-top: 144px;
   }
 `;
 

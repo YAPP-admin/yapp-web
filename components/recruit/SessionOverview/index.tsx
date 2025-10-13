@@ -5,45 +5,76 @@ import media from 'styles/media';
 import { SectionTemplate } from '..';
 import SectionTitle from 'components/common/SectionTitle';
 import { PaletteKeyTypes } from 'styles/theme';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
+import { motion } from 'framer-motion';
 
 function SessionOverview(): ReactElement {
   const { title, overviewContents, subtitle } = SESSION_OVERVIEW;
 
+  const { ref, controls, containerVariants, itemVariants } =
+    useScrollAnimation();
+
   return (
-    <SectionTemplate>
-      <SectionTitle
-        title={title}
-        subTitle={subtitle}
-        fontColor="black_100"
-        subFontColor="black_50"
-        align="left"
-      />
-      <SectionContent>
-        {overviewContents.map(({ date, programs, backgroundColor }) => (
-          <OverviewContentBox key={`recruit-overview-${date}`}>
+    <SectionLayout
+      ref={ref}
+      as={motion.section}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+    >
+      <motion.div variants={itemVariants}>
+        <SectionTitle
+          title={title}
+          subTitle={subtitle}
+          fontColor="black_100"
+          subFontColor="black_50"
+          align="left"
+        />
+      </motion.div>
+      <SectionContent
+        as={motion.ul}
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+      >
+        {overviewContents.map(({ date, programs, backgroundColor }, index) => (
+          <OverviewContentBox
+            key={`recruit-overview-${date}`}
+            as={motion.li}
+            variants={itemVariants}
+          >
             <OverviewContentSubTitle
               backgroundColor={backgroundColor as PaletteKeyTypes}
             >
               {date}
             </OverviewContentSubTitle>
             <OverviewContentContent>
-              {programs.map((program, index) => (
-                <span key={`line-${index}`}>{program}</span>
+              {programs.map((program, i) => (
+                <span key={`line-${i}`}>{program}</span>
               ))}
             </OverviewContentContent>
           </OverviewContentBox>
         ))}
       </SectionContent>
-    </SectionTemplate>
+    </SectionLayout>
   );
 }
+
+const SectionLayout = styled(SectionTemplate)`
+  width: auto;
+  padding: 160px 80px;
+
+  ${media.mobile} {
+    padding: 100px 20px;
+  }
+`;
 
 const SectionContent = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
-  gap: 25px;
+  gap: 30px;
   margin-top: 48px;
 `;
 
@@ -60,11 +91,11 @@ const OverviewContentSubTitle = styled.div<{
   text-align: center;
   background-color: ${({ backgroundColor, theme }) =>
     theme.palette[backgroundColor]};
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md}
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   color: ${({ theme }) => theme.palette.white_100};
 
   ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm}
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
 
