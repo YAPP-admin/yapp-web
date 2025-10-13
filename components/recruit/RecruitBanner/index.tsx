@@ -15,7 +15,7 @@ import Yapp from 'constants/yapp';
 
 function RecruitBanner() {
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
-  const { days, hrs, mins, secs } = useDday(new Date('2025-10-25'));
+  const { days, hrs, mins, secs } = useDday(new Date('2025-10-25T23:59:59'));
 
   const router = useRouter();
 
