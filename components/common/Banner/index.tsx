@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 
 interface BannerProps {
@@ -37,11 +37,25 @@ const StyledBox = styled.div<BannerProps>`
   gap: 8px;
 `;
 
+const slideUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   margin: 0 80px;
   white-space: nowrap;
+
+  animation: ${slideUp} 0.6s ease forwards;
+  animation-delay: 0.2s;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
@@ -55,6 +69,9 @@ const StyledDescription = styled.p`
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   margin: 0 80px;
   white-space: nowrap;
+
+  animation: ${slideUp} 0.6s ease forwards;
+  animation-delay: 0.2s;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
