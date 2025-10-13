@@ -2,7 +2,7 @@ import { SESSION_OVERVIEW } from 'database/recruit';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate } from '..';
+import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
 import { PaletteKeyTypes } from 'styles/theme';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';

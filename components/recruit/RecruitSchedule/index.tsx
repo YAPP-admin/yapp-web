@@ -2,7 +2,7 @@ import { RECRUIT_SCHEDULE } from 'database/recruit';
 import { ReactElement, useEffect } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate } from '..';
+import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
 import CircusCard from 'components/common/CircusCard';
 import { PaletteKeyTypes } from 'styles/theme';
