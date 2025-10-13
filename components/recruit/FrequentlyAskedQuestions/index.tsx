@@ -9,6 +9,7 @@ import SectionTitle from 'components/common/SectionTitle';
 import { Button } from 'components/common';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
+import Yapp from 'constants/yapp';
 
 function FrequentlyAskedQuestions(): ReactElement {
   const { faqs, title, subTitle } = RECRUIT_FAQ;
@@ -70,6 +71,7 @@ function FrequentlyAskedQuestions(): ReactElement {
         ))}
         <Button
           variant="black"
+          onClick={() => window.open(Yapp.YAPP_FAQ_NOTION, '_blank')}
           style={{ width: 'fit-content', marginTop: '32px' }}
         >
           27기 채용 FAQ 바로가기

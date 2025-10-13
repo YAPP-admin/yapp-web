@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import RecuitBtn from '../RecuitBtn';
 import Image from 'next/image';
 
 const Banner27th = () => {
@@ -24,9 +23,7 @@ const Banner27th = () => {
         </TextBox>
       </Banner27thTextContentBox>
 
-      <BannerBackgroundInner className={mounted ? 'appear' : ''}>
-        <RecuitBtn />
-      </BannerBackgroundInner>
+      <BannerBackgroundInner className={mounted ? 'appear' : ''} />
     </>
   );
 };

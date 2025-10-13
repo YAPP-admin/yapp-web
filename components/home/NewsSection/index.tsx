@@ -1,6 +1,5 @@
 import { Button, NewsCard } from 'components/common';
 import { SectionTemplate } from 'components/home';
-import Yapp from 'constants/yapp';
 import { useEffect, useRef, useState, type ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -9,6 +8,8 @@ import { Medium } from 'types/medium';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import SectionTitle from 'components/common/SectionTitle';
+import { useRouter } from 'next/router';
+import Path from 'constants/path';
 
 const colors = [
   'circus_red',
@@ -18,6 +19,7 @@ const colors = [
 const fontColors = ['white_100', 'black_100', 'white_100'] as PaletteKeyTypes[];
 
 function MainContainer({ data }: { data: Medium[] }): ReactElement {
+  const router = useRouter();
   const loopData = [...data, ...data];
   const trackRef = useRef<HTMLDivElement>(null);
   const [trackWidth, setTrackWidth] = useState(0);
@@ -82,10 +84,7 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
         </CarouselTrack>
       </CarouselContainer>
 
-      <Button
-        variant="black"
-        onClick={() => window.open(Yapp.YAPP_FACEBOOK, '_blank')}
-      >
+      <Button variant="black" onClick={() => router.push(Path.Story)}>
         이야기 더보기
       </Button>
     </SocialContainer>

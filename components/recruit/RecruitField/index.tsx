@@ -27,7 +27,15 @@ function RecruitField(): ReactElement {
       </motion.div>
       <CardGrid as={motion.ul} variants={containerVariants}>
         {RECRUIT_FIELD_NAMES.map((field, index) => (
-          <motion.li key={field.name} variants={itemVariants}>
+          <motion.li
+            key={field.name}
+            variants={itemVariants}
+            onClick={() => {
+              if (field.url) {
+                window.open(field.url, '_blank');
+              }
+            }}
+          >
             <RecruitCard
               name={field.name}
               description={field.description}

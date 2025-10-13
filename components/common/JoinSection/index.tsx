@@ -5,17 +5,20 @@ import SectionTemplate from '../../home/SectionTemplate';
 import SectionTitle from '../SectionTitle';
 import { useRouter } from 'next/router';
 import Button from '../Button';
+import Yapp from 'constants/yapp';
 
 interface JoinSectionProps {
   title?: string;
   subTitle?: string;
   btnText?: string;
+  url?: string;
 }
 
 function JoinSection({
   title,
   subTitle,
   btnText,
+  url,
 }: JoinSectionProps): ReactElement {
   const router = useRouter();
 
@@ -33,7 +36,13 @@ function JoinSection({
           <Button
             type="button"
             variant="primary"
-            onClick={() => router.push('/recruit')}
+            onClick={() => {
+              if (!url) {
+                window.open(Yapp.YAPP_RECRUIT_ALL, '_blank');
+              } else {
+                window.open(url, '_blank');
+              }
+            }}
           >
             {btnText || '27기 지원하기'}
           </Button>

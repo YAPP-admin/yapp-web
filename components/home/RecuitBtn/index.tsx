@@ -4,6 +4,7 @@ import media from 'styles/media';
 import { motion, useAnimation } from 'framer-motion';
 import theme from 'styles/theme';
 import { useRouter } from 'next/navigation';
+import Yapp from 'constants/yapp';
 
 function RecuitBtn(): ReactElement {
   const controls = useAnimation();
@@ -29,7 +30,7 @@ function RecuitBtn(): ReactElement {
 
   return (
     <BtnContainer
-      onClick={() => router.push('/recruit')}
+      onClick={() => window.open(Yapp.YAPP_RECRUIT_ALL, '_blank')}
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
@@ -42,13 +43,15 @@ function RecuitBtn(): ReactElement {
 }
 
 const BtnContainer = styled.section`
+  position: fixed;
   display: flex;
   padding: 6px 6px 6px 24px;
   align-items: center;
   gap: 24px;
   border-radius: 99px;
   background-color: #2c2c2c;
-  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 36px;
 `;
 

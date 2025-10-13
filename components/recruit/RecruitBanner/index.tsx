@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 import TimeBlock from '../TimeBlock';
+import Yapp from 'constants/yapp';
 
 function RecruitBanner() {
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
@@ -38,7 +39,7 @@ function RecruitBanner() {
               window.location.href = NEXT_GENERATION_RECRUIT_LINK;
               return;
             }
-            router.push(Path.Recruit);
+            window.open(Yapp.YAPP_RECRUIT_ALL, '_blank');
           }}
         >
           {BannerInfo.buttonName}
