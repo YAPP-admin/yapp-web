@@ -15,8 +15,7 @@ function FloatingButton(): ReactElement {
   return (
     <>
       <TriggerButton
-        width={56}
-        height={56}
+        variant="primary"
         borderRadius={28}
         onClick={handleTrigger}
         visible={visible}
@@ -30,10 +29,8 @@ function FloatingButton(): ReactElement {
             rel="noreferrer"
           >
             <Button
-              width={56}
-              height={56}
+              variant="primary"
               borderRadius={28}
-              buttonColor="orange_400"
               className="floating-button mail"
             >
               <Mail />
@@ -46,10 +43,8 @@ function FloatingButton(): ReactElement {
             rel="noreferrer"
           >
             <Button
-              width={56}
-              height={56}
+              variant="primary"
               borderRadius={28}
-              buttonColor="facebook"
               className="floating-button facebook"
             >
               <Facebook />
@@ -58,10 +53,8 @@ function FloatingButton(): ReactElement {
           </ButtonLinked>
           <ButtonLinked target="_blank" href={Yapp.YAPP_KAKAO} rel="noreferrer">
             <Button
-              width={56}
-              height={56}
               borderRadius={28}
-              buttonColor="kakao"
+              variant="primary"
               className="floating-button kakao"
             >
               <Kakao />

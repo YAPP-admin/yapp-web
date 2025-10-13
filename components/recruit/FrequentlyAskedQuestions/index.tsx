@@ -51,8 +51,7 @@ function FrequentlyAskedQuestions(): ReactElement {
           </FAQBox>
         ))}
         <Button
-          buttonColor="black"
-          fontColor="white"
+          variant="black"
           style={{ width: 'fit-content', marginTop: '32px' }}
         >
           27기 채용 FAQ 바로가기

@@ -4,6 +4,7 @@ import media from 'styles/media';
 import SectionTemplate from '../../home/SectionTemplate';
 import SectionTitle from '../SectionTitle';
 import { useRouter } from 'next/router';
+import Button from '../Button';
 
 interface JoinSectionProps {
   title?: string;
@@ -29,9 +30,13 @@ function JoinSection({
             }
             align="center"
           />
-          <StyledButton type="button" onClick={() => router.push('/recruit')}>
+          <Button
+            type="button"
+            variant="primary"
+            onClick={() => router.push('/recruit')}
+          >
             {btnText || '27기 지원하기'}
-          </StyledButton>
+          </Button>
         </InnerContainer>
       </ImageContainer>
     </JoinSectionContainer>
@@ -74,21 +79,6 @@ const InnerContainer = styled.div`
 
   ${media.mobile} {
     top: 108px;
-  }
-`;
-
-const StyledButton = styled.button`
-  display: flex;
-  padding: 7px 18px 8px 18px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 99px;
-  background-color: ${({ theme }) => theme.palette.white_100};
-  color: ${({ theme }) => theme.palette.black_100};
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
 

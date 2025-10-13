@@ -3,26 +3,22 @@ import media from 'styles/media';
 import { slideIn, slideOut } from 'styles/utils-styles';
 import Button, { ButtonProps } from '../Button';
 
-export type AnimatedButtonVariant = 'primary' | 'secondary';
+export type AnimatedButtonVariant = 'primary' | 'black';
 
 export interface AnimatedButtonProps extends ButtonProps {
-  width: number;
-  height: number;
   buttonText: string;
   href?: string;
-  variant?: AnimatedButtonVariant;
+  variant: AnimatedButtonVariant;
 }
 
 function AnimatedButton({
-  width,
-  height,
   buttonText,
   href,
   variant = 'primary',
   ...rest
 }: AnimatedButtonProps) {
   return (
-    <ButtonStyled width={width} height={height} variant={variant} {...rest}>
+    <ButtonStyled variant={variant} {...rest}>
       {/* <svg
         width={`${width + 2}px`}
         height={`${height}px`}

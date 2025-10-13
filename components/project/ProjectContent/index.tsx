@@ -10,6 +10,7 @@ import {
   PlayStore,
   WebLink,
 } from 'public/assets/icons';
+import { Button } from 'components/common';
 
 interface Props {
   project: Project;
@@ -67,15 +68,15 @@ function ProjectContent({ project }: Props): ReactElement {
       <DeployBox>
         {/* LinkTree 링크 */}
         {linkTreeLink && (
-          <Link href={linkTreeLink} passHref>
-            <DeployLinkButton target="_blank">Link Tree</DeployLinkButton>
+          <Link href={linkTreeLink} passHref target="_blank">
+            <DeployLinkButton variant="black">Link Tree</DeployLinkButton>
           </Link>
         )}
 
         {/* Web 링크 */}
         {webLink && (
-          <Link href={webLink} passHref>
-            <DeployLinkButton target="_blank">
+          <Link href={webLink} passHref target="_blank">
+            <DeployLinkButton variant="black">
               <WebLink />
               Web
               <BtnArrowRight />
@@ -85,8 +86,8 @@ function ProjectContent({ project }: Props): ReactElement {
 
         {/* App 링크(24기 이전에는 aos 또는 ios, 24기 이후로는 ios) */}
         {deployLink && (
-          <Link href={deployLink} passHref>
-            <DeployLinkButton target="_blank">
+          <Link href={deployLink} passHref target="_blank">
+            <DeployLinkButton variant="black">
               <AppStore />
               App Store
               <BtnArrowRight />
@@ -96,8 +97,8 @@ function ProjectContent({ project }: Props): ReactElement {
 
         {/* Play Store 링크 */}
         {playStoreLink && (
-          <Link href={playStoreLink} passHref>
-            <DeployLinkButton target="_blank">
+          <Link href={playStoreLink} passHref target="_blank">
+            <DeployLinkButton variant="black">
               <PlayStore />
               Play Store
               <BtnArrowRight />
@@ -106,8 +107,8 @@ function ProjectContent({ project }: Props): ReactElement {
         )}
         {/* One Store 링크 */}
         {oneStoreLink && (
-          <Link href={oneStoreLink} passHref>
-            <DeployLinkButton target="_blank">One Store</DeployLinkButton>
+          <Link href={oneStoreLink} passHref target="_blank">
+            <DeployLinkButton variant="black">One Store</DeployLinkButton>
           </Link>
         )}
       </DeployBox>
@@ -175,13 +176,12 @@ const DeployBox = styled.div`
   }
 `;
 
-const DeployLinkButton = styled.a`
+const DeployLinkButton = styled(Button)`
   cursor: pointer;
   display: flex;
-  padding: 7px 18px 8px 18px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   border-radius: 12px;
 
   background-color: ${theme.palette.grey_850};

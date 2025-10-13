@@ -6,6 +6,7 @@ import media from 'styles/media';
 import SectionTemplate from '../SectionTemplate';
 import Image from 'next/image';
 import SectionTitle from 'components/common/SectionTitle';
+import { Button } from 'components/common';
 
 function SponsorSection(): ReactElement {
   return (
@@ -24,13 +25,15 @@ function SponsorSection(): ReactElement {
           </Sponsor>
         ))}
       </SponsorList>
-      <ButtonLinked
-        href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
-        rel="noreferrer"
-        target="_blank"
-      >
-        후원 문의하기
-      </ButtonLinked>
+      <Button variant="black">
+        <ButtonLinked
+          href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
+          rel="noreferrer"
+          target="_blank"
+        >
+          후원 문의하기
+        </ButtonLinked>
+      </Button>
     </SponsorSectionContainer>
   );
 }
@@ -87,19 +90,8 @@ const Sponsor = styled.li`
 `;
 
 const ButtonLinked = styled.a`
-  display: flex;
-  padding: 7px 18px 8px 18px;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
-  background-color: ${({ theme }) => theme.palette.black_100};
   color: ${({ theme }) => theme.palette.white_100};
-  border-radius: 99px;
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
-  }
 `;
 
 export default SponsorSection;

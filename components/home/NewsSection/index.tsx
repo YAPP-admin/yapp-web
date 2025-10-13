@@ -62,8 +62,7 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
       </CarouselContainer>
 
       <Button
-        fontColor="white"
-        buttonColor="grey_850"
+        variant="black"
         onClick={() => window.open(Yapp.YAPP_FACEBOOK, '_blank')}
       >
         이야기 더보기

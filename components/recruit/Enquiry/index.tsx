@@ -19,15 +19,7 @@ function Enquiry(): ReactElement {
         />
         <EnquiryContent dangerouslySetInnerHTML={{ __html: description }} />
         <ButtonLinked target="_blank" href={Yapp.YAPP_KAKAO} rel="noreferrer">
-          <EnquiryButton
-            width={148}
-            height={65}
-            buttonColor="blue_200"
-            borderColor="white"
-            fontColor="black"
-          >
-            {buttonName}
-          </EnquiryButton>
+          <EnquiryButton variant="primary">{buttonName}</EnquiryButton>
         </ButtonLinked>
       </EnquiryInner>
     </EnquiryBlock>

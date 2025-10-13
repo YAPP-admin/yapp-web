@@ -18,11 +18,7 @@ function ProjectSection(): ReactElement {
         subTitle="YAPP에서 활동하는 구성원인 ‘야뿌’들이 만들어낸 프로젝트들이에요."
       />
       <Carousel data={CAROUSEL_DATA} />
-      <Button
-        fontColor="white"
-        buttonColor="grey_850"
-        onClick={() => Router.push('/project')}
-      >
+      <Button variant="black" onClick={() => Router.push('/project')}>
         프로젝트 더보기
       </Button>
     </ProjectContainer>

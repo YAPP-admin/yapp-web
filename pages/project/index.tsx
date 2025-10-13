@@ -113,8 +113,7 @@ function Project({ projects }: ProjectProps) {
         }).length > viewCardCount && (
           <ButtonWrapper>
             <StyledButton
-              fontColor="white"
-              buttonColor="grey_850"
+              variant="black"
               borderRadius={99}
               onClick={handleMoreButtonClick}
             >
@@ -174,9 +173,6 @@ const ButtonWrapper = styled.div`
 
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.grey_700};
-  }
 
   ${media.mobile} {
     width: 162px;

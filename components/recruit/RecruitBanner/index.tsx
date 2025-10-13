@@ -32,6 +32,7 @@ function RecruitBanner() {
           <TimeBlock type="SECS" time={secs} />
         </TimeList>
         <Button
+          variant="primary"
           onClick={() => {
             if (!IS_RECRUITING) {
               window.location.href = NEXT_GENERATION_RECRUIT_LINK;

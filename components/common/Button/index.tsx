@@ -5,13 +5,8 @@ import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
 
 export interface IButtonStyle {
-  width?: number;
-  height?: number;
-  hasBorder?: boolean;
+  variant: 'primary' | 'black';
   borderRadius?: number;
-  buttonColor?: PaletteKeyTypes;
-  borderColor?: PaletteKeyTypes;
-  fontColor?: PaletteKeyTypes;
 }
 
 export interface ButtonProps
@@ -41,26 +36,17 @@ const StyledButton = styled.button<IButtonStyle>`
   align-items: center;
   cursor: pointer;
   padding: 8px 20px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 
-  ${({ width, height }) =>
-    css`
-      width: ${width}px;
-      height: ${height}px;
-    `};
+  ${({ theme, borderRadius = 99, variant }) => css`
+    background-color: ${variant === 'primary'
+      ? theme.palette.white
+      : theme.palette.black_100};
 
-  ${({
-    theme,
-    fontColor = 'black',
-    buttonColor = 'white',
-    hasBorder = false,
-    borderRadius = 99,
-    borderColor = 'white',
-  }) => css`
     border-radius: ${borderRadius}px;
-    color: ${theme.palette[fontColor]};
-    background-color: ${theme.palette[buttonColor]};
-    border: ${hasBorder ? '1px solid' : 'none'};
-    border-color: ${theme.palette[borderColor]};
+    color: ${variant === 'primary'
+      ? theme.palette.black_100
+      : theme.palette.white_100};
   `};
 
   /* Text Style */
@@ -70,10 +56,19 @@ const StyledButton = styled.button<IButtonStyle>`
   }
 
   &:hover {
+    transform: scale(1.1);
+    ${({ theme, variant }) => css`
+      background-color: ${variant === 'black' && theme.palette.black_70};
+    `};
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 
   &:disabled {
     cursor: not-allowed;
+    transform: none;
   }
 `;
 
