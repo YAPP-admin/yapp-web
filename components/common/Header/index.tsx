@@ -59,6 +59,8 @@ const HeaderBlock = styled.header`
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
   background-color: ${({ theme }) => theme.palette.black_10};
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: ${({ theme }) => theme.palette.white_50};
   position: fixed;
   top: 0;
