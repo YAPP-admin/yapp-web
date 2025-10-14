@@ -1,5 +1,5 @@
 import Yapp from 'constants/yapp';
-import { SPONSOR_DATA } from 'database/home';
+import { SPONSOR_DATA, SPONSOR_SECTION } from 'database/home';
 import type { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function SponsorSection(): ReactElement {
+  const { title, subTitle } = SPONSOR_SECTION;
   const { ref, controls, containerVariants, itemVariants } = useScrollAnimation(
     {
       threshold: 0.2,
@@ -31,8 +32,8 @@ function SponsorSection(): ReactElement {
           fontColor="black_100"
           subFontColor="black_60"
           align="left"
-          title="YAPP의 후원사"
-          subTitle="YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의, 언제든 기다리고 있습니다."
+          title={title}
+          subTitle={subTitle}
         />
       </motion.div>
 

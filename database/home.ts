@@ -142,7 +142,22 @@ export const NEWS_DATA = [
 
 export const GRID_SECTION = {
   title: '지금 YAPP은 이렇게 움직여요',
-  subTitle: '실무 기반 협업 시스템으로 운영되는 연합 기업형 IT 동아리',
+  subTitle: `실무 기반 협업 시스템으로 운영되는\n연합 기업형 IT 동아리`,
+};
+
+export const PROJECT_SECTION = {
+  title: 'YAPP의 서비스들',
+  subTitle: `YAPP에서 활동하는 구성원인 ‘야뿌’들이 만들어낸\n프로젝트들이에요.`,
+};
+
+export const NEWS_SECTION = {
+  title: 'YAPP 안의 사람들, 그리고 이야기',
+  subTitle: `야뿌들의 성장 과정, 활동 후기,\n밋업 현장과 다양한 이야기를 담고 있어요.`,
+};
+
+export const SPONSOR_SECTION = {
+  title: 'YAPP의 후원사',
+  subTitle: `YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의,\n언제든 기다리고 있습니다.`,
 };
 
 /** Sponsor 이미지 경로 */
