@@ -48,8 +48,7 @@ function SponsorSection(): ReactElement {
       <ButtonContainer variants={itemVariants}>
         <Button variant="black">
           <ButtonLinked
-            href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
-            rel="noreferrer"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${Yapp.YAPP_OFFICIAL_EMAIL}&su=후원문의&body=안녕하세요, 후원 관련 문의드립니다.`}
             target="_blank"
           >
             후원 문의하기
