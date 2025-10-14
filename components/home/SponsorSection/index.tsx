@@ -114,6 +114,11 @@ const Sponsor = styled.li`
       width: 180px;
       height: 80px;
     }
+
+    ${media.small} {
+      width: 120px;
+      height: 80px;
+    }
   }
 `;
 
