@@ -56,6 +56,8 @@ function Header(): ReactElement {
 }
 
 const HeaderBlock = styled.header`
+  display: flex;
+  justify-content: center;
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
   background-color: ${({ theme }) => theme.palette.black_10};
@@ -68,7 +70,9 @@ const HeaderBlock = styled.header`
 `;
 
 const HeaderInner = styled.div`
-  height: 70px;
+  width: 100%;
+  max-width: 1200px;
+  height: 60px;
   padding: 0 80px;
   display: flex;
   justify-content: space-between;
@@ -86,9 +90,10 @@ const Logo = styled(YappLogo)`
 
 const HeaderMenu = styled.div`
   width: 470px;
+  gap: 56px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   ${media.mobile} {
     display: none;
   }
