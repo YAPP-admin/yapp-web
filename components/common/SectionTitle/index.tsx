@@ -61,6 +61,7 @@ const StyledTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
   white-space: pre-line;
 
   ${media.mobile} {
+    width: max-content;
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
     white-space: break-spaces;
   }
@@ -73,6 +74,7 @@ const CautionText = styled.span<{ subFontColor: PaletteKeyTypes }>`
   white-space: pre-line;
 
   ${media.mobile} {
+    width: max-content;
     ${({ theme }) => theme.textStyleV2.resp.caption_sm};
     white-space: break-spaces;
   }
