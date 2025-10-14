@@ -1,14 +1,12 @@
 import { RECRUIT_SCHEDULE } from 'database/recruit';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
 import CircusCard from 'components/common/CircusCard';
 import { PaletteKeyTypes } from 'styles/theme';
 import { AnimatedBox } from 'components/common';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 const additionalSchedule = {
@@ -28,8 +26,7 @@ function RecruitSchedule(): ReactElement {
   return (
     <SectionLayout
       ref={ref}
-      as={motion.section}
-      initial="hidden"
+      initial={typeof window === 'undefined' ? false : 'hidden'}
       animate={controls}
       variants={containerVariants}
     >
@@ -86,7 +83,7 @@ function RecruitSchedule(): ReactElement {
   );
 }
 
-const SectionLayout = styled(SectionTemplate)`
+const SectionLayout = styled(motion.section)`
   width: auto;
   padding: 160px 80px;
 
@@ -135,10 +132,12 @@ const CardInnerBox = styled.div`
 
 const CardInnerLine = styled.li`
   display: flex;
+  align-items: center;
   gap: 16px;
 `;
 
 const CardLabel = styled.span`
+  white-space: nowrap;
   padding: 4px;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.palette.black_100};

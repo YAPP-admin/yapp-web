@@ -140,6 +140,11 @@ export const NEWS_DATA = [
   },
 ];
 
+export const GRID_SECTION = {
+  title: '지금 YAPP은 이렇게 움직여요',
+  subTitle: '실무 기반 협업 시스템으로 운영되는 연합 기업형 IT 동아리',
+};
+
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
