@@ -255,6 +255,7 @@ export const RECRUIT_FIELD_NAMES = [
 /* 문의 사항 */
 export const RECRUIT_ENQUIRY = {
   title: `더 궁금하신 내용이 있거나\n문의 사항이 있으신가요?`,
-  description: `리쿠르팅 관련 문의는 카카오톡 채널을 이용해 주세요.\n(페이스북 메시지 및 인스타그램 DM은 받지 않습니다)`,
+  description: `리쿠르팅 관련 문의는 카카오톡 채널을 이용해 주세요.`,
+  caution: `(페이스북 메시지 및 인스타그램 DM은 받지 않습니다)`,
   buttonName: '문의 하기',
 };

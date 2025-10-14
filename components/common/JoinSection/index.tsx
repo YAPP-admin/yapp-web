@@ -10,6 +10,7 @@ interface JoinSectionProps {
   title?: string;
   subTitle?: string;
   btnText?: string;
+  caution?: string;
   url?: string;
 }
 
@@ -17,6 +18,7 @@ function JoinSection({
   title,
   subTitle,
   btnText,
+  caution,
   url,
 }: JoinSectionProps): ReactElement {
   return (
@@ -30,6 +32,7 @@ function JoinSection({
                 subTitle ||
                 `지원하기 버튼 하나로\nYAPP 27기의 야뿌가 되어보세요.`
               }
+              caution={caution}
               align="center"
             />
             <Button

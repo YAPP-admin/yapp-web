@@ -93,6 +93,9 @@ const SectionContent = styled.div`
 const SectionInner = styled.div`
   max-width: 1200px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 `;
 
 const FAQBox = styled.section`

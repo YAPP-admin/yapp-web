@@ -13,7 +13,7 @@ import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 function RecruitPage(): ReactElement {
-  const { title, description } = RECRUIT_ENQUIRY;
+  const { title, description, caution } = RECRUIT_ENQUIRY;
   return (
     <Wrapper>
       <RecruitBanner />
@@ -25,6 +25,7 @@ function RecruitPage(): ReactElement {
       <JoinSection
         title={title}
         subTitle={description}
+        caution={caution}
         btnText={`채널톡 문의하기`}
         url={Yapp.YAPP_KAKAO}
       />

@@ -9,6 +9,7 @@ interface SectionTitleProps {
   subFontColor?: PaletteKeyTypes;
   title?: string;
   subTitle?: string;
+  caution?: string;
   align?: 'left' | 'center' | 'right';
 }
 
@@ -19,6 +20,7 @@ function SectionTitle({
   title = '',
   subTitle = '',
   align = 'left',
+  caution,
 }: SectionTitleProps): ReactElement {
   return (
     <TitleBox align={align}>
@@ -26,6 +28,9 @@ function SectionTitle({
         {title}
       </StyledTitle>
       <StyledSubTitle subFontColor={subFontColor}>{subTitle}</StyledSubTitle>
+      {caution && (
+        <CautionText subFontColor={subFontColor}>{caution}</CautionText>
+      )}
     </TitleBox>
   );
 }
@@ -53,10 +58,22 @@ const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
 const StyledTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
   color: ${({ theme, fontColor }) => theme.palette[fontColor]};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
-  white-space: nowrap;
+  white-space: pre-line;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
+    white-space: break-spaces;
+  }
+`;
+
+const CautionText = styled.span<{ subFontColor: PaletteKeyTypes }>`
+  color: ${({ theme, subFontColor }) => theme.palette[subFontColor]};
+  ${({ theme }) => theme.textStyleV2.resp.caption_md};
+  margin-top: 6px;
+  white-space: pre-line;
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
     white-space: break-spaces;
   }
 `;
