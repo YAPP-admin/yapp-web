@@ -49,6 +49,14 @@ const InnerTextContainer = styled.div`
   width: 100%;
   align-items: flex-start;
   gap: 8px;
+
+  ${media.tablet} {
+    width: -webkit-fill-available;
+  }
+
+  ${media.mobile} {
+    margin: 0 24px;
+  }
 `;
 
 const slideUp = keyframes`

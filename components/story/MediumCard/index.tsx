@@ -22,7 +22,12 @@ function MediumCard({ medium }: MediumCardProps): ReactElement {
     >
       <MediumCardContainer>
         <ImageContainer>
-          <StyledImage src={thumbnail} alt="project-image" fill />
+          <StyledImage
+            src={thumbnail}
+            alt="project-image"
+            width={300}
+            height={198}
+          />
         </ImageContainer>
         <MediumInfo>
           <MediumDate>{date}</MediumDate>
@@ -35,6 +40,7 @@ function MediumCard({ medium }: MediumCardProps): ReactElement {
 }
 
 const MediumCardContainer = styled.article`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,12 +48,17 @@ const MediumCardContainer = styled.article`
   gap: 8px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 
+  ${media.tablet} {
+    min-width: 370px;
+  }
+
   &:hover {
     transform: translateY(-8px);
     opacity: 0.6;
   }
 
   ${media.mobile} {
+    min-width: 100%;
     flex-direction: row;
     width: 100%;
   }
@@ -56,13 +67,22 @@ const MediumCardContainer = styled.article`
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
 
+  & img {
+    width: 100%;
+    height: 198px;
+    object-fit: cover;
+  }
+
   ${media.mobile} {
     width: 100px;
-    aspect-ratio: 1 / 1;
+    height: 100px;
+    & img {
+      width: 100px;
+      height: 100px;
+    }
   }
 `;
 
