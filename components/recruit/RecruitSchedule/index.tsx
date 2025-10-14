@@ -32,66 +32,75 @@ function RecruitSchedule(): ReactElement {
       animate={controls}
       variants={containerVariants}
     >
-      <motion.div variants={itemVariants}>
-        <SectionTitle
-          title={title}
-          subTitle={subTitle}
-          fontColor="black_100"
-          subFontColor="black_50"
-          align="left"
-        />
-      </motion.div>
-      <SectionContent
-        as={motion.div}
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-      >
-        <GridContainer as={motion.div} variants={containerVariants}>
-          {schedules.map(
-            ({ title, content, icon, color, fontColor }, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <CircusCard
-                  title={title}
-                  content={content}
-                  icon={icon}
-                  color={color as PaletteKeyTypes}
-                  fontColor={fontColor as PaletteKeyTypes}
-                />
-              </motion.div>
-            ),
-          )}
-          <motion.div key="additional" variants={itemVariants}>
-            <AnimatedBox
-              color={additionalSchedule.color as PaletteKeyTypes}
-              fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
-            >
-              <CardInnerBox>
-                {additionalSchedule.contents.map((item, index) => (
-                  <CardInnerLine key={index}>
-                    <CardLabel>{item.label}</CardLabel>
-                    <CardInnerText style={{ marginTop: '4px' }}>
-                      {item.text}
-                    </CardInnerText>
-                  </CardInnerLine>
-                ))}
-              </CardInnerBox>
-            </AnimatedBox>
-          </motion.div>
-        </GridContainer>
-      </SectionContent>
+      <SectionInner>
+        <motion.div variants={itemVariants}>
+          <SectionTitle
+            title={title}
+            subTitle={subTitle}
+            fontColor="black_100"
+            subFontColor="black_50"
+            align="left"
+          />
+        </motion.div>
+        <SectionContent
+          as={motion.div}
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
+          <GridContainer as={motion.div} variants={containerVariants}>
+            {schedules.map(
+              ({ title, content, icon, color, fontColor }, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <CircusCard
+                    title={title}
+                    content={content}
+                    icon={icon}
+                    color={color as PaletteKeyTypes}
+                    fontColor={fontColor as PaletteKeyTypes}
+                  />
+                </motion.div>
+              ),
+            )}
+            <motion.div key="additional" variants={itemVariants}>
+              <AnimatedBox
+                color={additionalSchedule.color as PaletteKeyTypes}
+                fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
+              >
+                <CardInnerBox>
+                  {additionalSchedule.contents.map((item, index) => (
+                    <CardInnerLine key={index}>
+                      <CardLabel>{item.label}</CardLabel>
+                      <CardInnerText style={{ marginTop: '4px' }}>
+                        {item.text}
+                      </CardInnerText>
+                    </CardInnerLine>
+                  ))}
+                </CardInnerBox>
+              </AnimatedBox>
+            </motion.div>
+          </GridContainer>
+        </SectionContent>
+      </SectionInner>
     </SectionLayout>
   );
 }
 
 const SectionLayout = styled(motion.section)`
+  display: flex;
+  justify-content: center;
   width: auto;
   padding: 160px 80px;
 
   ${media.mobile} {
     padding: 100px 20px;
   }
+`;
+
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
 `;
 
 const SectionContent = styled.div`

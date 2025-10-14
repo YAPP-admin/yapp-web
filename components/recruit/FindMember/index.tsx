@@ -36,6 +36,8 @@ function FindMember(): ReactElement {
 }
 
 const SectionTemplate = styled.section`
+  display: flex;
+  justify-content: center;
   background-color: ${({ theme }) => theme.palette.black};
   width: auto;
   padding: 234px 80px;
@@ -51,6 +53,7 @@ const SectionContent = styled.ul`
   align-items: center;
   gap: 84px;
   width: 100%;
+  max-width: 1200px;
   justify-content: space-between;
 `;
 

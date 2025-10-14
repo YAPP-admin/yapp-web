@@ -31,6 +31,7 @@ function SectionTitle({
 }
 
 const TitleBox = styled.div<{ align: 'left' | 'center' | 'right' }>`
+  max-width: 1200px;
   width: 100%;
   display: flex;
   flex-direction: column;

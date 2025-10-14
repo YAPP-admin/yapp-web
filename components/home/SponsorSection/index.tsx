@@ -27,39 +27,44 @@ function SponsorSection(): ReactElement {
       animate={controls}
       variants={containerVariants}
     >
-      <motion.div variants={itemVariants}>
-        <SectionTitle
-          fontColor="black_100"
-          subFontColor="black_60"
-          align="left"
-          title={title}
-          subTitle={subTitle}
-        />
-      </motion.div>
+      <SectionInner>
+        <motion.div variants={itemVariants}>
+          <SectionTitle
+            fontColor="black_100"
+            subFontColor="black_60"
+            align="left"
+            title={title}
+            subTitle={subTitle}
+          />
+        </motion.div>
 
-      <SponsorList as={motion.ul} variants={containerVariants}>
-        {SPONSOR_DATA.map(({ image, alt }, index) => (
-          <Sponsor as={motion.li} key={index} variants={itemVariants}>
-            <Image src={image} alt={alt} width={137} height={50} />
-          </Sponsor>
-        ))}
-      </SponsorList>
+        <SponsorList as={motion.ul} variants={containerVariants}>
+          {SPONSOR_DATA.map(({ image, alt }, index) => (
+            <Sponsor as={motion.li} key={index} variants={itemVariants}>
+              <Image src={image} alt={alt} width={137} height={50} />
+            </Sponsor>
+          ))}
+        </SponsorList>
 
-      <ButtonContainer variants={itemVariants}>
-        <Button variant="black">
-          <ButtonLinked
-            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${Yapp.YAPP_OFFICIAL_EMAIL}&su=후원문의&body=안녕하세요, 후원 관련 문의드립니다.`}
-            target="_blank"
-          >
-            후원 문의하기
-          </ButtonLinked>
-        </Button>
-      </ButtonContainer>
+        <ButtonContainer variants={itemVariants}>
+          <Button variant="black">
+            <ButtonLinked
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${Yapp.YAPP_OFFICIAL_EMAIL}&su=후원문의&body=안녕하세요, 후원 관련 문의드립니다.`}
+              target="_blank"
+            >
+              후원 문의하기
+            </ButtonLinked>
+          </Button>
+        </ButtonContainer>
+      </SectionInner>
     </SponsorSectionContainer>
   );
 }
 
 const SponsorSectionContainer = styled(SectionTemplate)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: auto;
   padding: 160px 80px;
   background-color: ${({ theme }) => theme.palette.white_100};
@@ -67,6 +72,11 @@ const SponsorSectionContainer = styled(SectionTemplate)`
   ${media.mobile} {
     padding: 100px 20px;
   }
+`;
+
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
 `;
 
 const SponsorList = styled.ul`
