@@ -31,9 +31,10 @@ function Button({
 }
 
 const StyledButton = styled.button<IButtonStyle>`
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   cursor: pointer;
   padding: 8px 20px;
   transition: transform 0.2s ease, background-color 0.2s ease;
