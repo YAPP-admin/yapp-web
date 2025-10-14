@@ -43,6 +43,7 @@ function RecuitBtn(): ReactElement {
 }
 
 const BtnContainer = styled.section`
+  width: max-content;
   position: fixed;
   display: flex;
   padding: 6px 6px 6px 24px;
@@ -56,6 +57,7 @@ const BtnContainer = styled.section`
 `;
 
 const InfoText = styled.span`
+  white-space: nowrap;
   color: ${({ theme }) => theme.palette.white_70};
   ${({ theme }) => theme.textStyleV2.resp.body_md};
 
@@ -65,6 +67,7 @@ const InfoText = styled.span`
 `;
 
 const AnimatedButton = styled(motion.button)`
+  white-space: nowrap;
   all: unset;
   cursor: pointer;
   display: flex;

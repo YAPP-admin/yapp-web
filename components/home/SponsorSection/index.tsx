@@ -44,7 +44,7 @@ function SponsorSection(): ReactElement {
         ))}
       </SponsorList>
 
-      <motion.div variants={itemVariants} style={{ textAlign: 'center' }}>
+      <ButtonContainer variants={itemVariants}>
         <Button variant="black">
           <ButtonLinked
             href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
@@ -54,7 +54,7 @@ function SponsorSection(): ReactElement {
             후원 문의하기
           </ButtonLinked>
         </Button>
-      </motion.div>
+      </ButtonContainer>
     </SponsorSectionContainer>
   );
 }
@@ -80,6 +80,12 @@ const SponsorList = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+`;
+
+const ButtonContainer = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const Sponsor = styled.li`

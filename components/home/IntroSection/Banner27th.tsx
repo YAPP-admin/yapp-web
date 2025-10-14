@@ -19,6 +19,7 @@ const Banner27th = () => {
             alt="27th Title"
             width={580}
             height={309}
+            priority
           />
         </TextBox>
       </Banner27thTextContentBox>
