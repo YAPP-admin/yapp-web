@@ -155,7 +155,7 @@ const CarouselContainer = styled.div`
 
 const CarouselTrack = styled(motion.div)`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   flex-shrink: 0;
   will-change: transform;
   backface-visibility: hidden;
