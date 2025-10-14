@@ -55,7 +55,7 @@ const InnerTextContainer = styled.div`
   }
 
   ${media.mobile} {
-    margin: 0 24px;
+    margin: 0;
   }
 `;
 
