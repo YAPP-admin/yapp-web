@@ -69,6 +69,14 @@ const ImageContainer = styled.div`
 const MediumInfo = styled.section`
   width: 100%;
   margin: 0;
+
+  ${media.small} {
+    max-width: 260px;
+  }
+
+  ${media.xSmall} {
+    max-width: 230px;
+  }
 `;
 
 const MediumTitle = styled.h3`
