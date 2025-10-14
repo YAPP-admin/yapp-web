@@ -1,4 +1,6 @@
-import type { ReactElement } from 'react';
+'use client';
+
+import { type ReactElement } from 'react';
 import styled from 'styled-components';
 import { CURRENT_INFO_DATA, GRID_SECTION } from 'database/home';
 import media from 'styles/media';
@@ -10,13 +12,14 @@ import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function GridSection(): ReactElement {
   const { title, subTitle } = GRID_SECTION;
+
   const { ref, controls, containerVariants, itemVariants } =
     useScrollAnimation();
 
   return (
     <SectionLayout
       ref={ref}
-      initial={typeof window === 'undefined' ? false : 'hidden'}
+      initial="hidden"
       animate={controls}
       variants={containerVariants}
     >

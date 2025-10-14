@@ -1,3 +1,5 @@
+'use client';
+
 import { RECRUIT_SCHEDULE } from 'database/recruit';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -26,7 +28,7 @@ function RecruitSchedule(): ReactElement {
   return (
     <SectionLayout
       ref={ref}
-      initial={typeof window === 'undefined' ? false : 'hidden'}
+      initial="hidden"
       animate={controls}
       variants={containerVariants}
     >
