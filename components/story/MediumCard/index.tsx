@@ -26,7 +26,7 @@ function MediumCard({ medium }: MediumCardProps): ReactElement {
             src={thumbnail}
             alt="project-image"
             width={300}
-            height={198}
+            height={184}
           />
         </ImageContainer>
         <MediumInfo>
@@ -41,16 +41,13 @@ function MediumCard({ medium }: MediumCardProps): ReactElement {
 
 const MediumCardContainer = styled.article`
   width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
   transition: transform 0.3s ease, opacity 0.3s ease;
-
-  ${media.tablet} {
-    min-width: 370px;
-  }
 
   &:hover {
     transform: translateY(-8px);
@@ -60,6 +57,7 @@ const MediumCardContainer = styled.article`
   ${media.mobile} {
     min-width: 100%;
     flex-direction: row;
+    gap: 16px;
     width: 100%;
   }
 `;
@@ -68,11 +66,10 @@ const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   border-radius: 8px;
-  overflow: hidden;
 
   & img {
     width: 100%;
-    height: 198px;
+    height: 184px;
     object-fit: cover;
   }
 
@@ -89,13 +86,18 @@ const ImageContainer = styled.div`
 const MediumInfo = styled.section`
   width: 100%;
   margin: 0;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
 
   ${media.small} {
-    max-width: 260px;
+    max-width: 230px;
   }
 
   ${media.xSmall} {
-    max-width: 230px;
+    max-width: 200px;
   }
 `;
 
@@ -108,6 +110,7 @@ const MediumTitle = styled.h3`
   text-overflow: ellipsis;
 
   ${media.mobile} {
+    margin-bottom: 4px;
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
