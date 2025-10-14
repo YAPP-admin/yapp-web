@@ -3,6 +3,7 @@ import { useRef } from 'react';
 interface useSmoothScrollParams {
   block?: ScrollLogicalPosition;
   inline?: ScrollLogicalPosition;
+  offset?: number;
 }
 
 function useSmoothScroll<T extends HTMLElement>({
@@ -11,13 +12,15 @@ function useSmoothScroll<T extends HTMLElement>({
 }: useSmoothScrollParams) {
   const ref = useRef<T>(null);
 
-  const trigger = () =>
-    ref.current?.scrollIntoView({
+  const trigger = () => {
+    if (!ref.current) return;
+
+    ref.current.scrollIntoView({
       behavior: 'smooth',
       block,
       inline,
     });
-
+  };
   return { ref, trigger };
 }
 
