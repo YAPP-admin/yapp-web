@@ -112,13 +112,9 @@ function Project({ projects }: ProjectProps) {
           else return true;
         }).length > viewCardCount && (
           <ButtonWrapper>
-            <StyledButton
-              variant="black"
-              borderRadius={99}
-              onClick={handleMoreButtonClick}
-            >
+            <Button variant="black" onClick={handleMoreButtonClick}>
               프로젝트 더보기
-            </StyledButton>
+            </Button>
           </ButtonWrapper>
         )}
       </ProjectContainer>
@@ -167,6 +163,8 @@ const ProjectGridWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin: 56px 0 80px 0;
 `;

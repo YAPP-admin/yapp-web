@@ -41,20 +41,22 @@ const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
   margin-top: 8px;
   color: ${({ theme, subFontColor }) => theme.palette[subFontColor]};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
-  white-space: pre;
+  white-space: nowrap;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
+    white-space: break-spaces;
   }
 `;
 
 const StyledTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
   color: ${({ theme, fontColor }) => theme.palette[fontColor]};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
-  white-space: pre;
+  white-space: nowrap;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
+    white-space: break-spaces;
   }
 `;
 

@@ -64,18 +64,25 @@ function AnimatedBox({
 
 export default AnimatedBox;
 
-const StyledBox = styled(Box)`
+const StyledBox = styled.section<{
+  backgroundColor: PaletteKeyTypes;
+  fontColor: PaletteKeyTypes;
+  borderRadius: number;
+}>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 20px 24px;
   width: auto;
+  min-width: 195px;
+  border-radius: ${({ borderRadius }) => borderRadius}px;
   background-color: ${({ theme, backgroundColor }) =>
     backgroundColor && theme.palette[backgroundColor]};
   color: ${({ theme, fontColor }) => fontColor && theme.palette[fontColor]};
 
   ${media.mobile} {
     width: auto;
+    height: 175px;
   }
 `;

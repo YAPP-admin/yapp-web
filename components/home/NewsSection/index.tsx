@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
 import SectionTitle from 'components/common/SectionTitle';
 import { useRouter } from 'next/router';
 import Path from 'constants/path';
+import { NEWS_SECTION } from 'database/home';
 
 const colors = [
   'circus_red',
@@ -19,6 +20,7 @@ const colors = [
 const fontColors = ['white_100', 'black_100', 'white_100'] as PaletteKeyTypes[];
 
 function MainContainer({ data }: { data: Medium[] }): ReactElement {
+  const { title, subTitle } = NEWS_SECTION;
   const router = useRouter();
   const loopData = [...data, ...data];
   const trackRef = useRef<HTMLDivElement>(null);
@@ -62,8 +64,8 @@ function MainContainer({ data }: { data: Medium[] }): ReactElement {
         <SectionTitle
           fontColor="black_100"
           subFontColor="black_60"
-          title="YAPP 안의 사람들, 그리고 이야기"
-          subTitle="야뿌들의 성장 과정, 활동 후기, 밋업 현장과 다양한 이야기를 담고 있어요."
+          title={title}
+          subTitle={subTitle}
         />
       </PaddingSection>
 

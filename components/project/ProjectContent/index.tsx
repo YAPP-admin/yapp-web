@@ -153,9 +153,13 @@ const SubTitle = styled.div`
 const BodyText = styled.div`
   display: flex;
   flex: 1;
-  ${({ theme }) => theme.textStyleV2.fix.font_18};
-  color: ${({ theme }) => theme.palette.black_70};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+  color: ${({ theme }) => theme.palette.black_50};
   flex-wrap: wrap;
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  }
 `;
 
 const TextItem = styled.div`
