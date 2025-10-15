@@ -83,6 +83,6 @@ const StyledBox = styled.section<{
 
   ${media.mobile} {
     width: auto;
-    height: 175px;
+    height: 120px;
   }
 `;

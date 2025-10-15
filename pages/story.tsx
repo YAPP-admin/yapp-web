@@ -39,7 +39,7 @@ const MediumList = styled.section`
   display: grid;
   padding: 60px 80px;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 40px 32px;
 
   ${media.tablet} {
     grid-template-columns: repeat(2, 1fr);
