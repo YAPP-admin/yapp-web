@@ -29,13 +29,15 @@ function ProjectSection(): ReactElement {
       animate={controls}
       variants={containerVariants}
     >
-      <SectionTitle
-        fontColor="black_100"
-        subFontColor="black_60"
-        align="center"
-        title={title}
-        subTitle={subTitle}
-      />
+      <TextBoxLayout>
+        <SectionTitle
+          fontColor="black_100"
+          subFontColor="black_60"
+          align="flex-start"
+          title={title}
+          subTitle={subTitle}
+        />
+      </TextBoxLayout>
       <Carousel data={CAROUSEL_DATA} />
       <Button variant="black" onClick={() => Router.push('/project')}>
         프로젝트 더보기
@@ -49,6 +51,28 @@ const ProjectContainer = styled(SectionTemplate)`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const TextBoxLayout = styled.div`
+  box-sizing: border-box;
+  max-width: 1200px;
+  width: 100%;
+
+  & > div {
+    max-width: 1200px;
+  }
+
+  ${media.tablet} {
+    & > div {
+      margin: 0 80px;
+    }
+  }
+
+  ${media.mobile} {
+    & > div {
+      margin: 0 12px;
+    }
+  }
 `;
 
 export default ProjectSection;

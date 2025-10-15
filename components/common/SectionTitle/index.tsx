@@ -10,7 +10,7 @@ interface SectionTitleProps {
   title?: string;
   subTitle?: string;
   caution?: string;
-  align?: 'left' | 'center' | 'right';
+  align?: 'flex-start' | 'center' | 'right';
 }
 
 function SectionTitle({
@@ -19,7 +19,7 @@ function SectionTitle({
   subFontColor = 'white_50',
   title = '',
   subTitle = '',
-  align = 'left',
+  align = 'flex-start',
   caution,
 }: SectionTitleProps): ReactElement {
   return (
@@ -35,12 +35,15 @@ function SectionTitle({
   );
 }
 
-const TitleBox = styled.div<{ align: 'left' | 'center' | 'right' }>`
-  max-width: 1200px;
+const TitleBox = styled.div<{ align: 'flex-start' | 'center' | 'right' }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: ${({ align }) => align};
+
+  ${media.mobile} {
+    margin: 0 12px;
+  }
 `;
 
 const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`

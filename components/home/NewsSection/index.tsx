@@ -109,8 +109,16 @@ const PaddingSection = styled.section`
   max-width: 1200px;
   width: 100%;
 
+  ${media.tablet} {
+    & > div {
+      margin: 0 80px;
+    }
+  }
+
   ${media.mobile} {
-    padding: 0 20px;
+    & > div {
+      margin: 0 12px;
+    }
   }
 `;
 

@@ -32,7 +32,7 @@ function SponsorSection(): ReactElement {
           <SectionTitle
             fontColor="black_100"
             subFontColor="black_60"
-            align="left"
+            align="flex-start"
             title={title}
             subTitle={subTitle}
           />

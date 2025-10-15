@@ -39,7 +39,7 @@ function RecruitSchedule(): ReactElement {
             subTitle={subTitle}
             fontColor="black_100"
             subFontColor="black_50"
-            align="left"
+            align="flex-start"
           />
         </motion.div>
         <SectionContent
