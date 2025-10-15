@@ -27,12 +27,15 @@ export async function getStaticProps() {
 function Home({ data }: { data: Medium[] }): ReactElement {
   return (
     <Wrapper>
-      <Banner27th />
-      <AnimatedTextSection />
-      <GridSection />
-      <ProjectSection />
-      <NewsSection data={data || []} />
-      <SponsorSection />
+      {/* FAB 노출 범위 */}
+      <section id="join-section">
+        <Banner27th />
+        <AnimatedTextSection />
+        <GridSection />
+        <ProjectSection />
+        <NewsSection data={data || []} />
+        <SponsorSection />
+      </section>
       <JoinSection />
       <RecuitBtn />
     </Wrapper>

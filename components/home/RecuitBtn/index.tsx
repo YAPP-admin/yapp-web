@@ -1,14 +1,42 @@
-import { useCallback, type ReactElement } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactElement,
+} from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { motion, useAnimation } from 'framer-motion';
 import theme from 'styles/theme';
-import { useRouter } from 'next/navigation';
 import Yapp from 'constants/yapp';
 
 function RecuitBtn(): ReactElement {
   const controls = useAnimation();
-  const router = useRouter();
+  const [visible, setVisible] = useState(true);
+  const joinSectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const section = document.querySelector('#join-section');
+    if (!section) return;
+
+    joinSectionRef.current = section as HTMLElement;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true); // JoinSection 전까지 범위에서만 FAB 노출
+        } else {
+          setVisible(false); // JoinSection 벗어나면 FAB 숨김
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleHoverStart = useCallback(async () => {
     await controls.start({
@@ -30,6 +58,7 @@ function RecuitBtn(): ReactElement {
 
   return (
     <BtnContainer
+      $visible={visible}
       onClick={() => window.open(Yapp.YAPP_RECRUIT_ALL, '_blank')}
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
@@ -42,7 +71,7 @@ function RecuitBtn(): ReactElement {
   );
 }
 
-const BtnContainer = styled.section`
+const BtnContainer = styled.section<{ $visible: boolean }>`
   width: max-content;
   position: fixed;
   display: flex;
@@ -54,6 +83,9 @@ const BtnContainer = styled.section`
   left: 50%;
   transform: translateX(-50%);
   bottom: 36px;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
+  transition: opacity 0.4s ease;
 `;
 
 const InfoText = styled.span`
