@@ -59,6 +59,7 @@ function Project({ projects }: ProjectProps) {
     useSmoothScroll<HTMLDivElement>({
       block: 'end',
     });
+
   const { ref: categoryRef, trigger: triggerCategoryScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'start',
@@ -133,13 +134,12 @@ const ProjectWrapper = styled.div`
 const ProjectContainer = styled.section`
   position: relative;
   flex: 0 1 1200px;
-  margin: 0 10px;
 `;
 
 const CategoriesWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 32px;
+  padding-top: 52px;
 `;
 
 const ProjectGridWrapper = styled.div`
