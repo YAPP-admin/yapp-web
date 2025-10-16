@@ -1,44 +1,89 @@
-import type { ReactElement } from 'react';
+'use client';
+
+import { type ReactElement } from 'react';
 import styled from 'styled-components';
-import { SectionTitle, SectionTemplate } from 'components/home';
-import { AnimatedBox } from 'components/common';
-import { CURRENT_INFO_DATA } from 'database/home';
+import { CURRENT_INFO_DATA, GRID_SECTION } from 'database/home';
 import media from 'styles/media';
+import { PaletteKeyTypes } from 'styles/theme';
+import CircusCard from 'components/common/CircusCard';
+import SectionTitle from 'components/common/SectionTitle';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function GridSection(): ReactElement {
+  const { title, subTitle } = GRID_SECTION;
+
+  const { ref, controls, containerVariants, itemVariants } =
+    useScrollAnimation();
+
   return (
-    <GridSectionContainer>
-      <SectionTitle>숫자가 말해주는 열정</SectionTitle>
-      <GridContainer>
-        {CURRENT_INFO_DATA.map(({ title, content }, index) => (
-          <AnimatedBox key={index}>
-            <>
-              <span className="title-text">{title}</span>
-              <span className="content-text">{content}</span>
-            </>
-          </AnimatedBox>
-        ))}
-      </GridContainer>
-    </GridSectionContainer>
+    <SectionLayout
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+    >
+      <SectionInner>
+        <motion.div ref={ref} variants={itemVariants}>
+          <SectionTitle title={title} subTitle={subTitle} />
+        </motion.div>
+
+        <GridContainer
+          as={motion.div}
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
+          {CURRENT_INFO_DATA.map(
+            ({ title, content, icon, color, fontColor }, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <CircusCard
+                  title={title}
+                  content={content}
+                  icon={icon}
+                  color={color as PaletteKeyTypes}
+                  fontColor={fontColor as PaletteKeyTypes}
+                />
+              </motion.div>
+            ),
+          )}
+        </GridContainer>
+      </SectionInner>
+    </SectionLayout>
   );
 }
 
-const GridSectionContainer = styled(SectionTemplate)`
-  padding: 200px 0;
+const SectionLayout = styled(motion.section)`
+  display: flex;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.palette.black};
+  width: auto;
+  padding: 160px 80px;
+
+  ${media.mobile} {
+    padding: 100px 20px;
+  }
 `;
 
-const GridContainer = styled.article`
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
+`;
+
+const GridContainer = styled.div`
+  width: 100%;
   display: grid;
   row-gap: 32px;
   column-gap: 30px;
   margin-top: 64px;
 
-  grid-template-columns: repeat(3, 1fr);
-  ${media.tablet} {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+
   ${media.mobile} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 `;
 

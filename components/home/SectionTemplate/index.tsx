@@ -21,8 +21,8 @@ const StyledSectionTemplate = styled.section`
   background-color: ${({ theme }) => theme.palette.grey_100};
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 `;

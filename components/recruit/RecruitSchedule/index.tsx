@@ -1,100 +1,171 @@
-import { Box } from 'components/common';
-import Breakpoints from 'constants/breakpoints';
+'use client';
+
 import { RECRUIT_SCHEDULE } from 'database/recruit';
-import useDragScroll from 'hooks/useDragScroll';
-import DOMPurify from 'isomorphic-dompurify';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
-import { SectionTemplate, SectionTitle } from '..';
+import SectionTitle from 'components/common/SectionTitle';
+import CircusCard from 'components/common/CircusCard';
+import { PaletteKeyTypes } from 'styles/theme';
+import { AnimatedBox } from 'components/common';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from 'hooks/useScrollAnimation';
+
+const additionalSchedule = {
+  contents: [
+    { label: '1차 서류', text: '지원서 작성 및 포트폴리오 제출' },
+    { label: '2차 면접', text: '온라인 인터뷰 후 최종 합격' },
+  ],
+  color: 'circus_blue',
+  fontColor: 'white_100',
+};
 
 function RecruitSchedule(): ReactElement {
-  const { title, schedules } = RECRUIT_SCHEDULE;
-
-  const { handleDragEnd, handleDragMove, handleDragStart, scrollRef } =
-    useDragScroll();
+  const { title, schedules, subTitle } = RECRUIT_SCHEDULE;
+  const { ref, controls, containerVariants, itemVariants } =
+    useScrollAnimation();
 
   return (
-    <SectionTemplate>
-      <SectionTitle title={title} />
-      <SectionContent
-        onMouseDown={handleDragStart}
-        onMouseMove={handleDragMove}
-        onMouseUp={handleDragEnd}
-        onMouseLeave={handleDragEnd}
-        ref={scrollRef}
-      >
-        {schedules.map(({ subTitle, description }) => (
-          <ScheduleBox backgroundColor="grey_50" key={`schedule-${subTitle}`}>
-            <ScheduleBoxInner>
-              <ScheduleSubTitle>{subTitle}</ScheduleSubTitle>
-              <ScheduleContent
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(description),
-                }}
-              />
-            </ScheduleBoxInner>
-          </ScheduleBox>
-        ))}
-      </SectionContent>
-    </SectionTemplate>
+    <SectionLayout
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+    >
+      <SectionInner>
+        <motion.div variants={itemVariants}>
+          <SectionTitle
+            title={title}
+            subTitle={subTitle}
+            fontColor="black_100"
+            subFontColor="black_50"
+            align="flex-start"
+          />
+        </motion.div>
+        <SectionContent
+          as={motion.div}
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
+          <GridContainer as={motion.div} variants={containerVariants}>
+            {schedules.map(
+              ({ title, content, icon, color, fontColor }, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <CircusCard
+                    title={title}
+                    content={content}
+                    icon={icon}
+                    color={color as PaletteKeyTypes}
+                    fontColor={fontColor as PaletteKeyTypes}
+                  />
+                </motion.div>
+              ),
+            )}
+            <motion.div key="additional" variants={itemVariants}>
+              <AnimatedBox
+                color={additionalSchedule.color as PaletteKeyTypes}
+                fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
+              >
+                <CardInnerBox>
+                  {additionalSchedule.contents.map((item, index) => (
+                    <CardInnerLine key={index}>
+                      <CardLabel>{item.label}</CardLabel>
+                      <CardInnerText style={{ marginTop: '4px' }}>
+                        {item.text}
+                      </CardInnerText>
+                    </CardInnerLine>
+                  ))}
+                </CardInnerBox>
+              </AnimatedBox>
+            </motion.div>
+          </GridContainer>
+        </SectionContent>
+      </SectionInner>
+    </SectionLayout>
   );
 }
 
+const SectionLayout = styled(motion.section)`
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 160px 80px;
+
+  ${media.mobile} {
+    padding: 100px 20px;
+  }
+`;
+
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
+`;
+
 const SectionContent = styled.div`
+  width: auto;
   display: flex;
   gap: 30px;
-  width: ${Breakpoints.large}px;
   justify-content: space-between;
 
   ${media.tablet} {
     gap: 0px;
     width: auto;
     overflow: auto;
-    margin-left: 22px;
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 `;
 
-const ScheduleBox = styled(Box)`
-  flex: 1;
-  padding: 0;
-  white-space: pre-line;
-  ${media.tablet} {
-    margin-right: 30px;
-    min-width: 278px;
-  }
+const GridContainer = styled.article`
+  width: 100%;
+  display: grid;
+  row-gap: 32px;
+  column-gap: 30px;
+  margin-top: 64px;
+
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+
   ${media.mobile} {
-    min-width: 225px;
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 `;
 
-const ScheduleBoxInner = styled.div`
-  padding: 32px;
+const CardInnerBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  min-height: 150px;
 `;
 
-const ScheduleSubTitle = styled.div`
-  ${({ theme }) => theme.textStyle.web.Subtitle};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.palette.grey_1000};
-  margin-bottom: 12px;
+const CardInnerLine = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
+const CardLabel = styled.span`
+  white-space: nowrap;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.palette.black_100};
+  color: ${({ theme }) => theme.palette.white_100};
+  ${({ theme }) => theme.textStyleV2.resp.caption_md};
+
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Subtitle}
-    margin-bottom: 7px;
+    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
   }
 `;
 
-const ScheduleContent = styled.div`
-  ${({ theme }) => theme.textStyle.web.Body_Point};
-  color: ${({ theme }) => theme.palette.grey_850};
-  .smallBox {
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
+const CardInnerText = styled.div`
+  color: ${({ theme }) => theme.palette.white_100};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Body_1};
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
 

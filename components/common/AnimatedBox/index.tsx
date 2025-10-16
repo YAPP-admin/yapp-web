@@ -4,13 +4,21 @@ import { useSpring, animated } from '@react-spring/web';
 import { Box } from 'components/common';
 import styled from 'styled-components';
 import media from 'styles/media';
+import { PaletteKeyTypes } from 'styles/theme';
 
 export interface AnimatedBoxProps {
   children: ReactNode;
   className?: string;
+  color: PaletteKeyTypes;
+  fontColor: PaletteKeyTypes;
 }
 
-function AnimatedBox({ children, className }: AnimatedBoxProps): ReactElement {
+function AnimatedBox({
+  children,
+  className,
+  color,
+  fontColor,
+}: AnimatedBoxProps): ReactElement {
   const animatedDivRef = useRef(null);
   const [isIntersect, setIsIntersect] = useState(false);
 
@@ -44,9 +52,8 @@ function AnimatedBox({ children, className }: AnimatedBoxProps): ReactElement {
     <animated.div ref={animatedDivRef} style={styles}>
       <StyledBox
         className={className}
-        width={380}
-        height={268}
-        backgroundColor="white"
+        backgroundColor={color}
+        fontColor={fontColor}
         borderRadius={20}
       >
         {children}
@@ -57,33 +64,25 @@ function AnimatedBox({ children, className }: AnimatedBoxProps): ReactElement {
 
 export default AnimatedBox;
 
-const StyledBox = styled(Box)`
+const StyledBox = styled.section<{
+  backgroundColor: PaletteKeyTypes;
+  fontColor: PaletteKeyTypes;
+  borderRadius: number;
+}>`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  padding: 0;
-  filter: drop-shadow(
-    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '3'}
-  );
-
-  .title-text {
-    color: ${({ theme }) => theme.palette.grey_500};
-    ${({ theme }) => theme.textStyle.web.Subtitle};
-  }
-  .content-text {
-    ${({ theme }) => theme.textStyle.web.Head}
-  }
+  padding: 20px 24px;
+  width: auto;
+  min-width: 195px;
+  border-radius: ${({ borderRadius }) => borderRadius}px;
+  background-color: ${({ theme, backgroundColor }) =>
+    backgroundColor && theme.palette[backgroundColor]};
+  color: ${({ theme, fontColor }) => fontColor && theme.palette[fontColor]};
 
   ${media.mobile} {
-    width: 335px;
-    height: 220px;
-
-    .title-text {
-      ${({ theme }) => theme.textStyle.mobile.Subtitle}
-    }
-    .content-text {
-      ${({ theme }) => theme.textStyle.mobile.Head}
-    }
+    width: auto;
+    height: 120px;
   }
 `;

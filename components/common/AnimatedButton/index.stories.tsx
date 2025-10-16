@@ -31,10 +31,6 @@ const Template: Story<AnimatedButtonProps> = (args) => (
 export const PrimaryAnimatedButton = Template.bind({});
 
 PrimaryAnimatedButton.args = {
-  width: 190,
-  height: 65,
-  fontColor: 'white',
-  buttonColor: 'orange_400',
   className: 'recruitButton',
   buttonText: '21기에서 만나요!',
 };
@@ -42,38 +38,22 @@ PrimaryAnimatedButton.args = {
 export const SecondaryAnimatedButton = Template.bind({});
 
 SecondaryAnimatedButton.args = {
-  width: 190,
-  height: 65,
-  fontColor: 'black',
-  buttonColor: 'grey_850',
-  borderColor: 'lightGrey',
   className: 'recruitButton',
   buttonText: '21기에서 만나요!',
-  variant: 'secondary',
+  variant: 'black',
 };
 
 export const DisabledAnimatedButton = Template.bind({});
 
 DisabledAnimatedButton.args = {
-  width: 190,
-  height: 65,
-  fontColor: 'black',
-  buttonColor: 'grey_850',
-  borderColor: 'lightGrey',
-  className: 'recruitButton',
   buttonText: '21기에서 만나요!',
-  variant: 'secondary',
+  variant: 'primary',
   disabled: true,
 };
 
 export const SmallSizeAnimatedButton = Template.bind({});
 
 SmallSizeAnimatedButton.args = {
-  width: 120,
-  height: 50,
-  fontColor: 'black',
-  buttonColor: 'grey_850',
-  borderColor: 'lightGrey',
-  className: 'recruitButton',
+  variant: 'primary',
   buttonText: '지원하기',
 };

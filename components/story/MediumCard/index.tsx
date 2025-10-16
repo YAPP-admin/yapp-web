@@ -1,0 +1,147 @@
+import NextImage from 'next/image';
+import Link from 'next/link';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
+import media from 'styles/media';
+import { Medium } from 'types/medium';
+
+interface MediumCardProps {
+  medium: Medium;
+}
+
+function MediumCard({ medium }: MediumCardProps): ReactElement {
+  const { title, content, thumbnail, date, url } = medium;
+
+  return (
+    <Link
+      href={url}
+      scroll={false}
+      target="_blank"
+      rel="noopener noreferrer"
+      passHref
+    >
+      <MediumCardContainer>
+        <ImageContainer>
+          <StyledImage
+            src={thumbnail}
+            alt="project-image"
+            width={300}
+            height={184}
+          />
+        </ImageContainer>
+        <MediumInfo>
+          <MediumDate>{date}</MediumDate>
+          <MediumTitle>{title}</MediumTitle>
+          <MediumContent>{content}</MediumContent>
+        </MediumInfo>
+      </MediumCardContainer>
+    </Link>
+  );
+}
+
+const MediumCardContainer = styled.article`
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    opacity: 0.6;
+  }
+
+  ${media.mobile} {
+    min-width: 100%;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+  }
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+
+  & img {
+    width: 100%;
+    height: 184px;
+    object-fit: cover;
+  }
+
+  ${media.mobile} {
+    width: 100px;
+    height: 100px;
+    & img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+`;
+
+const MediumInfo = styled.section`
+  width: 100%;
+  margin: 0;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+
+  ${media.small} {
+    max-width: 230px;
+  }
+
+  ${media.xSmall} {
+    max-width: 200px;
+  }
+`;
+
+const MediumTitle = styled.h3`
+  margin: 0;
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+  color: ${({ theme }) => theme.palette.black_100};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  ${media.mobile} {
+    margin-bottom: 4px;
+    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  }
+`;
+const MediumDate = styled.span`
+  margin: 0;
+  ${({ theme }) => theme.textStyleV2.resp.caption_md};
+  color: ${({ theme }) => theme.palette.black_50};
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
+  }
+`;
+const MediumContent = styled.p`
+  width: 100%;
+  margin: 0;
+  ${({ theme }) => theme.textStyleV2.resp.caption_md};
+  color: ${({ theme }) => theme.palette.black_50};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
+  }
+`;
+
+const StyledImage = styled(NextImage)`
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+export default MediumCard;

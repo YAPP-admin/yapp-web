@@ -10,6 +10,11 @@ export { default as Facebook_13 } from 'public/assets/icons/facebook_13.svg';
 export { default as Github } from 'public/assets/icons/github.svg';
 export { default as SnsGroup } from 'public/assets/icons/sns_group.svg';
 export { default as YappLogo } from 'public/assets/icons/yapp_logo.svg';
+export { default as PlayStore } from 'public/assets/icons/play_store.svg';
+export { default as AppStore } from 'public/assets/icons/app_store.svg';
+export { default as WebLink } from 'public/assets/icons/web_link.svg';
+export { default as BtnArrowRight } from 'public/assets/icons/btn_arrow.svg';
+export { default as CircleArrow } from 'public/assets/icons/circle_arrow.svg';
 
 // constants
 export const Mail_24 = 'assets/icons/mail_24.svg';

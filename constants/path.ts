@@ -2,7 +2,7 @@ enum Path {
   Home = '/',
   Project = '/project',
   Recruit = '/recruit',
-  Contact = '/contact',
+  Story = '/story',
 }
 
 export default Path;

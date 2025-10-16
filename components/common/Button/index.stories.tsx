@@ -39,9 +39,6 @@ export const DefaultButton = Template.bind({});
 
 // Props 전달
 DefaultButton.args = {
-  width: 252,
-  height: 78,
-  buttonColor: 'grey',
-  fontColor: 'white',
+  variant: 'primary',
   children: '프로젝트 더보기',
 };

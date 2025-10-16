@@ -1,28 +1,46 @@
 /** Grid Section */
 export const CURRENT_INFO_DATA = [
   {
-    title: '운영 기간 🕙',
+    title: '운영 기간',
     content: '15년',
+    icon: '/assets/icons/running_year.svg',
+    color: 'circus_red',
+    fontColor: 'white_100',
   },
   {
-    title: '운영 기수 ⛳️',
+    title: '운영기수',
     content: '26기',
+    icon: '/assets/icons/cohort.svg',
+    color: 'white',
+    fontColor: 'black_100',
   },
   {
-    title: '현재 활동 회원 🏃🏻‍♀️',
+    title: '현재 활동 회원',
     content: '65명',
+    icon: '/assets/icons/members.svg',
+    color: 'circus_blue',
+    fontColor: 'white_100',
   },
   {
-    title: '누적 활동 인원 👩🏻',
+    title: '누적 활동 인원',
     content: '500+명',
+    icon: '/assets/icons/total_members.svg',
+    color: 'circus_red',
+    fontColor: 'white_100',
   },
   {
-    title: '런칭 서비스 📱',
+    title: '런칭 서비스',
     content: '60+개',
+    icon: '/assets/icons/service.svg',
+    color: 'white',
+    fontColor: 'black_100',
   },
   {
-    title: '누적 앱 다운로드 ⬇️',
+    title: '누적 앱 다운로드',
     content: '400,000+',
+    icon: '/assets/icons/download.svg',
+    color: 'circus_blue',
+    fontColor: 'white_100',
   },
 ];
 
@@ -122,15 +140,31 @@ export const NEWS_DATA = [
   },
 ];
 
+export const GRID_SECTION = {
+  title: '지금 YAPP은 이렇게 움직여요',
+  subTitle: `실무 기반 협업 시스템으로 운영되는\n연합 기업형 IT 동아리`,
+};
+
+export const PROJECT_SECTION = {
+  title: 'YAPP의 서비스들',
+  subTitle: `YAPP에서 활동하는 구성원인 ‘야뿌’들이 만들어낸\n프로젝트들이에요.`,
+};
+
+export const NEWS_SECTION = {
+  title: 'YAPP 안의 사람들, 그리고 이야기',
+  subTitle: `야뿌들의 성장 과정, 활동 후기,\n밋업 현장과 다양한 이야기를 담고 있어요.`,
+};
+
+export const SPONSOR_SECTION = {
+  title: 'YAPP의 후원사',
+  subTitle: `YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의,\n언제든 기다리고 있습니다.`,
+};
+
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor_ncp.png',
-    alt: 'sponsor ncp',
-  },
-  {
-    image: '/assets/sponsors/sponsor_greeting.png',
-    alt: 'sponsor greeting',
+    image: '/assets/sponsors/sponsor_flab.png',
+    alt: 'sponsor F-Lab',
   },
   {
     image: '/assets/sponsors/sponsor_elice.png',
@@ -143,5 +177,9 @@ export const SPONSOR_DATA = [
   {
     image: '/assets/sponsors/sponsor_fiveSpot.png',
     alt: 'sponsor fiveSpot',
+  },
+  {
+    image: '/assets/sponsors/sponsor_greeting.png',
+    alt: 'sponsor greeting',
   },
 ];

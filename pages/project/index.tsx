@@ -1,7 +1,6 @@
-import { BubbleMenu, Button, ProjectCard, TabMenu } from 'components/common';
-import Breakpoints from 'constants/breakpoints';
+import { Button, ProjectCard, TabMenu } from 'components/common';
+import Banner from 'components/common/Banner';
 import useSmoothScroll from 'hooks/useSmoothScroll';
-import useWindowDimensions from 'hooks/useWindowDimensions';
 import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -55,12 +54,12 @@ const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
   const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
-  const { windowWidth } = useWindowDimensions();
 
   const { ref: containerRef, trigger: triggerContainerScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'end',
     });
+
   const { ref: categoryRef, trigger: triggerCategoryScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'start',
@@ -80,31 +79,18 @@ function Project({ projects }: ProjectProps) {
 
   return (
     <ProjectWrapper>
+      <Banner
+        title={`아이디어에서 런칭까지,\nYAPP의 서비스들`}
+        description={`YAPP에서 활동하는 구성원인\n‘야뿌’들이 만들어낸 프로젝트들이에요.`}
+      />
       <ProjectContainer ref={containerRef}>
-        <ProjectTitleWrapper>
-          기획부터 런칭까지,
-          <br />
-          다양한 프로젝트를&nbsp;
-          {windowWidth <= Breakpoints.medium && <br />}
-          경험해 보세요!
-        </ProjectTitleWrapper>
         <CategoriesWrapper ref={categoryRef}>
-          {windowWidth > Breakpoints.medium ? (
-            <TabMenu
-              tabs={PROJECT_CATEGORIES}
-              currentTab={category}
-              onClick={setCategory}
-              backgroundColor="white"
-            />
-          ) : (
-            <BubbleMenu
-              className="scroll-none"
-              tabs={PROJECT_CATEGORIES}
-              currentTab={category}
-              onClick={setCategory}
-              backgroundColor="white"
-            />
-          )}
+          <TabMenu
+            tabs={PROJECT_CATEGORIES}
+            currentTab={category}
+            onClick={setCategory}
+            backgroundColor="white"
+          />
         </CategoriesWrapper>
         <ProjectGridWrapper>
           {projects
@@ -125,15 +111,9 @@ function Project({ projects }: ProjectProps) {
           else return true;
         }).length > viewCardCount && (
           <ButtonWrapper>
-            <StyledButton
-              width={148}
-              height={65}
-              fontColor="white"
-              buttonColor="grey_850"
-              onClick={handleMoreButtonClick}
-            >
-              더보기
-            </StyledButton>
+            <Button variant="black" onClick={handleMoreButtonClick}>
+              프로젝트 더보기
+            </Button>
           </ButtonWrapper>
         )}
       </ProjectContainer>
@@ -148,37 +128,18 @@ const ProjectWrapper = styled.div`
   ${media.mobile} {
     align-items: normal;
   }
-  padding: 174px 0;
-  ${media.mobile} {
-    padding: 80px 0;
-  }
-  background-color: ${({ theme }) => theme.palette.grey_100};
+  background-color: ${({ theme }) => theme.palette.white};
 `;
 
 const ProjectContainer = styled.section`
   position: relative;
   flex: 0 1 1200px;
-  margin: 0 10px;
-`;
-
-const ProjectTitleWrapper = styled.div`
-  ${({ theme }) => theme.textStyle.web.Title}
-  ${media.tablet} {
-    padding: 0 80px;
-  }
-  ${media.mobile} {
-    padding: 0 20px;
-    ${({ theme }) => theme.textStyle.mobile.Title_2};
-  }
 `;
 
 const CategoriesWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 140px;
-  ${media.mobile} {
-    padding-top: 80px;
-  }
+  padding-top: 52px;
 `;
 
 const ProjectGridWrapper = styled.div`
@@ -196,15 +157,14 @@ const ProjectGridWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   text-align: center;
-  margin-top: 56px;
+  margin: 56px 0 80px 0;
 `;
 
 const StyledButton = styled(Button)`
   transition: background-color 0.5s;
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.grey_700};
-  }
 
   ${media.mobile} {
     width: 162px;

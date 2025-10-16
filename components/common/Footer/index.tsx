@@ -1,150 +1,142 @@
 import Breakpoints from 'constants/breakpoints';
 import Yapp from 'constants/yapp';
-import { SnsGroup } from 'public/assets/icons';
+import { YappLogo } from 'public/assets/icons';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 
+const link = [
+  { name: '카카오톡 공식채널', href: Yapp.YAPP_KAKAO },
+  { name: '인스타그램', href: Yapp.YAPP_INSTAGRAM },
+  { name: '깃허브', href: Yapp.YAPP_GITHUB },
+];
+
+const link2 = [
+  { name: '미디엄', href: Yapp.YAPP_MEDIUM },
+  { name: '링크드인', href: Yapp.YAPP_LINKEDIN },
+];
+
 function Footer(): ReactElement {
-  const {
-    YAPP_NAME,
-    YAPP_OFFICIAL_EMAIL,
-    YAPP_FACEBOOK,
-    YAPP_INSTAGRAM,
-    YAPP_GITHUB,
-  } = Yapp;
-
-  const socialButtons = [YAPP_FACEBOOK, YAPP_INSTAGRAM, YAPP_GITHUB];
-
   return (
-    <>
-      <FooterBlock>
-        <FooterInner>
-          <YappInfo>
-            <YappName>{YAPP_NAME}</YappName>
-            <YappEmail
-              href={`mailto:${Yapp.YAPP_OFFICIAL_EMAIL}`}
-              rel="noreferrer"
-            >
-              {YAPP_OFFICIAL_EMAIL}
-            </YappEmail>
-          </YappInfo>
-          <InfoText>
-            <TextPoint>Y</TextPoint>our own idea can change the{' '}
-            <TextPoint>A</TextPoint>ctual world at anytime <br /> with{' '}
-            <TextPoint>P</TextPoint>assion and <TextPoint>P</TextPoint>otential.
-          </InfoText>
-          <YappSocialButtonGroup>
-            <SnsGroup />
-            <div className="inner-buttons">
-              {socialButtons.map((url) => (
-                <a
-                  className="btn"
+    <FooterBlock>
+      <FooterInner>
+        <Logo />
+        <YappInfo>
+          <ul>
+            {link.map(({ name, href }, idx) => (
+              <li key={name}>
+                <YappInfoItem
+                  href={href}
                   target="_blank"
-                  href={url}
-                  rel="noreferrer"
-                  key={url}
-                />
-              ))}
-            </div>
-          </YappSocialButtonGroup>
-        </FooterInner>
-      </FooterBlock>
-      <Copyright>Copyright © YAPP All Rights Reserved.</Copyright>
-    </>
+                  rel="noopener noreferrer"
+                >
+                  {name}
+                </YappInfoItem>
+                {idx !== link.length - 1 && <Divider />}
+              </li>
+            ))}
+          </ul>
+          <Divider className="not-in-mobile" />
+          <ul>
+            {link2.map(({ name, href }, idx) => (
+              <li key={name}>
+                <YappInfoItem
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {name}
+                </YappInfoItem>
+                {idx !== link2.length - 1 && <Divider />}
+              </li>
+            ))}
+          </ul>
+        </YappInfo>
+        <Copyright>ⓒ 2025 YAPP. All Rights Reserved</Copyright>
+      </FooterInner>
+    </FooterBlock>
   );
 }
 
 const FooterBlock = styled.div`
   width: 100%;
-  height: 336px;
-  background-color: ${({ theme }) => theme.palette.grey_900};
+  height: 162px;
+
+  background-color: ${({ theme }) => theme.palette.black_5};
   color: ${({ theme }) => theme.palette.white};
+
+  ${media.mobile} {
+    height: 195px;
+    min-width: 100vw;
+  }
+`;
+
+const Logo = styled(YappLogo)`
+  path {
+    fill: ${({ theme }) => theme.palette.black};
+  }
 `;
 
 const FooterInner = styled.div`
-  width: ${Breakpoints.large}px;
-  margin: 0 auto;
-  padding-top: 72px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  ${media.tablet} {
-    width: auto;
-    padding: 48px 81px 40px;
-  }
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+
   ${media.mobile} {
-    padding: 48px 30px 50px 36px;
-    min-width: auto;
+    padding: 24px;
+    align-items: flex-start;
   }
 `;
 
 const YappInfo = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  flex-direction: row;
+
+  & ul {
+    display: flex;
+    margin: 0;
+  }
+
+  & li {
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
   ${media.mobile} {
+    gap: 15px;
     flex-direction: column;
     align-items: flex-start;
   }
 `;
 
-const InfoText = styled.div`
-  ${({ theme }) => theme.textStyle.web.Footer_Text};
-  margin-bottom: 60px;
+const YappInfoItem = styled.a`
+  white-space: nowrap;
+  color: ${({ theme }) => theme.palette.black_100};
+  cursor: pointer;
+  ${({ theme }) => theme.textStyleV2.fix.font_15}
+`;
+
+const Divider = styled.div`
+  width: 1px;
+  height: 14px;
+  background: ${({ theme }) => theme.palette.black_20};
+  margin: 0 13px;
+
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Body_3};
-    br {
+    &.not-in-mobile {
       display: none;
     }
   }
 `;
 
-const TextPoint = styled.span`
-  color: ${({ theme }) => theme.palette.yellow_400};
-  font-weight: ${({ theme }) => theme.fontWeight.semibold};
-`;
-
-const YappName = styled.span`
-  ${({ theme }) => theme.textStyle.web.Footer_Logo}
-  ${media.mobile} {
-    margin-bottom: 8px;
-    ${({ theme }) => theme.textStyle.mobile.Footer_Logo}
-  }
-`;
-
-const YappEmail = styled.a`
-  color: ${({ theme }) => theme.palette.white};
-  cursor: pointer;
-  ${({ theme }) => theme.textStyle.web.Body_1}
-`;
-
-const YappSocialButtonGroup = styled.div`
-  position: relative;
-  .inner-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    width: 170px;
-    height: 40px;
-    top: 0;
-    .btn {
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-    }
-  }
-`;
-
 const Copyright = styled.div`
-  background-color: ${({ theme }) => theme.palette.grey_1000};
-  color: ${({ theme }) => theme.palette.grey_700};
-  height: 49px;
-  ${({ theme }) => theme.textStyle.web.Caption}
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: ${({ theme }) => theme.palette.black_40};
+  ${({ theme }) => theme.textStyleV2.fix.font_12}
 `;
 
 export default Footer;
