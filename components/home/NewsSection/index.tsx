@@ -106,11 +106,19 @@ const SocialContainer = styled(SectionTemplate)`
 
 const PaddingSection = styled.section`
   box-sizing: border-box;
+  max-width: 1200px;
   width: 100%;
-  padding: 0 80px;
+
+  ${media.tablet} {
+    & > div {
+      margin: 0 80px;
+    }
+  }
 
   ${media.mobile} {
-    padding: 0 20px;
+    & > div {
+      margin: 0 12px;
+    }
   }
 `;
 
@@ -155,7 +163,7 @@ const CarouselContainer = styled.div`
 
 const CarouselTrack = styled(motion.div)`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   flex-shrink: 0;
   will-change: transform;
   backface-visibility: hidden;

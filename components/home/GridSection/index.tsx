@@ -23,36 +23,40 @@ function GridSection(): ReactElement {
       animate={controls}
       variants={containerVariants}
     >
-      <motion.div ref={ref} variants={itemVariants}>
-        <SectionTitle title={title} subTitle={subTitle} />
-      </motion.div>
+      <SectionInner>
+        <motion.div ref={ref} variants={itemVariants}>
+          <SectionTitle title={title} subTitle={subTitle} />
+        </motion.div>
 
-      <GridContainer
-        as={motion.div}
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-      >
-        {CURRENT_INFO_DATA.map(
-          ({ title, content, icon, color, fontColor }, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <CircusCard
-                title={title}
-                content={content}
-                icon={icon}
-                color={color as PaletteKeyTypes}
-                fontColor={fontColor as PaletteKeyTypes}
-              />
-            </motion.div>
-          ),
-        )}
-      </GridContainer>
+        <GridContainer
+          as={motion.div}
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
+          {CURRENT_INFO_DATA.map(
+            ({ title, content, icon, color, fontColor }, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <CircusCard
+                  title={title}
+                  content={content}
+                  icon={icon}
+                  color={color as PaletteKeyTypes}
+                  fontColor={fontColor as PaletteKeyTypes}
+                />
+              </motion.div>
+            ),
+          )}
+        </GridContainer>
+      </SectionInner>
     </SectionLayout>
   );
 }
 
 const SectionLayout = styled(motion.section)`
+  display: flex;
+  justify-content: center;
   background-color: ${({ theme }) => theme.palette.black};
   width: auto;
   padding: 160px 80px;
@@ -60,6 +64,11 @@ const SectionLayout = styled(motion.section)`
   ${media.mobile} {
     padding: 100px 20px;
   }
+`;
+
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
 `;
 
 const GridContainer = styled.div`

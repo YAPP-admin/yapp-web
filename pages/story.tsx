@@ -35,10 +35,11 @@ function StoryPage({ data }: { data: Medium[] }): ReactElement {
 }
 
 const MediumList = styled.section`
+  max-width: 1200px;
   display: grid;
   padding: 60px 80px;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 40px 32px;
 
   ${media.tablet} {
     grid-template-columns: repeat(2, 1fr);

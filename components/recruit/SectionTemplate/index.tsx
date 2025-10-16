@@ -22,6 +22,9 @@ function SectionTemplate({
 const TemplateBlock = styled.div<{
   backgroundColor: PaletteKeyTypes;
 }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: ${({ backgroundColor, theme }) =>
     theme.palette[backgroundColor]};
   width: auto;

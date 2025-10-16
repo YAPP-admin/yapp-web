@@ -22,51 +22,62 @@ function SessionOverview(): ReactElement {
       animate={controls}
       variants={containerVariants}
     >
-      <motion.div variants={itemVariants}>
-        <SectionTitle
-          title={title}
-          subTitle={subtitle}
-          fontColor="black_100"
-          subFontColor="black_50"
-          align="left"
-        />
-      </motion.div>
-      <SectionContent
-        as={motion.ul}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-      >
-        {overviewContents.map(({ date, programs, backgroundColor }, index) => (
-          <OverviewContentBox
-            key={`recruit-overview-${date}`}
-            as={motion.li}
-            variants={itemVariants}
-          >
-            <OverviewContentSubTitle
-              backgroundColor={backgroundColor as PaletteKeyTypes}
-            >
-              {date}
-            </OverviewContentSubTitle>
-            <OverviewContentContent>
-              {programs.map((program, i) => (
-                <span key={`line-${i}`}>{program}</span>
-              ))}
-            </OverviewContentContent>
-          </OverviewContentBox>
-        ))}
-      </SectionContent>
+      <SectionInner>
+        <motion.div variants={itemVariants}>
+          <SectionTitle
+            title={title}
+            subTitle={subtitle}
+            fontColor="black_100"
+            subFontColor="black_50"
+            align="flex-start"
+          />
+        </motion.div>
+        <SectionContent
+          as={motion.ul}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
+          {overviewContents.map(
+            ({ date, programs, backgroundColor }, index) => (
+              <OverviewContentBox
+                key={`recruit-overview-${date}`}
+                as={motion.li}
+                variants={itemVariants}
+              >
+                <OverviewContentSubTitle
+                  backgroundColor={backgroundColor as PaletteKeyTypes}
+                >
+                  {date}
+                </OverviewContentSubTitle>
+                <OverviewContentContent>
+                  {programs.map((program, i) => (
+                    <span key={`line-${i}`}>{program}</span>
+                  ))}
+                </OverviewContentContent>
+              </OverviewContentBox>
+            ),
+          )}
+        </SectionContent>
+      </SectionInner>
     </SectionLayout>
   );
 }
 
 const SectionLayout = styled(SectionTemplate)`
+  display: flex;
+  justify-content: center;
   width: auto;
   padding: 160px 80px;
 
   ${media.mobile} {
     padding: 100px 20px;
   }
+`;
+
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
 `;
 
 const SectionContent = styled.ul`

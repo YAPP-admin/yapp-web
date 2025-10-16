@@ -42,7 +42,6 @@ const StyledNewsCard = styled.div<{
   min-width: 330px;
   min-height: 480px;
   border-radius: 25px;
-  margin: 15px;
   background-color: ${({ theme, color }) => theme.palette[color]};
   color: ${({ theme, fontColor }) => theme.palette[fontColor]};
   cursor: pointer;

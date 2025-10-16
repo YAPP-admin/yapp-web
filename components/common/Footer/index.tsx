@@ -36,6 +36,7 @@ function Footer(): ReactElement {
               </li>
             ))}
           </ul>
+          <Divider className="not-in-mobile" />
           <ul>
             {link2.map(({ name, href }, idx) => (
               <li key={name}>
@@ -94,7 +95,6 @@ const YappInfo = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 15px;
 
   & ul {
     display: flex;
@@ -108,6 +108,7 @@ const YappInfo = styled.div`
   }
 
   ${media.mobile} {
+    gap: 15px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -125,6 +126,12 @@ const Divider = styled.div`
   height: 14px;
   background: ${({ theme }) => theme.palette.black_20};
   margin: 0 13px;
+
+  ${media.mobile} {
+    &.not-in-mobile {
+      display: none;
+    }
+  }
 `;
 
 const Copyright = styled.div`

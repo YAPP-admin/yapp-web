@@ -17,7 +17,7 @@ function CircusCard(
   index: number,
 ) {
   return (
-    <AnimatedBox
+    <CardLayout
       key={index}
       color={color as PaletteKeyTypes}
       fontColor={fontColor as PaletteKeyTypes}
@@ -27,11 +27,17 @@ function CircusCard(
         <CardTitle>{content}</CardTitle>
       </CardInnerBox>
       {icon && <Image src={icon} alt={title} width={70} height={70} />}
-    </AnimatedBox>
+    </CardLayout>
   );
 }
 
 export default CircusCard;
+
+const CardLayout = styled(AnimatedBox)`
+  ${media.mobile} {
+    max-height: 156px;
+  }
+`;
 
 const CardInnerBox = styled.div`
   padding-top: 24px;

@@ -22,7 +22,12 @@ function MediumCard({ medium }: MediumCardProps): ReactElement {
     >
       <MediumCardContainer>
         <ImageContainer>
-          <StyledImage src={thumbnail} alt="project-image" fill />
+          <StyledImage
+            src={thumbnail}
+            alt="project-image"
+            width={300}
+            height={184}
+          />
         </ImageContainer>
         <MediumInfo>
           <MediumDate>{date}</MediumDate>
@@ -35,6 +40,8 @@ function MediumCard({ medium }: MediumCardProps): ReactElement {
 }
 
 const MediumCardContainer = styled.article`
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,7 +55,9 @@ const MediumCardContainer = styled.article`
   }
 
   ${media.mobile} {
+    min-width: 100%;
     flex-direction: row;
+    gap: 16px;
     width: 100%;
   }
 `;
@@ -56,26 +65,39 @@ const MediumCardContainer = styled.article`
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   border-radius: 8px;
-  overflow: hidden;
+
+  & img {
+    width: 100%;
+    height: 184px;
+    object-fit: cover;
+  }
 
   ${media.mobile} {
     width: 100px;
-    aspect-ratio: 1 / 1;
+    height: 100px;
+    & img {
+      width: 100px;
+      height: 100px;
+    }
   }
 `;
 
 const MediumInfo = styled.section`
   width: 100%;
   margin: 0;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
 
   ${media.small} {
-    max-width: 260px;
+    max-width: 230px;
   }
 
   ${media.xSmall} {
-    max-width: 230px;
+    max-width: 200px;
   }
 `;
 
@@ -88,6 +110,7 @@ const MediumTitle = styled.h3`
   text-overflow: ellipsis;
 
   ${media.mobile} {
+    margin-bottom: 4px;
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;

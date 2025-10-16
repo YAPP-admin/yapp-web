@@ -54,6 +54,7 @@ const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
   overflow: hidden;
   will-change: transform;
   animation: ${fadeIn} 0.5s ease-in-out;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
 
   ${({ isSubCard }) =>
     isSubCard

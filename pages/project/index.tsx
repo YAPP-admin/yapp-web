@@ -1,7 +1,6 @@
 import { Button, ProjectCard, TabMenu } from 'components/common';
 import Banner from 'components/common/Banner';
 import useSmoothScroll from 'hooks/useSmoothScroll';
-import useWindowDimensions from 'hooks/useWindowDimensions';
 import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -55,12 +54,12 @@ const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
   const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
-  const { windowWidth } = useWindowDimensions();
 
   const { ref: containerRef, trigger: triggerContainerScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'end',
     });
+
   const { ref: categoryRef, trigger: triggerCategoryScroll } =
     useSmoothScroll<HTMLDivElement>({
       block: 'start',
@@ -135,17 +134,12 @@ const ProjectWrapper = styled.div`
 const ProjectContainer = styled.section`
   position: relative;
   flex: 0 1 1200px;
-  margin: 0 10px;
 `;
 
 const CategoriesWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 140px;
-
-  ${media.mobile} {
-    padding-top: 80px;
-  }
+  padding-top: 52px;
 `;
 
 const ProjectGridWrapper = styled.div`

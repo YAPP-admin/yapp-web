@@ -35,48 +35,50 @@ function FrequentlyAskedQuestions(): ReactElement {
   };
   return (
     <SectionTemplate>
-      <SectionTitle
-        title={title}
-        subTitle={subTitle}
-        fontColor="black"
-        subFontColor="black_50"
-      />
-      <SectionContent
-        as={motion.div}
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-      >
-        {faqList.map(({ subTitle, description, isOpen }) => (
-          <FAQBox
-            key={`faq-${subTitle}`}
-            onClick={() => handleToggleFaq(subTitle)}
-          >
-            <FAQBoxInner>
-              <FAQSubTitle>
-                <TitleText>{subTitle}</TitleText>
-                <TitleButton isOpen={isOpen}>
-                  <ArrowButton />
-                </TitleButton>
-              </FAQSubTitle>
-              <FQASubContent
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(description),
-                }}
-                isOpen={isOpen}
-              />
-            </FAQBoxInner>
-          </FAQBox>
-        ))}
-        <Button
-          variant="black"
-          onClick={() => window.open(Yapp.YAPP_FAQ_NOTION, '_blank')}
-          style={{ width: 'fit-content', marginTop: '32px' }}
+      <SectionInner>
+        <SectionTitle
+          title={title}
+          subTitle={subTitle}
+          fontColor="black"
+          subFontColor="black_50"
+        />
+        <SectionContent
+          as={motion.div}
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
         >
-          27기 채용 FAQ 바로가기
-        </Button>
-      </SectionContent>
+          {faqList.map(({ subTitle, description, isOpen }) => (
+            <FAQBox
+              key={`faq-${subTitle}`}
+              onClick={() => handleToggleFaq(subTitle)}
+            >
+              <FAQBoxInner>
+                <FAQSubTitle>
+                  <TitleText>{subTitle}</TitleText>
+                  <TitleButton isOpen={isOpen}>
+                    <ArrowButton />
+                  </TitleButton>
+                </FAQSubTitle>
+                <FQASubContent
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(description),
+                  }}
+                  isOpen={isOpen}
+                />
+              </FAQBoxInner>
+            </FAQBox>
+          ))}
+          <Button
+            variant="black"
+            onClick={() => window.open(Yapp.YAPP_FAQ_NOTION, '_blank')}
+            style={{ width: 'fit-content', marginTop: '32px' }}
+          >
+            27기 채용 FAQ 바로가기
+          </Button>
+        </SectionContent>
+      </SectionInner>
     </SectionTemplate>
   );
 }
@@ -85,6 +87,15 @@ const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+`;
+
+const SectionInner = styled.div`
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 `;
 
 const FAQBox = styled.section`
