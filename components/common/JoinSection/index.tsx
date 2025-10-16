@@ -58,7 +58,7 @@ function JoinSection({
 const JoinSectionContainer = styled(SectionTemplate)`
   width: auto;
   padding: 140px 16px;
-  background-color: ${({ theme }) => theme.palette.white_100};
+  background-color: ${({ theme }) => theme.palette.white};
 
   ${media.mobile} {
     padding: 100px 16px;
