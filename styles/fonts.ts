@@ -13,12 +13,6 @@ const Font = createGlobalStyle`
   font-display: swap;
   src: url('/assets/fonts/Poppins-ExtraBold.ttf');
 }
-@font-face {
-  font-family: 'Pretendard';
-  font-weight: 800;
-  font-display: swap;
-  src: url('/assets/fonts/PretendardVariable.woff2') format('woff2-variations')
-}
 `;
 
 export default Font;
