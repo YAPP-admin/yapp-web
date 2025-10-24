@@ -15,15 +15,15 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   const { title, thumbnail, tags, generation, url } = project;
 
   return (
-    <Link href={isSubCard ? `${url}` : `project/${url}`}>
-      <StyledProjectCard isSubCard={isSubCard}>
+    <Link href={isSubCard ? `${url}` : `project/${url}`} passHref>
+      <StyledProjectCard>
         <AnimatedImage
           className="project-card-image"
           src={thumbnail}
           alt="project-image"
           height={214}
         />
-        <ContentContainer isSubCard={isSubCard}>
+        <ContentContainer>
           <DetailWrapper>
             {isSubCard ? (
               <ProjectSubTitleWrapper>{title}</ProjectSubTitleWrapper>
@@ -55,25 +55,17 @@ const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
   will-change: transform;
   animation: ${fadeIn} 0.5s ease-in-out;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+  transition: filter 0.5s;
 
-  ${({ isSubCard }) =>
-    isSubCard
-      ? css`
-          .project-card-image {
-            border-radius: 20px;
-          }
-        `
-      : css`
-          filter: drop-shadow(
-            0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
-          );
-          transition: filter 0.5s;
-          :hover {
-            filter: drop-shadow(
-              0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
-            );
-          }
-        `}
+  filter: drop-shadow(
+    0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '10'}
+  );
+
+  :hover {
+    filter: drop-shadow(
+      0px 5px 40px ${({ theme }) => theme.palette.grey_850 + '30'}
+    );
+  }
 
   ${media.mobile} {
     width: 335px;
@@ -92,14 +84,6 @@ const ContentContainer = styled.div<{ isSubCard?: boolean }>`
   ${media.mobile} {
     margin: 20px 24px;
   }
-  ${({ isSubCard }) =>
-    isSubCard &&
-    css`
-      margin: 16px 0 0 0;
-      ${media.mobile} {
-        margin: 10px 0 0 0;
-      }
-    `}
 `;
 
 const DetailWrapper = styled.div`
@@ -124,6 +108,7 @@ const ProjectSubTitleWrapper = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: ${({ theme }) => theme.palette.grey_850};
 
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
 
