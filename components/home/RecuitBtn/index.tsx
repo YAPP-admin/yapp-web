@@ -10,8 +10,6 @@ import media from 'styles/media';
 import { motion, useAnimation } from 'framer-motion';
 import theme from 'styles/theme';
 import Yapp from 'constants/yapp';
-import { IS_RECRUITING, NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
-import { RECRUIT_BANNER, RECRUIT_BANNER_ACTIVE } from 'database/home';
 
 function RecuitBtn(): ReactElement {
   const controls = useAnimation();
