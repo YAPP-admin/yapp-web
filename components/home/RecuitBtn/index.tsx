@@ -17,7 +17,6 @@ function RecuitBtn(): ReactElement {
   const controls = useAnimation();
   const [visible, setVisible] = useState(true);
   const joinSectionRef = useRef<HTMLElement | null>(null);
-  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
 
   useEffect(() => {
     const section = document.querySelector('#join-section');
@@ -66,9 +65,9 @@ function RecuitBtn(): ReactElement {
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      <InfoText>{BannerInfo.date}</InfoText>
+      <InfoText>10.16(목) - 10.25(토)</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
-        {BannerInfo.buttonName}
+        27기 지원하기
       </AnimatedButton>
     </BtnContainer>
   );

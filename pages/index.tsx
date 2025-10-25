@@ -44,7 +44,7 @@ function Home({ data }: { data: Medium[] }): ReactElement {
         subTitle={BannerInfo.subTitle}
         btnText={BannerInfo.buttonName}
       />
-      <RecuitBtn />
+      {IS_RECRUITING && <RecuitBtn />}
     </Wrapper>
   );
 }
