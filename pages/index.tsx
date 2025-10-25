@@ -43,6 +43,7 @@ function Home({ data }: { data: Medium[] }): ReactElement {
         title={BannerInfo.title}
         subTitle={BannerInfo.subTitle}
         btnText={BannerInfo.buttonName}
+        url={IS_RECRUITING ? undefined : NEXT_GENERATION_RECRUIT_LINK}
       />
       {IS_RECRUITING && <RecuitBtn />}
     </Wrapper>
