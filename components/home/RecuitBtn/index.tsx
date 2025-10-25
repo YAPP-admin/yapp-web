@@ -10,11 +10,14 @@ import media from 'styles/media';
 import { motion, useAnimation } from 'framer-motion';
 import theme from 'styles/theme';
 import Yapp from 'constants/yapp';
+import { IS_RECRUITING, NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
+import { RECRUIT_BANNER, RECRUIT_BANNER_ACTIVE } from 'database/home';
 
 function RecuitBtn(): ReactElement {
   const controls = useAnimation();
   const [visible, setVisible] = useState(true);
   const joinSectionRef = useRef<HTMLElement | null>(null);
+  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
 
   useEffect(() => {
     const section = document.querySelector('#join-section');
@@ -63,9 +66,9 @@ function RecuitBtn(): ReactElement {
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      <InfoText>10.16(목) - 10.25(토)</InfoText>
+      <InfoText>{BannerInfo.date}</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
-        27기 지원하기
+        {BannerInfo.buttonName}
       </AnimatedButton>
     </BtnContainer>
   );

@@ -36,7 +36,7 @@ function RecruitBanner() {
           variant="primary"
           onClick={() => {
             if (!IS_RECRUITING) {
-              window.location.href = NEXT_GENERATION_RECRUIT_LINK;
+              window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
               return;
             }
             window.open(Yapp.YAPP_RECRUIT_ALL, '_blank');

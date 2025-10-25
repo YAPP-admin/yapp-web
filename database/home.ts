@@ -1,3 +1,5 @@
+import Yapp from 'constants/yapp';
+
 /** Grid Section */
 export const CURRENT_INFO_DATA = [
   {
@@ -183,3 +185,20 @@ export const SPONSOR_DATA = [
     alt: 'sponsor greeting',
   },
 ];
+
+/* 모집 관련 상수 */
+export const RECRUIT_BANNER = {
+  title: 'FIND YOUR BALANCE',
+  subTitle: `다음 기수의 모집 소식을 가장 먼저 만나보세요`,
+  date: '지금은 모집 기간이 아닙니다',
+  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
+};
+
+export const RECRUIT_BANNER_PRE = {
+  title: 'FIND YOUR BALANCE',
+  subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
+    Yapp.YAPP_GENERATION,
+  )}기의 야뿌가 되어보세요.`,
+  date: '10.16(목) - 10.25(토)',
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
+};

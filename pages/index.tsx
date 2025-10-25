@@ -7,6 +7,8 @@ import {
   ProjectSection,
   SponsorSection,
 } from 'components/home';
+import { IS_RECRUITING, NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
+import { RECRUIT_BANNER, RECRUIT_BANNER_ACTIVE } from 'database/home';
 import fs from 'fs';
 import path from 'path';
 import Banner27th from 'components/home/IntroSection/Banner27th';
@@ -25,6 +27,7 @@ export async function getStaticProps() {
 }
 
 function Home({ data }: { data: Medium[] }): ReactElement {
+  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
   return (
     <Wrapper>
       {/* FAB 노출 범위 */}
@@ -36,7 +39,11 @@ function Home({ data }: { data: Medium[] }): ReactElement {
         <NewsSection data={data || []} />
         <SponsorSection />
       </section>
-      <JoinSection />
+      <JoinSection
+        title={BannerInfo.title}
+        subTitle={BannerInfo.subTitle}
+        btnText={BannerInfo.buttonName}
+      />
       <RecuitBtn />
     </Wrapper>
   );
