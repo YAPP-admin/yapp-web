@@ -1,0 +1,80 @@
+{
+  "name": "moa",
+  "title": "moa",
+  "thumbnail": "/assets/project/27_thumbnail_moa.png",
+  "content": [
+    "/assets/project/27_content_moa_1.png",
+    "/assets/project/27_content_moa_2.png",
+    "/assets/project/27_content_moa_3.png",
+    "/assets/project/27_content_moa_4.png",
+    "/assets/project/27_content_moa_5.png"
+  ],
+  "tags": ["27기", "Web"],
+  "team": [
+    "남웅식",
+    "박소은",
+    "구지원",
+    "곽성재",
+    "최홍규",
+    "권장순",
+    "김준환"
+  ],
+  "field": ["PM", "Design", "Web", "Server"],
+  "generation": 27,
+  "program": [
+    "Rust",
+    "Axum",
+    "Tokio",
+    "SeaORM",
+    "JWT",
+    "utoipa",
+    "OpenAI",
+    "Anthropic",
+    "TypeScript",
+    "React",
+    "React Router",
+    "React Hook Form",
+    "Tailwind",
+    "Zustand",
+    "Storybook"
+  ],
+  "retrospects": [
+    {
+      "name": "남웅식",
+      "field": "PM",
+      "content": "부족한 점도 분명 있었지만, 각자의 자리에서 뛰어난 역량을 발휘해주신 Maker분들과 함께 하나의 프로덕트를 처음부터 끝까지 만들어낸 경험은 정말 값진 시간이었습니다. 단순히 무언가를 개발하는 데 그치지 않고, 실제 서비스로 세상에 내놓고 소소하게나마 수익화까지 연결해볼 수 있었다는 점에서 YAPP 활동은 개인적으로도 오래 기억에 남을 챕터가 될 것 같습니다. <br/>앞으로 다양한 홍보 활동과 꾸준한 개선을 통해 더 많은 조직에 닿아, 딱딱하게 굳어버린 조직 문화에 작은 균열을 내고, 나아가 사람들이 일하는 방식과 함께하는 방식을 긍정적으로 바꿔나가는 솔루션으로 성장해가길 진심으로 바랍니다."
+    },
+    {
+      "name": "박소은",
+      "field": "Design",
+      "content": "디자이너로서 처음 웹 서비스를 배포해보는 경험이라 더욱 의미 있었습니다. 서비스가 만들어지는 과정부터 배포까지 직접 참여하며 많은 것을 배우고 한 단계 성장할 수 있었던 뜻깊은 시간이었습니다. 감사합니다~!"
+    },
+    {
+      "name": "구지원",
+      "field": "Design",
+      "content": "혼자였다면 놓쳤을 디테일들을 팀원들과 함께 채워나가며, 디자이너로서 한층 넓은 시야를 갖게 된 값진 시간이었습니다. 무엇보다 훌륭한 팀원들과 함께한 덕분에 즐거운 분위기 속에서 프로젝트를 완주할 수 있었습니다. 오래 기억에 남을 경험이 될 것 같고, 함께해서 너무 좋았습니다! moa 짱~!"
+    },
+    {
+      "name": "곽성재",
+      "field": "Web",
+      "content": ""
+    },
+    {
+      "name": "최홍규",
+      "field": "Web",
+      "content": "짧지 않은 시간동안 다들 고생 많으셨습니다. 처음 만난 사람들과 팀을 꾸려 하나의 서비스를 만들어낸다는 게 쉽지 않은 과정이었음에도, 열심히 해주셔서 완주할 수 있었던 것 같습니다. 이번에 같이 고민하고 고생했던 경험들이 팀원분들께 실질적인 도움이나 좋은 포트폴리오가 되었으면 좋겠습니다."
+    },
+    {
+      "name": "권장순",
+      "field": "Server",
+      "content": "개발팀 리드 & 서버 (Rust) 역할로 참여했습니다.<br />1. AI 협업 개발 환경 구축 (Lead): 개발팀 리드로서 AI 활용 전략 설계 및 실행. Claude Code 도입하여 Rules/Skills/Hooks 체계 구축으로 AI가 프로젝트 코딩 규칙을 자동 준수하도록 설정. TDD + Tidy First 원칙 수립으로 AI 작성 코드의 품질을 사람 수준으로 유지. Slash Commands(/build, /test, /quality)를 통한 일관된 개발 프로세스 구축. API 스펙 문서 27개 선행 작성을 통해 AI의 구현 정확도 극대화.<br /><br />2. AI 협업에 최적화된 언어로서 Rust 활용: 컴파일러가 AI의 가장 엄격한 코드 리뷰어가 되는 환경 구축. 자기 교정 루프(Self-Correction Loop)로 컴파일러의 상세한 에러 메시지와 수정 제안을 AI가 학습하여 사람의 개입 없이 스스로 오류를 수정하는 피드백 사이클 형성. 런타임 안정성 보장으로 AI 생성 코드의 신뢰도 확보. cargo clippy와 cargo test를 결합하여 AI가 코드 작성부터 최종 검증까지 완결하는 구조 설계.<br /><br />3. 프롬프트 엔지니어링을 통한 AI 품질 제어: Few-Shot 예시 및 Context-Aware 프롬프트 적용. 이중 검증 시스템으로 정량적 제약 조건과 톤앤매너를 프롬프트에 명시하고 Rust 코드 로직으로 검증. JSON 응답 스키마를 프롬프트에 명시하고 Rust 타입 시스템과 매핑. .claude/rules 설정으로 AI의 수정 범위 제한.<br /><br />4. 서비스 핵심 기능 및 AI 파이프라인: 회고 CRUD, 답변 임시저장/최종 제출, PDF 내보내기, 검색/보관함 등 핵심 API 15개+ 전담 구현. OpenAI API 기반 회고 분석, 말투 정제, Exponential Backoff 재시도 및 사용량 제한 설계. 5단계 자동화 시스템(로그 모니터링→Discord 알림→AI 코드 진단→PR 자동 생성→Auto-Fix) 단독 설계 및 구현.<br /><br />5. 팀 생산성 향상 및 성과: CLAUDE.md를 통해 AI와 사람 간의 작업 컨벤션 동기화. CodeRabbit 도입으로 AI 코드 자동 리뷰 체계 구축. 2명의 개발자가 32개 API, 50,000줄+ 코드, 18개 통합 테스트, 100개+ 문서 산출.<br /><br />Technical Stack: Rust, Axum, Tokio, SeaORM, JWT, utoipa(Swagger), Anthropic, OpenAI"
+    },
+    {
+      "name": "김준환",
+      "field": "Server",
+      "content": "같은 팀 백엔드 이였던 장순님의 도움으로 AI를 적극적으로 활용한 첫 프로젝트였는데, 덕분에 백엔드 MVP 2일 안에 완성할 수 있었던 것 같습니다. Rust라는 낯선 언어로 인프라부터 비즈니스 로직까지 쌓아올리는 과정이 쉽지만은 않았지만, 그만큼 개발자로서 시야와 실력이 많이 성장한 시간이었습니다. 좋은 프로젝트 함께해서 감사했습니다.\n\n<br /><br />프로젝트: 27th-Web-Team-3-BE (회고록 AI 서비스 백엔드), 기간: 2026.01.15 ~ 2026.02.27 (약 6주), 기술 스택: Rust (Axum), Terraform, GitHub Actions.\n\n<br /><br />요약: 머지된 PR 43개, 총 추가 코드 ~184,000+ lines, 총 삭제 코드 ~7,900+ lines, 변경된 파일 1,060+ files, 활동 기간 6주, 평균 PR/주 ~7개.\n\n<br /><br />1. 프로젝트 기반 구축: 협업 문서 정의 (#8) — 3,630+lines, 60파일 / AI 협업 가이드·코딩 컨벤션·아키텍처 문서 체계 수립. 공통 유틸/ORM 설정 및 불필요한 코드 정리 (#14) — 2,110+lines, 41파일. chore: merge to main (#96, #97) — dev → main 브랜치 통합 배포 2회 수행.\n\n<br /><br />2. 인증/사용자 시스템: 소셜 로그인 및 JWT 인증 시스템 구현 (#15). 인증 API 구현 (API-001 ~ API-004) (#19). JWT 토큰 전달 방식을 쿠키로 전환 (#85). 소셜 로그인 redirect_uri를 프론트엔드에서 전달받도록 변경 (#94). 로그인된 유저 프로필 조회 API (#99). 회원 탈퇴 API (API-028) (#57). 리프레시 토큰 중복 문제 해결 (#66).\n\n<br /><br />3. 회고방(RetroRoom) 핵심 기능: RetroRoom APIs (004-010) 일괄 구현 (#26). 초대 코드 조회 API (API-031) (#106). 회고방 탈퇴 API 구현 및 팀 삭제 API 제거 (#136). 회고방 삭제 API FK 제약조건 문제 해결 (#79). 회고방 순서 변경 에러 메시지 누락 수정 (#51). 마지막 회고 삭제 시 회고방이 자동 삭제되지 않도록 변경 (#138). team/팀을 retro-room/회고방으로 용어 통일 (#68).\n\n<br /><br />4. 회고 프로세스 기능 개선 및 에러 수정: 회고 참여/마감/분석 로직 개선 (#133). 회고 참석 등록 시간 로직 수정 (#131). 회고 생성 시 질문 커스텀(수정) 기능 추가 (#122). 회고 방식별 기본 질문 고정 및 동적 질문 수 지원 (#116, #117). 회고 생성 API에서 retrospectTime 필드 제거 (#124). 회고 목록 조회 API에 status 필드 추가 (#125). 회고 상세 조회 API members에 status 필드 추가 (#127). 답변 리스트 조회 응답에 submittedAt 필드 추가 (#140).\n\n<br /><br />5. 답변/댓글/좋아요 소셜 기능: 회고 답변 좋아요 토글 (API-025) (#38). 회고 답변 댓글 목록 조회 및 작성 API (API-026, 027) (#31). 좋아요 토글 API MySQL 호환성 수정 (#78).\n\n<br /><br />6. 참고 자료 기능: 참고 자료 URL의 Open Graph 메타데이터 조회 API (#129).\n\n<br /><br />7. 인프라/DevOps: Terraform 인프라 및 GitHub Actions CI/CD 구성 (#40). Terraform 인프라 구성 및 CI/CD 개선 (#42, #43). Route53 A 레코드 및 HTTPS 설정 (#70). 8080 포트 외부 노출 제거 (#71). CORS 설정에 moaofficial.kr 도메인 추가 (#72). 모니터링 활성화 및 P95/P99 리포트, 즉시 알림 (#110). chore: merge to main (#96, #97) 프로덕션 배포 관리.\n\n<br /><br />8. 개발 생산성/DX 개선: Claude Code 개선 (hooks + PR 리뷰 명령어) (#92). E2E API 테스트 Claude command 추가 (#88). 이슈 생성 및 PR 생성 skills 추가 (#109). main.rs 모듈 주석 추가 (#44). Delete .claude/settings.local.json (#41)."
+    }
+  ],
+  "webLink": "https://moaofficial.kr/",
+  "description": "회고는 팀의 경험을 돌아보고 더 나은 방향을 찾기 위한 중요한 과정이지만, 실제로는 의견이 흩어지거나 기록이 체계적으로 남지 않아 인사이트가 축적되지 않는 경우가 많습니다.<br />또한 회고 작성 과정이 막막하게 느껴져 충분히 몰입된 회고가 이루어지기 어려운 문제도 존재합니다.<br />moa는 몰입된 회고 작성 경험을 돕고, 팀의 회고를 체계적으로 아카이빙하여 팀의 경험을 성장의 자산으로 만들어주는 팀 회고 서비스입니다."
+}
