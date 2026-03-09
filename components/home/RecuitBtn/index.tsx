@@ -65,7 +65,7 @@ function RecuitBtn(): ReactElement {
     >
       <InfoText>10.16(목) - 10.25(토)</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
-        27기 지원하기
+        {Yapp.YAPP_GENERATION}기 지원하기
       </AnimatedButton>
     </BtnContainer>
   );
