@@ -30,6 +30,7 @@ export interface Project {
   linkTreeLink?: string;
   oneStoreLink?: string;
   webLink?: string | string[];
+  behanceLink?: string | string[];
   description: string;
 }
 
