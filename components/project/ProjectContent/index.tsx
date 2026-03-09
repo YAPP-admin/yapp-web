@@ -74,14 +74,16 @@ function ProjectContent({ project }: Props): ReactElement {
         )}
 
         {/* Web 링크 */}
-        {webLink && (
-          <Link href={webLink} passHref target="_blank">
-            <DeployLinkButton variant="black">
-              <WebLink />
-              Web
-              <BtnArrowRight />
-            </DeployLinkButton>
-          </Link>
+        {(Array.isArray(webLink) ? webLink : webLink ? [webLink] : []).map(
+          (url, index) => (
+            <Link key={`web-${index}`} href={url} passHref target="_blank">
+              <DeployLinkButton variant="black">
+                <WebLink />
+                Web
+                <BtnArrowRight />
+              </DeployLinkButton>
+            </Link>
+          ),
         )}
 
         {/* App 링크(24기 이전에는 aos 또는 ios, 24기 이후로는 ios) */}

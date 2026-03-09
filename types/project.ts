@@ -29,7 +29,7 @@ export interface Project {
   playStoreLink?: string;
   linkTreeLink?: string;
   oneStoreLink?: string;
-  webLink?: string;
+  webLink?: string | string[];
   description: string;
 }
 
