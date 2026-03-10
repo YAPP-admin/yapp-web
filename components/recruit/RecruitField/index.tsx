@@ -1,4 +1,8 @@
-import { RECRUIT_FIELD_NAMES, RECRUIT_TITLE } from 'database/recruit';
+import {
+  IS_RECRUITING,
+  RECRUIT_FIELD_NAMES,
+  RECRUIT_TITLE,
+} from 'database/recruit';
 import { ReactElement, useEffect, useState } from 'react';
 import SectionTitle from 'components/common/SectionTitle';
 import styled from 'styled-components';
@@ -31,7 +35,7 @@ function RecruitField(): ReactElement {
             key={field.name}
             variants={itemVariants}
             onClick={() => {
-              if (field.url) {
+              if (IS_RECRUITING && field.url) {
                 window.open(field.url, '_blank');
               }
             }}
@@ -44,6 +48,7 @@ function RecruitField(): ReactElement {
               isFlipped={flippedIndex === index}
               onHoverStart={() => setFlippedIndex(index)}
               onHoverEnd={() => setFlippedIndex(null)}
+              isRecruiting={IS_RECRUITING}
             />
           </motion.li>
         ))}
