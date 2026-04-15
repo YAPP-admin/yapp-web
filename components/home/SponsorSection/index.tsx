@@ -101,7 +101,7 @@ const ButtonContainer = styled(motion.div)`
 
 const Sponsor = styled.li`
   position: relative;
-  width: 25%;
+  width: 100%;
   aspect-ratio: 1 / 1;
   background-color: ${({ theme }) => theme.palette.black_5};
   border-radius: 16px;
