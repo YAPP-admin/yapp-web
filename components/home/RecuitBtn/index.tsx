@@ -63,7 +63,7 @@ function RecuitBtn(): ReactElement {
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      <InfoText>10.16(목) - 10.25(토)</InfoText>
+      <InfoText>4.17(금) - 4.26(일)</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
         {Yapp.YAPP_GENERATION}기 지원하기
       </AnimatedButton>

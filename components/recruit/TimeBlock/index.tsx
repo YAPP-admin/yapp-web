@@ -29,7 +29,7 @@ const TimeText = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.textStyleV2.resp.timer_md};
-  color: ${({ theme }) => theme.palette.white_100};
+  color: ${({ theme }) => theme.palette.discovery_28th_text};
   font-variant-numeric: tabular-nums;
 
   text-align: center;
@@ -41,7 +41,7 @@ const TimeText = styled.span`
 
 const TimeLabel = styled.span`
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
-  color: ${({ theme }) => theme.palette.white_50};
+  color: ${({ theme }) => theme.palette.discovery_28th_text_50};
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};

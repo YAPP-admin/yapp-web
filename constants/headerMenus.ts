@@ -13,8 +13,8 @@ export const HEADER_MENUS = [
     name: '프로젝트',
     path: Path.Project,
   },
-  {
-    name: '얍 활동',
-    path: Path.Story,
-  },
+  // {
+  //   name: '얍 활동',
+  //   path: Path.Story,
+  // },
 ];

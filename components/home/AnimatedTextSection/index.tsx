@@ -30,7 +30,7 @@ function AnimatedTextSection(): ReactElement {
 const SectionContainer = styled.section`
   width: 100%;
   height: 100vh;
-  background-color: ${({ theme }) => theme.palette.black};
+  background-color: ${({ theme }) => theme.palette.white};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,9 +49,9 @@ const HighLightText = styled(motion.div)`
 
   background: linear-gradient(
     270deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0.3) 100%
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.3) 100%
   );
   background-position: center;
   background-size: cover;
@@ -60,7 +60,7 @@ const HighLightText = styled(motion.div)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  ${media.mobile} {
+  ${media.small} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle2_sm};
   }
 `;

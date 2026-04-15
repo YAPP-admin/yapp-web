@@ -25,7 +25,12 @@ function GridSection(): ReactElement {
     >
       <SectionInner>
         <motion.div ref={ref} variants={itemVariants}>
-          <SectionTitle title={title} subTitle={subTitle} />
+          <SectionTitle
+            title={title}
+            subTitle={subTitle}
+            fontColor="black_100"
+            subFontColor="black_50"
+          />
         </motion.div>
 
         <GridContainer
@@ -57,7 +62,7 @@ function GridSection(): ReactElement {
 const SectionLayout = styled(motion.section)`
   display: flex;
   justify-content: center;
-  background-color: ${({ theme }) => theme.palette.black};
+  background-color: ${({ theme }) => theme.palette.white};
   width: auto;
   padding: 160px 80px;
 

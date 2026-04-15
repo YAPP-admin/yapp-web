@@ -5,42 +5,42 @@ export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간',
     content: '15년',
-    icon: '/assets/icons/running_year.svg',
+    icon: '/assets/images/28th/icons/running_year.png',
     color: 'circus_red',
     fontColor: 'white_100',
   },
   {
     title: '운영기수',
-    content: '26기',
-    icon: '/assets/icons/cohort.svg',
+    content: '27기',
+    icon: '/assets/images/28th/icons/cohort.png',
     color: 'white',
     fontColor: 'black_100',
   },
   {
     title: '현재 활동 회원',
     content: '65명',
-    icon: '/assets/icons/members.svg',
+    icon: '/assets/images/28th/icons/active_members.png',
     color: 'circus_blue',
     fontColor: 'white_100',
   },
   {
     title: '누적 활동 인원',
     content: '500+명',
-    icon: '/assets/icons/total_members.svg',
+    icon: '/assets/images/28th/icons/total_members.png',
     color: 'circus_red',
     fontColor: 'white_100',
   },
   {
     title: '런칭 서비스',
     content: '60+개',
-    icon: '/assets/icons/service.svg',
+    icon: '/assets/images/28th/icons/service.png',
     color: 'white',
     fontColor: 'black_100',
   },
   {
     title: '누적 앱 다운로드',
     content: '400,000+',
-    icon: '/assets/icons/download.svg',
+    icon: '/assets/images/28th/icons/download.png',
     color: 'circus_blue',
     fontColor: 'white_100',
   },
@@ -49,39 +49,34 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: 'Lettie',
-    link: '/project/26th/lettie',
-    image: '/assets/project/26_thumbnail_lettie.png',
+    title: 'keepiluv',
+    link: '/project/27th/keepluv',
+    image: '/assets/project/27_thumbnail_keepluv.png',
   },
   {
-    title: 'Ssok',
-    link: '/project/26th/ssok',
-    image: '/assets/project/26_thumbnail_ssok.png',
+    title: 'Lokit',
+    link: '/project/27th/lokit',
+    image: '/assets/project/27_thumbnail_lokit.jpg',
   },
   {
-    title: '잇다',
-    link: '/project/26th/eatda',
-    image: '/assets/project/26_thumbnail_eatda.png',
+    title: 'moa',
+    link: '/project/27th/moa',
+    image: '/assets/project/27_thumbnail_moa.png',
   },
   {
-    title: 'FitRun',
-    link: '/project/26th/fitrun',
-    image: '/assets/project/26_thumbnail_fitrun.png',
+    title: 'moit & weddin',
+    link: '/project/27th/moit&weddin',
+    image: '/assets/project/27_thumbnail_moitweddin.png',
   },
   {
-    title: '빛나길',
-    link: '/project/26th/bitnagil',
-    image: '/assets/project/26_thumbnail_bitnagil.png',
+    title: '나도갈래',
+    link: '/project/27th/nadogalrae',
+    image: '/assets/project/27_thumbnail_nadogalrae.jpg',
   },
   {
-    title: 'brake',
-    link: '/project/26th/brake',
-    image: '/assets/project/26_thumbnail_brake.png',
-  },
-  {
-    title: 'Reed',
-    link: '/project/26th/reed',
-    image: '/assets/project/26_thumbnail_reed.jpg',
+    title: '네키',
+    link: '/project/27th/neki',
+    image: '/assets/project/27_thumbnail_neki.jpg',
   },
 ];
 
@@ -172,14 +167,14 @@ export const SPONSOR_DATA = [
     image: '/assets/sponsors/sponsor_elice.png',
     alt: 'sponsor elice',
   },
-  {
-    image: '/assets/sponsors/sponsor_goorm.png',
-    alt: 'sponsor goorm',
-  },
-  {
-    image: '/assets/sponsors/sponsor_fiveSpot.png',
-    alt: 'sponsor fiveSpot',
-  },
+  // {
+  //   image: '/assets/sponsors/sponsor_goorm.png',
+  //   alt: 'sponsor goorm',
+  // },
+  // {
+  //   image: '/assets/sponsors/sponsor_fiveSpot.png',
+  //   alt: 'sponsor fiveSpot',
+  // },
   {
     image: '/assets/sponsors/sponsor_greeting.png',
     alt: 'sponsor greeting',
@@ -199,6 +194,6 @@ export const RECRUIT_BANNER_PRE = {
   subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
     Yapp.YAPP_GENERATION,
   )}기의 야뿌가 되어보세요.`,
-  date: '10.16(목) - 10.25(토)',
+  date: '4.17(금) - 4.26(일)',
   buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
 };

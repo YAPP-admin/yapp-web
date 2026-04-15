@@ -1,7 +1,7 @@
 import Yapp from 'constants/yapp';
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = false;
+export const IS_RECRUITING = true;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
@@ -31,12 +31,12 @@ export const SESSION_OVERVIEW = {
     {
       date: '1-4주차',
       programs: ['OT', '팀매칭', '팀세션', '팀세션'],
-      backgroundColor: 'circus_red',
+      backgroundColor: 'discovery_28th_red',
     },
     {
       date: '5-8주차',
       programs: ['휴-얍', '기획세션', '팀세션', `1차 데브캠프\n(UT)`],
-      backgroundColor: 'circus_blue',
+      backgroundColor: 'discovery_28th_blue',
     },
     {
       date: '9-12주차',
@@ -51,7 +51,7 @@ export const SESSION_OVERVIEW = {
     {
       date: '13-17주차',
       programs: [`3차 데브캠프\n(UT)`, '팀세션', '데모데이', '최종 발표회'],
-      backgroundColor: 'circus_red',
+      backgroundColor: 'discovery_28th_red',
     },
   ],
 };
@@ -61,7 +61,13 @@ export const FIND_YAPPU = [
   {
     textParts: [
       '새로운 가능성을',
-      { img: '/assets/icons/yappu_red.svg' },
+      {
+        img: '/assets/icons/yappu_red.svg',
+        width: 62,
+        height: 49,
+        mobileWidth: 28,
+        mobileHeight: 22,
+      },
       '탐색하고,\n',
       '주도적인 협업을 통해 ',
       '의미있는 프로젝트를 만들어가는 사람을 찾아요',
@@ -71,7 +77,13 @@ export const FIND_YAPPU = [
     textParts: [
       '매주 토요일 정규 세션에\n',
       '참여 가능한 분을',
-      { img: '/assets/icons/yappu_blue.svg' },
+      {
+        img: '/assets/icons/yappu_blue.svg',
+        width: 76,
+        height: 54,
+        mobileWidth: 38,
+        mobileHeight: 27,
+      },
       '찾아요',
     ],
   },
@@ -79,7 +91,13 @@ export const FIND_YAPPU = [
     textParts: [
       '타 직군과의 1회 이상\n',
       '협업 경험이 있는 분',
-      { img: '/assets/icons/yappu_white.svg' },
+      {
+        img: '/assets/icons/yappu_white.svg',
+        width: 68,
+        height: 54,
+        mobileWidth: 34,
+        mobileHeight: 27,
+      },
       '을 찾아요',
     ],
   },
@@ -93,38 +111,38 @@ export const RECRUIT_SCHEDULE = {
   schedules: [
     {
       title: '서류 접수',
-      content: '10.16',
-      icon: '/assets/icons/running_year.svg',
-      color: 'circus_red',
+      content: '4.17',
+      icon: '/assets/images/28th/icons/running_year.png',
+      color: 'discovery_28th_red',
       fontColor: 'white_100',
     },
     {
       title: '서류 마감',
-      content: '10.25',
-      icon: '/assets/icons/cohort.svg',
-      color: 'circus_gray',
-      fontColor: 'black_100',
+      content: '4.26',
+      icon: '/assets/images/28th/icons/cohort.png',
+      color: 'discovery_28th_beige',
+      fontColor: 'discovery_28th_text',
     },
     {
       title: '서류 결과 발표',
-      content: '10.29',
-      icon: '/assets/icons/members.svg',
-      color: 'circus_blue',
+      content: '4.29',
+      icon: '/assets/images/28th/icons/active_members.png',
+      color: 'discovery_28th_blue',
       fontColor: 'white_100',
     },
     {
       title: '면접',
-      content: '11.01-05',
-      icon: '/assets/icons/total_members.svg',
-      color: 'circus_red',
+      content: '5.1-5.5',
+      icon: '/assets/images/28th/icons/total_members.png',
+      color: 'discovery_28th_red',
       fontColor: 'white_100',
     },
     {
       title: '최종 발표',
-      content: '11.07',
-      icon: '/assets/icons/service.svg',
-      color: 'circus_gray',
-      fontColor: 'black_100',
+      content: '5.8',
+      icon: '/assets/images/28th/icons/service.png',
+      color: 'discovery_28th_beige',
+      fontColor: 'discovery_28th_text',
     },
   ],
 };
@@ -199,7 +217,7 @@ export const RECRUIT_FIELD_NAMES = [
       '아이디어를 제시하고 협업을 이끌며 프로젝트를 관리할 수 있는 사람을 찾습니다.',
       '디자이너·개발자와의 협업 경험, UX 설계나 발표 경험이 있다면 더욱 좋습니다.',
     ],
-    backgroundColor: 'circus_red',
+    backgroundColor: 'discovery_28th_red',
   },
   {
     name: '디자인',
@@ -219,7 +237,7 @@ export const RECRUIT_FIELD_NAMES = [
       `HTML, CSS, JavaScript, React에 대한 이해를 바탕으로 프로젝트를 끝까지 책임감 있게 완수할 수 있는 분을 찾습니다.
 협업 경험이나 GitHub 활용, 새로운 기술에 도전한 경험이 있다면 더욱 환영합니다.`,
     ],
-    backgroundColor: 'circus_blue',
+    backgroundColor: 'discovery_28th_blue',
   },
   {
     name: 'Android',
@@ -228,7 +246,7 @@ export const RECRUIT_FIELD_NAMES = [
     backInfo: [
       `Kotlin 기반 프로젝트 경험과 책임감, 기술 논의에 적극적인 자세를 갖춘 분을 찾습니다. 타 직군 협업 경험이나 Git 활용, MVP, MVVM 등 디자인 패턴 이해도가 있다면 더욱 환영합니다.`,
     ],
-    backgroundColor: 'circus_red',
+    backgroundColor: 'discovery_28th_red',
   },
   {
     name: 'iOS',
@@ -248,7 +266,7 @@ export const RECRUIT_FIELD_NAMES = [
       `Kotlin/Java와 Spring, 데이터베이스 및 RESTful에 대한 이해를 바탕으로 책임감 있게 프로젝트를 완수할 수 있는 분을 찾습니다.`,
       `PM과의 소통 경험 또는 Git 활용 경험이 있다면 더욱 환영합니다.`,
     ],
-    backgroundColor: 'circus_blue',
+    backgroundColor: 'discovery_28th_blue',
   },
 ];
 

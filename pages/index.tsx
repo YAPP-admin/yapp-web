@@ -11,7 +11,7 @@ import { IS_RECRUITING, NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
 import { RECRUIT_BANNER, RECRUIT_BANNER_PRE } from 'database/home';
 import fs from 'fs';
 import path from 'path';
-import Banner27th from 'components/home/IntroSection/Banner27th';
+import Banner28th from 'components/home/IntroSection/Banner28th';
 import { Medium } from 'types/medium';
 import RecuitBtn from 'components/home/RecuitBtn';
 import styled from 'styled-components';
@@ -32,11 +32,11 @@ function Home({ data }: { data: Medium[] }): ReactElement {
     <Wrapper>
       {/* FAB 노출 범위 */}
       <section id="join-section">
-        <Banner27th />
+        <Banner28th />
         <AnimatedTextSection />
         <GridSection />
         <ProjectSection />
-        <NewsSection data={data || []} />
+        {/* <NewsSection data={data || []} /> */}
         <SponsorSection />
       </section>
       <JoinSection

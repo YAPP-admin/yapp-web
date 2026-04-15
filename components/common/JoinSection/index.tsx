@@ -75,7 +75,7 @@ const ImageContainer = styled.div`
   width: 100%;
   height: 800px;
   border-radius: 32px;
-  background: url('/assets/images/27th/recruit.png') no-repeat center;
+  background: url('/assets/images/28th/recruit_bg.png') no-repeat center;
   background-size: cover;
 
   ${media.tablet} {

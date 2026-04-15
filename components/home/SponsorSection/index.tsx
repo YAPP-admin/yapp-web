@@ -81,6 +81,7 @@ const SectionInner = styled.div`
 
 const SponsorList = styled.ul`
   display: flex;
+  justify-content: center;
   gap: 1.6rem;
   margin: 48px 0;
   width: 100%;
@@ -100,7 +101,7 @@ const ButtonContainer = styled(motion.div)`
 
 const Sponsor = styled.li`
   position: relative;
-  width: 100%;
+  width: 25%;
   aspect-ratio: 1 / 1;
   background-color: ${({ theme }) => theme.palette.black_5};
   border-radius: 16px;
