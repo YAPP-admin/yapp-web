@@ -71,7 +71,7 @@ const MenuList = styled.div`
   gap: 32px;
 `;
 
-const MenuItem = styled.a<{ active: boolean }>`
+const MenuItem = styled.span<{ active: boolean }>`
   cursor: pointer;
   ${({ theme }) => theme.textStyleV2.fix.font_20}
   color: ${({ theme, active }) =>

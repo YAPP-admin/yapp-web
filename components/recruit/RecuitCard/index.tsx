@@ -12,6 +12,7 @@ interface CardProps {
   isFlipped: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;
+  isRecruiting?: boolean;
 }
 
 function RecruitCard({
@@ -22,6 +23,7 @@ function RecruitCard({
   isFlipped,
   onHoverStart,
   onHoverEnd,
+  isRecruiting = true,
 }: CardProps): ReactElement {
   return (
     <CardContainer
@@ -38,6 +40,7 @@ function RecruitCard({
           <ApplyBtn
             color={backgroundColor === 'white' ? 'black_100' : 'white_100'}
             back={false}
+            disabled={!isRecruiting}
           >
             <p>지원하기</p>
             <CircleArrow />
@@ -47,7 +50,7 @@ function RecruitCard({
           {backInfo.map((info, idx) => (
             <p key={idx}>{info}</p>
           ))}
-          <ApplyBtn back>
+          <ApplyBtn back disabled={!isRecruiting}>
             <p>지원하기</p>
             <CircleArrow />
           </ApplyBtn>
@@ -118,10 +121,15 @@ const CardBack = styled(CardFace)`
   color: ${theme.palette.white_100};
 `;
 
-const ApplyBtn = styled.button<{ back: boolean; color?: PaletteKeyTypes }>`
+const ApplyBtn = styled.button<{
+  back: boolean;
+  color?: PaletteKeyTypes;
+  disabled?: boolean;
+}>`
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   display: flex;
   align-items: center;
   justify-content: center;

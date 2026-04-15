@@ -75,7 +75,7 @@ function FrequentlyAskedQuestions(): ReactElement {
             onClick={() => window.open(Yapp.YAPP_FAQ_NOTION, '_blank')}
             style={{ width: 'fit-content', marginTop: '32px' }}
           >
-            27기 채용 FAQ 바로가기
+            {Yapp.YAPP_GENERATION}기 채용 FAQ 바로가기
           </Button>
         </SectionContent>
       </SectionInner>

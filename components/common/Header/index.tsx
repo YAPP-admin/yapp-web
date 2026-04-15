@@ -42,7 +42,7 @@ function Header(): ReactElement {
           <Logo onClick={() => router.push(Path.Home)} />
           <HeaderMenu>
             {HEADER_MENUS.map(({ name, path }) => (
-              <Link key={`${name}_${path}`} href={path} scroll={false} passHref>
+              <Link key={`${name}_${path}`} href={path} scroll={false}>
                 <MenuText active={asPath === path}>{name}</MenuText>
               </Link>
             ))}
@@ -99,7 +99,7 @@ const HeaderMenu = styled.div`
   }
 `;
 
-const MenuText = styled.a<{ active: boolean }>`
+const MenuText = styled.span<{ active: boolean }>`
   cursor: pointer;
   color: ${({ theme, active }) =>
     active ? theme.palette.white : theme.palette.white_50};

@@ -30,7 +30,7 @@ function JoinSection({
               title={title || 'FIND YOUR BALANCE'}
               subTitle={
                 subTitle ||
-                `지원하기 버튼 하나로\nYAPP 27기의 야뿌가 되어보세요.`
+                `지원하기 버튼 하나로\nYAPP ${Yapp.YAPP_GENERATION}기의 야뿌가 되어보세요.`
               }
               caution={caution}
               align="center"
@@ -46,7 +46,7 @@ function JoinSection({
                 }
               }}
             >
-              {btnText || '27기 지원하기'}
+              {btnText || `${Yapp.YAPP_GENERATION}기 지원하기`}
             </Button>
           </InnerContainer>
         </ImageContainer>

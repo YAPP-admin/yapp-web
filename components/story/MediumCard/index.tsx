@@ -59,6 +59,7 @@ const MediumCardContainer = styled.article`
     flex-direction: row;
     gap: 16px;
     width: 100%;
+    height: fit-content;
   }
 `;
 
@@ -86,7 +87,7 @@ const ImageContainer = styled.div`
 const MediumInfo = styled.section`
   width: 100%;
   margin: 0;
-  height: -webkit-fill-available;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

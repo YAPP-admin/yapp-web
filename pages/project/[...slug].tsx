@@ -128,7 +128,7 @@ function ProjectDetail({ project, otherProjects }: Props) {
 
         <OtherProjectList>
           {randomProjects.map((otherProject, i) => (
-            <ProjectCard key={i} project={otherProject} />
+            <ProjectCard key={i} project={otherProject} isSubCard />
           ))}
         </OtherProjectList>
       </Wrapper>

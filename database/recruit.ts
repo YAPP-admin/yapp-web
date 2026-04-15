@@ -1,7 +1,7 @@
 import Yapp from 'constants/yapp';
 
 /* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+export const IS_RECRUITING = false;
 
 /** Banner  */
 export const RECRUIT_BANNER = {
@@ -21,7 +21,7 @@ export const RECRUIT_BANNER_ACTIVE = {
 };
 
 export const NEXT_GENERATION_RECRUIT_LINK =
-  'https://forms.gle/9nABygW4JPaX5rfv6';
+  'https://docs.google.com/forms/d/e/1FAIpQLSeAtEn6VTKxoWlzkYv_Sp_JHrzILJCl6l2tT4ccWfhq-UuEbg/viewform';
 
 /** 세션일정 개요 */
 export const SESSION_OVERVIEW = {

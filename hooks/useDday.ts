@@ -10,7 +10,7 @@ interface DdayTime {
 const calculateTimeLeft = (targetDate: Date): DdayTime => {
   const diffTime = targetDate.getTime() - new Date().getTime();
 
-  if (diffTime <= 0) return { days: '00', hrs: '00', mins: '00', secs: '00' };
+  if (diffTime <= 0) return { days: '0', hrs: '0', mins: '0', secs: '0' };
 
   const days = String(Math.floor(diffTime / (1000 * 60 * 60 * 24))).padStart(
     2,

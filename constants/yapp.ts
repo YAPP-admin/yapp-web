@@ -17,7 +17,7 @@ const Yapp = {
     'https://yapp-recruit.career.greetinghr.com/ko/o/177931',
   YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/ko/o/177938',
   YAPP_RECRUIT_ANDROID:
-    'https://yapp-recruit.career.greetinghr.com/ko/o/177938',
+    'https://yapp-recruit.career.greetinghr.com/ko/o/177936',
   YAPP_RECRUIT_FRONT_END:
     'https://yapp-recruit.career.greetinghr.com/ko/o/177934',
   YAPP_RECRUIT_BACK_END:

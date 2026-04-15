@@ -22,6 +22,7 @@ function ProjectContent({ project }: Props): ReactElement {
     playStoreLink,
     oneStoreLink,
     webLink,
+    behanceLink,
     linkTreeLink,
     description,
     program,
@@ -74,15 +75,33 @@ function ProjectContent({ project }: Props): ReactElement {
         )}
 
         {/* Web 링크 */}
-        {webLink && (
-          <Link href={webLink} passHref target="_blank">
+        {(Array.isArray(webLink) ? webLink : webLink ? [webLink] : []).map(
+          (url, index) => (
+            <Link key={`web-${index}`} href={url} passHref target="_blank">
+              <DeployLinkButton variant="black">
+                <WebLink />
+                Web
+                <BtnArrowRight />
+              </DeployLinkButton>
+            </Link>
+          ),
+        )}
+
+        {/* Behance 링크 */}
+        {(Array.isArray(behanceLink)
+          ? behanceLink
+          : behanceLink
+          ? [behanceLink]
+          : []
+        ).map((url, index) => (
+          <Link key={`behance-${index}`} href={url} passHref target="_blank">
             <DeployLinkButton variant="black">
               <WebLink />
-              Web
+              Behance
               <BtnArrowRight />
             </DeployLinkButton>
           </Link>
-        )}
+        ))}
 
         {/* App 링크(24기 이전에는 aos 또는 ios, 24기 이후로는 ios) */}
         {deployLink && (
