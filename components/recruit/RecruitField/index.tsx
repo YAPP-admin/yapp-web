@@ -45,6 +45,7 @@ function RecruitField(): ReactElement {
               description={field.description}
               backInfo={field.backInfo}
               backgroundColor={field.backgroundColor as any}
+              position={index}
               isFlipped={flippedIndex === index}
               onHoverStart={() => setFlippedIndex(index)}
               onHoverEnd={() => setFlippedIndex(null)}

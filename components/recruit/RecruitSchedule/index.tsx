@@ -151,7 +151,7 @@ const CardLabel = styled.span`
   white-space: nowrap;
   padding: 4px;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.palette.black_100};
+  background-color: ${({ theme }) => theme.palette.white_20};
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.caption_md};
 

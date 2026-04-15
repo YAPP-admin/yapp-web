@@ -13,6 +13,7 @@ interface CardProps {
   onHoverStart: () => void;
   onHoverEnd: () => void;
   isRecruiting?: boolean;
+  position?: number;
 }
 
 function RecruitCard({
@@ -24,6 +25,7 @@ function RecruitCard({
   onHoverStart,
   onHoverEnd,
   isRecruiting = true,
+  position,
 }: CardProps): ReactElement {
   return (
     <CardContainer
@@ -33,7 +35,13 @@ function RecruitCard({
     >
       <CardInner isFlipped={isFlipped}>
         <CardFront backgroundColor={backgroundColor}>
-          <div>
+          <div
+            style={
+              position === 1 || position === 4
+                ? { color: theme.palette.discovery_28th_text }
+                : undefined
+            }
+          >
             <h2>{name}</h2>
             <p>{description}</p>
           </div>
@@ -133,7 +141,6 @@ const ApplyBtn = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
   gap: 6px;
   color: ${({ back, color }) =>
     back || !color ? theme.palette.white_100 : theme.palette[color]};
