@@ -12,7 +12,7 @@ import Yapp from 'constants/yapp';
 
 function RecruitBanner() {
   const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
-  const { days, hrs, mins, secs } = useDday(new Date('2026-04-26T23:59:59'));
+  const { days, hrs, mins, secs } = useDday(new Date('2026-04-17T00:00:00'));
 
   return (
     <RecruitBannerContainer>
@@ -28,6 +28,7 @@ function RecruitBanner() {
             <Colon>:</Colon>
             <TimeBlock type="SECS" time={secs} />
           </TimeList>
+          {/*
           <ApplyButton
             onClick={() => {
               if (!IS_RECRUITING) {
@@ -39,6 +40,7 @@ function RecruitBanner() {
           >
             {BannerInfo.buttonName}
           </ApplyButton>
+          */}
         </InnerContainer>
       </BannerImageBox>
     </RecruitBannerContainer>

@@ -14,7 +14,7 @@ export const RECRUIT_BANNER_PRE = {
 };
 
 export const RECRUIT_BANNER_ACTIVE = {
-  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 마감까지`,
+  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 오픈까지`,
   description: `YAPP ${Yapp.YAPP_GENERATION}기에서 4개월간 활동할<br class="mobile" /> PM(기획자)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
     IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘치고, 동아리에서 다양한 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
   buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,

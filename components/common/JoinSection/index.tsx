@@ -35,6 +35,7 @@ function JoinSection({
               caution={caution}
               align="center"
             />
+            {/*
             <Button
               type="button"
               variant="black"
@@ -48,6 +49,7 @@ function JoinSection({
             >
               {btnText || `${Yapp.YAPP_GENERATION}기 지원하기`}
             </Button>
+              */}
           </InnerContainer>
         </ImageContainer>
       </SectionInner>

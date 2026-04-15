@@ -57,6 +57,8 @@ function RecuitBtn(): ReactElement {
   }, [controls]);
 
   return (
+    <>
+      {/*
     <BtnContainer
       $visible={visible}
       onClick={() => window.open(Yapp.YAPP_RECRUIT_ALL, '_blank')}
@@ -68,6 +70,8 @@ function RecuitBtn(): ReactElement {
         {Yapp.YAPP_GENERATION}기 지원하기
       </AnimatedButton>
     </BtnContainer>
+     */}
+    </>
   );
 }
 
