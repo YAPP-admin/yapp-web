@@ -30,28 +30,28 @@ export const SESSION_OVERVIEW = {
   overviewContents: [
     {
       date: '1-4주차',
-      programs: ['OT', '팀매칭', '팀세션', '팀세션'],
-      backgroundColor: 'discovery_28th_red',
+      programs: ['OT', '팀빌딩', '친해지길바래', '팀세션'],
+      backgroundColor: 'black_100',
     },
     {
       date: '5-8주차',
-      programs: ['휴-얍', '기획세션', '팀세션', `1차 데브캠프\n(UT)`],
+      programs: ['기획세션', '팀세션', `1차 데브캠프\n(UT)`, '팀세션'],
       backgroundColor: 'discovery_28th_blue',
     },
     {
       date: '9-12주차',
-      programs: [
-        '팀세션',
-        `개발/디자인\n세션`,
-        '팀세션',
-        `2차 데브캠프\n(해커톤)`,
-      ],
-      backgroundColor: 'black_100',
+      programs: [`개발/디자인\n세션`, '팀세션', `2차 데브캠프\n(UT)`, '팀세션'],
+      backgroundColor: 'discovery_28th_red',
     },
     {
       date: '13-17주차',
-      programs: [`3차 데브캠프\n(UT)`, '팀세션', '데모데이', '최종 발표회'],
-      backgroundColor: 'discovery_28th_red',
+      programs: [
+        `3차 데브캠프\n(해커톤)`,
+        '팀세션',
+        '데모데이',
+        '회고 & 마무리',
+      ],
+      backgroundColor: 'black_100',
     },
   ],
 };
@@ -69,7 +69,7 @@ export const FIND_YAPPU = [
         mobileHeight: 22,
       },
       '탐색하고,\n',
-      '주도적인 협업을 통해 ',
+      '주도적인 협업을 통해\n',
       '의미있는 프로젝트를 만들어가는 사람을 찾아요',
     ],
   },
@@ -154,7 +154,7 @@ export const RECRUIT_FAQ = {
   faqs: [
     {
       subTitle: 'YAPP은 어떤 동아리인가요?',
-      description: `YAPP은 PM(기획자), 디자이너, 개발자로 팀을 구성하여 4개월간 하나의 IT 서비스(웹,앱,etc.)를 제작하는 기업형 IT연합 커뮤니티입니다.<br class="br" /> 
+      description: `YAPP은 PM(기획자), 디자이너, 개발자로 팀을 구성하여 4개월간 하나의 IT 웹/앱 서비스를 제작하는 기업형 IT연합 커뮤니티입니다.<br class="br" /> 
       서비스 문제 정의, 출시, 제작, 운영까지 팀원들의 아이디어를 실제 IT 서비스로 구체화하며 성장할 수 있습니다.`,
       isOpen: false,
     },
@@ -162,23 +162,23 @@ export const RECRUIT_FAQ = {
       subTitle:
         '대학생이 아닌 고졸/재직자/졸업자 등도 YAPP에서 활동할 수 있을까요?',
       description: `4개월간 꾸준히 활동할 수 있고 배우고자 하는 열의가 충분하다면, 누구든 지원이 가능합니다.<br class="br" />
-                    현재도 고졸/재직자/졸업자 중 활발히 활동하시는 분들이 계십니다.<br class="br" />
-                    하지만 매주 진행하는 정기 세션과 기수당 2-3회 열리는 해커톤 Dev Camp에 필수적으로 참여해야 하며,<br class="br" />
+                    고졸/재직자/졸업자 중 활발히 활동하시는 분들이 계십니다.<br class="br" />
+                    하지만 매주 진행하는 정기 세션에 필수적으로 참여해야 하며,<br class="br" />
                     특히 방학 중에는 원활한 프로젝트 진행을 위해 추가적인 팀 활동에 모여야 한다는 점을 숙지해주세요!`,
       isOpen: false,
     },
     {
       subTitle: '실력이 뛰어난 사람만 지원할 수 있나요?',
       description: `YAPP에서는 4개월간 꾸준히 활동할 수 있는지, 그리고 발전하고자 하는 의지가 충분한지를 가장 중요하게 생각합니다.<br class="br" />
-                    그러나 교육보다는 프로젝트 진행이 중심이기 때문에 자율 스터디나 특강 이외의 교육 커리큘럼을 따로 진행하고 있지 않습니다.<br class="br" />
+                    교육보다는 프로젝트 진행이 중심이기 때문에 자율 스터디나 특강 이외의 교육 커리큘럼을 따로 진행하고 있지 않습니다.<br class="br" />
                     따라서 동아리 활동 이외에 개인적으로도 시간과 노력을 투자해야 한다는 점을 알아주시길 바랍니다.`,
       isOpen: false,
     },
     {
       subTitle: '정기 모임(세션)은 언제, 어디서 하나요?',
-      description: `매주 토요일 오후 2시-5시, 세션은 서로 간의 지식 공유&친목 도모를 위해 진행되며 가벼운 뒤풀이도 있을 수 있습니다.<br class="br" />
+      description: `매주 토요일 오후 1시-5시, 세션은 서로 간의 지식 공유&친목 도모를 위해 진행되며 가벼운 뒤풀이도 있을 수 있습니다.<br class="br" />
                     오프라인 대면으로 진행되고 있으며 각 기수별 상황에 따라 달라질 수 있습니다.<br class="br" />
-                    오프라인으로 대부분 수도권에서 세션이 진행되며, 장소 섭외 상황에 따라 변경될 수 있습니다.<br class="br" />
+                    오프라인으로 수도권에서 세션이 진행되며, 장소 섭외 상황에 따라 변경될 수 있습니다.<br class="br" />
                     일정, 장소 등 자세한 정보는 내부 채널을 통해 사전 공지해드릴 예정입니다.`,
       isOpen: false,
     },
@@ -198,7 +198,7 @@ export const RECRUIT_FAQ = {
     },
     {
       subTitle: '더 궁금한 사항이 있어요!',
-      description: `궁금하신 내용은 27기 채용 FAQ를 참고해주시고, 기타 사항은 카카오톡 채널을 통해 문의주세요!`,
+      description: `궁금하신 내용은 28기 채용 FAQ를 참고해주시고, 기타 사항은 카카오톡 채널을 통해 문의주세요!`,
       isOpen: false,
     },
   ],
@@ -227,7 +227,7 @@ export const RECRUIT_FIELD_NAMES = [
       `UI/UX 설계 역량과 기획·개발 직군과의 협업 능력, 피드백을 반영하는 태도를 가진 분을 찾습니다. `,
       `프로젝트 경험이나 기획·리서치·데이터 기반 문제 해결 경험이 있다면 더욱 환영합니다.`,
     ],
-    backgroundColor: 'white',
+    backgroundColor: 'discovery_28th_beige',
   },
   {
     name: 'Web',
@@ -256,7 +256,7 @@ export const RECRUIT_FIELD_NAMES = [
       `Swift 기반 프로젝트 경험이 있고, 책임감과 개발 열정으로 문제 해결과 협업에 적극적인 분을 찾습니다.`,
       `타 직군 협업 경험이나 Git 활용, MVC, MVVM 등 디자인 패턴 이해도가 있다면 더욱 환영합니다.`,
     ],
-    backgroundColor: 'white',
+    backgroundColor: 'discovery_28th_beige',
   },
   {
     name: 'Server',
@@ -275,5 +275,5 @@ export const RECRUIT_ENQUIRY = {
   title: `더 궁금하신 내용이 있거나\n문의 사항이 있으신가요?`,
   description: `리쿠르팅 관련 문의는\n카카오톡 채널을 이용해 주세요.`,
   caution: `(페이스북 메시지 및 인스타그램 DM은 받지 않습니다)`,
-  buttonName: '문의 하기',
+  buttonName: '채널톡 문의 하기',
 };

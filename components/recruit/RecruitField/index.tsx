@@ -60,7 +60,7 @@ function RecruitField(): ReactElement {
 export default RecruitField;
 
 const SectionLayout = styled.section`
-  background-color: ${theme.palette.black};
+  background-color: ${theme.palette.white};
   display: flex;
   flex-direction: column;
   align-items: center;

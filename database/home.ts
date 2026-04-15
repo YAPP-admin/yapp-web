@@ -4,44 +4,44 @@ import Yapp from 'constants/yapp';
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간',
-    content: '15년',
+    content: '16년',
     icon: '/assets/images/28th/icons/running_year.png',
-    color: 'circus_red',
+    color: 'discovery_28th_red',
     fontColor: 'white_100',
   },
   {
     title: '운영기수',
     content: '27기',
     icon: '/assets/images/28th/icons/cohort.png',
-    color: 'white',
+    color: 'discovery_28th_beige',
     fontColor: 'black_100',
   },
   {
     title: '현재 활동 회원',
     content: '65명',
     icon: '/assets/images/28th/icons/active_members.png',
-    color: 'circus_blue',
+    color: 'discovery_28th_blue',
     fontColor: 'white_100',
   },
   {
     title: '누적 활동 인원',
-    content: '500+명',
+    content: '600+명',
     icon: '/assets/images/28th/icons/total_members.png',
-    color: 'circus_red',
+    color: 'discovery_28th_red',
     fontColor: 'white_100',
   },
   {
     title: '런칭 서비스',
-    content: '60+개',
+    content: '70+개',
     icon: '/assets/images/28th/icons/service.png',
-    color: 'white',
+    color: 'discovery_28th_beige',
     fontColor: 'black_100',
   },
   {
     title: '누적 앱 다운로드',
     content: '400,000+',
     icon: '/assets/images/28th/icons/download.png',
-    color: 'circus_blue',
+    color: 'discovery_28th_blue',
     fontColor: 'white_100',
   },
 ];
@@ -160,12 +160,20 @@ export const SPONSOR_SECTION = {
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor_flab.png',
-    alt: 'sponsor F-Lab',
+    image: '/assets/sponsors/sponsor_greeting.png',
+    alt: 'sponsor greeting',
   },
   {
     image: '/assets/sponsors/sponsor_elice.png',
     alt: 'sponsor elice',
+  },
+  {
+    image: '/assets/sponsors/sponsor_dcamp.png',
+    alt: 'sponsor dcamp',
+  },
+  {
+    image: '/assets/sponsors/sponsor_flab.png',
+    alt: 'sponsor F-Lab',
   },
   // {
   //   image: '/assets/sponsors/sponsor_goorm.png',
@@ -175,22 +183,18 @@ export const SPONSOR_DATA = [
   //   image: '/assets/sponsors/sponsor_fiveSpot.png',
   //   alt: 'sponsor fiveSpot',
   // },
-  {
-    image: '/assets/sponsors/sponsor_greeting.png',
-    alt: 'sponsor greeting',
-  },
 ];
 
 /* 모집 관련 상수 */
 export const RECRUIT_BANNER = {
-  title: 'FIND YOUR BALANCE',
+  title: 'MOMENT OF DISCOVERY',
   subTitle: `다음 기수의 모집 소식을 가장 먼저 만나보세요`,
   date: '지금은 모집 기간이 아닙니다',
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
 };
 
 export const RECRUIT_BANNER_PRE = {
-  title: 'FIND YOUR BALANCE',
+  title: 'MOMENT OF DISCOVERY',
   subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
     Yapp.YAPP_GENERATION,
   )}기의 야뿌가 되어보세요.`,

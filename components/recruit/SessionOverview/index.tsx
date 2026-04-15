@@ -38,26 +38,24 @@ function SessionOverview(): ReactElement {
           animate={controls}
           variants={containerVariants}
         >
-          {overviewContents.map(
-            ({ date, programs, backgroundColor }, index) => (
-              <OverviewContentBox
-                key={`recruit-overview-${date}`}
-                as={motion.li}
-                variants={itemVariants}
+          {overviewContents.map(({ date, programs, backgroundColor }) => (
+            <OverviewContentBox
+              key={`recruit-overview-${date}`}
+              as={motion.li}
+              variants={itemVariants}
+            >
+              <OverviewContentSubTitle
+                backgroundColor={backgroundColor as PaletteKeyTypes}
               >
-                <OverviewContentSubTitle
-                  backgroundColor={backgroundColor as PaletteKeyTypes}
-                >
-                  {date}
-                </OverviewContentSubTitle>
-                <OverviewContentContent>
-                  {programs.map((program, i) => (
-                    <span key={`line-${i}`}>{program}</span>
-                  ))}
-                </OverviewContentContent>
-              </OverviewContentBox>
-            ),
-          )}
+                {date}
+              </OverviewContentSubTitle>
+              <OverviewContentContent>
+                {programs.map((program, i) => (
+                  <span key={`line-${i}`}>{program}</span>
+                ))}
+              </OverviewContentContent>
+            </OverviewContentBox>
+          ))}
         </SectionContent>
       </SectionInner>
     </SectionLayout>
@@ -92,6 +90,8 @@ const SectionContent = styled.ul`
 const OverviewContentBox = styled.li`
   list-style: none;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const OverviewContentSubTitle = styled.div<{
@@ -113,11 +113,25 @@ const OverviewContentSubTitle = styled.div<{
 const OverviewContentContent = styled.div`
   border-radius: 0 0 8px 8px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: stretch;
   ${({ theme }) => theme.textStyleV2.fix.font_15};
   background-color: ${({ theme }) => theme.palette.black_5};
   color: ${({ theme }) => theme.palette.black_80};
   padding: 22px 0;
+  flex: 1;
+
+  & > span {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: pre-line;
+    padding: 0 12px;
+  }
 `;
 
 export default SessionOverview;
