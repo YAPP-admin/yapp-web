@@ -1,4 +1,5 @@
 import Yapp from 'constants/yapp';
+import { RecruitStatus } from '../constants/status';
 
 /** Grid Section */
 export const CURRENT_INFO_DATA = [
@@ -185,19 +186,39 @@ export const SPONSOR_DATA = [
   // },
 ];
 
+export interface RecruitBannerInfo {
+  title: string;
+  subTitle: string;
+  date: string;
+  buttonName: string;
+}
+
 /* 모집 관련 상수 */
-export const RECRUIT_BANNER = {
+export const HOME_BANNER_PRE = {
   title: 'MOMENT OF DISCOVERY',
-  subTitle: `다음 기수의 모집 소식을 가장 먼저 만나보세요`,
-  date: '지금은 모집 기간이 아닙니다',
-  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
+  subTitle: `YAPP ${Number(Yapp.YAPP_GENERATION)}기 모집이\n곧 시작됩니다`,
+  date: '4.17(금) - 4.26(일)',
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 모집 알림 신청하기`,
 };
 
-export const RECRUIT_BANNER_PRE = {
+export const HOME_BANNER_ACTIVE = {
   title: 'MOMENT OF DISCOVERY',
   subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
     Yapp.YAPP_GENERATION,
   )}기의 야뿌가 되어보세요.`,
   date: '4.17(금) - 4.26(일)',
   buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
+};
+
+export const HOME_BANNER_POST = {
+  title: 'MOMENT OF DISCOVERY',
+  subTitle: `다음 기수의 모집 소식을 가장 먼저 만나보세요`,
+  date: '지금은 모집 기간이 아닙니다',
+  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
+};
+
+export const HOME_BANNER_BY_STATUS: Record<RecruitStatus, RecruitBannerInfo> = {
+  [RecruitStatus.PRE]: HOME_BANNER_PRE,
+  [RecruitStatus.ACTIVE]: HOME_BANNER_ACTIVE,
+  [RecruitStatus.POST]: HOME_BANNER_POST,
 };

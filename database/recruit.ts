@@ -1,27 +1,38 @@
 import Yapp from 'constants/yapp';
-
-/* 현재 모집중이면 true 아니면 false */
-export const IS_RECRUITING = true;
+import { RecruitStatus } from '../constants/status';
 
 /** Banner  */
-export const RECRUIT_BANNER = {
-  title: '지금은 모집기간이 아닙니다',
-  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
-};
-export const RECRUIT_BANNER_PRE = {
-  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 마감까지`,
-  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
+interface RecruitBannerInfo {
+  title: string;
+  description?: string;
+  buttonName: string;
+}
+
+const RECRUIT_BANNER_PRE: RecruitBannerInfo = {
+  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 오픈까지`,
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 모집 알림 신청하기`,
 };
 
-export const RECRUIT_BANNER_ACTIVE = {
-  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 오픈까지`,
+const RECRUIT_BANNER_ACTIVE: RecruitBannerInfo = {
+  title: `${Number(Yapp.YAPP_GENERATION)}기 모집 마감까지`,
   description: `YAPP ${Yapp.YAPP_GENERATION}기에서 4개월간 활동할<br class="mobile" /> PM(기획자)/디자이너/개발자 신입 회원을<br class="mobile" /> 모집합니다.<br class="desktop" /> 
     IT 분야에 대한 열정과 의지가<br class="mobile" /> 넘치고, 동아리에서 다양한 사람들과 즐겁게<br class="mobile" /> 활동하고 싶은 분들의 많은 지원 바랍니다!`,
   buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,
 };
 
-export const NEXT_GENERATION_RECRUIT_LINK =
-  'https://docs.google.com/forms/d/e/1FAIpQLSeAtEn6VTKxoWlzkYv_Sp_JHrzILJCl6l2tT4ccWfhq-UuEbg/viewform';
+const RECRUIT_BANNER_POST: RecruitBannerInfo = {
+  title: '지금은 모집기간이 아닙니다',
+  buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
+};
+
+export const RECRUIT_BANNER_BY_STATUS: Record<
+  RecruitStatus,
+  RecruitBannerInfo
+> = {
+  [RecruitStatus.PRE]: RECRUIT_BANNER_PRE,
+  [RecruitStatus.ACTIVE]: RECRUIT_BANNER_ACTIVE,
+  [RecruitStatus.POST]: RECRUIT_BANNER_POST,
+};
 
 /** 세션일정 개요 */
 export const SESSION_OVERVIEW = {

@@ -1,18 +1,52 @@
 import {
-  IS_RECRUITING,
-  NEXT_GENERATION_RECRUIT_LINK,
-  RECRUIT_BANNER,
-  RECRUIT_BANNER_ACTIVE,
-} from 'database/recruit';
+  LINK_BY_STATUS,
+  RECRUITING_DEADLINE,
+  RECRUITING_START,
+  RECRUITING_STATUS,
+  RecruitStatus,
+} from '../../../constants/status';
+import { RECRUIT_BANNER_BY_STATUS } from 'database/recruit';
 import { useDday } from 'hooks/useDday';
 import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 import TimeBlock from '../TimeBlock';
-import Yapp from 'constants/yapp';
+import { useEffect, useState } from 'react';
 
 function RecruitBanner() {
-  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_ACTIVE : RECRUIT_BANNER;
-  const { days, hrs, mins, secs } = useDday(new Date('2026-04-17T00:00:00'));
+  const [isMounted, setIsMounted] = useState(false);
+  const [currentStatus, setCurrentStatus] = useState<RecruitStatus>(
+    RecruitStatus.PRE,
+  );
+
+  useEffect(() => {
+    setIsMounted(true);
+    setCurrentStatus(RECRUITING_STATUS());
+
+    const timer = setInterval(() => {
+      const nextStatus = RECRUITING_STATUS();
+      setCurrentStatus(nextStatus);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const targetDate = (() => {
+    switch (currentStatus) {
+      case RecruitStatus.PRE:
+        return new Date(RECRUITING_START);
+      case RecruitStatus.ACTIVE:
+        return new Date(RECRUITING_DEADLINE);
+      default:
+        return new Date();
+    }
+  })();
+
+  const { days, hrs, mins, secs } = useDday(targetDate);
+
+  if (!isMounted) return null;
+
+  const BannerInfo = RECRUIT_BANNER_BY_STATUS[currentStatus];
+  const targetLink = LINK_BY_STATUS[currentStatus];
 
   return (
     <RecruitBannerContainer>
@@ -28,19 +62,13 @@ function RecruitBanner() {
             <Colon>:</Colon>
             <TimeBlock type="SECS" time={secs} />
           </TimeList>
-          {/*
           <ApplyButton
             onClick={() => {
-              if (!IS_RECRUITING) {
-                window.open(NEXT_GENERATION_RECRUIT_LINK, '_blank');
-                return;
-              }
-              window.open(Yapp.YAPP_RECRUIT_ALL, '_blank');
+              window.open(targetLink, '_blank');
             }}
           >
             {BannerInfo.buttonName}
           </ApplyButton>
-          */}
         </InnerContainer>
       </BannerImageBox>
     </RecruitBannerContainer>

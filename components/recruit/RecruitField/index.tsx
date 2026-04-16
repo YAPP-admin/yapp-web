@@ -1,16 +1,12 @@
-import {
-  IS_RECRUITING,
-  RECRUIT_FIELD_NAMES,
-  RECRUIT_TITLE,
-} from 'database/recruit';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useState } from 'react';
+import { RECRUITING_STATUS, RecruitStatus } from '../../../constants/status';
+import { RECRUIT_FIELD_NAMES, RECRUIT_TITLE } from 'database/recruit';
 import SectionTitle from 'components/common/SectionTitle';
 import styled from 'styled-components';
 import media from 'styles/media';
 import theme from 'styles/theme';
 import RecruitCard from '../RecuitCard';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function RecruitField(): ReactElement {
@@ -35,7 +31,7 @@ function RecruitField(): ReactElement {
             key={field.name}
             variants={itemVariants}
             onClick={() => {
-              if (IS_RECRUITING && field.url) {
+              if (RECRUITING_STATUS() === RecruitStatus.ACTIVE && field.url) {
                 window.open(field.url, '_blank');
               }
             }}
@@ -49,7 +45,7 @@ function RecruitField(): ReactElement {
               isFlipped={flippedIndex === index}
               onHoverStart={() => setFlippedIndex(index)}
               onHoverEnd={() => setFlippedIndex(null)}
-              isRecruiting={IS_RECRUITING}
+              recruitingStatus={RECRUITING_STATUS()}
             />
           </motion.li>
         ))}

@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import {
   AnimatedTextSection,
   GridSection,
@@ -7,8 +7,12 @@ import {
   ProjectSection,
   SponsorSection,
 } from 'components/home';
-import { IS_RECRUITING, NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
-import { RECRUIT_BANNER, RECRUIT_BANNER_PRE } from 'database/home';
+import {
+  LINK_BY_STATUS,
+  RECRUITING_STATUS,
+  RecruitStatus,
+} from '../constants/status';
+import { HOME_BANNER_BY_STATUS } from 'database/home';
 import fs from 'fs';
 import path from 'path';
 import Banner28th from 'components/home/IntroSection/Banner28th';
@@ -27,25 +31,43 @@ export async function getStaticProps() {
 }
 
 function Home({ data }: { data: Medium[] }): ReactElement {
-  const BannerInfo = IS_RECRUITING ? RECRUIT_BANNER_PRE : RECRUIT_BANNER;
+  const [isMounted, setIsMounted] = useState(false);
+  const [status, setStatus] = useState<RecruitStatus>(RECRUITING_STATUS);
+
+  useEffect(() => {
+    setIsMounted(true);
+    setStatus(RECRUITING_STATUS());
+
+    const timer = setInterval(() => {
+      setStatus(RECRUITING_STATUS());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!isMounted) return <Wrapper />;
+
+  const BannerInfo = HOME_BANNER_BY_STATUS[status];
+
   return (
     <Wrapper>
-      {/* FAB 노출 범위 */}
       <section id="join-section">
         <Banner28th />
         <AnimatedTextSection />
         <GridSection />
         <ProjectSection />
-        {/* <NewsSection data={data || []} /> */}
         <SponsorSection />
       </section>
+
       <JoinSection
+        status={status}
         title={BannerInfo.title}
         subTitle={BannerInfo.subTitle}
         btnText={BannerInfo.buttonName}
-        url={IS_RECRUITING ? undefined : NEXT_GENERATION_RECRUIT_LINK}
+        url={LINK_BY_STATUS[status]}
       />
-      {IS_RECRUITING && <RecuitBtn />}
+
+      {status === RecruitStatus.ACTIVE && <RecuitBtn status={status} />}
     </Wrapper>
   );
 }
