@@ -33,7 +33,7 @@ const Banner28th = () => {
         </TitleTablet>
         <TitleMobile>
           <Image
-            src="/assets/images/28th/title_mobile.png"
+            src="/assets/images/28th/title_pc.png"
             alt="28th Title"
             width={423}
             height={107}

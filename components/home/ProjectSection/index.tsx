@@ -47,10 +47,14 @@ function ProjectSection(): ReactElement {
 }
 
 const ProjectContainer = styled(SectionTemplate)`
-  padding: 200px 0;
+  padding: 200px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.mobile} {
+    padding: 200px 20px;
+  }
 `;
 
 const TextBoxLayout = styled.div`
@@ -60,18 +64,6 @@ const TextBoxLayout = styled.div`
 
   & > div {
     max-width: 1200px;
-  }
-
-  ${media.tablet} {
-    & > div {
-      margin: 0 80px;
-    }
-  }
-
-  ${media.mobile} {
-    & > div {
-      margin: 0 12px;
-    }
   }
 `;
 

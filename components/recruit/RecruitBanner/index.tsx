@@ -83,7 +83,8 @@ const RecruitBannerContainer = styled.div`
   background: ${({ theme }) => theme.palette.white};
 
   ${media.mobile} {
-    height: 100vh;
+    height: auto;
+    aspect-ratio: 328 / 580;
   }
 `;
 
@@ -92,6 +93,10 @@ const BannerImageBox = styled.div`
   width: 100%;
   height: 100%;
   background: url('/assets/images/28th/recruit_bg.png') no-repeat center/cover;
+
+  ${media.mobile} {
+    background-image: url('/assets/images/28th/recruit_bg_mo.png');
+  }
 `;
 
 const slideUp = keyframes`

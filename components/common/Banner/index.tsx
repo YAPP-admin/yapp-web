@@ -36,7 +36,7 @@ function Banner({
 
 const StyledBox = styled.div<BannerProps>`
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
   background-image: url(${({ backgroundImg }) => backgroundImg});
   background-color: ${({ theme, backgroundImg }) =>

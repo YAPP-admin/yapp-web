@@ -76,6 +76,11 @@ const ImageContainer = styled.div`
   ${media.tablet} {
     height: 750px;
   }
+
+  ${media.mobile} {
+    height: 580px;
+    background-image: url('/assets/images/28th/recruit_bg_mo.png');
+  }
 `;
 
 const InnerContainer = styled.div`

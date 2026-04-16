@@ -73,7 +73,7 @@ export const FIND_YAPPU = [
     textParts: [
       '새로운 가능성을',
       {
-        img: '/assets/icons/yappu_red.svg',
+        img: '/assets/icons/yappu_orange.svg',
         width: 62,
         height: 49,
         mobileWidth: 28,
@@ -89,7 +89,7 @@ export const FIND_YAPPU = [
       '매주 토요일 정규 세션에\n',
       '참여 가능한 분을',
       {
-        img: '/assets/icons/yappu_blue.svg',
+        img: '/assets/icons/yappu_sky.svg',
         width: 76,
         height: 54,
         mobileWidth: 38,
@@ -103,7 +103,7 @@ export const FIND_YAPPU = [
       '타 직군과의 1회 이상\n',
       '협업 경험이 있는 분',
       {
-        img: '/assets/icons/yappu_white.svg',
+        img: '/assets/icons/yappu_yellow.svg',
         width: 68,
         height: 54,
         mobileWidth: 34,
