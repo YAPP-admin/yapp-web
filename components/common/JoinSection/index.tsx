@@ -4,17 +4,19 @@ import media from 'styles/media';
 import SectionTemplate from '../../home/SectionTemplate';
 import SectionTitle from '../SectionTitle';
 import Button from '../Button';
-import Yapp from 'constants/yapp';
+import { LINK_BY_STATUS, RecruitStatus } from '../../../constants/status';
 
 interface JoinSectionProps {
+  status: RecruitStatus;
   title?: string;
   subTitle?: string;
   btnText?: string;
-  caution?: string;
   url?: string;
+  caution?: string;
 }
 
 function JoinSection({
+  status,
   title,
   subTitle,
   btnText,
@@ -27,26 +29,19 @@ function JoinSection({
         <ImageContainer>
           <InnerContainer>
             <SectionTitle
-              title={title || 'FIND YOUR BALANCE'}
-              subTitle={
-                subTitle ||
-                `지원하기 버튼 하나로\nYAPP ${Yapp.YAPP_GENERATION}기의 야뿌가 되어보세요.`
-              }
+              title={title || 'MOMENT OF DISCOVERY'}
+              subTitle={subTitle}
               caution={caution}
               align="center"
             />
             <Button
               type="button"
-              variant="primary"
+              variant="black"
               onClick={() => {
-                if (!url) {
-                  window.open(Yapp.YAPP_RECRUIT_ALL, '_blank');
-                } else {
-                  window.open(url, '_blank');
-                }
+                window.open(url || LINK_BY_STATUS[status], '_blank');
               }}
             >
-              {btnText || `${Yapp.YAPP_GENERATION}기 지원하기`}
+              {btnText}
             </Button>
           </InnerContainer>
         </ImageContainer>
@@ -75,7 +70,7 @@ const ImageContainer = styled.div`
   width: 100%;
   height: 800px;
   border-radius: 32px;
-  background: url('/assets/images/27th/recruit.png') no-repeat center;
+  background: url('/assets/images/28th/recruit_bg.png') no-repeat center;
   background-size: cover;
 
   ${media.tablet} {

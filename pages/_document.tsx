@@ -48,16 +48,21 @@ export default class MyDocument extends Document {
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
           />
-          {/* 27th 배너 이미지 프리로드 */}
+          {/* 28th 배너 이미지 프리로드 */}
           <link
             rel="preload"
             as="image"
-            href="/assets/images/27th/banner_home_pc_tablet.png"
+            href="/assets/images/28th/banner_home_pc.png"
           />
           <link
             rel="preload"
             as="image"
-            href="/assets/images/27th/banner_home_mobile.png"
+            href="/assets/images/28th/banner_home_tablet.png"
+          />
+          <link
+            rel="preload"
+            as="image"
+            href="/assets/images/28th/banner_home_mobile.png"
           />
         </Head>
         <body>

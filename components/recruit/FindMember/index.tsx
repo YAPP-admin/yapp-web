@@ -7,54 +7,49 @@ import { motion } from 'framer-motion';
 
 function FindMember(): ReactElement {
   return (
-    <>
-      <SectionTemplate>
-        <SectionContent>
-          {FIND_YAPPU.map((item, idx) => (
-            <TextList key={idx}>
-              {item.textParts.map((part, j) =>
-                typeof part === 'string' ? (
-                  part.split('\n').map((line, k) => (
-                    <MotionTextPart
-                      key={`${j}-${k}`}
-                      initial={{ opacity: 0, y: 0 }}
-                      whileInView={{ opacity: 1, y: 50 }}
-                      viewport={{ once: false, amount: 0.9 }}
-                      transition={{ duration: 0.4, ease: 'easeOut' }}
-                    >
-                      {line}
-                      {k !== part.split('\n').length - 1 && <br />}
-                    </MotionTextPart>
-                  ))
-                ) : (
-                  <Image
-                    key={j}
-                    src={part.img}
-                    alt={part.img}
-                    width={76}
-                    height={54}
-                  />
-                ),
-              )}
-            </TextList>
-          ))}
-        </SectionContent>
-      </SectionTemplate>
-      <GradientSection />
-    </>
+    <SectionTemplate>
+      <SectionContent>
+        {FIND_YAPPU.map((item, idx) => (
+          <TextList key={idx}>
+            {item.textParts.map((part, j) =>
+              typeof part === 'string' ? (
+                part.split('\n').map((line, k) => (
+                  <MotionTextPart
+                    key={`${j}-${k}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                  >
+                    {line}
+                    {k !== part.split('\n').length - 1 && <br />}
+                  </MotionTextPart>
+                ))
+              ) : (
+                <YappuIcon
+                  key={j}
+                  src={part.img}
+                  alt={part.img}
+                  width={part.width}
+                  height={part.height}
+                  $mobileWidth={part.mobileWidth}
+                  $mobileHeight={part.mobileHeight}
+                />
+              ),
+            )}
+          </TextList>
+        ))}
+      </SectionContent>
+    </SectionTemplate>
   );
 }
 
 const SectionTemplate = styled.section`
   display: flex;
   justify-content: center;
-  background-color: ${({ theme }) => theme.palette.black};
-  width: auto;
-  padding: 234px 80px;
-
-  ${media.mobile} {
-    padding: 204px 12px;
-  }
+  background-color: #f6f6f6;
+  width: 100%;
+  padding: 80px 0;
 `;
 
 const SectionContent = styled.ul`
@@ -63,37 +58,44 @@ const SectionContent = styled.ul`
   align-items: center;
   gap: 84px;
   width: 100%;
-  max-width: 1200px;
-  justify-content: space-between;
+  max-width: 1040px;
+  justify-content: center;
+
+  ${media.mobile} {
+    gap: 48px;
+  }
 `;
 
 const TextList = styled.li`
   text-align: center;
   width: 100%;
-  height: 100vh;
+`;
 
-  & > img {
-    margin: 0 10px;
-    ${media.mobile} {
-      width: 28px;
-      height: 22px;
-    }
+const YappuIcon = styled(Image)<{
+  $mobileWidth: number;
+  $mobileHeight: number;
+}>`
+  margin: 0 8px;
+  vertical-align: middle;
+
+  ${media.mobile} {
+    width: ${({ $mobileWidth }) => $mobileWidth}px !important;
+    height: ${({ $mobileHeight }) => $mobileHeight}px !important;
   }
 `;
 
 const MotionTextPart = styled(motion.span)`
-  color: ${({ theme }) => theme.palette.white_100};
-  ${({ theme }) => theme.textStyleV2.resp.subtitle2_md};
+  color: ${({ theme }) => theme.palette.black_100};
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 64px;
+  letter-spacing: -0.8px;
 
   ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.subtitle2_sm};
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.4px;
   }
-`;
-
-const GradientSection = styled.div`
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(180deg, #000000 50%, rgb(255, 255, 255) 90%);
 `;
 
 export default FindMember;

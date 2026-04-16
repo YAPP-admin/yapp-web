@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import theme, { PaletteKeyTypes } from 'styles/theme';
 import { CircleArrow } from 'public/assets/icons';
+import { RecruitStatus } from '../../../constants/status';
 
 interface CardProps {
   name: string;
@@ -12,7 +13,8 @@ interface CardProps {
   isFlipped: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;
-  isRecruiting?: boolean;
+  recruitingStatus?: RecruitStatus;
+  position?: number;
 }
 
 function RecruitCard({
@@ -23,7 +25,8 @@ function RecruitCard({
   isFlipped,
   onHoverStart,
   onHoverEnd,
-  isRecruiting = true,
+  recruitingStatus,
+  position,
 }: CardProps): ReactElement {
   return (
     <CardContainer
@@ -33,16 +36,30 @@ function RecruitCard({
     >
       <CardInner isFlipped={isFlipped}>
         <CardFront backgroundColor={backgroundColor}>
-          <div>
+          <div
+            style={
+              position === 1 || position === 4
+                ? { color: theme.palette.discovery_28th_text }
+                : undefined
+            }
+          >
             <h2>{name}</h2>
             <p>{description}</p>
           </div>
           <ApplyBtn
             color={backgroundColor === 'white' ? 'black_100' : 'white_100'}
             back={false}
-            disabled={!isRecruiting}
+            disabled={recruitingStatus !== RecruitStatus.ACTIVE}
           >
-            <p>지원하기</p>
+            <div
+              style={
+                position === 1 || position === 4
+                  ? { color: theme.palette.discovery_28th_text }
+                  : undefined
+              }
+            >
+              <p>지원하기</p>
+            </div>
             <CircleArrow />
           </ApplyBtn>
         </CardFront>
@@ -50,7 +67,7 @@ function RecruitCard({
           {backInfo.map((info, idx) => (
             <p key={idx}>{info}</p>
           ))}
-          <ApplyBtn back disabled={!isRecruiting}>
+          <ApplyBtn back disabled={!recruitingStatus}>
             <p>지원하기</p>
             <CircleArrow />
           </ApplyBtn>
@@ -133,7 +150,6 @@ const ApplyBtn = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
   gap: 6px;
   color: ${({ back, color }) =>
     back || !color ? theme.palette.white_100 : theme.palette[color]};

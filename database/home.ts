@@ -1,47 +1,48 @@
 import Yapp from 'constants/yapp';
+import { RecruitStatus } from '../constants/status';
 
 /** Grid Section */
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간',
-    content: '15년',
-    icon: '/assets/icons/running_year.svg',
-    color: 'circus_red',
+    content: '16년',
+    icon: '/assets/images/28th/icons/running_year.png',
+    color: 'discovery_28th_red',
     fontColor: 'white_100',
   },
   {
     title: '운영기수',
-    content: '26기',
-    icon: '/assets/icons/cohort.svg',
-    color: 'white',
+    content: '27기',
+    icon: '/assets/images/28th/icons/cohort.png',
+    color: 'discovery_28th_beige',
     fontColor: 'black_100',
   },
   {
     title: '현재 활동 회원',
     content: '65명',
-    icon: '/assets/icons/members.svg',
-    color: 'circus_blue',
+    icon: '/assets/images/28th/icons/active_members.png',
+    color: 'discovery_28th_blue',
     fontColor: 'white_100',
   },
   {
     title: '누적 활동 인원',
-    content: '500+명',
-    icon: '/assets/icons/total_members.svg',
-    color: 'circus_red',
+    content: '600+명',
+    icon: '/assets/images/28th/icons/total_members.png',
+    color: 'discovery_28th_red',
     fontColor: 'white_100',
   },
   {
     title: '런칭 서비스',
-    content: '60+개',
-    icon: '/assets/icons/service.svg',
-    color: 'white',
+    content: '70+개',
+    icon: '/assets/images/28th/icons/service.png',
+    color: 'discovery_28th_beige',
     fontColor: 'black_100',
   },
   {
     title: '누적 앱 다운로드',
     content: '400,000+',
-    icon: '/assets/icons/download.svg',
-    color: 'circus_blue',
+    icon: '/assets/images/28th/icons/download.png',
+    color: 'discovery_28th_blue',
     fontColor: 'white_100',
   },
 ];
@@ -49,39 +50,34 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: 'Lettie',
-    link: '/project/26th/lettie',
-    image: '/assets/project/26_thumbnail_lettie.png',
+    title: 'keepiluv',
+    link: '/project/27th/keepluv',
+    image: '/assets/project/27_thumbnail_keepluv.png',
   },
   {
-    title: 'Ssok',
-    link: '/project/26th/ssok',
-    image: '/assets/project/26_thumbnail_ssok.png',
+    title: 'Lokit',
+    link: '/project/27th/lokit',
+    image: '/assets/project/27_thumbnail_lokit.jpg',
   },
   {
-    title: '잇다',
-    link: '/project/26th/eatda',
-    image: '/assets/project/26_thumbnail_eatda.png',
+    title: 'moa',
+    link: '/project/27th/moa',
+    image: '/assets/project/27_thumbnail_moa.png',
   },
   {
-    title: 'FitRun',
-    link: '/project/26th/fitrun',
-    image: '/assets/project/26_thumbnail_fitrun.png',
+    title: 'moit & weddin',
+    link: '/project/27th/moit&weddin',
+    image: '/assets/project/27_thumbnail_moitweddin.png',
   },
   {
-    title: '빛나길',
-    link: '/project/26th/bitnagil',
-    image: '/assets/project/26_thumbnail_bitnagil.png',
+    title: '나도갈래',
+    link: '/project/27th/nadogalrae',
+    image: '/assets/project/27_thumbnail_nadogalrae.jpg',
   },
   {
-    title: 'brake',
-    link: '/project/26th/brake',
-    image: '/assets/project/26_thumbnail_brake.png',
-  },
-  {
-    title: 'Reed',
-    link: '/project/26th/reed',
-    image: '/assets/project/26_thumbnail_reed.jpg',
+    title: '네키',
+    link: '/project/27th/neki',
+    image: '/assets/project/27_thumbnail_neki.jpg',
   },
 ];
 
@@ -165,40 +161,64 @@ export const SPONSOR_SECTION = {
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor_flab.png',
-    alt: 'sponsor F-Lab',
+    image: '/assets/sponsors/sponsor_greeting.png',
+    alt: 'sponsor greeting',
   },
   {
     image: '/assets/sponsors/sponsor_elice.png',
     alt: 'sponsor elice',
   },
   {
-    image: '/assets/sponsors/sponsor_goorm.png',
-    alt: 'sponsor goorm',
+    image: '/assets/sponsors/sponsor_dcamp.png',
+    alt: 'sponsor dcamp',
   },
   {
-    image: '/assets/sponsors/sponsor_fiveSpot.png',
-    alt: 'sponsor fiveSpot',
+    image: '/assets/sponsors/sponsor_flab.png',
+    alt: 'sponsor F-Lab',
   },
-  {
-    image: '/assets/sponsors/sponsor_greeting.png',
-    alt: 'sponsor greeting',
-  },
+  // {
+  //   image: '/assets/sponsors/sponsor_goorm.png',
+  //   alt: 'sponsor goorm',
+  // },
+  // {
+  //   image: '/assets/sponsors/sponsor_fiveSpot.png',
+  //   alt: 'sponsor fiveSpot',
+  // },
 ];
 
+export interface RecruitBannerInfo {
+  title: string;
+  subTitle: string;
+  date: string;
+  buttonName: string;
+}
+
 /* 모집 관련 상수 */
-export const RECRUIT_BANNER = {
-  title: 'FIND YOUR BALANCE',
+export const HOME_BANNER_PRE = {
+  title: 'MOMENT OF DISCOVERY',
+  subTitle: `YAPP ${Number(Yapp.YAPP_GENERATION)}기 모집이\n곧 시작됩니다`,
+  date: '4.17(금) - 4.26(일)',
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 모집 알림 신청하기`,
+};
+
+export const HOME_BANNER_ACTIVE = {
+  title: 'MOMENT OF DISCOVERY',
+  subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
+    Yapp.YAPP_GENERATION,
+  )}기의 야뿌가 되어보세요.`,
+  date: '4.17(금) - 4.26(일)',
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
+};
+
+export const HOME_BANNER_POST = {
+  title: 'MOMENT OF DISCOVERY',
   subTitle: `다음 기수의 모집 소식을 가장 먼저 만나보세요`,
   date: '지금은 모집 기간이 아닙니다',
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
 };
 
-export const RECRUIT_BANNER_PRE = {
-  title: 'FIND YOUR BALANCE',
-  subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
-    Yapp.YAPP_GENERATION,
-  )}기의 야뿌가 되어보세요.`,
-  date: '10.16(목) - 10.25(토)',
-  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
+export const HOME_BANNER_BY_STATUS: Record<RecruitStatus, RecruitBannerInfo> = {
+  [RecruitStatus.PRE]: HOME_BANNER_PRE,
+  [RecruitStatus.ACTIVE]: HOME_BANNER_ACTIVE,
+  [RecruitStatus.POST]: HOME_BANNER_POST,
 };

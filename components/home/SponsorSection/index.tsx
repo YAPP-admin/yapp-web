@@ -81,6 +81,7 @@ const SectionInner = styled.div`
 
 const SponsorList = styled.ul`
   display: flex;
+  justify-content: center;
   gap: 1.6rem;
   margin: 48px 0;
   width: 100%;
