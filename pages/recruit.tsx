@@ -11,6 +11,7 @@ import Yapp from 'constants/yapp';
 import { RECRUIT_ENQUIRY } from 'database/recruit';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
+import { RecruitStatus } from '../constants/status';
 
 function RecruitPage(): ReactElement {
   const { title, description, caution } = RECRUIT_ENQUIRY;
@@ -23,6 +24,7 @@ function RecruitPage(): ReactElement {
       <SessionOverview />
       <FrequentlyAskedQuestions />
       <JoinSection
+        status={RecruitStatus.ACTIVE}
         title={title}
         subTitle={description}
         caution={caution}
