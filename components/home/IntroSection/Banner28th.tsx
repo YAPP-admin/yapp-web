@@ -17,8 +17,8 @@ const Banner28th = () => {
           <Image
             src="/assets/images/28th/title_pc.png"
             alt="28th Title"
-            width={1200}
-            height={303}
+            width={1000}
+            height={260}
             priority
           />
         </TitlePc>
@@ -106,7 +106,7 @@ const TitleMobile = styled.div`
 const Banner28thTextContentBox = styled.div`
   position: absolute;
   left: 50%;
-  top: 80px;
+  top: 100px;
   z-index: 20;
   display: flex;
   height: fit-content;
