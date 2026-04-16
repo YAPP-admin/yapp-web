@@ -4,6 +4,8 @@ import media from 'styles/media';
 
 interface BannerProps {
   backgroundImg?: string;
+  backgroundImgTablet?: string;
+  backgroundImgMobile?: string;
   className?: string;
   title?: string;
   description?: string;
@@ -11,12 +13,19 @@ interface BannerProps {
 
 function Banner({
   className,
-  backgroundImg = '/assets/images/27th/banner_project_story.png',
+  backgroundImg = '/assets/images/28th/project_page_pc.png',
+  backgroundImgTablet = '/assets/images/28th/project_page_tablet.png',
+  backgroundImgMobile = '/assets/images/28th/project_page_mo.png',
   title,
   description,
 }: BannerProps): ReactElement {
   return (
-    <StyledBox backgroundImg={backgroundImg} className={className}>
+    <StyledBox
+      backgroundImg={backgroundImg}
+      backgroundImgTablet={backgroundImgTablet}
+      backgroundImgMobile={backgroundImgMobile}
+      className={className}
+    >
       <InnerTextContainer>
         <StyledTitle>{title}</StyledTitle>
         <StyledDescription>{description}</StyledDescription>
@@ -39,6 +48,14 @@ const StyledBox = styled.div<BannerProps>`
   flex-direction: column;
   justify-content: center;
   gap: 8px;
+
+  ${media.tablet} {
+    background-image: url(${({ backgroundImgTablet }) => backgroundImgTablet});
+  }
+
+  ${media.mobile} {
+    background-image: url(${({ backgroundImgMobile }) => backgroundImgMobile});
+  }
 `;
 
 const InnerTextContainer = styled.div`
@@ -71,7 +88,7 @@ const slideUp = keyframes`
 `;
 
 const StyledTitle = styled.h1`
-  color: ${({ theme }) => theme.palette.white_100};
+  color: ${({ theme }) => theme.palette.discovery_28th_title};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   white-space: nowrap;
   margin-top: 0;
@@ -88,7 +105,7 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledDescription = styled.p`
-  color: ${({ theme }) => theme.palette.white_50};
+  color: ${({ theme }) => theme.palette.discovery_28th_button};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   white-space: nowrap;
   margin-top: 0;

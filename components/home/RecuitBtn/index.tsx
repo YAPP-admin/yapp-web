@@ -1,19 +1,29 @@
 import {
+  type ReactElement,
   useCallback,
   useEffect,
   useRef,
   useState,
-  type ReactElement,
 } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { motion, useAnimation } from 'framer-motion';
 import theme from 'styles/theme';
 import Yapp from 'constants/yapp';
+import {
+  LINK_BY_STATUS,
+  RECRUITING_STATUS,
+  RecruitStatus,
+} from '../../../constants/status';
+import { RECRUIT_BANNER_BY_STATUS } from '../../../database/recruit';
 
-function RecuitBtn(): ReactElement {
+interface RecuitBtnProps {
+  status: RecruitStatus;
+}
+
+function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
   const controls = useAnimation();
-  const [visible, setVisible] = useState(true);
+  const [isSectionInView, setIsSectionInView] = useState(false);
   const joinSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -21,20 +31,14 @@ function RecuitBtn(): ReactElement {
     if (!section) return;
 
     joinSectionRef.current = section as HTMLElement;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true); // JoinSection 전까지 범위에서만 FAB 노출
-        } else {
-          setVisible(false); // JoinSection 벗어나면 FAB 숨김
-        }
+        setIsSectionInView(entry.isIntersecting);
       },
       { threshold: 0.1 },
     );
 
     observer.observe(section);
-
     return () => observer.disconnect();
   }, []);
 
@@ -56,16 +60,20 @@ function RecuitBtn(): ReactElement {
     });
   }, [controls]);
 
+  const isVisible = status === RecruitStatus.ACTIVE && isSectionInView;
+  const targetLink = LINK_BY_STATUS[status];
+  const BannerInfo = RECRUIT_BANNER_BY_STATUS[status];
+
   return (
     <BtnContainer
-      $visible={visible}
-      onClick={() => window.open(Yapp.YAPP_RECRUIT_ALL, '_blank')}
+      $visible={isVisible}
+      onClick={() => window.open(targetLink, '_blank')}
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      <InfoText>10.16(목) - 10.25(토)</InfoText>
+      <InfoText>4.17(금) - 4.26(일)</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
-        {Yapp.YAPP_GENERATION}기 지원하기
+        {BannerInfo.buttonName}
       </AnimatedButton>
     </BtnContainer>
   );

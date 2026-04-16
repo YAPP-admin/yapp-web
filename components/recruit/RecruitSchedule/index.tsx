@@ -16,7 +16,7 @@ const additionalSchedule = {
     { label: '1차 서류', text: '지원서 작성 및 포트폴리오 제출' },
     { label: '2차 면접', text: '온라인 인터뷰 후 최종 합격' },
   ],
-  color: 'circus_blue',
+  color: 'discovery_28th_blue',
   fontColor: 'white_100',
 };
 
@@ -151,7 +151,7 @@ const CardLabel = styled.span`
   white-space: nowrap;
   padding: 4px;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.palette.black_100};
+  background-color: ${({ theme }) => theme.palette.white_20};
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.caption_md};
 

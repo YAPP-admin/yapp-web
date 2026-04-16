@@ -36,6 +36,16 @@ const palette = {
   circus_blue: '#837FF3',
   circus_gray: '#E8E8E8',
 
+  // 28th Branding Colors (Discovery Concept)
+  discovery_28th_red: '#FF8038',
+  discovery_28th_beige: '#FFEFD3',
+  discovery_28th_blue: '#48ADEC',
+  discovery_28th_text: '#54290F',
+  discovery_28th_text_80: 'rgba(84, 41, 15, 0.8)',
+  discovery_28th_text_50: 'rgba(84, 41, 15, 0.5)',
+  discovery_28th_title: '#66300F',
+  discovery_28th_button: '#974F08',
+
   // Yellow
   yellow_100: '#FFEFBE',
   yellow_200: '#FFE69A',

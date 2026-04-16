@@ -1,10 +1,10 @@
 import { Button } from 'components/common';
-import { NEXT_GENERATION_RECRUIT_LINK } from 'database/recruit';
 import YappuLogo from 'public/assets/images/Pre/illust_mini.svg';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
 import Dday from '../Dday';
+import Yapp from '../../../constants/yapp';
 
 const BannerPre = () => {
   const [mounted, setMounted] = useState(false);
@@ -29,7 +29,9 @@ const BannerPre = () => {
         <StyledButton
           variant="primary"
           borderRadius={16}
-          onClick={() => (window.location.href = NEXT_GENERATION_RECRUIT_LINK)}
+          onClick={() =>
+            (window.location.href = Yapp.NEXT_GENERATION_RECRUIT_LINK)
+          }
         >
           ⏰ 26기 모집 알림 신청하기
         </StyledButton>
