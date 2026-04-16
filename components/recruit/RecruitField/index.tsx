@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { RECRUITING_STATUS, RecruitStatus } from '../../../constants/status';
 import { RECRUIT_FIELD_NAMES, RECRUIT_TITLE } from 'database/recruit';
 import SectionTitle from 'components/common/SectionTitle';
@@ -11,8 +11,15 @@ import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function RecruitField(): ReactElement {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const [status, setStatus] = useState<RecruitStatus>(RecruitStatus.PRE);
   const { ref, controls, containerVariants, itemVariants } =
     useScrollAnimation();
+
+  useEffect(() => {
+    setStatus(RECRUITING_STATUS());
+    const timer = setInterval(() => setStatus(RECRUITING_STATUS()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <SectionLayout
@@ -31,7 +38,7 @@ function RecruitField(): ReactElement {
             key={field.name}
             variants={itemVariants}
             onClick={() => {
-              if (RECRUITING_STATUS() === RecruitStatus.ACTIVE && field.url) {
+              if (status === RecruitStatus.ACTIVE && field.url) {
                 window.open(field.url, '_blank');
               }
             }}
@@ -45,7 +52,7 @@ function RecruitField(): ReactElement {
               isFlipped={flippedIndex === index}
               onHoverStart={() => setFlippedIndex(index)}
               onHoverEnd={() => setFlippedIndex(null)}
-              recruitingStatus={RECRUITING_STATUS()}
+              recruitingStatus={status}
             />
           </motion.li>
         ))}

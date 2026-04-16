@@ -79,7 +79,7 @@ function RecruitCard({
 
 export default RecruitCard;
 
-const CardContainer = styled(motion.li)`
+const CardContainer = styled(motion.div)`
   perspective: 1000px;
   width: 274px;
   height: 290px;
