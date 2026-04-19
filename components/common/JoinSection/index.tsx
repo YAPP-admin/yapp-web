@@ -70,7 +70,7 @@ const ImageContainer = styled.div`
   width: 100%;
   height: 800px;
   border-radius: 32px;
-  background: url('/assets/images/28th/recruit_bg.png') no-repeat center;
+  background: url('/assets/images/28th/recruit_bg.webp') no-repeat center;
   background-size: cover;
 
   ${media.tablet} {
@@ -79,7 +79,7 @@ const ImageContainer = styled.div`
 
   ${media.mobile} {
     height: 580px;
-    background-image: url('/assets/images/28th/recruit_bg_mo.png');
+    background-image: url('/assets/images/28th/recruit_bg_mo.webp');
   }
 `;
 

@@ -75,7 +75,7 @@ const BannerBackgroundInner = styled.div`
   }
 
   ${media.mobile} {
-    background-image: url('/assets/images/28th/banner_home_mobile.png');
+    background-image: url('/assets/images/28th/banner_home_mobile.webp');
   }
 `;
 

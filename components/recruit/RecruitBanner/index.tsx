@@ -92,10 +92,10 @@ const BannerImageBox = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  background: url('/assets/images/28th/recruit_bg.png') no-repeat center/cover;
+  background: url('/assets/images/28th/recruit_bg.webp') no-repeat center/cover;
 
   ${media.mobile} {
-    background-image: url('/assets/images/28th/recruit_bg_mo.png');
+    background-image: url('/assets/images/28th/recruit_bg_mo.webp');
   }
 `;
 
