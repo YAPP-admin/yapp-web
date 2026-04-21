@@ -52,17 +52,17 @@ export default class MyDocument extends Document {
           <link
             rel="preload"
             as="image"
-            href="/assets/images/28th/banner_home_pc.png"
+            href="/assets/images/28th/banner_home_pc.webp"
           />
           <link
             rel="preload"
             as="image"
-            href="/assets/images/28th/banner_home_tablet.png"
+            href="/assets/images/28th/banner_home_tablet.webp"
           />
           <link
             rel="preload"
             as="image"
-            href="/assets/images/28th/banner_home_mobile.png"
+            href="/assets/images/28th/banner_home_mobile.webp"
           />
         </Head>
         <body>

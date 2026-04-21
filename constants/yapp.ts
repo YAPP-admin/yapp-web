@@ -11,6 +11,7 @@ const Yapp = {
   YAPP_GITHUB: 'https://github.com/YAPP-Github',
   YAPP_MEDIUM: 'https://medium.com/@about.yapp',
   YAPP_LINKEDIN: 'https://www.linkedin.com/company/yappu/',
+  YAPP_THREADS: 'https://www.threads.com/@about.yapp',
 
   // 공고 링크
   YAPP_RECRUIT_ALL: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
@@ -31,6 +32,6 @@ const Yapp = {
   PREVIOUS_GENERATION_RECRUIT_LINK:
     'https://docs.google.com/forms/d/e/1FAIpQLSeAtEn6VTKxoWlzkYv_Sp_JHrzILJCl6l2tT4ccWfhq-UuEbg/viewform',
   NEXT_GENERATION_RECRUIT_LINK:
-    'https://docs.google.com/forms/d/e/1FAIpQLSeAtEn6VTKxoWlzkYv_Sp_JHrzILJCl6l2tT4ccWfhq-UuEbg/viewform',
+    'https://docs.google.com/forms/d/e/1FAIpQLSdR_3RMidWSG47YeM5kVMYGGdAIBYfNLHB8HpEkaBPvS4o-6A/viewform?usp=dialog',
 };
 export default Yapp;

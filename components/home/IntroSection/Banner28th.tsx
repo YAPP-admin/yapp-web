@@ -68,10 +68,10 @@ const BannerBackgroundInner = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url('/assets/images/28th/banner_home_pc.png');
+  background-image: url('/assets/images/28th/banner_home_pc.webp');
 
   ${media.tablet} {
-    background-image: url('/assets/images/28th/banner_home_tablet.png');
+    background-image: url('/assets/images/28th/banner_home_tablet.webp');
   }
 
   ${media.mobile} {
