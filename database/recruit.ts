@@ -55,7 +55,7 @@ export const SESSION_OVERVIEW = {
       backgroundColor: 'discovery_28th_red',
     },
     {
-      date: '13-17주차',
+      date: '13-16주차',
       programs: [
         `3차 데브캠프\n(해커톤)`,
         '팀세션',
