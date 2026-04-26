@@ -20,6 +20,11 @@ const RECRUIT_BANNER_ACTIVE: RecruitBannerInfo = {
   buttonName: `${Yapp.YAPP_GENERATION}기 지원하기`,
 };
 
+const RECRUIT_BANNER_EXTRA: RecruitBannerInfo = {
+  title: '28기 iOS 추가 모집',
+  buttonName: `${Yapp.YAPP_GENERATION}기 iOS 지원하기`,
+};
+
 const RECRUIT_BANNER_POST: RecruitBannerInfo = {
   title: '지금은 모집기간이 아닙니다',
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
@@ -32,6 +37,7 @@ export const RECRUIT_BANNER_BY_STATUS: Record<
   [RecruitStatus.PRE]: RECRUIT_BANNER_PRE,
   [RecruitStatus.ACTIVE]: RECRUIT_BANNER_ACTIVE,
   [RecruitStatus.POST]: RECRUIT_BANNER_POST,
+  [RecruitStatus.EXTRA]: RECRUIT_BANNER_EXTRA,
 };
 
 /** 세션일정 개요 */
