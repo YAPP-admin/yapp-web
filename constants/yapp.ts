@@ -15,6 +15,7 @@ const Yapp = {
 
   // 공고 링크
   YAPP_RECRUIT_ALL: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  YAPP_RECRUIT_EXTRA: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
   YAPP_RECRUIT_PROJECT_MANAGER:
     'https://yapp-recruit.career.greetinghr.com/o/210447',
   YAPP_RECRUIT_DESIGNER: 'https://yapp-recruit.career.greetinghr.com/o/210451',

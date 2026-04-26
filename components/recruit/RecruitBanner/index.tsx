@@ -1,6 +1,7 @@
 import {
   LINK_BY_STATUS,
   RECRUITING_DEADLINE,
+  RECRUITING_EXTRA_DEADLINE,
   RECRUITING_START,
   RECRUITING_STATUS,
   RecruitStatus,
@@ -36,6 +37,8 @@ function RecruitBanner() {
         return new Date(RECRUITING_START);
       case RecruitStatus.ACTIVE:
         return new Date(RECRUITING_DEADLINE);
+      case RecruitStatus.EXTRA:
+        return new Date(RECRUITING_EXTRA_DEADLINE);
       default:
         return new Date();
     }

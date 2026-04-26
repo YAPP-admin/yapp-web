@@ -217,8 +217,16 @@ export const HOME_BANNER_POST = {
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
 };
 
+export const HOME_BANNER_EXTRA = {
+  title: 'MOMENT OF DISCOVERY',
+  subTitle: `YAPP ${Number(Yapp.YAPP_GENERATION)}기 iOS 추가 모집중`,
+  date: '4.27(월) - 4.28(화)',
+  buttonName: `${Number(Yapp.YAPP_GENERATION)}기 iOS 지원하기`,
+};
+
 export const HOME_BANNER_BY_STATUS: Record<RecruitStatus, RecruitBannerInfo> = {
   [RecruitStatus.PRE]: HOME_BANNER_PRE,
   [RecruitStatus.ACTIVE]: HOME_BANNER_ACTIVE,
   [RecruitStatus.POST]: HOME_BANNER_POST,
+  [RecruitStatus.EXTRA]: HOME_BANNER_EXTRA,
 };

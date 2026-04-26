@@ -38,7 +38,10 @@ function RecruitField(): ReactElement {
             key={field.name}
             variants={itemVariants}
             onClick={() => {
-              if (status === RecruitStatus.ACTIVE && field.url) {
+              if (
+                (status === RecruitStatus.ACTIVE && field.url) ||
+                (field.name === 'iOS' && status === RecruitStatus.EXTRA)
+              ) {
                 window.open(field.url, '_blank');
               }
             }}
