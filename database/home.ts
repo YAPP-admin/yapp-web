@@ -176,6 +176,10 @@ export const SPONSOR_DATA = [
     image: '/assets/sponsors/sponsor_flab.png',
     alt: 'sponsor F-Lab',
   },
+  {
+    image: '/assets/sponsors/sponsor_ictcoc.png',
+    alt: 'sponsor ICT COC',
+  },
   // {
   //   image: '/assets/sponsors/sponsor_goorm.png',
   //   alt: 'sponsor goorm',
