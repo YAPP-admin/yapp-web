@@ -2,7 +2,7 @@
 enum Breakpoints {
   xlarge = 1920,
   large = 1200,
-  medium = 836,
+  medium = 833,
   small = 480,
   xSmall = 400,
   xxSmall = 375,
