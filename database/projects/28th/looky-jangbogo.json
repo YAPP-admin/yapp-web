@@ -3,7 +3,7 @@
   "title": "Looky & 장보고",
   "thumbnail": "/assets/project/28_thumbnail_looky-jangbogo.webp",
   "thumbnailBlurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkABABoJbACdADJ8qQn+AAA/lvmFHDLWIFdz1tJLPvabSvuN5k17IHDCNeLOJq778acxdqU039Y0nb9mL+TgKLIAA==",
-  "content": [],
+  "content": ["/assets/project/28_content_looky-jangbogo_1.webp", "/assets/project/28_content_looky-jangbogo_2.webp", "/assets/project/28_content_looky-jangbogo_3.webp", "/assets/project/28_content_looky-jangbogo_4.webp", "/assets/project/28_content_looky-jangbogo_5.webp", "/assets/project/28_content_looky-jangbogo_6.webp", "/assets/project/28_content_looky-jangbogo_7.webp", "/assets/project/28_content_looky-jangbogo_8.webp", "/assets/project/28_content_looky-jangbogo_9.webp", "/assets/project/28_content_looky-jangbogo_10.webp"],
   "tags": ["28기", "Web"],
   "team": ["신민규", "김송이", "황유나", "손호민", "유재윤", "공희상", "강채원"],
   "field": ["Web"],
