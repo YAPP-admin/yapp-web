@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import media from 'styles/media';
 import { Project, ProjectUIModel } from 'types/project';
 import { getAllProjects } from 'utils/getAllProjects';
+import { getImageSize } from 'utils/getImageSize';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -57,9 +58,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     });
 
   if (projectData) {
+    const { content } = projectData.project;
+    // 레이아웃 공간 확보(lazy loading, CLS 방지)를 위해 이미지 크기를 함께 전달
+    const contentImages = (Array.isArray(content) ? content : [content])
+      .filter(Boolean)
+      .map((src) => ({ src, ...getImageSize(src) }));
+
     return {
       props: {
         project: projectData.project,
+        contentImages,
         otherProjects,
       },
     };
@@ -73,11 +81,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 interface Props {
   project: Project;
+  contentImages: Array<{ src: string; width?: number; height?: number }>;
   otherProjects: ProjectUIModel[];
 }
 
-function ProjectDetail({ project, otherProjects }: Props) {
-  const { content, retrospects, tags, title } = project;
+function ProjectDetail({ project, contentImages, otherProjects }: Props) {
+  const { retrospects, tags, title } = project;
 
   const [randomProjects, setRandomProjects] = useState<ProjectUIModel[]>([]);
 
@@ -106,17 +115,19 @@ function ProjectDetail({ project, otherProjects }: Props) {
           <ProjectName>{title}</ProjectName>
           <ProjectContent project={project} />
         </ResponsiveLayout>
-        {(Array.isArray(content) ? content.length > 0 : Boolean(content)) && (
+        {contentImages.length > 0 && (
           <div style={{ margin: '100px auto 100px' }}>
-            {(Array.isArray(content) ? content : [content]).map(
-              (contentSrc) => (
-                <ProjectImage
-                  key={contentSrc}
-                  src={contentSrc}
-                  alt="project-content-image"
-                />
-              ),
-            )}
+            {contentImages.map(({ src, width, height }) => (
+              <ProjectImage
+                key={src}
+                src={src}
+                width={width}
+                height={height}
+                loading="lazy"
+                decoding="async"
+                alt="project-content-image"
+              />
+            ))}
           </div>
         )}
 
@@ -184,6 +195,7 @@ const ProjectName = styled.div`
 
 const ProjectImage = styled.img`
   max-width: 100%;
+  height: auto;
   display: block;
 `;
 

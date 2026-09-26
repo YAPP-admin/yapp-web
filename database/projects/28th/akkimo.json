@@ -4,7 +4,7 @@
   "thumbnail": "/assets/project/28_thumbnail_akkimo.webp",
   "thumbnailBlurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkABABoJbACdAC4qr0eQADbPazTB0dZb6cwzqMudNjsIcincBq6fthNmH/J4n9++7naVJTf27eYYPmVmc2zgsLVpAAA",
   "content": ["/assets/project/28_content_akkimo_1.webp"],
-  "tags": ["28기", "Web"],
+  "tags": ["28기", "Web", "iOS", "Android"],
   "team": ["성민수", "박수연", "박재원", "문세종", "박병규", "김동균", "정용훈"],
   "field": ["Web", "iOS", "Android"],
   "generation": 28,
