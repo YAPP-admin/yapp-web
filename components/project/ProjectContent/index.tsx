@@ -183,6 +183,7 @@ const BodyText = styled.div`
 
 const DescriptionText = styled(BodyText)`
   display: block;
+  white-space: pre-wrap;
 `;
 
 const TextItem = styled.div`

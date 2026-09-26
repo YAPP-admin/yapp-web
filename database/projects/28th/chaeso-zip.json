@@ -12,5 +12,5 @@
   "program": ["Next.js", "TypeScript", "TanStack Query", "Zustand", "Hey API", "Tailwind CSS 4", "Base UI", "Motion", "Vitest", "Storybook", "AWS (ECS, S3, CloudFront)", "Github Actions", "Java 21", "Spring Boot 3.5", "Spring Data JPA", "QueryDSL", "PostgreSQL", "Redis", "Docker", "Caddy", "Terraform", "JUnit 5", "Grafana", "Sentry", "AWS (EC2, ECR, S3)"],
   "retrospects": [],
   "webLink": "https://chaeso-zip.com/",
-  "description": "내게 맞는 광고 채널을 한눈에!<br />광고 채널 고민, 여기서 끝내 보세요<br /><br />🥕 맞춤 채널 추천<br />몇 가지 간단한 질문에 답하고, 가장 높은 효율을 낼 수 있는 채널을 추천받아 보세요.<br />🍅 전체 채널 비교<br />다양한 광고 채널을 동일한 기준으로 한눈에 비교할 수 있어요.<br />🥦 예산 시뮬레이터<br />설정한 예산 내에서 채널별 예상 성과를 실시간으로 확인해 보세요."
+  "description": "내게 맞는 광고 채널을 한눈에!<br /> 광고 채널 고민, 여기서 끝내 보세요<br /><br />🥕 맞춤 채널 추천<br /><br />몇 가지 간단한 질문에 답하고, 가장 높은 효율을 낼 수 있는 채널을 추천받아 보세요.<br /><br />🍅 전체 채널 비교<br /><br />다양한 광고 채널을 동일한 기준으로 한눈에 비교할 수 있어요.<br /><br />🥦 예산 시뮬레이터<br /><br />설정한 예산 내에서 채널별 예상 성과를 실시간으로 확인해 보세요."
 }
