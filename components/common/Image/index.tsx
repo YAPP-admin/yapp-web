@@ -11,8 +11,8 @@ const Image = ({ src, blurDataURL, ...rest }: any) => (
     alt={src}
     layout="fill"
     objectFit="contain"
-    placeholder="blur"
-    blurDataURL={blurDataURL ?? src}
+    placeholder={blurDataURL ? 'blur' : 'empty'}
+    blurDataURL={blurDataURL}
     {...rest}
   />
 );

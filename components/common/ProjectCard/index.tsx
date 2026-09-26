@@ -22,6 +22,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
           className="project-card-image"
           src={thumbnail}
           blurDataURL={thumbnailBlurDataURL}
+          sizes="(max-width: 833px) 335px, 380px"
           alt="project-image"
           height={214}
         />
