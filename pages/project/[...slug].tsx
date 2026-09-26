@@ -106,17 +106,19 @@ function ProjectDetail({ project, otherProjects }: Props) {
           <ProjectName>{title}</ProjectName>
           <ProjectContent project={project} />
         </ResponsiveLayout>
-        <div style={{ margin: '100px auto 100px' }}>
-          {[...(Array.isArray(content) ? content : [content])].map(
-            (contentSrc) => (
-              <ProjectImage
-                key={contentSrc}
-                src={contentSrc}
-                alt="project-content-image"
-              />
-            ),
-          )}
-        </div>
+        {(Array.isArray(content) ? content.length > 0 : Boolean(content)) && (
+          <div style={{ margin: '100px auto 100px' }}>
+            {(Array.isArray(content) ? content : [content]).map(
+              (contentSrc) => (
+                <ProjectImage
+                  key={contentSrc}
+                  src={contentSrc}
+                  alt="project-content-image"
+                />
+              ),
+            )}
+          </div>
+        )}
 
         {retrospects?.length > 0 && (
           <>

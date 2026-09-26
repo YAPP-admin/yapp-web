@@ -22,6 +22,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
           src={thumbnail}
           alt="project-image"
           height={214}
+          unoptimized={generation === 28}
         />
         <ContentContainer>
           <DetailWrapper>

@@ -1,0 +1,18 @@
+{
+  "name": "토닥운",
+  "title": "토닥운",
+  "thumbnail": "/assets/project/28_thumbnail_todagoon.png",
+  "content": ["/assets/project/28_content_todagoon_1.png"],
+  "tags": ["28기", "Android", "iOS"],
+  "team": ["장원진", "고보경", "정가인", "문영균", "이승원", "정용준", "한문휘", "김예찬", "최민우"],
+  "field": ["Android", "iOS"],
+  "generation": 28,
+  "program": [
+    "Kotlin 2.3.21 · JDK 25", "Spring Boot 4.1.0", "Spring Data JPA(Hibernate)", "Spring Security", "Spring Batch", "Spring AI", "Kotlin Coroutines", "Resilience4j(CircuitBreaker·Retry·TimeLimiter)", "PostgreSQL", "Redis", "FCM", "JWT, OAuth 2.0 (Kakao, Google, Apple)", "Gradle 멀티모듈(헥사고날) · Ktlint · Konsist", "Kotest · MockK · Testcontainers", "Docker · Docker Compose · Caddy(Blue/Green)", "GitHub Actions · GHCR · Ansible · SOPS(age)", "GCP Compute Engine · Cloud SQL · Cloud Storage · Vertex AI(Gemini)", "Grafana Cloud(Prometheus·Loki·Alloy) · Micrometer · Sentry",
+    "Swift", "SwiftUI", "Tuist", "The Composable Architecture", "The Modular Architecture",
+    "Kotlin", "Clean Architecture", "MVI Pattern: Orbit-MVI", "Hilt", "Jetpack Compose", "Navigation 3", "Ktor", "DataStore", "kotlinx-serialization"
+  ],
+  "retrospects": [],
+  "oneStoreLink": "https://m.onestore.co.kr/v2/ko-kr/app/0001008337",
+  "description": "내 사주를 아는 AI 챗봇, 토닥운.<br />사주 기반으로 오늘의 운세와 행운의 행동을 매일 알려드려요. 궁합, 연도별 운세, 택일까지 확인할 수 있어요. 궁금한 건 토닥이에게 바로 물어보세요."
+}

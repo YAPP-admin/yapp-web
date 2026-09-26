@@ -50,6 +50,14 @@ interface ProjectProps {
 
 const INITIAL_CARD_COUNT = 9; // '기본' 카드 표현 수
 const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
+const PROJECT_ORDER_28TH = [
+  'hilit',
+  'todagoon',
+  'scoop',
+  'looky-jangbogo',
+  'akkimo',
+  'chaeso-zip',
+];
 
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
@@ -99,7 +107,17 @@ function Project({ projects }: ProjectProps) {
               if (category !== 'ALL') return project.field.includes(category);
               else return true;
             })
-            .sort((a, b) => b.generation - a.generation) // 기수 순 정렬
+            .sort((a, b) => {
+              const generationOrder = b.generation - a.generation;
+              if (generationOrder !== 0 || a.generation !== 28) {
+                return generationOrder;
+              }
+
+              return (
+                PROJECT_ORDER_28TH.indexOf(a.url.split('/')[1]) -
+                PROJECT_ORDER_28TH.indexOf(b.url.split('/')[1])
+              );
+            })
             .slice(0, viewCardCount) // 기본 9개 카드 표현
             .map((project) => (
               <ProjectCard key={project.title} project={project} />
