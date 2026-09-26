@@ -1,12 +1,14 @@
 {
   "name": "Hilit",
   "title": "Hilit",
-  "thumbnail": "/assets/project/28_thumbnail_hilit.png",
-  "content": ["/assets/project/28_content_hilit_1.png"],
+  "thumbnail": "/assets/project/28_thumbnail_hilit.webp",
+  "thumbnailBlurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAkABABoJYgCdAEClk8ixVQAAP7x38CuielRqgksWvPDenndmkUu15oxVWPuOxloMnuujthQ0rjDSSwjrO47tdnc2TAwMzQAAA==",
+  "content": ["/assets/project/28_content_hilit_1.webp"],
   "tags": ["28기", "Android", "iOS"],
   "team": ["정재원", "박민주", "허자연", "김은서", "서정원", "강시운", "이윤호", "노영진", "함지나"],
   "field": ["Android", "iOS"],
   "generation": 28,
+  "order": 1,
   "program": [
     "Java 21", "Spring Boot", "Spring Data JPA(Hibernate)", "Spring Security", "Spring AI", "PDFBox·Tika", "Jsoup", "PostgreSQL + pgvector", "Redis", "AWS EC2·S3·ECR·CloudWatch·Lambda", "Docker", "GitHub Actions", "JWT, OAuth 2.0 (Kakao, Apple)", "Kubernetes",
     "Swift", "SwiftUI", "Tuist", "The Modular Architecture", "The Composable Architecture",
@@ -36,7 +38,7 @@
     {
       "name": "김은서",
       "field": "iOS",
-      "content": "동아리 진행하는 기간동안 나름 열심히 살았다 라고 자부할 수 있었던 날이었던거 같습니다.\n\n처음에 낯을 가렸던 시기와 다양한 직군과 많은 사람들을 만나고 얘기하던 시간.\n그리고 현업과 병행하며 자는 시간을 쪼개가며 개발에 몰두하고 했던 시간이 현실은 5년차 직장인이지만 잠시나마 대학생으로 돌아간거 같았습니다.\n\n무엇보다 잠시 열정을 잃어갔을때 시작한 동아리라 그런지 팀원들의 열정과 동아리원의 많은 열정을 통해 제가 다시 뜨거워지게 되는 순간이었던거 같습니다.<br />흔한 빌런 한 명 없는 우리 팀원들이 너무 좋고 이렇게 딱 맞게 만날수 있을까 싶습니다.\n빌런이 없으면 자신이 빌런이라고들 해서 조금은 눈치가 보이긴합니다..ㅎ \n그래도 나 괜찮게 한 듯?????? 그치??? ㅎ"
+      "content": "동아리 진행하는 기간동안 나름 열심히 살았다 라고 자부할 수 있었던 날이었던거 같습니다.<br /><br />처음에 낯을 가렸던 시기와 다양한 직군과 많은 사람들을 만나고 얘기하던 시간.<br />그리고 현업과 병행하며 자는 시간을 쪼개가며 개발에 몰두하고 했던 시간이 현실은 5년차 직장인이지만 잠시나마 대학생으로 돌아간거 같았습니다.<br /><br />무엇보다 잠시 열정을 잃어갔을때 시작한 동아리라 그런지 팀원들의 열정과 동아리원의 많은 열정을 통해 제가 다시 뜨거워지게 되는 순간이었던거 같습니다.<br />흔한 빌런 한 명 없는 우리 팀원들이 너무 좋고 이렇게 딱 맞게 만날수 있을까 싶습니다.<br />빌런이 없으면 자신이 빌런이라고들 해서 조금은 눈치가 보이긴합니다..ㅎ <br />그래도 나 괜찮게 한 듯?????? 그치??? ㅎ"
     },
     {
       "name": "강시운",

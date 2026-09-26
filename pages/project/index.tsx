@@ -15,9 +15,13 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       title: project.name,
       thumbnail: project.thumbnail,
+      ...(project.thumbnailBlurDataURL !== undefined && {
+        thumbnailBlurDataURL: project.thumbnailBlurDataURL,
+      }),
       tags: project.tags,
       field: project.field,
       generation: project.generation,
+      ...(project.order !== undefined && { order: project.order }),
       url: slug.join('/'),
     };
   });
@@ -50,15 +54,6 @@ interface ProjectProps {
 
 const INITIAL_CARD_COUNT = 9; // '기본' 카드 표현 수
 const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
-const PROJECT_ORDER_28TH = [
-  'hilit',
-  'todagoon',
-  'scoop',
-  'looky-jangbogo',
-  'akkimo',
-  'chaeso-zip',
-];
-
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
   const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
@@ -109,13 +104,13 @@ function Project({ projects }: ProjectProps) {
             })
             .sort((a, b) => {
               const generationOrder = b.generation - a.generation;
-              if (generationOrder !== 0 || a.generation !== 28) {
+              if (generationOrder !== 0) {
                 return generationOrder;
               }
 
               return (
-                PROJECT_ORDER_28TH.indexOf(a.url.split('/')[1]) -
-                PROJECT_ORDER_28TH.indexOf(b.url.split('/')[1])
+                (a.order ?? Number.MAX_SAFE_INTEGER) -
+                (b.order ?? Number.MAX_SAFE_INTEGER)
               );
             })
             .slice(0, viewCardCount) // 기본 9개 카드 표현

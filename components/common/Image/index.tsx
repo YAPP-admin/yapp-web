@@ -5,14 +5,14 @@ interface ImageProps {
   src: string;
 }
 
-const Image = ({ src, ...rest }: any) => (
+const Image = ({ src, blurDataURL, ...rest }: any) => (
   <StyledImage
     src={src}
     alt={src}
     layout="fill"
     objectFit="contain"
     placeholder="blur"
-    blurDataURL={src}
+    blurDataURL={blurDataURL ?? src}
     {...rest}
   />
 );

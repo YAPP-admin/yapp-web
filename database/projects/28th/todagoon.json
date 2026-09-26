@@ -1,12 +1,14 @@
 {
   "name": "토닥운",
   "title": "토닥운",
-  "thumbnail": "/assets/project/28_thumbnail_todagoon.png",
-  "content": ["/assets/project/28_content_todagoon_1.png"],
+  "thumbnail": "/assets/project/28_thumbnail_todagoon.webp",
+  "thumbnailBlurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAkABABoJQAAWLHDXBW+8AD+9Xj+/wa5Hkq43lUmbzbqxrrEEfJ9Nke3n6ZdX0NiGupDdEflYu8XRp3AQWx5PC3X8Q0DaifOx5dAAAA=",
+  "content": ["/assets/project/28_content_todagoon_1.webp"],
   "tags": ["28기", "Android", "iOS"],
   "team": ["장원진", "고보경", "정가인", "문영균", "이승원", "정용준", "한문휘", "김예찬", "최민우"],
   "field": ["Android", "iOS"],
   "generation": 28,
+  "order": 2,
   "program": [
     "Kotlin 2.3.21 · JDK 25", "Spring Boot 4.1.0", "Spring Data JPA(Hibernate)", "Spring Security", "Spring Batch", "Spring AI", "Kotlin Coroutines", "Resilience4j(CircuitBreaker·Retry·TimeLimiter)", "PostgreSQL", "Redis", "FCM", "JWT, OAuth 2.0 (Kakao, Google, Apple)", "Gradle 멀티모듈(헥사고날) · Ktlint · Konsist", "Kotest · MockK · Testcontainers", "Docker · Docker Compose · Caddy(Blue/Green)", "GitHub Actions · GHCR · Ansible · SOPS(age)", "GCP Compute Engine · Cloud SQL · Cloud Storage · Vertex AI(Gemini)", "Grafana Cloud(Prometheus·Loki·Alloy) · Micrometer · Sentry",
     "Swift", "SwiftUI", "Tuist", "The Composable Architecture", "The Modular Architecture",

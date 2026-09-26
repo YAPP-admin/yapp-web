@@ -1,12 +1,14 @@
 {
   "name": "SCOOP",
   "title": "SCOOP",
-  "thumbnail": "/assets/project/28_thumbnail_scoop.png",
-  "content": ["/assets/project/28_content_scoop_1.png", "/assets/project/28_content_scoop_2.png", "/assets/project/28_content_scoop_3.png"],
+  "thumbnail": "/assets/project/28_thumbnail_scoop.webp",
+  "thumbnailBlurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAkABABoJbAAAuitxEVf8AD+iT2hh6/6KXIex9cCrniOH/5I1X4RfMeYpxmTaYvVwAAA",
+  "content": ["/assets/project/28_content_scoop_1.webp", "/assets/project/28_content_scoop_2.webp", "/assets/project/28_content_scoop_3.webp"],
   "tags": ["28기", "Web"],
   "team": ["박주현", "김유희", "김지윤", "이성빈", "이준석", "강승호", "정지원"],
   "field": ["Web"],
   "generation": 28,
+  "order": 3,
   "program": ["Next.js", "TailwindCSS", "GraphQL", "Tanstack Query", "React Hook Form", "Storybook", "MSW", "Sentry", "Kotlin", "Spring", "Postgresql", "AWS"],
   "retrospects": [
     {
