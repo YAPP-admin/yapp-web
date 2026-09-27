@@ -10,13 +10,22 @@ interface AnimatedImageProps extends AnimatedImageStyle {
   className?: string;
   src: string;
   alt: string;
+  blurDataURL?: string;
+  sizes?: string;
 }
 
-function AnimatedImage({ className, src, alt, ...rest }: AnimatedImageProps) {
+function AnimatedImage({
+  className,
+  src,
+  alt,
+  blurDataURL,
+  sizes,
+  ...rest
+}: AnimatedImageProps) {
   return (
     <ImageWrapper className={className} {...rest}>
       <ImageScaleWrapper>
-        <Image src={src} alt={alt} />
+        <Image src={src} alt={alt} blurDataURL={blurDataURL} sizes={sizes} />
       </ImageScaleWrapper>
     </ImageWrapper>
   );

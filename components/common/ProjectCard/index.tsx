@@ -12,7 +12,8 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, isSubCard }: ProjectCardProps) {
-  const { title, thumbnail, tags, generation, url } = project;
+  const { title, thumbnail, thumbnailBlurDataURL, tags, generation, url } =
+    project;
 
   return (
     <Link href={isSubCard ? `${url}` : `project/${url}`} passHref>
@@ -20,6 +21,8 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
         <AnimatedImage
           className="project-card-image"
           src={thumbnail}
+          blurDataURL={thumbnailBlurDataURL}
+          sizes="(max-width: 833px) 335px, 380px"
           alt="project-image"
           height={214}
         />

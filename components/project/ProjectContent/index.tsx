@@ -56,14 +56,14 @@ function ProjectContent({ project }: Props): ReactElement {
       ) : null}
 
       <Description>
-        <BodyText>
+        <DescriptionText>
           {description.split('<br />').map((txt, index) => (
             <React.Fragment key={index}>
               {txt}
               <br />
             </React.Fragment>
           ))}
-        </BodyText>
+        </DescriptionText>
       </Description>
 
       <DeployBox>
@@ -179,6 +179,11 @@ const BodyText = styled.div`
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
+`;
+
+const DescriptionText = styled(BodyText)`
+  display: block;
+  white-space: pre-wrap;
 `;
 
 const TextItem = styled.div`
