@@ -12,6 +12,7 @@ interface AnimatedImageProps extends AnimatedImageStyle {
   alt: string;
   blurDataURL?: string;
   sizes?: string;
+  quality?: number;
 }
 
 function AnimatedImage({
@@ -20,12 +21,19 @@ function AnimatedImage({
   alt,
   blurDataURL,
   sizes,
+  quality,
   ...rest
 }: AnimatedImageProps) {
   return (
     <ImageWrapper className={className} {...rest}>
       <ImageScaleWrapper>
-        <Image src={src} alt={alt} blurDataURL={blurDataURL} sizes={sizes} />
+        <Image
+          src={src}
+          alt={alt}
+          blurDataURL={blurDataURL}
+          sizes={sizes}
+          quality={quality}
+        />
       </ImageScaleWrapper>
     </ImageWrapper>
   );
