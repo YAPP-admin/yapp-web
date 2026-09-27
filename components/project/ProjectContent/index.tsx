@@ -8,6 +8,7 @@ import {
   BtnArrowRight,
   AppStore,
   PlayStore,
+  OneStore,
   WebLink,
 } from 'public/assets/icons';
 import { Button } from 'components/common';
@@ -127,7 +128,11 @@ function ProjectContent({ project }: Props): ReactElement {
         {/* One Store 링크 */}
         {oneStoreLink && (
           <Link href={oneStoreLink} passHref target="_blank">
-            <DeployLinkButton variant="black">One Store</DeployLinkButton>
+            <DeployLinkButton variant="black">
+              <OneStore />
+              One Store
+              <BtnArrowRight />
+            </DeployLinkButton>
           </Link>
         )}
       </DeployBox>
