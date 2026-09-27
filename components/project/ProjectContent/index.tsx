@@ -8,7 +8,6 @@ import {
   BtnArrowRight,
   AppStore,
   PlayStore,
-  OneStore,
   WebLink,
 } from 'public/assets/icons';
 import { Button } from 'components/common';
@@ -129,7 +128,7 @@ function ProjectContent({ project }: Props): ReactElement {
         {oneStoreLink && (
           <Link href={oneStoreLink} passHref target="_blank">
             <DeployLinkButton variant="black">
-              <OneStore />
+              <OneStoreIcon aria-hidden="true" />
               One Store
               <BtnArrowRight />
             </DeployLinkButton>
@@ -228,6 +227,14 @@ const DeployLinkButton = styled(Button)`
   &:not(:first-child) {
     margin-left: 20px;
   }
+`;
+
+const OneStoreIcon = styled.span`
+  width: 20px;
+  height: 20px;
+  flex: none;
+  background: url('/assets/icons/one_store.ico') center / contain no-repeat;
+  filter: grayscale(1) invert(1) brightness(1.3) contrast(20);
 `;
 
 export default ProjectContent;
