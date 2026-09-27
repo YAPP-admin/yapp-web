@@ -61,6 +61,7 @@ function Carousel({ data }: CarouselProps) {
                 alt="Project Card Image"
                 layout="fill"
                 sizes="(max-width: 833px) 335px, 491px"
+                quality={90}
               />
               <ProjectBlurCard>{title}</ProjectBlurCard>
             </ProjectCard>
