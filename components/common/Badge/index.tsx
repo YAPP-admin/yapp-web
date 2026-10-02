@@ -34,7 +34,10 @@ const StyledBadge = styled.div<IBadgeStyle>`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2px 8px;
+  padding: 1px 7px;
+  border: 1px solid
+    ${({ theme, backgroundColor }) =>
+      backgroundColor && theme.palette[backgroundColor]};
   border-radius: 4px;
   background-color: ${({ theme, backgroundColor }) =>
     backgroundColor && theme.palette[backgroundColor]};

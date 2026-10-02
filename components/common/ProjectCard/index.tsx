@@ -34,7 +34,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
             ) : (
               <>
                 <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
-                <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
+                <Badge backgroundColor="grey_100">{`${generation}기`}</Badge>
               </>
             )}
           </DetailWrapper>
