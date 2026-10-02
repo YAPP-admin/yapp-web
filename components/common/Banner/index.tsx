@@ -88,6 +88,7 @@ const slideUp = keyframes`
 `;
 
 const StyledTitle = styled.h1`
+  color-scheme: only light;
   color: ${({ theme }) => theme.palette.discovery_28th_title};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   white-space: nowrap;
@@ -105,6 +106,7 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledDescription = styled.p`
+  color-scheme: only light;
   color: ${({ theme }) => theme.palette.discovery_28th_button};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   white-space: nowrap;
