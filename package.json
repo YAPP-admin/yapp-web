@@ -4,7 +4,7 @@
   "packageManager": "pnpm@10.34.6",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-sitemap.mjs && next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -s ./public -p 6006",

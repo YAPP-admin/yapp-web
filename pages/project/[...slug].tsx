@@ -64,11 +64,29 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       .filter(Boolean)
       .map((src) => ({ src, ...getImageSize(src) }));
 
+    const { name, description, thumbnail } = projectData.project;
+    // 검색 결과·공유 미리보기용 설명: 태그와 줄바꿈을 걷어낸 한 줄 텍스트
+    const plainDescription = (description || '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
     return {
       props: {
         project: projectData.project,
         contentImages,
         otherProjects,
+        seo: {
+          title: name,
+          description:
+            plainDescription.length > 150
+              ? `${plainDescription.slice(0, 150)}…`
+              : plainDescription,
+          image: thumbnail,
+          path: `/project/${projectData.slug
+            .map((segment) => encodeURIComponent(segment))
+            .join('/')}`,
+        },
       },
     };
   }

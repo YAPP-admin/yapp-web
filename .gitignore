@@ -10,6 +10,9 @@
 /.next/
 /out/
 
+# generated at build (scripts/generate-sitemap.mjs)
+/public/sitemap.xml
+
 # production
 /build
 
