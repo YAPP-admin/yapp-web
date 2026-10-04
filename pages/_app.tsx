@@ -8,6 +8,7 @@ import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
 import Font from 'styles/fonts';
 import * as ga from 'utils/gtag';
+import { PAGE_SEO } from 'database/metaData';
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -31,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
-        <SEO />
+        <SEO {...(pageProps.seo ?? PAGE_SEO[router.pathname])} />
         <Font />
         <LayoutWrapper>
           <Component {...pageProps} />
