@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 import Image from 'next/image';
 
+/* 등장 효과는 CSS로만 준다. 스크립트가 실행되기 전에도 첫 화면이 보여야 한다 */
 const Banner29th = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <BannerLayout>
-      <Banner29thTitleBox className={mounted ? 'appear' : ''}>
+      <Banner29thTitleBox>
         <Image
           src="/assets/images/29th/title_pc.png"
           alt="Play Our CHEMISTRY - 새로운 무대의 시작, YAPP 29기에서 함께해요!"
@@ -23,7 +17,7 @@ const Banner29th = () => {
         />
       </Banner29thTitleBox>
 
-      <BannerBackgroundInner className={mounted ? 'appear' : ''} />
+      <BannerBackgroundInner />
     </BannerLayout>
   );
 };
@@ -37,6 +31,28 @@ export default Banner29th;
  */
 const tabletPortrait = `${media.tablet} and (orientation: portrait)`;
 const mobilePortrait = `${media.mobile} and (max-aspect-ratio: 13/20)`;
+
+const fadeIn = keyframes`
+  to {
+    opacity: 1;
+  }
+`;
+
+const titleIn = keyframes`
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+  }
+`;
+
+const floatY = keyframes`
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 10px, 0);
+  }
+`;
 
 const BannerLayout = styled.div`
   position: relative;
@@ -85,11 +101,7 @@ const BannerBackgroundInner = styled.div`
   margin: 0 auto;
 
   opacity: 0;
-  transition: opacity 1s ease;
-
-  &.appear {
-    opacity: 1;
-  }
+  animation: ${fadeIn} 1s ease forwards;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -114,29 +126,15 @@ const Banner29thTitleBox = styled.div`
   /* 좁고 긴 화면에서 배경이 크게 확대돼도 타이틀이 화면 밖으로 나가지 않게 한다 */
   width: min(calc(var(--banner-unit) * var(--title-width)), 90vw);
 
-  transition: transform 1s ease, opacity 1s ease;
   transform: translate3d(-50%, -2rem, 0);
   opacity: 0;
-
-  &.appear {
-    transform: translate3d(-50%, 0, 0);
-    opacity: 1;
-
-    animation: floatY 1s ease-in-out infinite alternate;
-  }
+  /* 위에서 내려오며 나타난 뒤, 위아래로 천천히 떠 있는다 */
+  animation: ${titleIn} 1s ease forwards,
+    ${floatY} 1s ease-in-out 1s infinite alternate;
 
   img {
     display: block;
     width: 100%;
     height: auto;
-  }
-
-  @keyframes floatY {
-    0% {
-      transform: translate3d(-50%, 0, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 10px, 0);
-    }
   }
 `;

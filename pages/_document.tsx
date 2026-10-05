@@ -50,25 +50,6 @@ export default class MyDocument extends Document {
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
           />
-          {/* 29th 배너 이미지 프리로드 (Banner29th의 배경 선택 조건과 같아야 한다) */}
-          <link
-            rel="preload"
-            as="image"
-            href="/assets/images/29th/banner_home_pc.webp"
-            media="(min-width: 1201px), (orientation: landscape)"
-          />
-          <link
-            rel="preload"
-            as="image"
-            href="/assets/images/29th/banner_home_tablet.webp"
-            media="(min-width: 834px) and (max-width: 1200px) and (orientation: portrait), (max-width: 833px) and (orientation: portrait) and (min-aspect-ratio: 651/1000)"
-          />
-          <link
-            rel="preload"
-            as="image"
-            href="/assets/images/29th/banner_home_mobile.webp"
-            media="(max-width: 833px) and (max-aspect-ratio: 13/20)"
-          />
         </Head>
         <body>
           <Main />
