@@ -55,6 +55,8 @@ function FrequentlyAskedQuestions(): ReactElement {
           onChange={setCurrentCategory}
           idPrefix={TAB_ID_PREFIX}
           label={title}
+          /* 시안: 360 화면에서는 [지원 관련, 활동 관련] / [직군별] 두 줄 */
+          mobileBreakAfter={2}
         />
         <SectionContent
           as={motion.div}

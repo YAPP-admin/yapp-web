@@ -12,7 +12,7 @@ interface JoinSectionProps {
   btnText?: string;
   url?: string;
   caution?: string;
-  /** 제목이 길 때 좁은 화면에서 제목 글자를 한 단계 줄인다 */
+  /** 제목이 두 줄인 카드(모집 안내의 문의 카드). 시안에서 글자 위치와 크기가 한 줄 제목 카드와 다르다 */
   compactTitle?: boolean;
 }
 
@@ -29,13 +29,13 @@ function JoinSection({
     <JoinSectionContainer>
       <SectionInner>
         <ImageContainer>
-          <InnerContainer>
-            <TextBox>
+          <InnerContainer $compact={compactTitle}>
+            <TextBox $compact={compactTitle}>
               <Title $compact={compactTitle}>
                 {title || 'PLAY OUR CHEMISTRY'}
               </Title>
-              <SubTitle>{subTitle}</SubTitle>
-              {caution && <Caution>{caution}</Caution>}
+              <SubTitle $compact={compactTitle}>{subTitle}</SubTitle>
+              {caution && <Caution $compact={compactTitle}>{caution}</Caution>}
             </TextBox>
             <Button
               type="button"
@@ -89,10 +89,10 @@ const ImageContainer = styled.div`
   }
 `;
 
-const InnerContainer = styled.div`
+const InnerContainer = styled.div<{ $compact: boolean }>`
   position: absolute;
-  /* 시안: 높이 920px 카드에서 위 180px. 카드가 낮아지면 같은 비율로 올라간다 */
-  top: 19.57%;
+  /* 시안: 높이 920px 카드에서 위 180px(두 줄 제목은 160px). 카드가 낮아지면 같은 비율로 올라간다 */
+  top: ${({ $compact }) => ($compact ? '17.39%' : '19.57%')};
   left: 0;
   right: 0;
   display: flex;
@@ -112,25 +112,39 @@ const InnerContainer = styled.div`
   ${media.tablet} {
     top: 60px;
     color: ${({ theme }) => theme.palette.white_100};
+    /* 시안(두 줄 제목): 위 66px, 버튼까지 20px */
+    ${({ $compact }) => $compact && 'top: 66px; gap: 20px;'}
   }
 
   /* 834px 시안보다 좁아지면 카드가 줄어드는 만큼 글자 자리도 같은 비율로 줄인다 */
   ${media.mobile} {
     top: 7.2vw;
     gap: clamp(16px, 3.84vw, 32px);
+    ${({ $compact }) =>
+      $compact && 'top: 7.9vw; gap: clamp(12px, 2.4vw, 20px);'}
   }
 
+  /* 시안: 360 화면에서는 글자가 카드 좌우 8px 안쪽까지 쓴다 */
   ${media.small} {
     top: 36px;
     gap: 32px;
+    padding: 0 8px;
+    /* 시안(두 줄 제목): 위 68px, 버튼까지 20px */
+    ${({ $compact }) => $compact && 'top: 68px; gap: 20px;'}
   }
 `;
 
-const TextBox = styled.div`
+const TextBox = styled.div<{ $compact: boolean }>`
+  /* 시안: 제목과 안내 문구 사이 8px (두 줄 제목은 넓은 화면에서 12px) */
+  --text-gap: ${({ $compact }) => ($compact ? '12px' : '8px')};
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: var(--text-gap);
+
+  ${media.tablet} {
+    --text-gap: 8px;
+  }
 `;
 
 const Title = styled.span<{ $compact: boolean }>`
@@ -140,23 +154,31 @@ const Title = styled.span<{ $compact: boolean }>`
   white-space: pre-line;
   word-break: keep-all;
 
+  /* 시안(두 줄 제목): 834 화면에서 줄 간격 44px */
+  ${media.tablet} {
+    ${({ $compact }) => $compact && 'line-height: 44px;'}
+  }
+
   ${media.mobile} {
     font-size: clamp(22px, 4.32vw, 36px);
-    line-height: 1.42;
+    line-height: ${({ $compact }) => ($compact ? 1.22 : 1.42)};
   }
 
   ${media.small} {
     font-size: 2.25rem;
     line-height: 51.2px;
+    /* 시안(두 줄 제목): 360 화면에서 줄 간격 36px */
     ${({ theme, $compact }) => $compact && theme.textStyleV2.resp.title1_sm};
+    ${({ $compact }) => $compact && 'line-height: 36px;'}
   }
 `;
 
-const SubTitle = styled.span`
+const SubTitle = styled.span<{ $compact: boolean }>`
   ${({ theme }) => theme.textStyleV2.fix.font_24};
-  /* 시안: 줄 높이 32px, 줄 간격 4px */
+  /* 시안: 줄 높이 32px. 글자 줄(36px)에서 위아래로 넘치는 만큼을 --trim으로 당긴다 */
+  --trim: 2px;
   line-height: 36px;
-  margin: -2px 0;
+  margin: calc(-1 * var(--trim)) 0;
   white-space: pre-line;
   word-break: keep-all;
   color: ${({ theme }) => theme.palette.grey_800};
@@ -166,21 +188,24 @@ const SubTitle = styled.span`
   }
 
   ${media.mobile} {
+    --trim: 0px;
     font-size: clamp(14px, 2.88vw, 24px);
     line-height: 1.5;
-    margin: 0;
   }
 
   ${media.small} {
+    --trim: 1px;
     ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
     line-height: 34px;
-    margin: -1px 0;
+    /* 시안(두 줄 제목): 360 화면에서 16px, 줄 높이 24px */
+    ${({ $compact }) =>
+      $compact && '--trim: 0px; font-size: 1rem; line-height: 24px;'}
   }
 `;
 
 /* 시안: 안내 문구와 같은 글자 크기로 바로 아래 줄에 놓인다 */
 const Caution = styled(SubTitle)`
-  margin-top: -8px;
+  margin-top: calc(-1 * var(--text-gap) - var(--trim));
 `;
 
 export default JoinSection;

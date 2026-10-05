@@ -80,8 +80,10 @@ const SessionList = styled(motion.ul)`
   gap: 24px;
   margin: 48px 0 0;
 
+  /* 시안: 360 화면에서는 카드가 본문보다 좌우 4px씩 넓다 (328px) */
   ${media.mobile} {
     grid-template-columns: minmax(0, 1fr);
+    margin: 48px -4px 0;
   }
 `;
 
@@ -91,6 +93,12 @@ const Session = styled(motion.li)`
   flex-direction: column;
   min-height: 156px;
   overflow: hidden;
+
+  /* 시안: 834·360 화면에서는 설명이 14px이라 카드가 148px */
+  ${media.tablet} {
+    min-height: 148px;
+  }
+
   border-radius: 8px;
   background-color: ${({ theme }) => theme.palette.chemistry_29th_grey};
 
@@ -142,9 +150,10 @@ const SessionDescription = styled.p`
   white-space: pre-line;
   word-break: keep-all;
 
-  /* 좁은 화면에서는 정해진 줄바꿈 대신 폭에 맞춰 흐르게 한다 */
+  /* 좁은 화면에서는 정해진 줄바꿈 대신 폭에 맞춰 흐르게 하고, 시안대로 한 단계 작은 글자를 쓴다 */
   ${media.tablet} {
     white-space: normal;
+    ${({ theme }) => theme.textStyleV2.fix.font_14};
   }
 `;
 

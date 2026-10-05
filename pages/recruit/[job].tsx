@@ -99,13 +99,13 @@ function RecruitJobPage({ job }: RecruitJobPageProps): ReactElement {
   );
 }
 
-/* 시안: 본문 폭 1040px, 탭 위 56px, 탭 아래 48px */
+/* 시안: 본문 폭 1040px, 탭 위 56px, 탭 아래 48px, 본문 아래 80px */
 const Layout = styled.div`
   box-sizing: content-box;
   max-width: 1040px;
   margin: 0 auto;
   /* 좌우 여백은 위 배너의 글자 시작점(80px)과 맞춘다 */
-  padding: 56px 80px 160px;
+  padding: 56px 80px 80px;
 
   ${media.mobile} {
     padding: 32px 20px 100px;
