@@ -115,11 +115,18 @@ const SectionContent = styled.div`
   }
 `;
 
+/* 안내 문구가 줄바꿈되면 카드가 내용만큼 늘어난다 (다른 카드는 높이 고정) */
+const GuideBox = styled(AnimatedBox)`
+  height: auto;
+  min-height: 180px;
+`;
+
+/* 시안: 제목 아래 48px. 360 화면에서는 카드 328x156, 간격 16px (본문보다 좌우 4px씩 넓다) */
 const GridContainer = styled.article`
   width: 100%;
   display: grid;
   gap: 24px;
-  margin-top: 32px;
+  margin-top: 48px;
 
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
@@ -127,6 +134,18 @@ const GridContainer = styled.article`
   ${media.mobile} {
     grid-template-columns: 1fr;
     align-items: stretch;
+    gap: 16px;
+    width: calc(100% + 8px);
+    margin: 48px -4px 0;
+
+    section {
+      height: 156px;
+    }
+
+    ${GuideBox} {
+      height: auto;
+      min-height: 156px;
+    }
   }
 `;
 
@@ -136,17 +155,6 @@ const CardInnerBox = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
-`;
-
-/* 안내 문구가 줄바꿈되면 카드가 내용만큼 늘어난다 (다른 카드는 높이 고정) */
-const GuideBox = styled(AnimatedBox)`
-  height: auto;
-  min-height: 180px;
-
-  ${media.mobile} {
-    height: auto;
-    min-height: 121px;
-  }
 `;
 
 const CardInnerLine = styled.li`

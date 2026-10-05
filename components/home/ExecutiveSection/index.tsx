@@ -152,8 +152,9 @@ const MemberList = styled.ul`
   gap: 32px 16px;
   margin: 0;
 
-  /* 시안: 좁은 화면에서는 가운데 정렬 */
+  /* 시안: 좁은 화면에서는 가운데 정렬, 줄 사이 16px */
   ${media.mobile} {
+    gap: 16px;
     justify-content: center;
     padding: 0 20px;
   }

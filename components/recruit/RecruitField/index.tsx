@@ -146,8 +146,12 @@ const CardGrid = styled.ul`
   display: grid;
   gap: 32px;
   justify-content: center;
-  /* 카드가 커질 때(hover) 잘리지 않을 만큼의 여백 */
-  margin: 4px 0 0;
+  /*
+   * 카드가 커질 때(hover) 잘리지 않을 만큼의 여백.
+   * 시안: 제목 아래 36px에서 카드가 시작하고, 카드 아래는 섹션 여백만 남는다.
+   * 그래서 이 여백(32px)과 제목 아래 빈 줄(8px)만큼 위아래로 당긴다.
+   */
+  margin: -4px 0 -32px;
   padding: 32px;
   max-width: 100%;
   overflow: hidden;
@@ -159,7 +163,7 @@ const CardGrid = styled.ul`
 
   /* 좁은 화면에서도 커진 카드와 초점 테두리가 잘리지 않게 섹션 여백만큼 바깥으로 넓힌다 */
   ${media.mobile} {
-    margin: 4px -20px 0;
+    margin: -4px -20px -32px;
     padding: 32px 20px;
     max-width: calc(100% + 40px);
   }

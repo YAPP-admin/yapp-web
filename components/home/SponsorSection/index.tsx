@@ -93,10 +93,10 @@ const SponsorList = styled.ul`
     flex-wrap: wrap;
   }
 
-  /* 시안: 360 화면에서는 두 장씩 */
+  /* 시안: 360 화면에서는 135px 카드를 두 장씩 가운데에 */
   ${media.small} {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 135px));
   }
 `;
 

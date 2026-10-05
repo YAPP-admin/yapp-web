@@ -19,6 +19,8 @@ interface UnderlineTabsProps {
   idPrefix: string;
   /** 탭 목록을 설명하는 이름 */
   label: string;
+  /** 480px 이하 화면에서 이 개수만큼의 탭 뒤에서 줄을 바꾼다 (가로로 넘기지 않고 두 줄로 보여 준다) */
+  mobileBreakAfter?: number;
 }
 
 /** 탭 패널에 넣을 id와 aria-labelledby 값을 만든다 */
@@ -43,6 +45,7 @@ function UnderlineTabs({
   onChange,
   idPrefix,
   label,
+  mobileBreakAfter,
 }: UnderlineTabsProps): ReactElement {
   const listRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -111,6 +114,7 @@ function UnderlineTabs({
       aria-label={label}
       $hiddenLeft={hidden.left}
       $hiddenRight={hidden.right}
+      $wrapOnMobile={mobileBreakAfter !== undefined}
       onScroll={updateHidden}
     >
       {tabs.map((tab, index) => (
@@ -126,6 +130,9 @@ function UnderlineTabs({
           aria-controls={`${idPrefix}-panel`}
           tabIndex={currentTab === tab ? 0 : -1}
           $isActive={currentTab === tab}
+          $afterBreak={
+            mobileBreakAfter !== undefined && index >= mobileBreakAfter
+          }
           onClick={() => onChange(tab)}
           onKeyDown={handleKeyDown}
         >
@@ -136,7 +143,11 @@ function UnderlineTabs({
   );
 }
 
-const TabList = styled.div<{ $hiddenLeft: boolean; $hiddenRight: boolean }>`
+const TabList = styled.div<{
+  $hiddenLeft: boolean;
+  $hiddenRight: boolean;
+  $wrapOnMobile: boolean;
+}>`
   /* 탭의 offsetLeft를 목록 기준으로 재기 위해 */
   position: relative;
   display: flex;
@@ -166,9 +177,25 @@ const TabList = styled.div<{ $hiddenLeft: boolean; $hiddenRight: boolean }>`
   ${media.mobile} {
     gap: 14px;
   }
+
+  /* 두 줄로 나누는 탭: ::before가 두 묶음 사이에서 줄을 바꾼다. 높이 0인 줄이 하나 끼므로 줄 간격 4px 두 번이 시안의 8px */
+  ${media.small} {
+    ${({ $wrapOnMobile }) =>
+      $wrapOnMobile &&
+      `
+        flex-wrap: wrap;
+        row-gap: 4px;
+
+        &::before {
+          content: '';
+          order: 1;
+          flex-basis: 100%;
+        }
+      `}
+  }
 `;
 
-const Tab = styled.button<{ $isActive: boolean }>`
+const Tab = styled.button<{ $isActive: boolean; $afterBreak: boolean }>`
   flex-shrink: 0;
   /* 시안: 높이 48px (밑줄 3px 포함) */
   padding: 8px 0 5px;
@@ -192,6 +219,10 @@ const Tab = styled.button<{ $isActive: boolean }>`
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.fix.font_14};
     font-weight: 600;
+  }
+
+  ${media.small} {
+    ${({ $afterBreak }) => $afterBreak && 'order: 2;'}
   }
 `;
 
