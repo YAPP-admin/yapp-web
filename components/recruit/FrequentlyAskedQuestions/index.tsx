@@ -175,7 +175,7 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
 const FQASubContent = styled.div<{ isOpen: boolean }>`
   ${({ theme }) => theme.textStyleV2.resp.body_md};
   color: ${({ theme }) => theme.palette.black_60};
-  width: 1056px;
+  width: 100%;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
 
@@ -196,9 +196,6 @@ const FQASubContent = styled.div<{ isOpen: boolean }>`
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
-  ${media.tablet} {
-    width: 100%;
-  }
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_sm};
     .br {
