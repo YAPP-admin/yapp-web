@@ -1,4 +1,5 @@
 import {
+  type PointerEvent,
   type ReactElement,
   useCallback,
   useEffect,
@@ -87,8 +88,13 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
     <BtnContainer
       $visible={isVisible}
       onClick={() => window.open(targetLink, '_blank')}
-      onMouseEnter={handleHoverStart}
-      onMouseLeave={handleHoverEnd}
+      /* 손가락으로 누를 때는 hover 효과(1.5초 회전)를 시작하지 않는다. 터치에는 hover 끝이 없어 색이 돌아오지 않는다 */
+      onPointerEnter={(event: PointerEvent<HTMLElement>) => {
+        if (event.pointerType === 'mouse') handleHoverStart();
+      }}
+      onPointerLeave={(event: PointerEvent<HTMLElement>) => {
+        if (event.pointerType === 'mouse') handleHoverEnd();
+      }}
     >
       <InfoText>{RECRUITING_PERIOD_TEXT}</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
