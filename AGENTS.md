@@ -143,7 +143,7 @@ pnpm exec tsc --noEmit && pnpm lint && pnpm build
 
 기수가 바뀌면 코드에서 함께 바꿔야 하는 값입니다. 디자인 요구사항에는 보통 빠져 있으니 직접 챙깁니다. 
 
-- `constants/yapp.ts`: `YAPP_GENERATION`, 직군별 공고 링크, `YAPP_FAQ_NOTION`, 사전·다음 기수 알림 폼 링크
+- `constants/yapp.ts`: `YAPP_GENERATION`, 직군별 공고 링크, `YAPP_FAQ_NOTION`, 사전·다음 기수 알림 폼 링크. 알림 폼은 `NEXT_GENERATION_RECRUIT_LINK` 값을 `PREVIOUS_GENERATION_RECRUIT_LINK`로 옮기고, `NEXT`에는 다음 기수 폼을 넣습니다(기수만 올리고 이걸 빼먹으면 모집 전 버튼이 지난 기수 폼으로 연결됩니다).
 - `constants/status.ts`: `RECRUITING_START`, `RECRUITING_DEADLINE`, `RECRUITING_EXTRA_DEADLINE`, 화면에 보이는 기간 문구 `RECRUITING_PERIOD_TEXT`. 추가 모집이 없으면 `RECRUITING_EXTRA_DEADLINE`을 마감일과 같게 둡니다.
 - 날짜 문구 하드코딩: `database/home.ts`의 `HOME_BANNER_EXTRA`, `database/recruit.ts`의 `RECRUIT_SCHEDULE`
 - 문구 하드코딩: `database/recruit.ts`의 `'28기 iOS 추가 모집'`, `database/home.ts`의 배너 제목(기수 컨셉 문구)
