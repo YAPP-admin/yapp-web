@@ -6,14 +6,18 @@ import media from 'styles/media';
 
 import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
-import { Button } from 'components/common';
+import UnderlineTabs, {
+  getTabPanelProps,
+} from 'components/common/UnderlineTabs';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
-import Yapp from 'constants/yapp';
+
+const TAB_ID_PREFIX = 'faq';
 
 function FrequentlyAskedQuestions(): ReactElement {
-  const { faqs, title, subTitle } = RECRUIT_FAQ;
-  const [faqList, setFaqList] = useState(faqs);
+  const { faqs, title, subTitle, categories } = RECRUIT_FAQ;
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  const [openQuestions, setOpenQuestions] = useState<string[]>([]);
 
   const { ref, controls, containerVariants } = useScrollAnimation({
     containerVariants: {
@@ -26,13 +30,16 @@ function FrequentlyAskedQuestions(): ReactElement {
     },
   });
 
-  const handleToggleFaq = (subTitle: string) => {
-    setFaqList(
-      faqList.map((faq) =>
-        faq.subTitle === subTitle ? { ...faq, isOpen: !faq.isOpen } : faq,
-      ),
+  const faqList = faqs.filter(({ category }) => category === currentCategory);
+
+  const handleToggleFaq = (question: string) => {
+    setOpenQuestions(
+      openQuestions.includes(question)
+        ? openQuestions.filter((opened) => opened !== question)
+        : [...openQuestions, question],
     );
   };
+
   return (
     <SectionTemplate>
       <SectionInner>
@@ -42,41 +49,49 @@ function FrequentlyAskedQuestions(): ReactElement {
           fontColor="black"
           subFontColor="black_50"
         />
+        <UnderlineTabs
+          tabs={categories}
+          currentTab={currentCategory}
+          onChange={setCurrentCategory}
+          idPrefix={TAB_ID_PREFIX}
+          label={title}
+        />
         <SectionContent
           as={motion.div}
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={containerVariants}
+          {...getTabPanelProps(TAB_ID_PREFIX, categories, currentCategory)}
         >
-          {faqList.map(({ subTitle, description, isOpen }) => (
-            <FAQBox
-              key={`faq-${subTitle}`}
-              onClick={() => handleToggleFaq(subTitle)}
-            >
-              <FAQBoxInner>
-                <FAQSubTitle>
-                  <TitleText>{subTitle}</TitleText>
-                  <TitleButton isOpen={isOpen}>
-                    <ArrowButton />
-                  </TitleButton>
-                </FAQSubTitle>
-                <FQASubContent
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(description),
-                  }}
-                  isOpen={isOpen}
-                />
-              </FAQBoxInner>
-            </FAQBox>
-          ))}
-          <Button
-            variant="black"
-            onClick={() => window.open(Yapp.YAPP_FAQ_NOTION, '_blank')}
-            style={{ width: 'fit-content', marginTop: '32px' }}
-          >
-            {Yapp.YAPP_GENERATION}기 채용 FAQ 바로가기
-          </Button>
+          {faqList.length === 0 && (
+            <EmptyText>질문을 준비하고 있어요.</EmptyText>
+          )}
+          {faqList.map(({ subTitle, description }) => {
+            const isOpen = openQuestions.includes(subTitle);
+
+            return (
+              <FAQBox
+                key={`faq-${subTitle}`}
+                onClick={() => handleToggleFaq(subTitle)}
+              >
+                <FAQBoxInner>
+                  <FAQSubTitle>
+                    <TitleText>{subTitle}</TitleText>
+                    <TitleButton isOpen={isOpen}>
+                      <ArrowButton />
+                    </TitleButton>
+                  </FAQSubTitle>
+                  <FQASubContent
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(description),
+                    }}
+                    isOpen={isOpen}
+                  />
+                </FAQBoxInner>
+              </FAQBox>
+            );
+          })}
         </SectionContent>
       </SectionInner>
     </SectionTemplate>
@@ -91,11 +106,19 @@ const SectionContent = styled.div`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;
+`;
+
+const EmptyText = styled.p`
+  width: 100%;
+  margin: 0;
+  padding: 32px 0;
+  color: ${({ theme }) => theme.palette.black_50};
+  ${({ theme }) => theme.textStyleV2.resp.body_md};
 `;
 
 const FAQBox = styled.section`
@@ -114,8 +137,9 @@ const FAQBox = styled.section`
   }
 `;
 
+/* 시안: 질문 한 줄 76px (위아래 20px + 아이콘 36px) */
 const FAQBoxInner = styled.div`
-  padding: 32px 0;
+  padding: 23px 0;
   ${media.mobile} {
     padding: 24px 0;
   }
@@ -133,9 +157,9 @@ const FAQSubTitle = styled.div`
 `;
 
 const TitleText = styled.span`
-  ${media.custom(450)} {
-    max-width: 228px;
-  }
+  flex: 1;
+  min-width: 0;
+  word-break: keep-all;
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`
@@ -151,7 +175,7 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
 const FQASubContent = styled.div<{ isOpen: boolean }>`
   ${({ theme }) => theme.textStyleV2.resp.body_md};
   color: ${({ theme }) => theme.palette.black_60};
-  width: 1056px;
+  width: 100%;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
 
@@ -172,9 +196,6 @@ const FQASubContent = styled.div<{ isOpen: boolean }>`
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
-  ${media.tablet} {
-    width: 100%;
-  }
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_sm};
     .br {

@@ -59,11 +59,11 @@ const ProjectContainer = styled(SectionTemplate)`
 
 const TextBoxLayout = styled.div`
   box-sizing: border-box;
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 
   & > div {
-    max-width: 1200px;
+    max-width: 1040px;
   }
 `;
 

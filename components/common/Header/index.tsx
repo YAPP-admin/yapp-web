@@ -70,6 +70,7 @@ const HeaderBlock = styled.header`
 `;
 
 const HeaderInner = styled.div`
+  box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
   height: 60px;

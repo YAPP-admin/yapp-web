@@ -13,9 +13,9 @@ interface BannerProps {
 
 function Banner({
   className,
-  backgroundImg = '/assets/images/28th/project_page_pc.png',
-  backgroundImgTablet = '/assets/images/28th/project_page_tablet.png',
-  backgroundImgMobile = '/assets/images/28th/project_page_mo.png',
+  backgroundImg = '/assets/images/29th/project_page_pc.webp',
+  backgroundImgTablet = '/assets/images/29th/project_page_tablet.webp',
+  backgroundImgMobile = '/assets/images/29th/project_page_mo.webp',
   title,
   description,
 }: BannerProps): ReactElement {
@@ -36,8 +36,9 @@ function Banner({
 
 const StyledBox = styled.div<BannerProps>`
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center;
+  background-size: cover;
+  /* PC 배경은 캐릭터가 오른쪽에 있어서, 화면이 좁아져도 오른쪽이 잘리지 않게 맞춘다 */
+  background-position: right center;
   background-image: url(${({ backgroundImg }) => backgroundImg});
   background-color: ${({ theme, backgroundImg }) =>
     !backgroundImg && theme.palette.grey_800};
@@ -50,28 +51,29 @@ const StyledBox = styled.div<BannerProps>`
   gap: 8px;
 
   ${media.tablet} {
+    background-position: center;
     background-image: url(${({ backgroundImgTablet }) => backgroundImgTablet});
   }
 
+  /* 시안: 360 화면에서 높이 330px (글자 두 줄씩) */
   ${media.mobile} {
+    padding: 130px 0 64px 0;
     background-image: url(${({ backgroundImgMobile }) => backgroundImgMobile});
   }
 `;
 
 const InnerTextContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   margin: 0 80px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* 좌우 여백 80px을 뺀 폭 (1201~1360px 화면에서 글자가 왼쪽 끝에 붙지 않도록) */
+  width: calc(100% - 160px);
   align-items: flex-start;
   gap: 8px;
 
-  ${media.tablet} {
-    width: -webkit-fill-available;
-  }
-
   ${media.mobile} {
+    width: 100%;
     margin: 0;
   }
 `;
@@ -89,7 +91,7 @@ const slideUp = keyframes`
 
 const StyledTitle = styled.h1`
   color-scheme: only light;
-  color: ${({ theme }) => theme.palette.discovery_28th_title};
+  color: ${({ theme }) => theme.palette.chemistry_29th_text};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   white-space: nowrap;
   margin-top: 0;
@@ -97,6 +99,15 @@ const StyledTitle = styled.h1`
 
   animation: ${slideUp} 0.6s ease forwards;
   animation-delay: 0.2s;
+
+  /* 1201~1600px에서는 한 줄 글자가 배경의 캐릭터와 겹치므로 정해진 자리에서 줄을 바꾼다 */
+  ${media.custom(1600)} {
+    white-space: pre-line;
+  }
+
+  ${media.tablet} {
+    white-space: nowrap;
+  }
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
@@ -107,7 +118,7 @@ const StyledTitle = styled.h1`
 
 const StyledDescription = styled.p`
   color-scheme: only light;
-  color: ${({ theme }) => theme.palette.discovery_28th_button};
+  color: ${({ theme }) => theme.palette.chemistry_29th_point};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   white-space: nowrap;
   margin-top: 0;
@@ -115,6 +126,14 @@ const StyledDescription = styled.p`
 
   animation: ${slideUp} 0.6s ease forwards;
   animation-delay: 0.2s;
+
+  ${media.custom(1600)} {
+    white-space: pre-line;
+  }
+
+  ${media.tablet} {
+    white-space: nowrap;
+  }
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};

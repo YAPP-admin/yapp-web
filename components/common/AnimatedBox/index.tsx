@@ -73,6 +73,9 @@ const StyledBox = styled.section<{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  /* 시안: 카드 높이 180px (좁은 화면 121px) */
+  height: 180px;
   padding: 20px 24px;
   width: auto;
   min-width: 195px;
@@ -83,6 +86,6 @@ const StyledBox = styled.section<{
 
   ${media.mobile} {
     width: auto;
-    height: 120px;
+    height: 121px;
   }
 `;

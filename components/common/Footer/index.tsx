@@ -8,7 +8,7 @@ const links = [
   { name: '카카오톡 공식채널', href: Yapp.YAPP_KAKAO },
   { name: '인스타그램', href: Yapp.YAPP_INSTAGRAM },
   { name: '깃허브', href: Yapp.YAPP_GITHUB },
-  { name: '미디엄', href: Yapp.YAPP_MEDIUM },
+  { name: '미디움', href: Yapp.YAPP_MEDIUM },
   { name: '링크드인', href: Yapp.YAPP_LINKEDIN },
   { name: '스레드', href: Yapp.YAPP_THREADS },
 ];

@@ -40,10 +40,6 @@ const TitleBox = styled.div<{ align: 'flex-start' | 'center' | 'right' }>`
   display: flex;
   flex-direction: column;
   align-items: ${({ align }) => align};
-
-  ${media.mobile} {
-    margin: 0 12px;
-  }
 `;
 
 const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
@@ -55,6 +51,7 @@ const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
     white-space: break-spaces;
+    word-break: keep-all;
   }
 `;
 
@@ -67,6 +64,7 @@ const StyledTitle = styled.span<{ fontColor: PaletteKeyTypes }>`
     width: max-content;
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
     white-space: break-spaces;
+    word-break: keep-all;
   }
 `;
 
@@ -80,6 +78,7 @@ const CautionText = styled.span<{ subFontColor: PaletteKeyTypes }>`
     width: max-content;
     ${({ theme }) => theme.textStyleV2.resp.caption_sm};
     white-space: break-spaces;
+    word-break: keep-all;
   }
 `;
 

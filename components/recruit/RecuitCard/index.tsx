@@ -1,20 +1,20 @@
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import theme, { PaletteKeyTypes } from 'styles/theme';
+import { PaletteKeyTypes } from 'styles/theme';
 import { CircleArrow } from 'public/assets/icons';
-import { RecruitStatus } from '../../../constants/status';
 
 interface CardProps {
   name: string;
   description: string;
   backInfo: string[];
   backgroundColor: PaletteKeyTypes;
+  fontColor: PaletteKeyTypes;
+  /** 카드 아래 문구. 모집 중에는 '지원하기', 그 외에는 '자세히 보기' */
+  actionLabel: string;
   isFlipped: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;
-  recruitingStatus?: RecruitStatus;
-  position?: number;
 }
 
 function RecruitCard({
@@ -22,55 +22,40 @@ function RecruitCard({
   description,
   backInfo,
   backgroundColor,
+  fontColor,
+  actionLabel,
   isFlipped,
   onHoverStart,
   onHoverEnd,
-  recruitingStatus,
-  position,
 }: CardProps): ReactElement {
   return (
     <CardContainer
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
     >
-      <CardInner isFlipped={isFlipped}>
-        <CardFront backgroundColor={backgroundColor}>
-          <div
-            style={
-              position === 1 || position === 4
-                ? { color: theme.palette.discovery_28th_text }
-                : undefined
-            }
-          >
+      <CardInner $isFlipped={isFlipped}>
+        <CardFront $backgroundColor={backgroundColor} $fontColor={fontColor}>
+          <div>
             <h2>{name}</h2>
             <p>{description}</p>
           </div>
-          <ApplyBtn
-            color={backgroundColor === 'white' ? 'black_100' : 'white_100'}
-            back={false}
-            disabled={recruitingStatus !== RecruitStatus.ACTIVE}
-          >
-            <div
-              style={
-                position === 1 || position === 4
-                  ? { color: theme.palette.discovery_28th_text }
-                  : undefined
-              }
-            >
-              <p>지원하기</p>
-            </div>
+          <Action $iconColor={fontColor} $arrowColor={backgroundColor}>
+            {actionLabel}
             <CircleArrow />
-          </ApplyBtn>
+          </Action>
         </CardFront>
-        <CardBack>
-          {backInfo.map((info, idx) => (
-            <p key={idx}>{info}</p>
-          ))}
-          <ApplyBtn back disabled={!recruitingStatus}>
-            <p>지원하기</p>
+        <CardBack $backgroundColor="grey_800" $fontColor="white_100">
+          <div>
+            <h2>{name}</h2>
+            {backInfo.map((info) => (
+              <p key={info}>{info}</p>
+            ))}
+          </div>
+          <Action $iconColor="white_100" $arrowColor="grey_800">
+            {actionLabel}
             <CircleArrow />
-          </ApplyBtn>
+          </Action>
         </CardBack>
       </CardInner>
     </CardContainer>
@@ -79,90 +64,82 @@ function RecruitCard({
 
 export default RecruitCard;
 
+/* 시안: 카드 320x368 */
 const CardContainer = styled(motion.div)`
   perspective: 1000px;
-  width: 274px;
-  height: 290px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 320px;
+  max-width: 100%;
+  height: 368px;
+  cursor: pointer;
 `;
 
-const CardInner = styled(motion.div)<{ isFlipped: boolean }>`
+const CardInner = styled.div<{ $isFlipped: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s;
-  transform: ${({ isFlipped }) =>
-    isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'};
+  transform: ${({ $isFlipped }) =>
+    $isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'};
 `;
 
-const CardFace = styled.div<{ backgroundColor?: PaletteKeyTypes }>`
+const CardFace = styled.div<{
+  $backgroundColor: PaletteKeyTypes;
+  $fontColor: PaletteKeyTypes;
+}>`
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 28px 32px;
+  padding: 32px;
   box-sizing: border-box;
-  color: ${({ backgroundColor }) =>
-    backgroundColor === 'white'
-      ? theme.palette.black_100
-      : theme.palette.white_100};
-  background-color: ${({ backgroundColor, theme }) =>
-    theme.palette[backgroundColor || 'black_100']};
-`;
+  color: ${({ theme, $fontColor }) => theme.palette[$fontColor]};
+  background-color: ${({ theme, $backgroundColor }) =>
+    theme.palette[$backgroundColor]};
 
-const CardFront = styled(CardFace)`
   h2 {
     margin: 0;
     ${({ theme }) => theme.textStyleV2.fix.font_24};
   }
 
   p {
-    margin-top: 8px;
+    margin: 8px 0 0;
     ${({ theme }) => theme.textStyleV2.fix.font_15};
+    word-break: keep-all;
   }
 `;
+
+const CardFront = styled(CardFace)``;
 
 const CardBack = styled(CardFace)`
   transform: rotateY(180deg);
-  font-size: 14px;
-  line-height: 1.4;
-  background-color: #4a4a4a;
-  color: ${theme.palette.white_100};
+
+  p + p {
+    margin-top: 12px;
+  }
 `;
 
-const ApplyBtn = styled.button<{
-  back: boolean;
-  color?: PaletteKeyTypes;
-  disabled?: boolean;
+const Action = styled.span<{
+  $iconColor: PaletteKeyTypes;
+  $arrowColor: PaletteKeyTypes;
 }>`
-  background: transparent;
-  border: none;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 6px;
-  color: ${({ back, color }) =>
-    back || !color ? theme.palette.white_100 : theme.palette[color]};
-  & p {
-    margin: 0;
-    ${({ theme }) => theme.textStyleV2.fix.font_20};
-  }
+  ${({ theme }) => theme.textStyleV2.fix.font_20};
 
-  & > svg > g > path {
-    fill: ${({ back }) => back && theme.palette.white_100};
+  /* 원은 글자색, 안쪽 화살표는 카드 배경색 */
+  & > svg > g > path:first-child {
+    fill: ${({ theme, $iconColor }) => theme.palette[$iconColor]};
   }
 
   & > svg > g > path:nth-child(2) {
-    stroke: ${({ back }) => back && '#4a4a4a'};
+    stroke: ${({ theme, $arrowColor }) => theme.palette[$arrowColor]};
   }
 `;
