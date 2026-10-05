@@ -17,7 +17,8 @@ export function useScrollAnimation({
    */
   threshold = 0,
   rootMargin = '-15% 0px',
-  triggerOnce = false,
+  /* 한 번 나타난 섹션은 다시 숨기지 않는다 (위아래로 오갈 때마다 다시 기다리지 않도록) */
+  triggerOnce = true,
   containerVariants,
   itemVariants,
 }: ScrollAnimationOptions = {}) {
@@ -33,14 +34,14 @@ export function useScrollAnimation({
     controls,
     containerVariants: containerVariants ?? {
       hidden: {},
-      visible: { transition: { staggerChildren: 0.2 } },
+      visible: { transition: { staggerChildren: 0.1 } },
     },
     itemVariants: itemVariants ?? {
       hidden: { opacity: 0, y: 40 },
       visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, ease: 'easeInOut' },
+        transition: { duration: 0.5, ease: 'easeOut' },
       },
     },
   };

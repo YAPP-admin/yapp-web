@@ -33,7 +33,7 @@ function AnimatedBox({
   );
 
   const styles = useSpring({
-    config: { mass: 200, tension: 1500, friction: 1000 }, // 질량, 장력, 마찰력
+    config: { tension: 210, friction: 26 }, // 장력, 마찰력 (약 0.5초 안에 자리 잡는다)
     from: { opacity: 0, y: 50 }, // 처음 위치
     to: isIntersect && { opacity: 1, y: 0 }, // 이벤트 시작시 해당 값까지 애니메이션
   });

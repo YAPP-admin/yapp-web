@@ -46,8 +46,6 @@ function RecruitBanner() {
 
   const { days, hrs, mins, secs } = useDday(targetDate);
 
-  if (!isMounted) return null;
-
   const BannerInfo = RECRUIT_BANNER_BY_STATUS[currentStatus];
   const targetLink = LINK_BY_STATUS[currentStatus];
   /* 모집 기간이 아닐 때의 버튼은 모집 알림 신청이라 종 아이콘을 붙인다 */
@@ -56,29 +54,36 @@ function RecruitBanner() {
 
   return (
     <RecruitBannerContainer>
+      {/*
+       * 카드 자리는 처음부터 잡아 둔다. 자리가 없으면 아래 섹션이 화면 맨 위에서 그려졌다가 밀려 내려가고,
+       * 그 사이에 등장 애니메이션이 화면 밖에서 끝나 버린다.
+       * 남은 시간과 문구는 방문자의 시계로 정하므로 브라우저에서만 그린다.
+       */}
       <BannerImageBox>
-        <InnerContainer>
-          <TimerBox>
-            <BannerTitle>{BannerInfo.title}</BannerTitle>
-            <TimeList>
-              <TimeBlock type="DAYS" time={days} />
-              <Colon>:</Colon>
-              <TimeBlock type="HRS" time={hrs} />
-              <Colon>:</Colon>
-              <TimeBlock type="MINS" time={mins} />
-              <Colon>:</Colon>
-              <TimeBlock type="SECS" time={secs} />
-            </TimeList>
-          </TimerBox>
-          <ApplyButton
-            onClick={() => {
-              window.open(targetLink, '_blank');
-            }}
-          >
-            {isAlertButton && <BellIcon />}
-            {BannerInfo.buttonName}
-          </ApplyButton>
-        </InnerContainer>
+        {isMounted && (
+          <InnerContainer>
+            <TimerBox>
+              <BannerTitle>{BannerInfo.title}</BannerTitle>
+              <TimeList>
+                <TimeBlock type="DAYS" time={days} />
+                <Colon>:</Colon>
+                <TimeBlock type="HRS" time={hrs} />
+                <Colon>:</Colon>
+                <TimeBlock type="MINS" time={mins} />
+                <Colon>:</Colon>
+                <TimeBlock type="SECS" time={secs} />
+              </TimeList>
+            </TimerBox>
+            <ApplyButton
+              onClick={() => {
+                window.open(targetLink, '_blank');
+              }}
+            >
+              {isAlertButton && <BellIcon />}
+              {BannerInfo.buttonName}
+            </ApplyButton>
+          </InnerContainer>
+        )}
       </BannerImageBox>
       <ScrollHint width="52" height="19" viewBox="0 0 52 19" aria-hidden="true">
         <path

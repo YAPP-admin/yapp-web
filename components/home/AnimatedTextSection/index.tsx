@@ -5,9 +5,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function AnimatedTextSection(): ReactElement {
-  const { ref, controls, itemVariants } = useScrollAnimation({
-    triggerOnce: false,
-  });
+  const { ref, controls, itemVariants } = useScrollAnimation();
 
   return (
     <SectionContainer>
