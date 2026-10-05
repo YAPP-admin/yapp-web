@@ -4,19 +4,25 @@ import { useEffect } from 'react';
 
 interface ScrollAnimationOptions {
   threshold?: number;
+  rootMargin?: string;
   triggerOnce?: boolean;
   containerVariants?: any;
   itemVariants?: any;
 }
 
 export function useScrollAnimation({
-  threshold = 0.2,
+  /*
+   * 섹션이 화면 가운데 70% 구간에 걸치면 보이게 한다.
+   * "섹션의 몇 %가 보이면"으로 정하면 화면보다 훨씬 긴 섹션은 낮은 화면에서 영영 나타나지 않는다.
+   */
+  threshold = 0,
+  rootMargin = '-15% 0px',
   triggerOnce = false,
   containerVariants,
   itemVariants,
 }: ScrollAnimationOptions = {}) {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold, triggerOnce });
+  const [ref, inView] = useInView({ threshold, rootMargin, triggerOnce });
 
   useEffect(() => {
     controls.start(inView ? 'visible' : 'hidden');

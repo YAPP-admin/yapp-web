@@ -21,6 +21,7 @@ import Banner29th from 'components/home/IntroSection/Banner29th';
 import { Medium } from 'types/medium';
 import RecuitBtn from 'components/home/RecuitBtn';
 import styled from 'styled-components';
+import media from 'styles/media';
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), 'database/medium.json');
@@ -58,8 +59,11 @@ function Home({ data }: { data: Medium[] }): ReactElement {
         <AnimatedTextSection />
         <GridSection />
         <AINativeSection />
-        <ProjectSection />
-        <SponsorSection />
+        {/* 시안: 좁은 화면에서는 후원사가 프로젝트보다 먼저 나온다 */}
+        <SwapOnMobile>
+          <ProjectSection />
+          <SponsorSection />
+        </SwapOnMobile>
         <ExecutiveSection />
       </section>
 
@@ -75,6 +79,15 @@ function Home({ data }: { data: Medium[] }): ReactElement {
     </Wrapper>
   );
 }
+
+const SwapOnMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${media.mobile} {
+    flex-direction: column-reverse;
+  }
+`;
 
 const Wrapper = styled.section`
   position: relative;

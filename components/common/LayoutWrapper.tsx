@@ -26,9 +26,16 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
     });
   };
 
+  const prevPathRef = useRef(asPath);
+
   //@Note 페이지 이동 시에도 항상 스크롤 맨 위 고정
   useEffect(() => {
-    moveToScrollTop();
+    /* 직군별 페이지끼리는 탭 전환이라, 보던 위치를 그대로 둔다 */
+    const isJobPage = (path: string) => /^\/recruit\/[^/?#]+/.test(path);
+    const isJobTabChange = isJobPage(prevPathRef.current) && isJobPage(asPath);
+    prevPathRef.current = asPath;
+
+    if (!isJobTabChange) moveToScrollTop();
   }, [asPath]);
 
   // 랜딩페이지 IntroSection Scroll 이벤트

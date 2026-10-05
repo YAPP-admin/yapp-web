@@ -63,7 +63,7 @@ const StyledBox = styled.div<BannerProps>`
 `;
 
 const InnerTextContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   margin: 0 80px;
   display: flex;
   flex-direction: column;
@@ -100,6 +100,15 @@ const StyledTitle = styled.h1`
   animation: ${slideUp} 0.6s ease forwards;
   animation-delay: 0.2s;
 
+  /* 1201~1600px에서는 한 줄 글자가 배경의 캐릭터와 겹치므로 정해진 자리에서 줄을 바꾼다 */
+  ${media.custom(1600)} {
+    white-space: pre-line;
+  }
+
+  ${media.tablet} {
+    white-space: nowrap;
+  }
+
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
     white-space: pre-line;
@@ -117,6 +126,14 @@ const StyledDescription = styled.p`
 
   animation: ${slideUp} 0.6s ease forwards;
   animation-delay: 0.2s;
+
+  ${media.custom(1600)} {
+    white-space: pre-line;
+  }
+
+  ${media.tablet} {
+    white-space: nowrap;
+  }
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};

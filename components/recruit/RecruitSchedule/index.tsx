@@ -64,7 +64,7 @@ function RecruitSchedule(): ReactElement {
               ),
             )}
             <motion.div key="additional" variants={itemVariants}>
-              <AnimatedBox
+              <GuideBox
                 color={additionalSchedule.color as PaletteKeyTypes}
                 fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
               >
@@ -78,7 +78,7 @@ function RecruitSchedule(): ReactElement {
                     </CardInnerLine>
                   ))}
                 </CardInnerBox>
-              </AnimatedBox>
+              </GuideBox>
             </motion.div>
           </GridContainer>
         </SectionContent>
@@ -99,7 +99,7 @@ const SectionLayout = styled(motion.section)`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
@@ -112,16 +112,14 @@ const SectionContent = styled.div`
   ${media.tablet} {
     gap: 0px;
     width: auto;
-    overflow: auto;
   }
 `;
 
 const GridContainer = styled.article`
   width: 100%;
   display: grid;
-  row-gap: 32px;
-  column-gap: 30px;
-  margin-top: 64px;
+  gap: 24px;
+  margin-top: 32px;
 
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
@@ -138,7 +136,17 @@ const CardInnerBox = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
-  min-height: 150px;
+`;
+
+/* 안내 문구가 줄바꿈되면 카드가 내용만큼 늘어난다 (다른 카드는 높이 고정) */
+const GuideBox = styled(AnimatedBox)`
+  height: auto;
+  min-height: 180px;
+
+  ${media.mobile} {
+    height: auto;
+    min-height: 121px;
+  }
 `;
 
 const CardInnerLine = styled.li`
@@ -163,6 +171,7 @@ const CardLabel = styled.span`
 const CardInnerText = styled.div`
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+  word-break: keep-all;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};

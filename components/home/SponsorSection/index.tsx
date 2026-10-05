@@ -12,12 +12,8 @@ import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function SponsorSection(): ReactElement {
   const { title, subTitle } = SPONSOR_SECTION;
-  const { ref, controls, containerVariants, itemVariants } = useScrollAnimation(
-    {
-      threshold: 0.2,
-      triggerOnce: false,
-    },
-  );
+  const { ref, controls, containerVariants, itemVariants } =
+    useScrollAnimation();
 
   return (
     <SponsorSectionContainer
@@ -41,7 +37,13 @@ function SponsorSection(): ReactElement {
         <SponsorList as={motion.ul} variants={containerVariants}>
           {SPONSOR_DATA.map(({ image, alt }, index) => (
             <Sponsor as={motion.li} key={index} variants={itemVariants}>
-              <Image src={image} alt={alt} width={137} height={50} />
+              <Image
+                src={image}
+                alt={alt}
+                width={137}
+                height={50}
+                sizes="(max-width: 480px) 45vw, (max-width: 833px) 30vw, 196px"
+              />
             </Sponsor>
           ))}
         </SponsorList>
@@ -75,21 +77,26 @@ const SponsorSectionContainer = styled(SectionTemplate)`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
 const SponsorList = styled.ul`
   display: flex;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 16px;
   margin: 48px 0;
   width: 100%;
 
+  /* 한 줄에 세 장, 남는 두 장은 가운데로 */
   ${media.mobile} {
+    flex-wrap: wrap;
+  }
+
+  /* 시안: 360 화면에서는 두 장씩 */
+  ${media.small} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
   }
 `;
 
@@ -97,11 +104,18 @@ const ButtonContainer = styled(motion.div)`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  /* 시안: 버튼 136x53 */
+  button {
+    padding: 12px 20px;
+  }
 `;
 
 const Sponsor = styled.li`
   position: relative;
-  width: 100%;
+  /* 시안: 196x196. 화면이 좁아지면 같은 비율로 줄어든다 */
+  flex: 1 1 0;
+  max-width: 196px;
   aspect-ratio: 1 / 1;
   background-color: ${({ theme }) => theme.palette.black_5};
   border-radius: 16px;
@@ -110,25 +124,17 @@ const Sponsor = styled.li`
   align-items: center;
   justify-content: center;
 
+  /* 시안: 로고 좌우 여백 24px */
   & img {
     object-fit: contain;
-    width: 200px;
-    height: 80px;
+    width: calc(100% - 48px);
+    height: auto;
+    max-height: 50%;
+  }
 
-    ${media.tablet} {
-      width: 100px;
-      height: 50px;
-    }
-
-    ${media.mobile} {
-      width: 180px;
-      height: 80px;
-    }
-
-    ${media.small} {
-      width: 120px;
-      height: 80px;
-    }
+  ${media.mobile} {
+    flex: 0 0 calc((100% - 32px) / 3);
+    max-width: none;
   }
 `;
 

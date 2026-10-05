@@ -19,7 +19,10 @@ function Lines({ lines }: { lines: string[] }): ReactElement {
   return (
     <LineList>
       {lines.map((line) => (
-        <li key={line}>{lines.length > 1 ? `- ${line}` : line}</li>
+        <li key={line}>
+          {lines.length > 1 && <span aria-hidden="true">-</span>}
+          <span>{line}</span>
+        </li>
       ))}
     </LineList>
   );
@@ -40,7 +43,12 @@ function TalentItem({
         {numbered ? `${index + 1}. ${item.title}` : item.title}
       </GroupTitle>
       {item.lines && <Lines lines={item.lines} />}
-      {item.summary && <Summary>→ {item.summary}</Summary>}
+      {item.summary && (
+        <Summary>
+          <span aria-hidden="true">→</span>
+          <span>{item.summary}</span>
+        </Summary>
+      )}
       {item.children?.map((child) => (
         <SubGroup key={child.title}>
           <SubGroupTitle>{child.title}</SubGroupTitle>
@@ -73,7 +81,7 @@ function JobDetail({ job }: JobDetailProps): ReactElement {
           </AlertLink>
         </HeroText>
         <Character>
-          <Image src={character} alt="" fill unoptimized />
+          <Image src={character} alt="" width={304} height={236} unoptimized />
         </Character>
       </Hero>
 
@@ -123,11 +131,10 @@ const Hero = styled.section<{
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center;
   box-sizing: border-box;
   min-height: 236px;
   padding: 32px;
-  border-radius: 20px;
+  border-radius: 16px;
   color: ${({ theme, $fontColor }) => theme.palette[$fontColor]};
   background-color: ${({ theme, $backgroundColor }) =>
     theme.palette[$backgroundColor]};
@@ -144,10 +151,16 @@ const HeroText = styled.div`
   flex-direction: column;
   align-items: flex-start;
   /* 캐릭터 자리만큼 비워 둔다 */
-  max-width: calc(100% - 300px);
+  max-width: calc(100% - 320px);
 
   ${media.mobile} {
+    max-width: calc(100% - 236px);
+  }
+
+  ${media.custom(599)} {
     max-width: 100%;
+    /* 좁은 화면에서는 캐릭터가 글 아래 오른쪽에 놓인다 */
+    padding-bottom: 72px;
   }
 `;
 
@@ -157,12 +170,20 @@ const HeroName = styled.h2`
   font-weight: 700;
 `;
 
+/* 시안: 설명은 두 줄 자리를 차지하고, 버튼은 카드 아래쪽에 놓인다 */
 const HeroDescription = styled.p`
+  min-height: 64px;
   margin: 4px 0 0;
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
+  white-space: pre-line;
   word-break: keep-all;
 
+  ${media.tablet} {
+    white-space: normal;
+  }
+
   ${media.mobile} {
+    min-height: 0;
     ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
   }
 `;
@@ -175,8 +196,7 @@ const AlertLink = styled.a<{
   margin-top: 20px;
   padding: 8px 18px;
   border-radius: 99px;
-  ${({ theme }) => theme.textStyleV2.fix.font_16};
-  font-weight: 600;
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   ${({ theme, $backgroundColor, $fontColor }) =>
     $fontColor === 'white_100'
       ? `
@@ -194,24 +214,30 @@ const AlertLink = styled.a<{
   }
 `;
 
+/* 시안: 카드 오른쪽 16px 안쪽, 아래에 붙는 304x236 그림 */
 const Character = styled.div`
   position: absolute;
-  right: 32px;
-  bottom: -36px;
-  width: 250px;
-  height: 200px;
+  right: 16px;
+  bottom: 0;
+  width: 304px;
+  height: 236px;
 
   img {
-    object-fit: contain;
-    object-position: center bottom;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   ${media.mobile} {
-    right: 12px;
-    bottom: -20px;
-    width: 110px;
-    height: 88px;
-    opacity: 0.9;
+    right: 8px;
+    width: 228px;
+    height: 177px;
+  }
+
+  ${media.custom(599)} {
+    right: 0;
+    width: 152px;
+    height: 118px;
   }
 `;
 
@@ -288,14 +314,37 @@ const LineList = styled.ul`
   color: ${({ theme }) => theme.palette.grey_600};
   ${({ theme }) => theme.textStyleV2.fix.font_16};
   word-break: keep-all;
+
+  /* 줄이 넘어가도 '-' 아래가 아니라 글자 아래에서 시작하게 한다 */
+  li {
+    display: flex;
+    gap: 4px;
+  }
+
+  li > span:first-child:not(:only-child) {
+    flex-shrink: 0;
+  }
+
+  /* 좁은 화면에서는 항목마다 여러 줄이 되므로 항목 사이를 띄운다 */
+  ${media.mobile} {
+    li + li {
+      margin-top: 4px;
+    }
+  }
 `;
 
 const Summary = styled.p`
+  display: flex;
+  gap: 4px;
   margin: 4px 0 0;
   color: ${({ theme }) => theme.palette.grey_800};
   ${({ theme }) => theme.textStyleV2.fix.font_16};
   font-weight: 600;
   word-break: keep-all;
+
+  span:first-child {
+    flex-shrink: 0;
+  }
 `;
 
 export default JobDetail;

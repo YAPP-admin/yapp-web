@@ -1,6 +1,7 @@
 import { SESSION_CURRICULUM } from 'database/recruit';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 import media from 'styles/media';
 import SectionTitle from 'components/common/SectionTitle';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
@@ -30,11 +31,21 @@ function SessionOverview(): ReactElement {
           />
         </motion.div>
         <SessionList variants={containerVariants}>
-          {sessions.map(({ name, date, description }) => (
+          {sessions.map(({ name, date, description, logo }) => (
             <Session key={name} variants={itemVariants}>
               <SessionBody>
                 <SessionHead>
-                  <SessionName>{name}</SessionName>
+                  <SessionName>
+                    {name}
+                    {logo && (
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={63}
+                        height={20}
+                      />
+                    )}
+                  </SessionName>
                   <SessionDate>{date}</SessionDate>
                 </SessionHead>
                 <SessionDescription>{description}</SessionDescription>
@@ -59,7 +70,7 @@ const SectionLayout = styled(motion.section)`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
@@ -106,6 +117,9 @@ const SessionHead = styled.div`
 `;
 
 const SessionName = styled.h3`
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin: 0;
   color: ${({ theme }) => theme.palette.black_100};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};

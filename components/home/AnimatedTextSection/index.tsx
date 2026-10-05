@@ -6,7 +6,6 @@ import { useScrollAnimation } from 'hooks/useScrollAnimation';
 
 function AnimatedTextSection(): ReactElement {
   const { ref, controls, itemVariants } = useScrollAnimation({
-    threshold: 0.1,
     triggerOnce: false,
   });
 

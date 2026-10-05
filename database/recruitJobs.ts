@@ -17,7 +17,7 @@ export interface RecruitJob {
   /** 직군 카드와 같은 색 구성 */
   backgroundColor: string;
   fontColor: string;
-  /** 소개 카드에 놓는 캐릭터 */
+  /** 소개 카드 오른쪽에 놓는 캐릭터 그림 (카드와 같은 색 배경) */
   character: string;
   talent: {
     intro?: string;
@@ -43,10 +43,10 @@ export const RECRUIT_JOBS: RecruitJob[] = [
     slug: 'pm',
     name: 'PM',
     description:
-      '서비스의 기획에 대한 아이디어를 수집, 제시하며 서비스 런칭을 목표로 프로젝트를 주도적으로 관리하고 진행합니다.',
+      '서비스의 기획에 대한 아이디어를 수집, 제시하며\n서비스 런칭을 목표로 프로젝트를 주도적으로 관리하고 진행합니다.',
     backgroundColor: 'chemistry_29th_orange',
     fontColor: 'white_100',
-    character: '/assets/icons/yappu_yellow.svg',
+    character: '/assets/images/29th/job_character_orange.webp',
     talent: {
       items: [
         {
@@ -124,10 +124,10 @@ export const RECRUIT_JOBS: RecruitJob[] = [
     slug: 'design',
     name: 'Design',
     description:
-      '기획을 바탕으로 개별 팀의 아이디어에 따라 Figma를 활용해 UX/UI/GUI 디자인을 담당합니다.',
+      '기획을 바탕으로 개별 팀의 아이디어에 따라\nFigma를 활용해 UX/UI/GUI 디자인을 담당합니다.',
     backgroundColor: 'chemistry_29th_yellow',
-    fontColor: 'chemistry_29th_text',
-    character: '/assets/icons/yappu_blue.svg',
+    fontColor: 'black_100',
+    character: '/assets/images/29th/job_character_yellow.webp',
     talent: {
       intro:
         '프로덕트 오너십을 바탕으로, 팀원들과 협업하여 더 나은 결과를 만들어가는 분',
@@ -233,7 +233,7 @@ export const RECRUIT_JOBS: RecruitJob[] = [
         lines: [
           'PM 또는 개발자와 협업한 프로젝트 경험이 있는 분',
           '사용자 피드백이나 정량·정성 데이터를 바탕으로 디자인을 개선해본 경험이 있는 분',
-          '디자인 외에도 기획/리서치/운영 등 에서 능동적으로 기여한 경험이 있는 분',
+          '디자인 외에도 기획/리서치/운영 등에서 능동적으로 기여한 경험이 있는 분',
         ],
       },
     ],
@@ -244,7 +244,7 @@ export const RECRUIT_JOBS: RecruitJob[] = [
     description: '팀 내에서 웹 프론트엔드 개발을 담당합니다.',
     backgroundColor: 'chemistry_29th_blue',
     fontColor: 'white_100',
-    character: '/assets/icons/yappu_orange.svg',
+    character: '/assets/images/29th/job_character_blue.webp',
     talent: {
       intro: '기술과 협업에 진심을 다하며, 배움을 팀의 성장으로 연결하는 사람',
       items: [
@@ -317,7 +317,7 @@ export const RECRUIT_JOBS: RecruitJob[] = [
     description: '팀 내에서 Mobile 개발을 담당합니다.',
     backgroundColor: 'chemistry_29th_orange',
     fontColor: 'white_100',
-    character: '/assets/icons/yappu_yellow.svg',
+    character: '/assets/images/29th/job_character_orange.webp',
     talent: {
       items: [
         {
@@ -380,8 +380,8 @@ export const RECRUIT_JOBS: RecruitJob[] = [
     name: 'Server',
     description: '팀 내에서 Server 개발을 담당합니다.',
     backgroundColor: 'chemistry_29th_yellow',
-    fontColor: 'chemistry_29th_text',
-    character: '/assets/icons/yappu_blue.svg',
+    fontColor: 'black_100',
+    character: '/assets/images/29th/job_character_yellow.webp',
     talent: {
       items: [
         {
@@ -450,7 +450,7 @@ export const RECRUIT_JOBS: RecruitJob[] = [
       '자신의 전문성을 기반으로, AI를 활용해 직군의 경계를 넘어 실행 범위를 넓혀가는 팀입니다.',
     backgroundColor: 'chemistry_29th_blue',
     fontColor: 'white_100',
-    character: '/assets/icons/yappu_orange.svg',
+    character: '/assets/images/29th/job_character_blue.webp',
     talent: {
       items: [
         {

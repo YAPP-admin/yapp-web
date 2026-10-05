@@ -59,8 +59,17 @@ function AINativeSection(): ReactElement {
 const SectionLayout = styled(motion.section)`
   display: flex;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.white};
+  /* 시안: 1920 화면에서 섹션 높이 1200px, 내용은 가운데 */
+  min-height: 1200px;
   padding: 160px 80px;
+
+  ${media.tablet} {
+    min-height: auto;
+    padding: 100px 80px;
+  }
 
   ${media.mobile} {
     padding: 100px 12px;
@@ -68,7 +77,7 @@ const SectionLayout = styled(motion.section)`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
@@ -121,22 +130,12 @@ const TeamCard = styled(motion.div)`
   border-radius: 20px;
   color: ${({ theme }) => theme.palette.white_100};
   background-color: ${({ theme }) => theme.palette.chemistry_29th_blue};
-  /* 옅은 구름 */
-  background-image: radial-gradient(
-      ellipse 160px 56px at 0% 62%,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    ),
-    radial-gradient(
-      ellipse 240px 48px at 56% 100%,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    ),
-    radial-gradient(
-      ellipse 150px 70px at 100% 52%,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
+  /* 시안의 반짝이(왼쪽 위 기준)와 구름(오른쪽 아래 기준) 레이어 */
+  background-image: url('/assets/images/29th/ai_native_sparkle.webp'),
+    url('/assets/images/29th/ai_native_cloud.webp');
+  background-repeat: no-repeat;
+  background-size: 838px 172px, 1040px 227px;
+  background-position: 94px 56px, right bottom;
 
   /* 오른쪽으로 흐르는 선 */
   &::before {
@@ -149,29 +148,6 @@ const TeamCard = styled(motion.div)`
     background: url('/assets/images/29th/lines.svg') no-repeat center / 100%
       100%;
     opacity: 0.6;
-    pointer-events: none;
-  }
-
-  /* 반짝이 */
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(
-        circle at 322px 72px,
-        #fff 0 2px,
-        rgba(255, 255, 255, 0.35) 3px,
-        transparent 7px
-      ),
-      radial-gradient(
-        circle at 730px 113px,
-        #fff 0 2px,
-        rgba(255, 255, 255, 0.35) 3px,
-        transparent 7px
-      ),
-      radial-gradient(circle at 742px 124px, #fff 0 1px, transparent 2px),
-      radial-gradient(circle at 920px 172px, #fff 0 1px, transparent 2px),
-      radial-gradient(circle at 897px 219px, #fff 0 1px, transparent 2px);
     pointer-events: none;
   }
 
@@ -238,6 +214,7 @@ const InfoTitle = styled.h3`
   margin: 0;
   color: ${({ theme }) => theme.palette.chemistry_29th_text};
   ${({ theme }) => theme.textStyleV2.fix.font_24};
+  word-break: keep-all;
 `;
 
 const InfoDescription = styled.p`

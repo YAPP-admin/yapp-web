@@ -61,13 +61,13 @@ export default class MyDocument extends Document {
             rel="preload"
             as="image"
             href="/assets/images/29th/banner_home_tablet.webp"
-            media="(min-width: 834px) and (max-width: 1200px) and (orientation: portrait)"
+            media="(min-width: 834px) and (max-width: 1200px) and (orientation: portrait), (max-width: 833px) and (orientation: portrait) and (min-aspect-ratio: 651/1000)"
           />
           <link
             rel="preload"
             as="image"
             href="/assets/images/29th/banner_home_mobile.webp"
-            media="(max-width: 833px) and (orientation: portrait)"
+            media="(max-width: 833px) and (max-aspect-ratio: 13/20)"
           />
         </Head>
         <body>

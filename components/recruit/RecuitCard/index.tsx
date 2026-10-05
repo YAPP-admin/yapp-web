@@ -91,6 +91,7 @@ const CardFace = styled.div<{
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;

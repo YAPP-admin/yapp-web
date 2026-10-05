@@ -8,8 +8,9 @@ export enum RecruitStatus {
   EXTRA = 'EXTRA',
 }
 
-export const RECRUITING_START = '2026-10-16T00:00:00';
-export const RECRUITING_DEADLINE = '2026-10-25T23:59:59';
+/* 한국 시간 기준. 시간대(+09:00)를 빼면 방문자 기기의 시간대로 해석돼 전환 시각이 어긋난다 */
+export const RECRUITING_START = '2026-10-16T00:00:00+09:00';
+export const RECRUITING_DEADLINE = '2026-10-25T23:59:59+09:00';
 // 추가 모집이 없으면 마감일과 같은 값으로 둔다 (EXTRA 상태를 건너뜀)
 export const RECRUITING_EXTRA_DEADLINE = RECRUITING_DEADLINE;
 

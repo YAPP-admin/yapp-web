@@ -80,6 +80,16 @@ function RecruitBanner() {
           </ApplyButton>
         </InnerContainer>
       </BannerImageBox>
+      <ScrollHint width="52" height="19" viewBox="0 0 52 19" aria-hidden="true">
+        <path
+          d="M2 2L26 17L50 2"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </ScrollHint>
     </RecruitBannerContainer>
   );
 }
@@ -112,8 +122,9 @@ function BellIcon() {
 /* 시안: 1920 화면에서 위아래 120px, 좌우 160px 여백 안에 1600x960 카드 */
 const RecruitBannerContainer = styled.div`
   display: flex;
-  justify-content: center;
-  padding: 120px 16px;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 16px 48px;
   background: ${({ theme }) => theme.palette.white};
 
   ${media.mobile} {
@@ -126,18 +137,21 @@ const BannerImageBox = styled.div`
   overflow: hidden;
   width: 100%;
   max-width: 1600px;
-  height: 960px;
+  /* 시안: 1600x960. 카드가 좁아지면 같은 비율로 낮춰 배경 양옆이 잘리지 않게 한다 */
+  --card-height: min(960px, calc((100vw - 32px) * 0.6));
+  height: var(--card-height);
   border-radius: 32px;
   background: url('/assets/images/29th/recruit_bg.webp') no-repeat center/cover;
 
   /* 시안: 834 화면 802x960 */
   ${media.tablet} {
+    --card-height: 960px;
     background-image: url('/assets/images/29th/recruit_bg_tablet.webp');
   }
 
   /* 타이머가 작아지는 폭부터는 낮은 카드. 가로로 긴 동안은 PC 배경이 맞다 */
   ${media.mobile} {
-    height: 489px;
+    --card-height: 489px;
     background-image: url('/assets/images/29th/recruit_bg.webp');
     background-position: 75% center;
   }
@@ -146,6 +160,17 @@ const BannerImageBox = styled.div`
   ${media.small} {
     background-image: url('/assets/images/29th/recruit_bg_mo.webp');
     background-position: center;
+  }
+`;
+
+/* 시안: 카드 아래 26px에 놓이는 아래쪽 화살표 (좁은 화면 시안에는 없다) */
+const ScrollHint = styled.svg`
+  flex-shrink: 0;
+  margin: 39px 0 14px;
+  color: ${({ theme }) => theme.palette.grey_400};
+
+  ${media.mobile} {
+    display: none;
   }
 `;
 
@@ -166,7 +191,8 @@ const InnerContainer = styled.div`
   gap: 32px;
   align-items: center;
   text-align: center;
-  padding-top: 146px;
+  /* 시안: 높이 960px 카드에서 위 146px */
+  padding-top: calc(var(--card-height) * 0.152);
   animation: ${slideUp} 1s ease-in-out forwards;
 
   ${media.mobile} {
@@ -200,6 +226,11 @@ const TimeList = styled.ul`
 
   ${media.mobile} {
     gap: 14px;
+  }
+
+  /* 360px보다 좁으면 타이머 양끝이 카드 밖으로 나간다 */
+  ${media.custom(359)} {
+    gap: 8px;
   }
 `;
 

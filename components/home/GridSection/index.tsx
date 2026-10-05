@@ -63,25 +63,33 @@ const SectionLayout = styled(motion.section)`
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.palette.white};
+  align-items: center;
+  box-sizing: border-box;
   width: auto;
+  /* 시안: 1920 화면에서 섹션 높이 1200px, 내용은 가운데 */
+  min-height: 1200px;
   padding: 160px 80px;
 
+  ${media.tablet} {
+    min-height: auto;
+    padding: 100px 80px;
+  }
+
   ${media.mobile} {
-    padding: 100px 20px;
+    padding: 120px 20px;
   }
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
 const GridContainer = styled.div`
   width: 100%;
   display: grid;
-  row-gap: 32px;
-  column-gap: 30px;
-  margin-top: 64px;
+  gap: 24px;
+  margin-top: 32px;
 
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;

@@ -91,7 +91,8 @@ const ImageContainer = styled.div`
 
 const InnerContainer = styled.div`
   position: absolute;
-  top: 180px;
+  /* 시안: 높이 920px 카드에서 위 180px. 카드가 낮아지면 같은 비율로 올라간다 */
+  top: 19.57%;
   left: 0;
   right: 0;
   display: flex;
@@ -113,8 +114,15 @@ const InnerContainer = styled.div`
     color: ${({ theme }) => theme.palette.white_100};
   }
 
+  /* 834px 시안보다 좁아지면 카드가 줄어드는 만큼 글자 자리도 같은 비율로 줄인다 */
+  ${media.mobile} {
+    top: 7.2vw;
+    gap: clamp(16px, 3.84vw, 32px);
+  }
+
   ${media.small} {
     top: 36px;
+    gap: 32px;
   }
 `;
 
@@ -132,7 +140,14 @@ const Title = styled.span<{ $compact: boolean }>`
   white-space: pre-line;
   word-break: keep-all;
 
+  ${media.mobile} {
+    font-size: clamp(22px, 4.32vw, 36px);
+    line-height: 1.42;
+  }
+
   ${media.small} {
+    font-size: 2.25rem;
+    line-height: 51.2px;
     ${({ theme, $compact }) => $compact && theme.textStyleV2.resp.title1_sm};
   }
 `;
@@ -148,6 +163,12 @@ const SubTitle = styled.span`
 
   ${media.tablet} {
     color: inherit;
+  }
+
+  ${media.mobile} {
+    font-size: clamp(14px, 2.88vw, 24px);
+    line-height: 1.5;
+    margin: 0;
   }
 
   ${media.small} {

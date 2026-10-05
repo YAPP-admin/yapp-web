@@ -1,4 +1,4 @@
-import { type ReactElement, useEffect } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       job,
       seo: {
         title: `${job.name} 인재상 & JD`,
-        description: job.description,
+        description: job.description.replace(/\n/g, ' '),
         path: `${Path.Recruit}/${job.slug}`,
         /* 모집 전에만 공개하는 페이지라 검색 결과에는 올리지 않는다 */
         noindex: true,
@@ -50,11 +50,18 @@ function RecruitJobPage({ job }: RecruitJobPageProps): ReactElement {
   const router = useRouter();
   const jobNames = RECRUIT_JOBS.map(({ name }) => name);
 
-  /* 직군별 인재상 & JD는 모집 전에만 공개한다. 그 외에는 모집 안내로 돌려보낸다 */
+  const [isOpen, setIsOpen] = useState(false);
+
+  /*
+   * 직군별 인재상 & JD는 모집 전에만 공개한다. 그 외에는 모집 안내로 돌려보낸다.
+   * 모집 전인지 확인하기 전에는 내용을 그리지 않아, 돌려보내기 전에 페이지가 잠깐 보이지 않게 한다.
+   */
   useEffect(() => {
-    if (RECRUITING_STATUS() !== RecruitStatus.PRE) {
-      router.replace(Path.Recruit);
+    if (RECRUITING_STATUS() === RecruitStatus.PRE) {
+      setIsOpen(true);
+      return;
     }
+    router.replace(Path.Recruit);
   }, [router]);
 
   const handleChangeJob = (name: string) => {
@@ -65,6 +72,8 @@ function RecruitJobPage({ job }: RecruitJobPageProps): ReactElement {
       });
     }
   };
+
+  if (!isOpen) return <Placeholder />;
 
   return (
     <>
@@ -95,7 +104,8 @@ const Layout = styled.div`
   box-sizing: content-box;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 56px 20px 160px;
+  /* 좌우 여백은 위 배너의 글자 시작점(80px)과 맞춘다 */
+  padding: 56px 80px 160px;
 
   ${media.mobile} {
     padding: 32px 20px 100px;
@@ -115,5 +125,10 @@ const TabBox = styled.div`
 `;
 
 const Content = styled.div``;
+
+/* 내용을 그리기 전에 푸터가 화면 위로 올라오지 않게 자리를 잡아 둔다 */
+const Placeholder = styled.div`
+  min-height: 100vh;
+`;
 
 export default RecruitJobPage;

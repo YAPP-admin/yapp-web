@@ -106,7 +106,7 @@ const SectionContent = styled.div`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -137,8 +137,9 @@ const FAQBox = styled.section`
   }
 `;
 
+/* 시안: 질문 한 줄 76px (위아래 20px + 아이콘 36px) */
 const FAQBoxInner = styled.div`
-  padding: 32px 0;
+  padding: 23px 0;
   ${media.mobile} {
     padding: 24px 0;
   }
@@ -156,9 +157,9 @@ const FAQSubTitle = styled.div`
 `;
 
 const TitleText = styled.span`
-  ${media.custom(450)} {
-    max-width: 228px;
-  }
+  flex: 1;
+  min-width: 0;
+  word-break: keep-all;
 `;
 
 const TitleButton = styled.button<{ isOpen: boolean }>`

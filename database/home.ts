@@ -190,41 +190,136 @@ export const EXECUTIVE_GROUPS: { name: string; members: Executive[] }[] = [
   {
     name: '회장단',
     members: [
-      { role: '회장', name: '이예진' },
-      { role: '부회장', name: '문세종' },
+      {
+        role: '회장',
+        name: '이예진',
+        image: '/assets/images/29th/executives/lee-yejin.webp',
+      },
+      {
+        role: '부회장',
+        name: '문세종',
+        image: '/assets/images/29th/executives/moon-sejong.webp',
+      },
     ],
   },
-  { name: '세션기획', members: [{ role: '세션기획 총괄', name: '손호민' }] },
-  { name: '회계', members: [{ role: '회계 총괄', name: '강채원' }] },
-  { name: '인사', members: [{ role: '인사 총괄', name: '김송이' }] },
+  {
+    name: '세션기획',
+    members: [
+      {
+        role: '세션기획 총괄',
+        name: '손호민',
+        image: '/assets/images/29th/executives/son-homin.webp',
+      },
+    ],
+  },
+  {
+    name: '회계',
+    members: [
+      {
+        role: '회계 총괄',
+        name: '강채원',
+        image: '/assets/images/29th/executives/kang-chaewon.webp',
+      },
+    ],
+  },
+  {
+    name: '인사',
+    members: [
+      {
+        role: '인사 총괄',
+        name: '김송이',
+        image: '/assets/images/29th/executives/kim-songi.webp',
+      },
+    ],
+  },
   {
     name: '디자인',
     members: [
-      { role: '디자인 리드', name: '박수연' },
-      { role: '디자인 팀', name: '김유희' },
-      { role: '디자인 팀', name: '황유나' },
+      {
+        role: '디자인 리드',
+        name: '박수연',
+        image: '/assets/images/29th/executives/park-suyeon.webp',
+      },
+      {
+        role: '디자인 팀',
+        name: '김유희',
+        image: '/assets/images/29th/executives/kim-yuhee.webp',
+      },
+      {
+        role: '디자인 팀',
+        name: '황유나',
+        image: '/assets/images/29th/executives/hwang-yuna.webp',
+      },
     ],
   },
   {
     name: '홍보',
     members: [
-      { role: '홍보 총괄', name: '박주현' },
-      { role: '홍보 팀', name: '김지윤' },
-      { role: '홍보 팀', name: '신민규' },
+      {
+        role: '홍보 총괄',
+        name: '박주현',
+        image: '/assets/images/29th/executives/park-juhyeon.webp',
+      },
+      {
+        role: '홍보 팀',
+        name: '김지윤',
+        image: '/assets/images/29th/executives/kim-jiyun.webp',
+      },
+      {
+        role: '홍보 팀',
+        name: '신민규',
+        image: '/assets/images/29th/executives/shin-mingyu.webp',
+      },
     ],
   },
   {
     name: '직군리드',
     members: [
-      { role: 'PM 리드', name: '성민수' },
-      { role: 'PM 리드', name: '전지영' },
-      { role: '디자인 리드', name: '박수연' },
-      { role: '웹 리드', name: '박병규' },
-      { role: '서버 리드', name: '공희상' },
-      { role: '서버 리드', name: '정용훈' },
-      { role: '모바일 리드', name: '정찬호' },
-      { role: '모바일 리드', name: '이승원' },
-      { role: 'AI Native 리드', name: '유재윤' },
+      {
+        role: 'PM 리드',
+        name: '성민수',
+        image: '/assets/images/29th/executives/seong-minsu.webp',
+      },
+      {
+        role: 'PM 리드',
+        name: '전지영',
+        image: '/assets/images/29th/executives/jeon-jiyoung.webp',
+      },
+      {
+        role: '디자인 리드',
+        name: '박수연',
+        image: '/assets/images/29th/executives/park-suyeon.webp',
+      },
+      {
+        role: '웹 리드',
+        name: '박병규',
+        image: '/assets/images/29th/executives/park-byeonggyu.webp',
+      },
+      {
+        role: '서버 리드',
+        name: '공희상',
+        image: '/assets/images/29th/executives/kong-heesang.webp',
+      },
+      {
+        role: '서버 리드',
+        name: '정용훈',
+        image: '/assets/images/29th/executives/jeong-yonghun.webp',
+      },
+      {
+        role: '모바일 리드',
+        name: '정찬호',
+        image: '/assets/images/29th/executives/jeong-chanho.webp',
+      },
+      {
+        role: '모바일 리드',
+        name: '이승원',
+        image: '/assets/images/29th/executives/lee-seungwon.webp',
+      },
+      {
+        role: 'AI Native 리드',
+        name: '유재윤',
+        image: '/assets/images/29th/executives/yu-jaeyun.webp',
+      },
     ],
   },
 ];
@@ -247,20 +342,20 @@ export const SPONSOR_SECTION = {
 /** Sponsor 이미지 경로 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor_greeting.png',
-    alt: 'sponsor greeting',
+    image: '/assets/sponsors/sponsor_flab.png',
+    alt: 'sponsor F-Lab',
   },
   {
     image: '/assets/sponsors/sponsor_elice.png',
     alt: 'sponsor elice',
   },
   {
-    image: '/assets/sponsors/sponsor_dcamp.png',
-    alt: 'sponsor dcamp',
+    image: '/assets/sponsors/sponsor_greeting.png',
+    alt: 'sponsor greeting',
   },
   {
-    image: '/assets/sponsors/sponsor_flab.png',
-    alt: 'sponsor F-Lab',
+    image: '/assets/sponsors/sponsor_dcamp.png',
+    alt: 'sponsor dcamp',
   },
   {
     image: '/assets/sponsors/sponsor_ictcoc.png',

@@ -32,10 +32,17 @@ const Yapp = {
   // FAQ 링크
   YAPP_FAQ_NOTION: 'https://yapp-workspace.notion.site/yapp-28-faq',
 
-  // 사전 모집 링크
+  /*
+   * 모집 알림 신청 폼 (구글 폼)
+   * - PREVIOUS_GENERATION_RECRUIT_LINK: 이번 기수 모집 전(PRE)에 쓰는 "N기 모집 알림 신청" 폼
+   * - NEXT_GENERATION_RECRUIT_LINK: 모집이 끝난 뒤(POST)에 쓰는 "N+1기 모집 알림 신청" 폼
+   * 기수를 올릴 때는 NEXT 값을 PREVIOUS로 옮기고, NEXT에는 새 폼 주소를 넣는다.
+   */
+  // YAPP 29기 모집 사전 알림 등록
   PREVIOUS_GENERATION_RECRUIT_LINK:
-    'https://docs.google.com/forms/d/e/1FAIpQLSeAtEn6VTKxoWlzkYv_Sp_JHrzILJCl6l2tT4ccWfhq-UuEbg/viewform',
+    'https://docs.google.com/forms/d/e/1FAIpQLSdR_3RMidWSG47YeM5kVMYGGdAIBYfNLHB8HpEkaBPvS4o-6A/viewform',
+  // TODO: 30기 모집 알림 폼이 나오면 교체 (지금은 29기 폼을 가리킨다)
   NEXT_GENERATION_RECRUIT_LINK:
-    'https://docs.google.com/forms/d/e/1FAIpQLSdR_3RMidWSG47YeM5kVMYGGdAIBYfNLHB8HpEkaBPvS4o-6A/viewform?usp=dialog',
+    'https://docs.google.com/forms/d/e/1FAIpQLSdR_3RMidWSG47YeM5kVMYGGdAIBYfNLHB8HpEkaBPvS4o-6A/viewform',
 };
 export default Yapp;

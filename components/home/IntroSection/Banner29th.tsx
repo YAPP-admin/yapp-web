@@ -18,7 +18,7 @@ const Banner29th = () => {
           alt="Play Our CHEMISTRY - 새로운 무대의 시작, YAPP 29기에서 함께해요!"
           width={928}
           height={262}
-          sizes="(max-width: 833px) 90vw, 928px"
+          sizes="(max-width: 833px) 90vw, (max-width: 1920px) 928px, 49vw"
           priority
         />
       </Banner29thTitleBox>
@@ -30,9 +30,13 @@ const Banner29th = () => {
 
 export default Banner29th;
 
-/* 세로로 긴 화면에서만 태블릿·모바일용 배경을 쓴다 (가로로 눕힌 기기는 PC 배경이 맞다) */
+/*
+ * 세로로 긴 화면에서만 태블릿·모바일용 배경을 쓴다 (가로로 눕힌 기기는 PC 배경이 맞다).
+ * 모바일 배경(360x780)은 휴대폰처럼 길쭉한 화면(가로:세로 13:20 이하)에만 쓴다.
+ * 태블릿 세로(768x1024 등)에 쓰면 크게 확대돼 아래쪽 캐릭터가 잘린다.
+ */
 const tabletPortrait = `${media.tablet} and (orientation: portrait)`;
-const mobilePortrait = `${media.mobile} and (orientation: portrait)`;
+const mobilePortrait = `${media.mobile} and (max-aspect-ratio: 13/20)`;
 
 const BannerLayout = styled.div`
   position: relative;

@@ -31,15 +31,34 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
     if (!section) return;
 
     joinSectionRef.current = section as HTMLElement;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsSectionInView(entry.isIntersecting);
-      },
-      { threshold: 0.1 },
-    );
 
-    observer.observe(section);
-    return () => observer.disconnect();
+    /*
+     * 본문이 화면 위쪽 40% 선을 넘어 올라오면 보이고, 본문이 끝나 버튼 자리(아래 100px)에
+     * 푸터가 올라오면 숨긴다. "본문의 10%가 보이면"으로 정하면 본문이 길어질수록
+     * 낮은 화면에서는 조건을 영영 채우지 못한다.
+     */
+    const updateVisibility = () => {
+      const { top, bottom } = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      setIsSectionInView(
+        top < viewportHeight * 0.4 && bottom > viewportHeight - 100,
+      );
+    };
+
+    updateVisibility();
+    /* 페이지는 #__next 안에서 스크롤되므로 캡처 단계에서 듣는다 */
+    document.addEventListener('scroll', updateVisibility, {
+      capture: true,
+      passive: true,
+    });
+    window.addEventListener('resize', updateVisibility);
+
+    return () => {
+      document.removeEventListener('scroll', updateVisibility, {
+        capture: true,
+      });
+      window.removeEventListener('resize', updateVisibility);
+    };
   }, []);
 
   const handleHoverStart = useCallback(async () => {
@@ -91,7 +110,17 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.24));
   left: 50%;
   transform: translateX(-50%);
-  bottom: 36px;
+  bottom: 31px;
+
+  ${media.mobile} {
+    bottom: 35px;
+  }
+
+  /* 360px보다 좁으면 화면 양끝에 닿지 않게 간격을 줄인다 */
+  ${media.custom(359)} {
+    gap: 10px;
+    padding-left: 14px;
+  }
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   transition: opacity 0.4s ease;
@@ -123,6 +152,10 @@ const AnimatedButton = styled(motion.button)`
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  }
+
+  ${media.custom(359)} {
+    padding: 7px 14px 8px;
   }
 
   transform-origin: center;

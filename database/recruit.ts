@@ -41,7 +41,19 @@ export const RECRUIT_BANNER_BY_STATUS: Record<
 };
 
 /** 세션 커리큘럼 */
-export const SESSION_CURRICULUM = {
+interface CurriculumSession {
+  name: string;
+  date: string;
+  description: string;
+  /** 이름 옆에 붙는 협력사 로고 */
+  logo?: { src: string; alt: string };
+}
+
+export const SESSION_CURRICULUM: {
+  title: string;
+  subtitle: string;
+  sessions: CurriculumSession[];
+} = {
   title: '세션 커리큘럼',
   subtitle: '세션 커리큘럼은 내부 사정에 따라 조정될 수 있습니다.',
   sessions: [
@@ -66,7 +78,8 @@ export const SESSION_CURRICULUM = {
       description: `팀별 서비스 기획을 함께 리뷰하고, 각 팀이 나아갈 방향성을 공유해요.`,
     },
     {
-      name: '얍커톤 X goorm',
+      name: '얍커톤 X',
+      logo: { src: '/assets/images/29th/goorm.png', alt: 'goorm' },
       date: '12.19',
       description: `아이디어를 실제로 동작하는 서비스로 만드는,\n하루 만에 끝내는 바이브톤으로 구름과 함께해요.`,
     },
@@ -230,7 +243,7 @@ export const RECRUIT_FAQ = {
                     오프라인 대면으로 진행되고 있으며 각 기수별 상황에 따라 달라질 수 있습니다.<br class="br" />
                     오프라인으로 수도권에서 세션이 진행되며, 장소 섭외 상황에 따라 변경될 수 있습니다.<br class="br" />
                     일정, 장소 등 자세한 정보는 내부 채널을 통해 사전 공지해드릴 예정입니다.`,
-      category: '활동 관련',
+      category: '지원 관련',
     },
     {
       subTitle: '동아리 활동은 어떤 게 있나요?',
@@ -239,12 +252,12 @@ export const RECRUIT_FAQ = {
                     3. 직군 세션: 직군별 스터디, 직군 특성을 반영한 발표, 초청 취업 강연, 현직자 선배의 조언을 들을 수 있는 Networking Day 등<br />
                     4. 성과공유회: 실제 현업에서 활동 중인 선배들에게 프로젝트를 발표하고, 피드백을 받을 수 있는 시간<br />
                     5. 그 외 다양한 네트워킹 활동`,
-      category: '활동 관련',
+      category: '지원 관련',
     },
     {
       subTitle: '동아리 회비가 있나요?',
       description: `10만원대 초반을 예상 중이며, 채용 상황과 내부 사정에 따라 변경될 수 있습니다.`,
-      category: '활동 관련',
+      category: '지원 관련',
     },
     {
       subTitle: '더 궁금한 사항이 있어요!',
