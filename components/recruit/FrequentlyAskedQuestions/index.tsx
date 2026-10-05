@@ -6,14 +6,18 @@ import media from 'styles/media';
 
 import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
-import { Button } from 'components/common';
+import UnderlineTabs, {
+  getTabPanelProps,
+} from 'components/common/UnderlineTabs';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
-import Yapp from 'constants/yapp';
+
+const TAB_ID_PREFIX = 'faq';
 
 function FrequentlyAskedQuestions(): ReactElement {
-  const { faqs, title, subTitle } = RECRUIT_FAQ;
-  const [faqList, setFaqList] = useState(faqs);
+  const { faqs, title, subTitle, categories } = RECRUIT_FAQ;
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  const [openQuestions, setOpenQuestions] = useState<string[]>([]);
 
   const { ref, controls, containerVariants } = useScrollAnimation({
     containerVariants: {
@@ -26,13 +30,16 @@ function FrequentlyAskedQuestions(): ReactElement {
     },
   });
 
-  const handleToggleFaq = (subTitle: string) => {
-    setFaqList(
-      faqList.map((faq) =>
-        faq.subTitle === subTitle ? { ...faq, isOpen: !faq.isOpen } : faq,
-      ),
+  const faqList = faqs.filter(({ category }) => category === currentCategory);
+
+  const handleToggleFaq = (question: string) => {
+    setOpenQuestions(
+      openQuestions.includes(question)
+        ? openQuestions.filter((opened) => opened !== question)
+        : [...openQuestions, question],
     );
   };
+
   return (
     <SectionTemplate>
       <SectionInner>
@@ -42,41 +49,49 @@ function FrequentlyAskedQuestions(): ReactElement {
           fontColor="black"
           subFontColor="black_50"
         />
+        <UnderlineTabs
+          tabs={categories}
+          currentTab={currentCategory}
+          onChange={setCurrentCategory}
+          idPrefix={TAB_ID_PREFIX}
+          label={title}
+        />
         <SectionContent
           as={motion.div}
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={containerVariants}
+          {...getTabPanelProps(TAB_ID_PREFIX, categories, currentCategory)}
         >
-          {faqList.map(({ subTitle, description, isOpen }) => (
-            <FAQBox
-              key={`faq-${subTitle}`}
-              onClick={() => handleToggleFaq(subTitle)}
-            >
-              <FAQBoxInner>
-                <FAQSubTitle>
-                  <TitleText>{subTitle}</TitleText>
-                  <TitleButton isOpen={isOpen}>
-                    <ArrowButton />
-                  </TitleButton>
-                </FAQSubTitle>
-                <FQASubContent
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(description),
-                  }}
-                  isOpen={isOpen}
-                />
-              </FAQBoxInner>
-            </FAQBox>
-          ))}
-          <Button
-            variant="black"
-            onClick={() => window.open(Yapp.YAPP_FAQ_NOTION, '_blank')}
-            style={{ width: 'fit-content', marginTop: '32px' }}
-          >
-            {Yapp.YAPP_GENERATION}기 채용 FAQ 바로가기
-          </Button>
+          {faqList.length === 0 && (
+            <EmptyText>질문을 준비하고 있어요.</EmptyText>
+          )}
+          {faqList.map(({ subTitle, description }) => {
+            const isOpen = openQuestions.includes(subTitle);
+
+            return (
+              <FAQBox
+                key={`faq-${subTitle}`}
+                onClick={() => handleToggleFaq(subTitle)}
+              >
+                <FAQBoxInner>
+                  <FAQSubTitle>
+                    <TitleText>{subTitle}</TitleText>
+                    <TitleButton isOpen={isOpen}>
+                      <ArrowButton />
+                    </TitleButton>
+                  </FAQSubTitle>
+                  <FQASubContent
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(description),
+                    }}
+                    isOpen={isOpen}
+                  />
+                </FAQBoxInner>
+              </FAQBox>
+            );
+          })}
         </SectionContent>
       </SectionInner>
     </SectionTemplate>
@@ -96,6 +111,14 @@ const SectionInner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+`;
+
+const EmptyText = styled.p`
+  width: 100%;
+  margin: 0;
+  padding: 32px 0;
+  color: ${({ theme }) => theme.palette.black_50};
+  ${({ theme }) => theme.textStyleV2.resp.body_md};
 `;
 
 const FAQBox = styled.section`

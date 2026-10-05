@@ -50,26 +50,32 @@ function RecruitBanner() {
 
   const BannerInfo = RECRUIT_BANNER_BY_STATUS[currentStatus];
   const targetLink = LINK_BY_STATUS[currentStatus];
+  /* 모집 기간이 아닐 때의 버튼은 모집 알림 신청이라 종 아이콘을 붙인다 */
+  const isAlertButton =
+    currentStatus === RecruitStatus.PRE || currentStatus === RecruitStatus.POST;
 
   return (
     <RecruitBannerContainer>
       <BannerImageBox>
         <InnerContainer>
-          <BannerTitle>{BannerInfo.title}</BannerTitle>
-          <TimeList>
-            <TimeBlock type="DAYS" time={days} />
-            <Colon>:</Colon>
-            <TimeBlock type="HRS" time={hrs} />
-            <Colon>:</Colon>
-            <TimeBlock type="MINS" time={mins} />
-            <Colon>:</Colon>
-            <TimeBlock type="SECS" time={secs} />
-          </TimeList>
+          <TimerBox>
+            <BannerTitle>{BannerInfo.title}</BannerTitle>
+            <TimeList>
+              <TimeBlock type="DAYS" time={days} />
+              <Colon>:</Colon>
+              <TimeBlock type="HRS" time={hrs} />
+              <Colon>:</Colon>
+              <TimeBlock type="MINS" time={mins} />
+              <Colon>:</Colon>
+              <TimeBlock type="SECS" time={secs} />
+            </TimeList>
+          </TimerBox>
           <ApplyButton
             onClick={() => {
               window.open(targetLink, '_blank');
             }}
           >
+            {isAlertButton && <BellIcon />}
             {BannerInfo.buttonName}
           </ApplyButton>
         </InnerContainer>
@@ -78,27 +84,68 @@ function RecruitBanner() {
   );
 }
 
+function BellIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M10 2.5a5 5 0 0 0-5 5v2.6c0 .7-.2 1.4-.6 2L3.3 14a.8.8 0 0 0 .7 1.2h12a.8.8 0 0 0 .7-1.2l-1.1-1.9c-.4-.6-.6-1.3-.6-2V7.5a5 5 0 0 0-5-5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 17.2a2.2 2.2 0 0 0 4 0"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+/* 시안: 1920 화면에서 위아래 120px, 좌우 160px 여백 안에 1600x960 카드 */
 const RecruitBannerContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 100vw;
-  height: 960px;
+  padding: 120px 16px;
   background: ${({ theme }) => theme.palette.white};
 
   ${media.mobile} {
-    height: auto;
-    aspect-ratio: 328 / 580;
+    padding: 116px 16px 115px;
   }
 `;
 
 const BannerImageBox = styled.div`
   position: relative;
+  overflow: hidden;
   width: 100%;
-  height: 100%;
-  background: url('/assets/images/28th/recruit_bg.webp') no-repeat center/cover;
+  max-width: 1600px;
+  height: 960px;
+  border-radius: 32px;
+  background: url('/assets/images/29th/recruit_bg.webp') no-repeat center/cover;
 
+  /* 시안: 834 화면 802x960 */
+  ${media.tablet} {
+    background-image: url('/assets/images/29th/recruit_bg_tablet.webp');
+  }
+
+  /* 타이머가 작아지는 폭부터는 낮은 카드. 가로로 긴 동안은 PC 배경이 맞다 */
   ${media.mobile} {
-    background-image: url('/assets/images/28th/recruit_bg_mo.webp');
+    height: 489px;
+    background-image: url('/assets/images/29th/recruit_bg.webp');
+    background-position: 75% center;
+  }
+
+  /* 시안: 360 화면 328x489 */
+  ${media.small} {
+    background-image: url('/assets/images/29th/recruit_bg_mo.webp');
+    background-position: center;
   }
 `;
 
@@ -119,18 +166,25 @@ const InnerContainer = styled.div`
   gap: 32px;
   align-items: center;
   text-align: center;
-  padding-top: 238px;
+  padding-top: 146px;
   animation: ${slideUp} 1s ease-in-out forwards;
 
   ${media.mobile} {
-    padding-top: 144px;
-    gap: 24px;
+    padding-top: 70px;
   }
+`;
+
+/* 시안: 제목과 타이머 사이 6px */
+const TimerBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 `;
 
 const BannerTitle = styled.div`
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
-  color: ${({ theme }) => theme.palette.discovery_28th_text_80};
+  color: ${({ theme }) => theme.palette.white_100};
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
@@ -142,6 +196,7 @@ const TimeList = styled.ul`
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin: 0;
 
   ${media.mobile} {
     gap: 14px;
@@ -149,8 +204,7 @@ const TimeList = styled.ul`
 `;
 
 const Colon = styled.span`
-  color: ${({ theme }) => theme.palette.discovery_28th_text};
-  opacity: 0.8;
+  color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
 
   ${media.mobile} {
@@ -164,9 +218,10 @@ const ApplyButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 18px 8px;
+  gap: 6px;
+  padding: 12px 20px;
   border-radius: 99px;
-  background-color: ${({ theme }) => theme.palette.discovery_28th_button};
+  background-color: ${({ theme }) => theme.palette.black_100};
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -177,11 +232,6 @@ const ApplyButton = styled.button`
 
   &:active {
     transform: scale(0.97);
-  }
-
-  ${media.mobile} {
-    padding: 8px 18px;
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
 `;
 
