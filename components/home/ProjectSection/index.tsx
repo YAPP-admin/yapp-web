@@ -17,7 +17,7 @@ function ProjectSection(): ReactElement {
       visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, ease: 'easeInOut' },
+        transition: { duration: 0.5, ease: 'easeOut' },
       },
     },
   });
@@ -51,6 +51,11 @@ const ProjectContainer = styled(SectionTemplate)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*
+   * 캐러셀은 폭이 1920px로 고정이라 화면보다 넓다. 여기서 잘라 두지 않으면 페이지 전체가
+   * 가로로 넘치는 것으로 계산돼, 모바일에서 화면을 누르고 끌 때 페이지가 옆으로 딸려 온다.
+   */
+  overflow: hidden;
 
   ${media.mobile} {
     padding: 200px 20px;
