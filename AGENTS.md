@@ -85,7 +85,7 @@ sitemap은 `database/projects/*/*.json`을 읽어 자동으로 갱신됩니다.
 | `POST` | 그 이후 | 다음 기수 알림 신청 폼 |
 
 - 상태는 방문자 브라우저의 시계로 1초마다 다시 계산합니다. 빌드 시점에 고정되지 않으므로, 마감 뒤에 다시 배포할 필요가 없습니다.
-- 홈은 마운트 전에 빈 화면을 그립니다(`pages/index.tsx`의 `isMounted`). 홈 콘텐츠는 서버 렌더링 HTML에 들어가지 않습니다.
+- 홈은 상태와 무관한 섹션을 정적 HTML에 넣고, 상태에 따라 달라지는 지원 카드와 하단 지원 버튼만 브라우저에서 상태를 확인한 뒤에 그립니다(`pages/index.tsx`). 상태에 따라 달라지는 내용을 서버 렌더링에 넣으면 빌드 시점과 방문 시점의 상태가 달라 화면이 어긋납니다.
 - 상태별 문구는 `database/home.ts`의 `HOME_BANNER_BY_STATUS`, `database/recruit.ts`의 `RECRUIT_BANNER_BY_STATUS`에 있습니다.
 
 ## 5. 배포 파이프라인
@@ -148,7 +148,7 @@ pnpm exec tsc --noEmit && pnpm lint && pnpm build
 - 날짜 문구 하드코딩: `database/home.ts`의 `HOME_BANNER_EXTRA`, `database/recruit.ts`의 `RECRUIT_SCHEDULE`
 - 문구 하드코딩: `database/recruit.ts`의 `'28기 iOS 추가 모집'`, `database/home.ts`의 배너 제목(기수 컨셉 문구)
 - 홈 통계: `database/home.ts`의 `CURRENT_INFO_DATA`(운영 기수, 현재 활동 회원 수 등)
-- 기수 이미지: `public/assets/images/<기수>/`를 만들고 `Banner`, `JoinSection`, `RecruitBanner`, `_document.tsx` preload, `database/metaData.ts`의 OG 이미지(현재 `images/28th/preview.png`) 경로를 바꿉니다.
+- 기수 이미지: `public/assets/images/<기수>/`를 만들고 `Banner`, `JoinSection`, `RecruitBanner`, `pages/index.tsx`의 배너 preload, `database/metaData.ts`의 OG 이미지(현재 `images/28th/preview.png`) 경로를 바꿉니다.
 - 기수 색: `styles/theme.ts`에 새 기수 키를 추가하고 사용처를 바꿉니다. 방법은 [DESIGN.md](DESIGN.md)의 "기수 브랜딩 색"에 있습니다.
 - 홈 배너 컴포넌트: 기수마다 `BannerNNth.tsx`를 새로 만들고 `pages/index.tsx`에서 교체하는 방식입니다.
 

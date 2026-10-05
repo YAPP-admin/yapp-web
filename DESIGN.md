@@ -146,7 +146,7 @@ ${media.mobile} {
 - 블러 placeholder는 `blurDataURL`이 있을 때만 켜집니다(`components/common/Image`). 값이 없으면 placeholder 없이 그립니다.
 - 프로젝트 본문 이미지는 일반 `<img>`입니다. 빌드 때 `utils/getImageSize.ts`가 width/height를 넣어 레이아웃이 밀리지 않게 합니다.
 - 배경 이미지는 CSS `background-image`로 넣고, 화면 크기별 파일을 따로 둡니다(`_pc`, `_tablet`, `_mobile` 또는 `_mo`).
-- 홈 첫 화면 배너 이미지는 `pages/_document.tsx`에서 preload 합니다. 배너 파일을 바꾸면 preload 경로도 같이 바꿉니다.
+- 홈 첫 화면 배너 이미지는 `pages/index.tsx`의 `<Head>`에서 preload 합니다(홈에서만 받도록). 배너 파일을 바꾸면 preload 경로도 같이 바꿉니다.
 - 외부 이미지 도메인은 `next.config.js`의 `images`에 등록해야 합니다(현재 `miro.medium.com`만).
 - SVG는 `@svgr/webpack`으로 컴포넌트처럼 import 합니다(`public/assets/icons`).
 
