@@ -59,20 +59,23 @@ color: ${({ theme }) => theme.palette.grey_850};
 | 카드 컬러 | `#0099ff`, `#ff8038`, `#f2f5f8` |
 | 메인 텍스트 컬러 | `#002859` |
 
-28기 키와의 대응(색 계열을 보고 **추정**한 것이라 Figma 확인이 필요합니다):
+`styles/theme.ts`에 `chemistry_29th_*` 키로 들어 있습니다(컨셉: Play Our CHEMISTRY).
 
-| 28기 키 | 28기 값 | 29기 값 |
-| --- | --- | --- |
-| `discovery_28th_blue` | `#48ADEC` | `#0099ff` |
-| `discovery_28th_red` | `#FF8038` | `#ff8038` (같은 값) |
-| `discovery_28th_beige` | `#FFEFD3` | `#f2f5f8` |
-| `discovery_28th_text` (+`_80`, `_50`) | `#54290F` | `#002859` |
-| `discovery_28th_title` | `#66300F` | 미정 |
-| `discovery_28th_button` | `#974F08` | 미정 |
+| 29기 키 | 값 | Figma 변수 | 쓰는 곳 |
+| --- | --- | --- | --- |
+| `chemistry_29th_blue` | `#0099FF` | Main/Blue | 홈 통계 카드, AI Native 카드 |
+| `chemistry_29th_orange` | `#FF8038` | Main/Orange | 홈 통계 카드 |
+| `chemistry_29th_grey` | `#F2F5F8` | Main/Grey | 홈 통계 카드, AI Native 카드 |
+| `chemistry_29th_yellow` | `#FFE97B` | Main/Yellow | 직군별 JD 페이지의 소개 카드 |
+| `chemistry_29th_text` | `#002859` | Main/text | 회색 카드 위 글자, 페이지 상단 배너 제목 |
+| `chemistry_29th_point` | `#0479EE` | (변수 없음) | 페이지 상단 배너의 설명 문구 |
+| `chemistry_29th_date`, `chemistry_29th_date_bg` | `#FF5C00`, `#FFDECC` | (변수 없음) | 세션 커리큘럼 날짜 배지 |
 
-- `#f2f5f8`은 기존 `grey_100`과 같은 값입니다. 그래도 기수 카드 색은 기수 키로 따로 둡니다(다음 기수에 한 번에 바꾸기 위해).
-- 29기 키 이름(컨셉명)은 아직 정해지지 않았습니다.
-- 카드 글자색(`fontColor`)은 지금 `white_100` 또는 `black_100`입니다. 밝은 `#f2f5f8` 카드 위 글자색은 Figma에서 확인합니다.
+운영진 섹션 배경은 `grey_25`(`#F6F6F6`)입니다.
+
+- 주황·파랑 카드의 글자는 `white_100`, 회색 카드의 글자는 `chemistry_29th_text`입니다(홈 `01_now` 시안에서 확인).
+- `#F2F5F8`은 기존 `grey_100`과 같은 값입니다. 그래도 기수 카드 색은 기수 키로 따로 둡니다(다음 기수에 한 번에 바꾸기 위해).
+- 28기 키(`discovery_28th_*`)는 이제 어디서도 쓰지 않습니다. 27기 키처럼 팔레트에만 남아 있습니다.
 
 ## 3. 글자
 
@@ -80,7 +83,7 @@ color: ${({ theme }) => theme.palette.grey_850};
 
 | 글꼴 | 용도 | 불러오는 방식 |
 | --- | --- | --- |
-| Pretendard | 기본 글꼴 | **웹폰트로 불러오지 않습니다.** `global-styles.ts`의 `@font-face`가 주석 처리되어 있어, 기기에 Pretendard가 없으면 시스템 글꼴(Apple SD Gothic Neo, Noto Sans KR 등)로 보입니다. `public/assets/fonts/PretendardVariable.ttf`는 어디서도 참조하지 않습니다. |
+| Pretendard | 기본 글꼴 | `pages/_document.tsx`에서 jsDelivr CDN의 `pretendard.css`를 불러옵니다. `global-styles.ts`의 `@font-face`는 주석 처리되어 있고, `public/assets/fonts/PretendardVariable.ttf`는 어디서도 참조하지 않습니다. |
 | Syne-ExtraBold, Poppins-ExtraBold | 영문 강조 | `styles/fonts.ts`의 `@font-face` |
 
 루트 글자 크기는 `100%`(16px)입니다. `1rem = 16px`로 계산합니다.

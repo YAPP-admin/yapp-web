@@ -30,7 +30,7 @@ pnpm exec tsc --noEmit  # 타입 검사
 
 | 경로 | 내용 |
 | --- | --- |
-| `pages/` | `index`(홈), `recruit`, `project/index`, `project/[...slug]`, `story`(메뉴에서 숨김), `404` |
+| `pages/` | `index`(홈), `recruit/index`, `recruit/[job]`(직군별 인재상 & JD), `project/index`, `project/[...slug]`, `story`(메뉴에서 숨김), `404` |
 | `components/common/` | Header, Footer, Banner, ProjectCard, Image, JoinSection, SEO 등 공용 |
 | `components/home/` | 홈 섹션: IntroSection(기수별 배너), AnimatedTextSection, GridSection, ProjectSection, SponsorSection, RecuitBtn(FAB) |
 | `components/recruit/`, `components/project/` | 각 페이지 전용 컴포넌트 |
@@ -141,13 +141,13 @@ pnpm exec tsc --noEmit && pnpm lint && pnpm build
 
 ## 8. 기수를 바꿀 때 고칠 곳
 
-기수가 바뀌면 코드에서 함께 바꿔야 하는 값입니다. 디자인 요구사항에는 보통 빠져 있으니 직접 챙깁니다. 아래 "현재" 값은 28기 기준입니다.
+기수가 바뀌면 코드에서 함께 바꿔야 하는 값입니다. 디자인 요구사항에는 보통 빠져 있으니 직접 챙깁니다. 
 
-- `constants/yapp.ts`: `YAPP_GENERATION`(현재 28), 직군별 공고 링크, `YAPP_FAQ_NOTION`(`yapp-28-faq`), 사전·다음 기수 알림 폼 링크
-- `constants/status.ts`: `RECRUITING_START`, `RECRUITING_DEADLINE`, `RECRUITING_EXTRA_DEADLINE`(현재 2026-04 일정)
-- 날짜 문구 하드코딩: `components/home/RecuitBtn/index.tsx`(`4.17(금) - 4.26(일)`), `database/home.ts`의 `HOME_BANNER_*`, `database/recruit.ts`의 `RECRUIT_SCHEDULE`
-- 문구 하드코딩: `database/recruit.ts`의 `'28기 iOS 추가 모집'`, `database/home.ts`의 배너 제목 `MOMENT OF DISCOVERY`(28기 컨셉 문구)
-- 홈 통계: `database/home.ts`의 `CURRENT_INFO_DATA`(`운영기수 27기`, `현재 활동 회원 65명` — 28기 때 갱신되지 않은 값)
+- `constants/yapp.ts`: `YAPP_GENERATION`, 직군별 공고 링크, `YAPP_FAQ_NOTION`, 사전·다음 기수 알림 폼 링크
+- `constants/status.ts`: `RECRUITING_START`, `RECRUITING_DEADLINE`, `RECRUITING_EXTRA_DEADLINE`, 화면에 보이는 기간 문구 `RECRUITING_PERIOD_TEXT`. 추가 모집이 없으면 `RECRUITING_EXTRA_DEADLINE`을 마감일과 같게 둡니다.
+- 날짜 문구 하드코딩: `database/home.ts`의 `HOME_BANNER_EXTRA`, `database/recruit.ts`의 `RECRUIT_SCHEDULE`
+- 문구 하드코딩: `database/recruit.ts`의 `'28기 iOS 추가 모집'`, `database/home.ts`의 배너 제목(기수 컨셉 문구)
+- 홈 통계: `database/home.ts`의 `CURRENT_INFO_DATA`(운영 기수, 현재 활동 회원 수 등)
 - 기수 이미지: `public/assets/images/<기수>/`를 만들고 `Banner`, `JoinSection`, `RecruitBanner`, `_document.tsx` preload, `database/metaData.ts`의 OG 이미지(현재 `images/28th/preview.png`) 경로를 바꿉니다.
 - 기수 색: `styles/theme.ts`에 새 기수 키를 추가하고 사용처를 바꿉니다. 방법은 [DESIGN.md](DESIGN.md)의 "기수 브랜딩 색"에 있습니다.
 - 홈 배너 컴포넌트: 기수마다 `BannerNNth.tsx`를 새로 만들고 `pages/index.tsx`에서 교체하는 방식입니다.
