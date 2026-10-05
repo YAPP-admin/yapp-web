@@ -15,9 +15,13 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       title: project.name,
       thumbnail: project.thumbnail,
+      ...(project.thumbnailBlurDataURL !== undefined && {
+        thumbnailBlurDataURL: project.thumbnailBlurDataURL,
+      }),
       tags: project.tags,
       field: project.field,
       generation: project.generation,
+      ...(project.order !== undefined && { order: project.order }),
       url: slug.join('/'),
     };
   });
@@ -50,7 +54,6 @@ interface ProjectProps {
 
 const INITIAL_CARD_COUNT = 9; // '기본' 카드 표현 수
 const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
-
 function Project({ projects }: ProjectProps) {
   const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
   const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
@@ -99,7 +102,17 @@ function Project({ projects }: ProjectProps) {
               if (category !== 'ALL') return project.field.includes(category);
               else return true;
             })
-            .sort((a, b) => b.generation - a.generation) // 기수 순 정렬
+            .sort((a, b) => {
+              const generationOrder = b.generation - a.generation;
+              if (generationOrder !== 0) {
+                return generationOrder;
+              }
+
+              return (
+                (a.order ?? Number.MAX_SAFE_INTEGER) -
+                (b.order ?? Number.MAX_SAFE_INTEGER)
+              );
+            })
             .slice(0, viewCardCount) // 기본 9개 카드 표현
             .map((project) => (
               <ProjectCard key={project.title} project={project} />

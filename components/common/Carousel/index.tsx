@@ -60,8 +60,8 @@ function Carousel({ data }: CarouselProps) {
                 src={image}
                 alt="Project Card Image"
                 layout="fill"
-                placeholder="blur"
-                blurDataURL={image}
+                sizes="(max-width: 833px) 335px, 491px"
+                quality={90}
               />
               <ProjectBlurCard>{title}</ProjectBlurCard>
             </ProjectCard>

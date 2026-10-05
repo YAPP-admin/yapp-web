@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import media from 'styles/media';
 import { Project, ProjectUIModel } from 'types/project';
 import { getAllProjects } from 'utils/getAllProjects';
+import { getImageSize } from 'utils/getImageSize';
 
 interface SlugType {
   [key: string]: string | string[] | undefined;
@@ -57,10 +58,35 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     });
 
   if (projectData) {
+    const { content } = projectData.project;
+    // 레이아웃 공간 확보(lazy loading, CLS 방지)를 위해 이미지 크기를 함께 전달
+    const contentImages = (Array.isArray(content) ? content : [content])
+      .filter(Boolean)
+      .map((src) => ({ src, ...getImageSize(src) }));
+
+    const { name, description, thumbnail } = projectData.project;
+    // 검색 결과·공유 미리보기용 설명: 태그와 줄바꿈을 걷어낸 한 줄 텍스트
+    const plainDescription = (description || '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
     return {
       props: {
         project: projectData.project,
+        contentImages,
         otherProjects,
+        seo: {
+          title: name,
+          description:
+            plainDescription.length > 150
+              ? `${plainDescription.slice(0, 150)}…`
+              : plainDescription,
+          image: thumbnail,
+          path: `/project/${projectData.slug
+            .map((segment) => encodeURIComponent(segment))
+            .join('/')}`,
+        },
       },
     };
   }
@@ -73,11 +99,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 interface Props {
   project: Project;
+  contentImages: Array<{ src: string; width?: number; height?: number }>;
   otherProjects: ProjectUIModel[];
 }
 
-function ProjectDetail({ project, otherProjects }: Props) {
-  const { content, retrospects, tags, title } = project;
+function ProjectDetail({ project, contentImages, otherProjects }: Props) {
+  const { retrospects, tags, title } = project;
 
   const [randomProjects, setRandomProjects] = useState<ProjectUIModel[]>([]);
 
@@ -106,17 +133,21 @@ function ProjectDetail({ project, otherProjects }: Props) {
           <ProjectName>{title}</ProjectName>
           <ProjectContent project={project} />
         </ResponsiveLayout>
-        <div style={{ margin: '100px auto 100px' }}>
-          {[...(Array.isArray(content) ? content : [content])].map(
-            (contentSrc) => (
+        {contentImages.length > 0 && (
+          <div style={{ margin: '100px auto 100px' }}>
+            {contentImages.map(({ src, width, height }) => (
               <ProjectImage
-                key={contentSrc}
-                src={contentSrc}
+                key={src}
+                src={src}
+                width={width}
+                height={height}
+                loading="lazy"
+                decoding="async"
                 alt="project-content-image"
               />
-            ),
-          )}
-        </div>
+            ))}
+          </div>
+        )}
 
         {retrospects?.length > 0 && (
           <>
@@ -182,6 +213,7 @@ const ProjectName = styled.div`
 
 const ProjectImage = styled.img`
   max-width: 100%;
+  height: auto;
   display: block;
 `;
 

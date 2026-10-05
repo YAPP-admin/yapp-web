@@ -56,14 +56,14 @@ function ProjectContent({ project }: Props): ReactElement {
       ) : null}
 
       <Description>
-        <BodyText>
+        <DescriptionText>
           {description.split('<br />').map((txt, index) => (
             <React.Fragment key={index}>
               {txt}
               <br />
             </React.Fragment>
           ))}
-        </BodyText>
+        </DescriptionText>
       </Description>
 
       <DeployBox>
@@ -127,7 +127,11 @@ function ProjectContent({ project }: Props): ReactElement {
         {/* One Store 링크 */}
         {oneStoreLink && (
           <Link href={oneStoreLink} passHref target="_blank">
-            <DeployLinkButton variant="black">One Store</DeployLinkButton>
+            <DeployLinkButton variant="black">
+              <OneStoreIcon aria-hidden="true" />
+              One Store
+              <BtnArrowRight />
+            </DeployLinkButton>
           </Link>
         )}
       </DeployBox>
@@ -181,6 +185,11 @@ const BodyText = styled.div`
   }
 `;
 
+const DescriptionText = styled(BodyText)`
+  display: block;
+  white-space: pre-wrap;
+`;
+
 const TextItem = styled.div`
   margin-right: 6px;
 `;
@@ -218,6 +227,14 @@ const DeployLinkButton = styled(Button)`
   &:not(:first-child) {
     margin-left: 20px;
   }
+`;
+
+const OneStoreIcon = styled.span`
+  width: 20px;
+  height: 20px;
+  flex: none;
+  background: url('/assets/icons/one_store.ico') center / contain no-repeat;
+  filter: grayscale(1) invert(1) brightness(1.3) contrast(20);
 `;
 
 export default ProjectContent;

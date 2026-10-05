@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
   }; */
 
   
+  :root {
+    color-scheme: only light;
+  }
+
   html {
     box-sizing: border-box;
     font-size: 100%;
@@ -22,6 +26,11 @@ const GlobalStyle = createGlobalStyle`
   #__next {
     height: 100%;
     overflow-x:hidden;
+  }
+
+  body {
+    background-color: #fff;
+    color: #000;
   }
 
   button {

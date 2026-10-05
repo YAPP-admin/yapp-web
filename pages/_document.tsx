@@ -38,8 +38,10 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="ko">
         <Head>
+          {/* 라이트 전용: 브라우저 강제 다크모드 변환 방지 */}
+          <meta name="color-scheme" content="only light" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <GoogleAnalyticsScript />
           {/* 폰트 */}

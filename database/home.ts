@@ -50,34 +50,34 @@ export const CURRENT_INFO_DATA = [
 /** Carousel에 들어갈 프로젝트 데이터 */
 export const CAROUSEL_DATA = [
   {
-    title: 'keepiluv',
-    link: '/project/27th/keepluv',
-    image: '/assets/project/27_thumbnail_keepluv.png',
+    title: 'Hilit',
+    link: '/project/28th/hilit',
+    image: '/assets/project/28_thumbnail_hilit.webp',
   },
   {
-    title: 'Lokit',
-    link: '/project/27th/lokit',
-    image: '/assets/project/27_thumbnail_lokit.jpg',
+    title: '토닥운',
+    link: '/project/28th/todagoon',
+    image: '/assets/project/28_thumbnail_todagoon.webp',
   },
   {
-    title: 'moa',
-    link: '/project/27th/moa',
-    image: '/assets/project/27_thumbnail_moa.png',
+    title: 'SCOOP',
+    link: '/project/28th/scoop',
+    image: '/assets/project/28_thumbnail_scoop.webp',
   },
   {
-    title: 'moit & weddin',
-    link: '/project/27th/moit&weddin',
-    image: '/assets/project/27_thumbnail_moitweddin.png',
+    title: 'Looky & 장보고',
+    link: '/project/28th/looky-jangbogo',
+    image: '/assets/project/28_thumbnail_looky-jangbogo.webp',
   },
   {
-    title: '나도갈래',
-    link: '/project/27th/nadogalrae',
-    image: '/assets/project/27_thumbnail_nadogalrae.jpg',
+    title: '아끼모',
+    link: '/project/28th/akkimo',
+    image: '/assets/project/28_thumbnail_akkimo.webp',
   },
   {
-    title: '네키',
-    link: '/project/27th/neki',
-    image: '/assets/project/27_thumbnail_neki.jpg',
+    title: '채소zip',
+    link: '/project/28th/chaeso-zip',
+    image: '/assets/project/28_thumbnail_chaeso-zip.webp',
   },
 ];
 
@@ -175,6 +175,10 @@ export const SPONSOR_DATA = [
   {
     image: '/assets/sponsors/sponsor_flab.png',
     alt: 'sponsor F-Lab',
+  },
+  {
+    image: '/assets/sponsors/sponsor_ictcoc.png',
+    alt: 'sponsor ICT COC',
   },
   // {
   //   image: '/assets/sponsors/sponsor_goorm.png',

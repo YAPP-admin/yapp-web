@@ -12,7 +12,8 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, isSubCard }: ProjectCardProps) {
-  const { title, thumbnail, tags, generation, url } = project;
+  const { title, thumbnail, thumbnailBlurDataURL, tags, generation, url } =
+    project;
 
   return (
     <Link href={isSubCard ? `${url}` : `project/${url}`} passHref>
@@ -20,6 +21,9 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
         <AnimatedImage
           className="project-card-image"
           src={thumbnail}
+          blurDataURL={thumbnailBlurDataURL}
+          sizes="(max-width: 833px) 335px, 380px"
+          quality={90}
           alt="project-image"
           height={214}
         />
@@ -69,12 +73,15 @@ const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
 
   ${media.mobile} {
     width: 335px;
+    /* 화면이 카드보다 좁을 때(320px 등) 잘리지 않도록 */
+    max-width: calc(100vw - 24px);
     height: 294px;
   }
 
   > .project-card-image {
     ${media.mobile} {
-      height: 188px;
+      height: auto;
+      aspect-ratio: 335 / 188;
     }
   }
 `;
@@ -90,6 +97,11 @@ const DetailWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   height: 37px;
+
+  /* 카드가 좁아져도 기수 배지가 눌려서 줄바꿈되지 않도록 */
+  > div {
+    flex-shrink: 0;
+  }
 `;
 
 const ProjectTitleWrapper = styled.span`
