@@ -1,6 +1,8 @@
 import { ReactElement, useEffect, useState } from 'react';
 import {
+  AINativeSection,
   AnimatedTextSection,
+  ExecutiveSection,
   GridSection,
   JoinSection,
   NewsSection,
@@ -15,7 +17,7 @@ import {
 import { HOME_BANNER_BY_STATUS } from 'database/home';
 import fs from 'fs';
 import path from 'path';
-import Banner28th from 'components/home/IntroSection/Banner28th';
+import Banner29th from 'components/home/IntroSection/Banner29th';
 import { Medium } from 'types/medium';
 import RecuitBtn from 'components/home/RecuitBtn';
 import styled from 'styled-components';
@@ -52,11 +54,13 @@ function Home({ data }: { data: Medium[] }): ReactElement {
   return (
     <Wrapper>
       <section id="join-section">
-        <Banner28th />
+        <Banner29th />
         <AnimatedTextSection />
         <GridSection />
+        <AINativeSection />
         <ProjectSection />
         <SponsorSection />
+        <ExecutiveSection />
       </section>
 
       <JoinSection

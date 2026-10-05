@@ -1,48 +1,48 @@
 import Yapp from 'constants/yapp';
-import { RecruitStatus } from '../constants/status';
+import { RECRUITING_PERIOD_TEXT, RecruitStatus } from '../constants/status';
 
 /** Grid Section */
 export const CURRENT_INFO_DATA = [
   {
     title: '운영 기간',
     content: '16년',
-    icon: '/assets/images/28th/icons/running_year.png',
-    color: 'discovery_28th_red',
+    icon: '/assets/images/29th/icons/piano.png',
+    color: 'chemistry_29th_orange',
     fontColor: 'white_100',
   },
   {
-    title: '운영기수',
-    content: '27기',
-    icon: '/assets/images/28th/icons/cohort.png',
-    color: 'discovery_28th_beige',
-    fontColor: 'black_100',
+    title: '운영 기수',
+    content: '28기',
+    icon: '/assets/images/29th/icons/guitar.png',
+    color: 'chemistry_29th_grey',
+    fontColor: 'chemistry_29th_text',
   },
   {
     title: '현재 활동 회원',
     content: '65명',
-    icon: '/assets/images/28th/icons/active_members.png',
-    color: 'discovery_28th_blue',
+    icon: '/assets/images/29th/icons/drum.png',
+    color: 'chemistry_29th_blue',
     fontColor: 'white_100',
   },
   {
-    title: '누적 활동 인원',
+    title: '누적 활동회원',
     content: '600+명',
-    icon: '/assets/images/28th/icons/total_members.png',
-    color: 'discovery_28th_red',
+    icon: '/assets/images/29th/icons/album.png',
+    color: 'chemistry_29th_orange',
     fontColor: 'white_100',
   },
   {
     title: '런칭 서비스',
     content: '70+개',
-    icon: '/assets/images/28th/icons/service.png',
-    color: 'discovery_28th_beige',
-    fontColor: 'black_100',
+    icon: '/assets/images/29th/icons/audio.png',
+    color: 'chemistry_29th_grey',
+    fontColor: 'chemistry_29th_text',
   },
   {
     title: '누적 앱 다운로드',
     content: '400,000+',
-    icon: '/assets/images/28th/icons/download.png',
-    color: 'discovery_28th_blue',
+    icon: '/assets/images/29th/icons/headphone.png',
+    color: 'chemistry_29th_blue',
     fontColor: 'white_100',
   },
 ];
@@ -143,6 +143,92 @@ export const GRID_SECTION = {
   subTitle: `실무 기반 협업 시스템으로 운영되는\n연합 기업형 IT 동아리`,
 };
 
+/** AI Native Team 소개 */
+export const AI_NATIVE_SECTION = {
+  title: 'YAPP 29기부터 AI Native Team을 새롭게 만들었어요',
+  subTitle: 'AI와 함께 직군의 경계를 넘어, 더 넓게 만들고 실행하는 팀이에요.',
+  team: {
+    title: 'AI Native Team',
+    descriptions: [
+      '자신의 전문성을 기반으로, AI를 활용해 직군의 경계를 넘어 실행 범위를 넓혀가는 팀입니다.',
+      'AI가 만든 결과를 그대로 사용하는 것이 아니라 직접 판단하고 다듬으며, 하나의 프로덕트를 끝까지 만들어갑니다.',
+    ],
+  },
+  cards: [
+    {
+      icon: '/assets/images/29th/icons/ai_native_operate.svg',
+      iconWidth: 46,
+      title: '이렇게 운영돼요',
+      description:
+        '정해진 역할에 일을 맞추기보다 문제 해결에 필요한 일을 유연하게 나누고 직접 시도합니다. AI를 어떻게 활용할지, 얼마나 빠르게 만들고 검증할지, 어떤 방식으로 협업할지도 직접 설계합니다.',
+    },
+    {
+      icon: '/assets/images/29th/icons/ai_native_experience.svg',
+      iconWidth: 41,
+      title: '이런 경험을 할 수 있어요',
+      description:
+        '자신의 전문 영역을 넘어 기획·구현·출시 등 Product 전반에 더 넓게 참여하는 경험을 할 수 있습니다. AI와 함께 일하며 업무 방식과 역할을 확장하고, 하나의 프로덕트를 끝까지 만들어볼 수 있습니다.',
+    },
+  ],
+};
+
+/** 운영진 소개 */
+export interface Executive {
+  role: string;
+  name: string;
+  /** 프로필 이미지 경로. 없으면 빈 자리로 표시한다 */
+  image?: string;
+}
+
+export const EXECUTIVE_SECTION = {
+  title: `YAPP을 이끄는 ${Yapp.YAPP_GENERATION}기 운영진`,
+  subTitle:
+    'YAPP의 방향을 함께 고민하고, 더 나은 활동을 만들어가는 운영진을 소개합니다.',
+};
+
+export const EXECUTIVE_GROUPS: { name: string; members: Executive[] }[] = [
+  {
+    name: '회장단',
+    members: [
+      { role: '회장', name: '이예진' },
+      { role: '부회장', name: '문세종' },
+    ],
+  },
+  { name: '세션기획', members: [{ role: '세션기획 총괄', name: '손호민' }] },
+  { name: '회계', members: [{ role: '회계 총괄', name: '강채원' }] },
+  { name: '인사', members: [{ role: '인사 총괄', name: '김송이' }] },
+  {
+    name: '디자인',
+    members: [
+      { role: '디자인 리드', name: '박수연' },
+      { role: '디자인 팀', name: '김유희' },
+      { role: '디자인 팀', name: '황유나' },
+    ],
+  },
+  {
+    name: '홍보',
+    members: [
+      { role: '홍보 총괄', name: '박주현' },
+      { role: '홍보 팀', name: '김지윤' },
+      { role: '홍보 팀', name: '신민규' },
+    ],
+  },
+  {
+    name: '직군리드',
+    members: [
+      { role: 'PM 리드', name: '성민수' },
+      { role: 'PM 리드', name: '전지영' },
+      { role: '디자인 리드', name: '박수연' },
+      { role: '웹 리드', name: '박병규' },
+      { role: '서버 리드', name: '공희상' },
+      { role: '서버 리드', name: '정용훈' },
+      { role: '모바일 리드', name: '정찬호' },
+      { role: '모바일 리드', name: '이승원' },
+      { role: 'AI Native 리드', name: '유재윤' },
+    ],
+  },
+];
+
 export const PROJECT_SECTION = {
   title: 'YAPP의 서비스들',
   subTitle: `YAPP에서 활동하는 구성원인 ‘야뿌’들이 만들어낸\n프로젝트들이에요.`,
@@ -199,30 +285,30 @@ export interface RecruitBannerInfo {
 
 /* 모집 관련 상수 */
 export const HOME_BANNER_PRE = {
-  title: 'MOMENT OF DISCOVERY',
+  title: 'PLAY OUR CHEMISTRY',
   subTitle: `YAPP ${Number(Yapp.YAPP_GENERATION)}기 모집이\n곧 시작됩니다`,
-  date: '4.17(금) - 4.26(일)',
+  date: RECRUITING_PERIOD_TEXT,
   buttonName: `${Number(Yapp.YAPP_GENERATION)}기 모집 알림 신청하기`,
 };
 
 export const HOME_BANNER_ACTIVE = {
-  title: 'MOMENT OF DISCOVERY',
+  title: 'PLAY OUR CHEMISTRY',
   subTitle: `지원하기 버튼 하나로\nYAPP ${Number(
     Yapp.YAPP_GENERATION,
   )}기의 야뿌가 되어보세요.`,
-  date: '4.17(금) - 4.26(일)',
+  date: RECRUITING_PERIOD_TEXT,
   buttonName: `${Number(Yapp.YAPP_GENERATION)}기 지원하기`,
 };
 
 export const HOME_BANNER_POST = {
-  title: 'MOMENT OF DISCOVERY',
+  title: 'PLAY OUR CHEMISTRY',
   subTitle: `다음 기수의 모집 소식을 가장 먼저 만나보세요`,
   date: '지금은 모집 기간이 아닙니다',
   buttonName: `${Number(Yapp.YAPP_GENERATION) + 1}기 모집 알림 신청하기`,
 };
 
 export const HOME_BANNER_EXTRA = {
-  title: 'MOMENT OF DISCOVERY',
+  title: 'PLAY OUR CHEMISTRY',
   subTitle: `YAPP ${Number(Yapp.YAPP_GENERATION)}기 iOS 추가 모집중`,
   date: '4.27(월) - 4.28(화)',
   buttonName: `${Number(Yapp.YAPP_GENERATION)}기 iOS 지원하기`,

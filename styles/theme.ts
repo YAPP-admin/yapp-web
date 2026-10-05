@@ -46,6 +46,16 @@ const palette = {
   discovery_28th_title: '#66300F',
   discovery_28th_button: '#974F08',
 
+  // 29th Branding Colors (Chemistry Concept)
+  chemistry_29th_blue: '#0099FF',
+  chemistry_29th_orange: '#FF8038',
+  chemistry_29th_grey: '#F2F5F8',
+  chemistry_29th_yellow: '#FFE97B',
+  chemistry_29th_text: '#002859',
+  chemistry_29th_point: '#0479EE',
+  chemistry_29th_date: '#FF5C00',
+  chemistry_29th_date_bg: '#FFDECC',
+
   // Yellow
   yellow_100: '#FFEFBE',
   yellow_200: '#FFE69A',
@@ -68,6 +78,7 @@ const palette = {
   orange_600: '#DF5E15',
 
   // Grey
+  grey_25: '#F6F6F6',
   grey_50: '#F4F7FA',
   grey_100: '#F2F5F8',
   grey_200: '#D7DADD',

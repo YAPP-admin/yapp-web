@@ -1,13 +1,13 @@
 const Yapp = {
   YAPP_NAME: 'YAPP',
-  YAPP_GENERATION: 28, // 기수
+  YAPP_GENERATION: 29, // 기수
   YAPP_OFFICIAL_EMAIL: 'support@yapp.co.kr',
   YAPP_OFFICIAL_KAKAO: '@YAPP',
   YAPP_OFFICIAL_FACEBOOK: '@YAPP',
   YAPP_OFFICIAL_INSTAGRAM: 'about.yapp',
   YAPP_FACEBOOK: 'https://ko-kr.facebook.com/yapp.co.kr/',
   YAPP_INSTAGRAM: 'https://www.instagram.com/about.yapp/',
-  YAPP_KAKAO: 'http://pf.kakao.com/_aGxofd',
+  YAPP_KAKAO: 'https://pf.kakao.com/_aGxofd',
   YAPP_GITHUB: 'https://github.com/YAPP-Github',
   YAPP_MEDIUM: 'https://medium.com/@about.yapp',
   YAPP_LINKEDIN: 'https://www.linkedin.com/company/yappu/',
@@ -23,6 +23,9 @@ const Yapp = {
   YAPP_RECRUIT_ANDROID: 'https://yapp-recruit.career.greetinghr.com/o/210373',
   YAPP_RECRUIT_FRONT_END: 'https://yapp-recruit.career.greetinghr.com/o/210439',
   YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/210444',
+  // TODO: 29기 Mobile, AI Native 공고 링크가 나오면 교체 (지금은 전체 공고로 연결)
+  YAPP_RECRUIT_MOBILE: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  YAPP_RECRUIT_AI_NATIVE: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
 

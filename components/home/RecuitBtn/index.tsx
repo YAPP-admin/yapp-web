@@ -12,7 +12,7 @@ import theme from 'styles/theme';
 import Yapp from 'constants/yapp';
 import {
   LINK_BY_STATUS,
-  RECRUITING_STATUS,
+  RECRUITING_PERIOD_TEXT,
   RecruitStatus,
 } from '../../../constants/status';
 import { RECRUIT_BANNER_BY_STATUS } from '../../../database/recruit';
@@ -45,8 +45,8 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
   const handleHoverStart = useCallback(async () => {
     await controls.start({
       rotateX: 360,
-      color: theme.palette.black_100,
-      backgroundColor: theme.palette.white_100,
+      color: theme.palette.white_100,
+      backgroundColor: theme.palette.grey_1000,
       transition: { duration: 1.5, ease: 'easeInOut' },
     });
     await controls.set({ rotateX: 0 });
@@ -54,8 +54,8 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
 
   const handleHoverEnd = useCallback(() => {
     controls.start({
-      color: theme.palette.white_100,
-      backgroundColor: theme.palette.black_100,
+      color: theme.palette.grey_1000,
+      backgroundColor: theme.palette.white_100,
       transition: { duration: 0.4, ease: 'easeOut' },
     });
   }, [controls]);
@@ -71,7 +71,7 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      <InfoText>4.17(금) - 4.26(일)</InfoText>
+      <InfoText>{RECRUITING_PERIOD_TEXT}</InfoText>
       <AnimatedButton animate={controls} whileTap={{ scale: 0.97 }}>
         {BannerInfo.buttonName}
       </AnimatedButton>
@@ -87,7 +87,8 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
   align-items: center;
   gap: 24px;
   border-radius: 99px;
-  background-color: #2c2c2c;
+  background-color: ${({ theme }) => theme.palette.grey_100};
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.24));
   left: 50%;
   transform: translateX(-50%);
   bottom: 36px;
@@ -98,7 +99,7 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
 
 const InfoText = styled.span`
   white-space: nowrap;
-  color: ${({ theme }) => theme.palette.white_70};
+  color: ${({ theme }) => theme.palette.grey_800};
   ${({ theme }) => theme.textStyleV2.resp.body_md};
 
   ${media.mobile} {
@@ -115,8 +116,9 @@ const AnimatedButton = styled(motion.button)`
   justify-content: center;
   align-items: center;
   border-radius: 99px;
-  background-color: #484848;
-  color: ${({ theme }) => theme.palette.white_100};
+  background-color: ${({ theme }) => theme.palette.white_100};
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+  color: ${({ theme }) => theme.palette.grey_1000};
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
 
   ${media.mobile} {

@@ -8,9 +8,13 @@ export enum RecruitStatus {
   EXTRA = 'EXTRA',
 }
 
-export const RECRUITING_START = '2026-04-17T00:00:00';
-export const RECRUITING_DEADLINE = '2026-04-26T23:59:59';
-export const RECRUITING_EXTRA_DEADLINE = '2026-04-28T23:59:59';
+export const RECRUITING_START = '2026-10-16T00:00:00';
+export const RECRUITING_DEADLINE = '2026-10-25T23:59:59';
+// 추가 모집이 없으면 마감일과 같은 값으로 둔다 (EXTRA 상태를 건너뜀)
+export const RECRUITING_EXTRA_DEADLINE = RECRUITING_DEADLINE;
+
+/* 화면에 표시하는 모집 기간 문구 */
+export const RECRUITING_PERIOD_TEXT = '10.16(금) - 10.25(일)';
 
 export const RECRUITING_STATUS = (): RecruitStatus => {
   const now = new Date();
