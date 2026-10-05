@@ -2,7 +2,7 @@ name: Git push into YAPPgit/yapp-web (to deploy to vercel)
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev, develop]
 
 jobs:
   build:
@@ -25,6 +25,7 @@ jobs:
           destination-repository-name: yapp-web
           user-email: ${{ secrets.YAPP_OFFICIAL_ACCOUNT_EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
-          target-branch: main
+          target-branch: ${{ github.ref_name }}
+          create-target-branch-if-needed: true
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
