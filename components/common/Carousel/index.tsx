@@ -26,7 +26,7 @@ function Carousel({ data }: CarouselProps) {
       dots: true, // 캐러셀 하단부 점으로 한번에 이동
       arrows: true, // 캐러셀을 움직이는 화살표 추가
       centerMode: true, // 중앙 정렬
-      centerPadding: '220px', // 좌 우 카드가 padding 만큼 삐져나오게 함
+      centerPadding: '169.5px', // 중앙 585px 카드와 양옆 카드 사이 간격 30px
       slidesToShow: 3, // 한번에 보여줄 슬라이드 수
       infinite: true, // 무한 루프
       arrow: false, // 좌 우 화살표
@@ -60,7 +60,7 @@ function Carousel({ data }: CarouselProps) {
                 src={image}
                 alt="Project Card Image"
                 layout="fill"
-                sizes="(max-width: 833px) 335px, 491px"
+                sizes="(max-width: 833px) 335px, 585px"
                 quality={90}
               />
               <ProjectBlurCard>{title}</ProjectBlurCard>
@@ -107,10 +107,16 @@ const CarouselContainer = styled.div`
 
   // Carousel 중앙 요소
   .slick-center.slick-active {
-    transform: scale(1.2);
+    .project-card {
+      width: 585px !important;
+      height: 331px !important;
+    }
 
-    ${media.small} {
-      transform: none;
+    ${media.mobile} {
+      .project-card {
+        width: 335px !important;
+        height: 189px !important;
+      }
     }
   }
 

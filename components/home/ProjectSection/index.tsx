@@ -39,9 +39,9 @@ function ProjectSection(): ReactElement {
         />
       </TextBoxLayout>
       <Carousel data={CAROUSEL_DATA} />
-      <Button variant="black" onClick={() => Router.push('/project')}>
+      <MoreButton variant="black" onClick={() => Router.push('/project')}>
         프로젝트 더보기
-      </Button>
+      </MoreButton>
     </ProjectContainer>
   );
 }
@@ -70,6 +70,12 @@ const TextBoxLayout = styled.div`
   & > div {
     max-width: 1040px;
   }
+`;
+
+const MoreButton = styled(Button)`
+  box-sizing: border-box;
+  height: 53px;
+  padding: 12px 20px;
 `;
 
 export default ProjectSection;

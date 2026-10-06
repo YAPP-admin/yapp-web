@@ -54,10 +54,19 @@ function Footer(): ReactElement {
 
 const FooterBlock = styled.footer`
   width: auto;
+  box-sizing: border-box;
+  min-height: 225px;
+  display: flex;
+  align-items: center;
   background-color: ${({ theme }) => theme.palette.black_5};
   padding: 24px 100px;
 
+  ${media.tablet} {
+    min-height: 183px;
+  }
+
   ${media.mobile} {
+    min-height: 268px;
     padding: 24px;
   }
 `;

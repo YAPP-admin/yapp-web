@@ -146,7 +146,15 @@ const ProjectWrapper = styled.div`
 
 const ProjectContainer = styled.section`
   position: relative;
-  flex: 0 1 1200px;
+  width: 1024px;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  ${media.tablet} {
+    width: 674px;
+  }
+  ${media.mobile} {
+    width: 100%;
+  }
 `;
 
 const CategoriesWrapper = styled.div`
@@ -157,15 +165,20 @@ const CategoriesWrapper = styled.div`
 
 const ProjectGridWrapper = styled.div`
   display: grid;
-  gap: 30px;
+  gap: 24px;
   margin-top: 64px;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
+  > a {
+    width: 100%;
+    min-width: 0;
+  }
   ${media.tablet} {
     grid-template-columns: repeat(2, 1fr);
   }
   ${media.mobile} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 8px;
   }
 `;
 
