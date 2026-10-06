@@ -121,9 +121,10 @@ const Title = styled.h2`
   }
 `;
 
+/* 시안: 설명 글자색 60% */
 const SubTitle = styled.p`
   margin: 0;
-  color: ${({ theme }) => theme.palette.black_50};
+  color: ${({ theme }) => theme.palette.black_60};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   word-break: keep-all;
 

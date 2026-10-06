@@ -13,7 +13,6 @@ import media from 'styles/media';
 
 function Header(): ReactElement {
   const { asPath } = useRouter();
-  const router = useRouter();
   const [isOpenMenu, handleOpenMenu, setOpenMenu] = useToggle(false);
   const { windowWidth } = useWindowDimensions();
 
@@ -37,9 +36,11 @@ function Header(): ReactElement {
 
   return (
     <>
-      <HeaderBlock ref={ref}>
+      <HeaderBlock ref={ref} $isMenuOpen={isOpenMenu}>
         <HeaderInner>
-          <Logo onClick={() => router.push(Path.Home)} />
+          <LogoLink href={Path.Home} scroll={false} aria-label="YAPP 홈">
+            <YappLogo aria-hidden />
+          </LogoLink>
           <HeaderMenu>
             {HEADER_MENUS.map(({ name, path }) => (
               <Link key={`${name}_${path}`} href={path} scroll={false}>
@@ -47,7 +48,14 @@ function Header(): ReactElement {
               </Link>
             ))}
           </HeaderMenu>
-          <MobileHeaderMenu onClick={handleToggleMenu} />
+          <MobileMenuButton
+            type="button"
+            aria-label={isOpenMenu ? '메뉴 닫기' : '메뉴 열기'}
+            aria-expanded={isOpenMenu}
+            onClick={handleToggleMenu}
+          >
+            {isOpenMenu ? <CloseIcon /> : <Hamburger aria-hidden />}
+          </MobileMenuButton>
         </HeaderInner>
       </HeaderBlock>
       {isOpenMenu && <HamburgerMenu handleOpenMenu={handleOpenMenu} />}
@@ -55,14 +63,15 @@ function Header(): ReactElement {
   );
 }
 
-const HeaderBlock = styled.header`
+/* 시안: 검정 30% 배경에 흐림 20px, 높이 60px. 메뉴를 열면 배경색 없이 흐림만 남는다 */
+const HeaderBlock = styled.header<{ $isMenuOpen: boolean }>`
   display: flex;
   justify-content: center;
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
-  background-color: ${({ theme }) => theme.palette.black_10};
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background-color: ${({ theme, $isMenuOpen }) =>
+    $isMenuOpen ? 'transparent' : theme.palette.black_30_pure};
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: ${({ theme }) => theme.palette.white_50};
   position: fixed;
   top: 0;
@@ -79,14 +88,20 @@ const HeaderInner = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  /* 시안: 360 화면은 좌우 24px */
   ${media.mobile} {
-    padding: 0 20px;
-    height: 64px;
+    padding: 0 24px;
   }
 `;
 
-const Logo = styled(YappLogo)`
+const LogoLink = styled(Link)`
+  display: flex;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.palette.white};
+    outline-offset: 4px;
+  }
 `;
 
 const HeaderMenu = styled.div`
@@ -107,12 +122,44 @@ const MenuText = styled.span<{ active: boolean }>`
   ${({ theme }) => theme.textStyleV2.fix.font_15};
 `;
 
-const MobileHeaderMenu = styled(Hamburger)`
+/* 시안: 32x32 아이콘 자리. 메뉴가 열리면 X로 바뀐다 */
+const MobileMenuButton = styled.button`
   display: none;
+
   ${media.mobile} {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
+    color: ${({ theme }) => theme.palette.white};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.palette.white};
+    outline-offset: 2px;
   }
 `;
+
+function CloseIcon(): ReactElement {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
+      aria-hidden
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 3L19 19M19 3L3 19"
+        stroke="currentColor"
+        strokeWidth="2.67"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
 export default Header;

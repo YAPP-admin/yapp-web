@@ -57,8 +57,13 @@ const ProjectContainer = styled(SectionTemplate)`
    */
   overflow: hidden;
 
+  /* 시안: 834·360 화면에서는 위아래 100px */
+  ${media.tablet} {
+    padding: 100px 80px;
+  }
+
   ${media.mobile} {
-    padding: 200px 20px;
+    padding: 100px 20px;
   }
 `;
 
@@ -72,10 +77,21 @@ const TextBoxLayout = styled.div`
   }
 `;
 
+/* 시안: 점 아래 48px에 151x53 버튼 (360 화면은 32px 아래에 135x42) */
 const MoreButton = styled(Button)`
   box-sizing: border-box;
   height: 53px;
+  margin-top: 48px;
   padding: 12px 20px;
+
+  ${media.mobile} {
+    margin-top: 32px;
+  }
+
+  ${media.small} {
+    height: auto;
+    padding: 8px 18px;
+  }
 `;
 
 export default ProjectSection;

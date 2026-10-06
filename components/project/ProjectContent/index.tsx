@@ -166,7 +166,8 @@ const BodyText = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${({ theme }) => theme.textStyleV2.resp.body_md};
-  color: ${({ theme }) => theme.palette.black_60};
+  /* 시안: 본문 글자색 70% */
+  color: ${({ theme }) => theme.palette.black_70};
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_sm};

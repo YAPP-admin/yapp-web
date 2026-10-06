@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useCallback } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Slider, { Settings } from 'react-slick';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -58,7 +58,7 @@ function Carousel({ data }: CarouselProps) {
             <ProjectCard className="project-card">
               <Image
                 src={image}
-                alt="Project Card Image"
+                alt={`${title} 대표 이미지`}
                 layout="fill"
                 sizes="(max-width: 833px) 335px, 585px"
                 quality={90}
@@ -81,28 +81,37 @@ function Carousel({ data }: CarouselProps) {
 }
 
 const CarouselContainer = styled.div`
+  /* 카드 그림자가 잘리지 않게 슬라이드 위아래에 두는 여유 */
+  --card-room: 35px;
+  /* 시안: 제목과 카드 사이, 카드와 점 사이 80px (좁은 화면은 32px) */
+  --carousel-gap: 80px;
+  --card-height: 331px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   min-width: 1920px;
-  margin: 10px 0 64px;
+  margin: calc(var(--carousel-gap) - var(--card-room)) 0 0;
   overflow: hidden;
 
-  // Carousel Container
-  .slick-slide {
-    height: 400px;
+  ${media.mobile} {
+    --carousel-gap: 32px;
+    --card-height: 189px;
   }
 
-  .slick-list .slick-track {
-    height: 331px;
-  }
+  // Carousel Container
   .slick-slide {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: calc(var(--card-height) + 2 * var(--card-room));
     transition: transform 1.5s;
+  }
+
+  /* 링크가 글자 줄로 놓이면 아래에 빈틈이 생겨 카드가 가운데에서 밀린다 */
+  .slick-slide > div {
+    display: flex;
   }
 
   // Carousel 중앙 요소
@@ -120,21 +129,60 @@ const CarouselContainer = styled.div`
     }
   }
 
-  // Dots
+  &&& .slick-dotted.slick-slider {
+    margin-bottom: 0;
+  }
+
+  // Dots — 시안: 12px 점, 사이 16px
   .slick-dots {
-    padding-bottom: 20px;
-    button::before {
-      color: ${({ theme }) => theme.palette.grey_900};
+    position: static;
+    display: flex !important;
+    justify-content: center;
+    gap: 16px;
+    height: 12px;
+    margin: calc(var(--carousel-gap) - var(--card-room)) 0 0;
+    padding: 0;
+
+    li {
+      width: 12px;
+      height: 12px;
+      margin: 0;
     }
 
-    .slick-active {
-      button::before {
-        color: ${({ theme }) => theme.palette.black};
-      }
+    li button {
+      position: relative;
+      box-sizing: border-box;
+      width: 12px;
+      height: 12px;
+      padding: 0;
     }
 
-    ${media.small} {
-      padding-bottom: 60px;
+    /* 누르기 쉽게 점 둘레로 영역을 넓힌다 */
+    li button::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+    }
+
+    li button::before {
+      content: '';
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: ${({ theme }) => theme.palette.grey_200};
+      opacity: 1;
+    }
+
+    li.slick-active button::before {
+      background-color: ${({ theme }) => theme.palette.grey_400};
+      opacity: 1;
+    }
+
+    li button:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.palette.grey_850};
+      outline-offset: 2px;
     }
   }
 `;
@@ -153,9 +201,11 @@ const ProjectCard = styled.div`
   width: 409px !important;
   height: 229px !important;
 
+  /* 시안: 360 화면의 카드 모서리 16px */
   ${media.mobile} {
     width: 335px !important;
     height: 189px !important;
+    border-radius: 16px;
   }
 
   :hover {
@@ -174,61 +224,40 @@ const ProjectBlurCard = styled.span`
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: inherit;
   visibility: hidden;
   color: ${({ theme }) => theme.palette.white};
   background: ${({ theme }) => theme.palette.black + '50'};
   ${({ theme }) => theme.textStyle.web.Button}
 `;
 
+/* 시안: 가운데 카드 좌우 끝에서 16px 안쪽에 48px 버튼 (좁은 화면은 20px 안쪽에 32px) */
 const Arrow = styled.button<{ left?: boolean }>`
+  --card-width: 585px;
+  --arrow-inset: 16px;
   position: absolute;
-  top: 50%;
+  /* 점을 뺀 카드 영역의 가운데 */
+  top: calc(var(--card-room) + var(--card-height) / 2);
   transform: translateY(-50%);
   z-index: 10;
+  display: flex;
+  ${({ left }) => (left ? 'left' : 'right')}: calc(
+    50% - var(--card-width) / 2 + var(--arrow-inset)
+  );
+
   svg {
     width: 48px;
     height: 48px;
   }
 
-  ${({ left }) =>
-    left
-      ? css`
-          left: 38.5%;
-        `
-      : css`
-          right: 38.5%;
-        `};
-
   ${media.mobile} {
+    --card-width: 335px;
+    --arrow-inset: 20px;
+
     svg {
       width: 32px;
       height: 32px;
     }
-
-    ${({ left }) =>
-      left
-        ? css`
-            left: 40%;
-          `
-        : css`
-            right: 40%;
-          `};
-  }
-
-  ${media.small} {
-    svg {
-      width: 28px;
-      height: 28px;
-    }
-    ${({ left }) =>
-      left
-        ? css`
-            left: 42%;
-          `
-        : css`
-            right: 42%;
-          `};
   }
 `;
 

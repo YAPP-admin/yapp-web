@@ -89,7 +89,7 @@ function JobDetail({ job }: JobDetailProps): ReactElement {
         <Panel>
           <PanelTitle>{RECRUIT_JOB_SECTION.talentTitle}</PanelTitle>
           {talent.intro && <PanelIntro>{talent.intro}</PanelIntro>}
-          <GroupList>
+          <GroupList $afterIntro={Boolean(talent.intro)}>
             {talent.items.map((item, index) => (
               <TalentItem
                 key={item.title}
@@ -103,7 +103,7 @@ function JobDetail({ job }: JobDetailProps): ReactElement {
 
         <Panel>
           <PanelTitle>{RECRUIT_JOB_SECTION.jdTitle}</PanelTitle>
-          <GroupList>
+          <GroupList $compact>
             {jd.map(({ title, lines }) => (
               <Group key={title}>
                 <GroupTitle>{title}</GroupTitle>
@@ -197,6 +197,7 @@ const AlertLink = styled.a<{
   padding: 8px 18px;
   border-radius: 99px;
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+  font-weight: 700;
   ${({ theme, $backgroundColor, $fontColor }) =>
     $fontColor === 'white_100'
       ? `
@@ -278,15 +279,17 @@ const PanelIntro = styled.p`
   }
 `;
 
-const GroupList = styled.div`
-  margin-top: 20px;
+/* 시안: 제목 아래 20px (소개 문장이 있으면 32px) */
+const GroupList = styled.div<{ $afterIntro?: boolean; $compact?: boolean }>`
+  --group-gap: ${({ $compact }) => ($compact ? '24px' : '28px')};
+  margin-top: ${({ $afterIntro }) => ($afterIntro ? '32px' : '20px')};
 `;
 
-/* 시안: 묶음 사이 56px, 가운데에 구분선 */
+/* 시안: 묶음 사이 56px(JD는 48px), 가운데에 구분선 */
 const Group = styled.div`
   & + & {
-    margin-top: 28px;
-    padding-top: 28px;
+    margin-top: var(--group-gap);
+    padding-top: var(--group-gap);
     border-top: 1px solid ${({ theme }) => theme.palette.black_10};
   }
 `;

@@ -113,8 +113,9 @@ const Session = styled(motion.li)`
 const SessionBody = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px 24px;
+  /* 시안: 이름과 설명 사이 4px, 안쪽 여백 16·24·24·24 */
+  gap: 4px;
+  padding: 16px 24px 24px;
 `;
 
 const SessionHead = styled.div`

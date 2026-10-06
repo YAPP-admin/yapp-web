@@ -57,11 +57,13 @@ const SectionTemplate = styled.section`
 
   ${media.tablet} {
     min-height: auto;
-    padding: 132px 20px;
+    /* 시안: 834 화면 858px (목록의 위아래 여백 16px 포함) */
+    padding: 105px 20px;
   }
 
+  /* 시안: 360 화면 720px */
   ${media.mobile} {
-    padding: 80px 20px;
+    padding: 168px 20px;
   }
 `;
 

@@ -111,7 +111,9 @@ const InnerContainer = styled.div<{ $compact: boolean }>`
 
   ${media.tablet} {
     top: 60px;
-    color: ${({ theme }) => theme.palette.white_100};
+    /* 시안: 두 줄 제목 카드는 좁은 화면에서도 어두운 글자를 쓴다 */
+    color: ${({ theme, $compact }) =>
+      $compact ? theme.palette.black_100 : theme.palette.white_100};
     /* 시안(두 줄 제목): 위 66px, 버튼까지 20px */
     ${({ $compact }) => $compact && 'top: 66px; gap: 20px;'}
   }
@@ -154,14 +156,15 @@ const Title = styled.span<{ $compact: boolean }>`
   white-space: pre-line;
   word-break: keep-all;
 
-  /* 시안(두 줄 제목): 834 화면에서 줄 간격 44px */
+  /* 시안(두 줄 제목): 834 화면에서 28px, 줄 간격 44px */
   ${media.tablet} {
-    ${({ $compact }) => $compact && 'line-height: 44px;'}
+    ${({ $compact }) => $compact && 'font-size: 1.75rem; line-height: 44px;'}
   }
 
   ${media.mobile} {
-    font-size: clamp(22px, 4.32vw, 36px);
-    line-height: ${({ $compact }) => ($compact ? 1.22 : 1.42)};
+    font-size: ${({ $compact }) =>
+      $compact ? 'clamp(20px, 3.36vw, 28px)' : 'clamp(22px, 4.32vw, 36px)'};
+    line-height: ${({ $compact }) => ($compact ? 1.57 : 1.42)};
   }
 
   ${media.small} {
@@ -182,15 +185,19 @@ const SubTitle = styled.span<{ $compact: boolean }>`
   white-space: pre-line;
   word-break: keep-all;
   color: ${({ theme }) => theme.palette.grey_800};
+  /* 시안(두 줄 제목): 20px, 줄 높이 32px */
+  ${({ $compact }) =>
+    $compact && '--trim: 0px; font-size: 1.25rem; line-height: 32px;'}
 
   ${media.tablet} {
-    color: inherit;
+    ${({ $compact }) => !$compact && 'color: inherit;'}
   }
 
   ${media.mobile} {
     --trim: 0px;
-    font-size: clamp(14px, 2.88vw, 24px);
-    line-height: 1.5;
+    font-size: ${({ $compact }) =>
+      $compact ? 'clamp(14px, 2.4vw, 20px)' : 'clamp(14px, 2.88vw, 24px)'};
+    line-height: ${({ $compact }) => ($compact ? 1.6 : 1.5)};
   }
 
   ${media.small} {
@@ -203,9 +210,20 @@ const SubTitle = styled.span<{ $compact: boolean }>`
   }
 `;
 
-/* 시안: 안내 문구와 같은 글자 크기로 바로 아래 줄에 놓인다 */
+/* 시안: 안내 문구 바로 아래 줄에 더 작은 글자(14px, 360 화면은 12px)로 놓인다. 줄 높이는 안내 문구와 같다 */
 const Caution = styled(SubTitle)`
   margin-top: calc(-1 * var(--text-gap) - var(--trim));
+  font-size: 0.875rem;
+
+  ${media.mobile} {
+    font-size: clamp(11px, 1.68vw, 14px);
+    line-height: calc(1.6 * clamp(14px, 2.4vw, 20px));
+  }
+
+  ${media.small} {
+    font-size: 0.75rem;
+    line-height: 24px;
+  }
 `;
 
 export default JoinSection;
