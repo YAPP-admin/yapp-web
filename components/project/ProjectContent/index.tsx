@@ -213,6 +213,10 @@ const DeployLinkButton = styled(Button)`
   border-radius: 12px;
   white-space: nowrap;
 
+  > svg {
+    flex-shrink: 0;
+  }
+
   background-color: ${theme.palette.black_100};
   color: ${theme.palette.white};
   ${theme.textStyleV2.resp.body_point_md};
@@ -222,6 +226,12 @@ const DeployLinkButton = styled(Button)`
     height: 42px;
     padding: 0 12px;
     ${theme.textStyleV2.resp.body_point_sm};
+  }
+
+  /* 320px에서도 두 버튼의 아이콘과 화살표가 원래 크기로 들어가도록 한다. */
+  ${media.custom(359)} {
+    gap: 4px;
+    padding: 0 6px;
   }
 `;
 
