@@ -11,7 +11,7 @@ interface Props {
 function ProjectRetrospectItem({ retrospect }: Props): ReactElement {
   const { content, field, name } = retrospect;
   return (
-    <Container width={585} backgroundColor="grey_50">
+    <Container backgroundColor="grey_100" borderRadius={12}>
       <div className="title">
         <Badge backgroundColor="black_100" typoColor="white_100">
           {field}
@@ -31,41 +31,35 @@ function ProjectRetrospectItem({ retrospect }: Props): ReactElement {
   );
 }
 
+/* 시안: 안쪽 여백 24px, 이름 줄과 본문 사이 10px, 본문 16px·줄 높이 24px */
 const Container = styled(Box)`
-  min-width: 584px;
+  width: auto;
   padding: 24px;
   box-sizing: border-box;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 
-  ${media.tablet} {
-    width: auto;
-    min-width: auto;
-  }
-
-  &:nth-child(2n) {
-    margin-right: 0;
-  }
-  ${({ theme }) => theme.textStyle.web.Body_2};
   ${media.mobile} {
-    ${({ theme }) => theme.textStyle.mobile.Body_1};
-    margin-bottom: 20px;
+    margin-bottom: 14px;
   }
+
   .title {
     display: flex;
     align-items: center;
     gap: 10px;
-    ${({ theme }) => theme.textStyleV2.resp.subtitle_md}
-    margin-bottom:10px;
+    margin-bottom: 10px;
+    ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
+
     ${media.mobile} {
-      ${({ theme }) => theme.textStyleV2.resp.subtitle_sm}
-      margin-bottom: 10px;
+      ${({ theme }) => theme.textStyleV2.resp.subtitle_sm};
     }
   }
 
   .content {
     color: ${({ theme }) => theme.palette.black_100};
-    ${({ theme }) => theme.textStyleV2.fix.font_15}
+    ${({ theme }) => theme.textStyleV2.fix.font_16};
+    line-height: 24px;
     white-space: normal;
+    word-break: keep-all;
   }
 `;
 

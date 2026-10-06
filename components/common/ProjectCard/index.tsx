@@ -17,32 +17,22 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
 
   return (
     <Link href={isSubCard ? `${url}` : `project/${url}`} passHref>
-      <StyledProjectCard $isSubCard={isSubCard}>
+      <StyledProjectCard>
         <AnimatedImage
           className="project-card-image"
           src={thumbnail}
           blurDataURL={thumbnailBlurDataURL}
-          sizes={
-            isSubCard
-              ? '(max-width: 833px) 335px, 380px'
-              : '(max-width: 833px) calc((100vw - 32px) / 2), 326px'
-          }
+          sizes="(max-width: 833px) calc((100vw - 32px) / 2), 331px"
           quality={90}
           alt="project-image"
           height={214}
         />
         <ContentContainer className="project-card-content">
           <DetailWrapper className="project-card-detail">
-            {isSubCard ? (
-              <ProjectSubTitleWrapper>{title}</ProjectSubTitleWrapper>
-            ) : (
-              <>
-                <ProjectTitleWrapper className="project-card-title">
-                  {title}
-                </ProjectTitleWrapper>
-                <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
-              </>
-            )}
+            <ProjectTitleWrapper className="project-card-title">
+              {title}
+            </ProjectTitleWrapper>
+            <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
           </DetailWrapper>
           <TagWrapper className="project-card-tags">
             {tags.map((tag) => (
@@ -55,7 +45,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   );
 }
 
-const StyledProjectCard = styled.div<{ $isSubCard?: boolean }>`
+const StyledProjectCard = styled.div`
   width: 380px;
   height: 326px;
   border-radius: 25px;
@@ -91,8 +81,8 @@ const StyledProjectCard = styled.div<{ $isSubCard?: boolean }>`
     }
   }
 
-  ${({ $isSubCard, theme }) =>
-    !$isSubCard &&
+  /* 목록과 상세의 '더 둘러보기'가 같은 카드 모양을 쓴다 */
+  ${({ theme }) =>
     css`
       width: 100%;
       height: 282px;
@@ -192,19 +182,6 @@ const ProjectTitleWrapper = styled.span`
   color: ${({ theme }) => theme.palette.grey_850};
 
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
-  }
-`;
-
-const ProjectSubTitleWrapper = styled.span`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: ${({ theme }) => theme.palette.grey_850};
-
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
