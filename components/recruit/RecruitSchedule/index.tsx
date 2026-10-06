@@ -121,12 +121,15 @@ const GuideBox = styled(AnimatedBox)`
   min-height: 180px;
 `;
 
-/* 시안: 제목 아래 48px. 360 화면에서는 카드 328x156, 간격 16px (본문보다 좌우 4px씩 넓다) */
+/*
+ * 시안: 제목 아래 48px. 카드 묶음이 본문보다 좌우 8px씩 넓다 (1920 화면 516px 두 장).
+ * 360 화면에서는 카드 328x156, 간격 16px (본문보다 좌우 4px씩 넓다)
+ */
 const GridContainer = styled.article`
-  width: 100%;
+  width: calc(100% + 16px);
   display: grid;
   gap: 24px;
-  margin-top: 48px;
+  margin: 48px -8px 0;
 
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
@@ -154,7 +157,8 @@ const CardInnerBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  /* 시안: 두 줄 사이 8px */
+  gap: 8px;
 `;
 
 const CardInnerLine = styled.li`
@@ -163,7 +167,12 @@ const CardInnerLine = styled.li`
   gap: 16px;
 `;
 
+/* 시안: 폭 64px에 글자를 가운데로. 폭이 같아야 두 줄의 설명이 같은 자리에서 시작한다 */
 const CardLabel = styled.span`
+  box-sizing: border-box;
+  flex-shrink: 0;
+  min-width: 64px;
+  text-align: center;
   white-space: nowrap;
   padding: 4px;
   border-radius: 4px;

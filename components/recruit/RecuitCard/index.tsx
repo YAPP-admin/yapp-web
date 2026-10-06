@@ -28,6 +28,10 @@ function RecruitCard({
   onHoverStart,
   onHoverEnd,
 }: CardProps): ReactElement {
+  /* 시안: 밝은 카드는 본문이 남색이어도 '자세히 보기'는 검정에 가까운 글자색을 쓴다 */
+  const actionColor: PaletteKeyTypes =
+    fontColor === 'chemistry_29th_text' ? 'black_100' : fontColor;
+
   return (
     <CardContainer
       whileHover={{ scale: 1.05 }}
@@ -40,7 +44,7 @@ function RecruitCard({
             <h2>{name}</h2>
             <p>{description}</p>
           </div>
-          <Action $iconColor={fontColor} $arrowColor={backgroundColor}>
+          <Action $iconColor={actionColor} $arrowColor={backgroundColor}>
             {actionLabel}
             <CircleArrow />
           </Action>
@@ -64,7 +68,7 @@ function RecruitCard({
 
 export default RecruitCard;
 
-/* 시안: 카드 320x368 */
+/* 시안: 카드 320x368, 모서리 16px, 안쪽 여백 위아래 36px·좌우 32px */
 const CardContainer = styled(motion.div)`
   perspective: 1000px;
   width: 320px;
@@ -90,14 +94,14 @@ const CardFace = styled.div<{
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 32px;
+  padding: 36px 32px;
   box-sizing: border-box;
   color: ${({ theme, $fontColor }) => theme.palette[$fontColor]};
   background-color: ${({ theme, $backgroundColor }) =>
@@ -106,11 +110,13 @@ const CardFace = styled.div<{
   h2 {
     margin: 0;
     ${({ theme }) => theme.textStyleV2.fix.font_24};
+    font-weight: 700;
   }
 
   p {
     margin: 8px 0 0;
     ${({ theme }) => theme.textStyleV2.fix.font_15};
+    font-weight: 600;
     word-break: keep-all;
   }
 `;
@@ -121,7 +127,7 @@ const CardBack = styled(CardFace)`
   transform: rotateY(180deg);
 
   p + p {
-    margin-top: 12px;
+    margin-top: 16px;
   }
 `;
 
@@ -132,6 +138,7 @@ const Action = styled.span<{
   display: flex;
   align-items: center;
   gap: 6px;
+  color: ${({ theme, $iconColor }) => theme.palette[$iconColor]};
   ${({ theme }) => theme.textStyleV2.fix.font_20};
 
   /* 원은 글자색, 안쪽 화살표는 카드 배경색 */

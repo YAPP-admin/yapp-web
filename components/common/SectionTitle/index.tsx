@@ -43,7 +43,8 @@ const TitleBox = styled.div<{ align: 'flex-start' | 'center' | 'right' }>`
 `;
 
 const StyledSubTitle = styled.span<{ subFontColor: PaletteKeyTypes }>`
-  margin-top: 8px;
+  /* 시안: 제목과 설명 사이 4px */
+  margin-top: 4px;
   color: ${({ theme, subFontColor }) => theme.palette[subFontColor]};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
   white-space: nowrap;

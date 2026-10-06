@@ -61,8 +61,10 @@ const FooterBlock = styled.footer`
   background-color: ${({ theme }) => theme.palette.black_5};
   padding: 24px 100px;
 
+  /* 시안: 834 화면은 183px, 여백 40·40·32·40 */
   ${media.tablet} {
     min-height: 183px;
+    padding: 40px 40px 32px;
   }
 
   ${media.mobile} {
@@ -184,7 +186,7 @@ const BusinessInfo = styled.div`
     margin: 0;
   }
 
-  ${media.mobile} {
+  ${media.tablet} {
     font-size: 14px;
     line-height: 20px;
   }
@@ -196,6 +198,11 @@ const Copyright = styled.div`
   font-weight: 500;
   letter-spacing: -0.28px;
   line-height: 22.4px;
+  white-space: nowrap;
+
+  ${media.tablet} {
+    font-size: 13px;
+  }
 
   ${media.mobile} {
     font-size: 12px;

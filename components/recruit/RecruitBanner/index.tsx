@@ -240,6 +240,8 @@ const TimeList = styled.ul`
 `;
 
 const Colon = styled.span`
+  /* 시안: 불투명도 80% */
+  opacity: 0.8;
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
 

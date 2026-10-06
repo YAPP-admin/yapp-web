@@ -201,8 +201,10 @@ const Tab = styled.button<{ $isActive: boolean; $afterBreak: boolean }>`
   padding: 8px 0 5px;
   border-bottom: 3px solid transparent;
   white-space: nowrap;
-  color: ${({ theme }) => theme.palette.black_50};
+  /* 시안: 고르지 않은 탭은 회색(#A0A3A7)·굵기 500, 고른 탭은 굵기 600 */
+  color: ${({ theme }) => theme.palette.grey_400};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
+  font-weight: ${({ $isActive }) => ($isActive ? 600 : 500)};
 
   ${({ theme, $isActive }) =>
     $isActive &&
@@ -218,7 +220,7 @@ const Tab = styled.button<{ $isActive: boolean; $afterBreak: boolean }>`
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.fix.font_14};
-    font-weight: 600;
+    font-weight: ${({ $isActive }) => ($isActive ? 600 : 500)};
   }
 
   ${media.small} {

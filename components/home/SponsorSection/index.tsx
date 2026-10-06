@@ -105,9 +105,15 @@ const ButtonContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
 
-  /* 시안: 버튼 136x53 */
+  /* 시안: 버튼 136x53 (360 화면은 121x42) */
   button {
     padding: 12px 20px;
+  }
+
+  ${media.small} {
+    button {
+      padding: 8px 18px;
+    }
   }
 `;
 

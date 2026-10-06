@@ -187,15 +187,13 @@ const BadgeList = styled.ul`
 
 /* 시안: 높이 37px(360 화면 34px), 기수와 플랫폼을 '#' 없이 보여 준다 */
 const TagChip = styled.li`
-  padding: 3.5px 8px;
+  padding: 4px 8px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.palette.grey_100};
-  color: ${({ theme }) => theme.palette.black_60};
+  background-color: ${({ theme }) => theme.palette.black_5};
+  color: ${({ theme }) => theme.palette.black_70};
   ${({ theme }) => theme.textStyleV2.resp.body_md};
-  line-height: 30px;
 
   ${media.mobile} {
-    padding: 4px 8px;
     ${({ theme }) => theme.textStyleV2.resp.body_sm};
     line-height: 26px;
   }
@@ -203,6 +201,7 @@ const TagChip = styled.li`
 
 const ProjectName = styled.h2`
   margin: 7px 0 32px;
+  color: ${({ theme }) => theme.palette.black_100};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
 
   ${media.mobile} {
@@ -240,6 +239,7 @@ const RetrospectSection = styled.section`
 
 const ProjectSubTitle = styled.h2`
   margin: 0 0 24px;
+  color: ${({ theme }) => theme.palette.black_100};
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   text-align: start;
 
@@ -262,7 +262,7 @@ const OtherProjectList = styled.div`
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  ${media.mobile} {
+  ${media.small} {
     gap: 16px 8px;
     margin: 0 -8px;
   }

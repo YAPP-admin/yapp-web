@@ -46,7 +46,7 @@ function FrequentlyAskedQuestions(): ReactElement {
         <SectionTitle
           title={title}
           subTitle={subTitle}
-          fontColor="black"
+          fontColor="black_100"
           subFontColor="black_50"
         />
         <UnderlineTabs
@@ -69,28 +69,31 @@ function FrequentlyAskedQuestions(): ReactElement {
           {faqList.length === 0 && (
             <EmptyText>질문을 준비하고 있어요.</EmptyText>
           )}
-          {faqList.map(({ subTitle, description }) => {
+          {faqList.map(({ subTitle, description }, index) => {
             const isOpen = openQuestions.includes(subTitle);
+            const answerId = `${TAB_ID_PREFIX}-answer-${currentCategory}-${index}`;
 
             return (
-              <FAQBox
-                key={`faq-${subTitle}`}
-                onClick={() => handleToggleFaq(subTitle)}
-              >
-                <FAQBoxInner>
-                  <FAQSubTitle>
-                    <TitleText>{subTitle}</TitleText>
-                    <TitleButton isOpen={isOpen}>
-                      <ArrowButton />
-                    </TitleButton>
-                  </FAQSubTitle>
-                  <FQASubContent
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(description),
-                    }}
-                    isOpen={isOpen}
-                  />
-                </FAQBoxInner>
+              <FAQBox key={`faq-${subTitle}`}>
+                {/* 질문 줄만 눌러서 여닫는다. 답변을 드래그하거나 답변 속 링크를 눌러도 접히지 않는다 */}
+                <FAQSubTitle
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  onClick={() => handleToggleFaq(subTitle)}
+                >
+                  <TitleText>{subTitle}</TitleText>
+                  <TitleIcon $isOpen={isOpen} aria-hidden>
+                    <ArrowButton />
+                  </TitleIcon>
+                </FAQSubTitle>
+                <FQASubContent
+                  id={answerId}
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(description),
+                  }}
+                  $isOpen={isOpen}
+                />
               </FAQBox>
             );
           })}
@@ -125,14 +128,7 @@ const EmptyText = styled.p`
 
 const FAQBox = styled.section`
   width: 100%;
-  padding: 0;
   border-bottom: 1px solid ${({ theme }) => theme.palette.black_5};
-  height: auto;
-  cursor: pointer;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   ${media.mobile} {
     min-height: 77px;
@@ -140,19 +136,24 @@ const FAQBox = styled.section`
 `;
 
 /* 시안: 질문 한 줄 76px (위아래 20px + 아이콘 36px) */
-const FAQBoxInner = styled.div`
-  padding: 23px 0;
-  ${media.mobile} {
-    padding: 24px 0;
-  }
-`;
-
-const FAQSubTitle = styled.div`
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md}
+const FAQSubTitle = styled.button`
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  padding: 23px 0;
+  text-align: left;
+  cursor: pointer;
+  color: ${({ theme }) => theme.palette.black_100};
+  ${({ theme }) => theme.textStyleV2.resp.body_point_md}
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.palette.grey_850};
+    outline-offset: -2px;
+  }
 
   ${media.mobile} {
+    padding: 24px 0;
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm}
     align-items: flex-start;
   }
@@ -164,9 +165,10 @@ const TitleText = styled.span`
   word-break: keep-all;
 `;
 
-const TitleButton = styled.button<{ isOpen: boolean }>`
-  ${({ isOpen }) => (isOpen ? `transform: rotate(180deg);` : '')}
-  transition: all ease .5s;
+const TitleIcon = styled.span<{ $isOpen: boolean }>`
+  display: flex;
+  ${({ $isOpen }) => ($isOpen ? `transform: rotate(180deg);` : '')}
+  transition: all ease 0.5s;
 
   ${media.mobile} {
     margin-top: 8px;
@@ -174,22 +176,28 @@ const TitleButton = styled.button<{ isOpen: boolean }>`
   }
 `;
 
-const FQASubContent = styled.div<{ isOpen: boolean }>`
+const FQASubContent = styled.div<{ $isOpen: boolean }>`
   ${({ theme }) => theme.textStyleV2.resp.body_md};
   color: ${({ theme }) => theme.palette.black_60};
   width: 100%;
   overflow: hidden;
   transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
 
-  ${({ isOpen }) =>
-    isOpen
+  ${({ $isOpen }) =>
+    $isOpen
       ? css`
           height: auto;
-          margin-top: 24px;
+          padding-bottom: 23px;
           opacity: 1;
           transform: translateY(0);
+
+          ${media.mobile} {
+            padding-bottom: 24px;
+          }
         `
       : css`
+          /* 접힌 답변 속 링크에 키보드 초점이 가지 않게 한다 */
+          visibility: hidden;
           opacity: 0;
           height: 0px;
         `}

@@ -24,10 +24,13 @@ function HamburgerMenu({ handleOpenMenu }: HamburgerMenuProps): ReactElement {
       <InnerMenu>
         <MenuList>
           {HEADER_MENUS.map(({ name, path }) => (
-            <Link key={`${name}_${path}`} href={path} scroll>
-              <MenuItem active={asPath === path} onClick={handleOpenMenu}>
-                {name}
-              </MenuItem>
+            <Link
+              key={`${name}_${path}`}
+              href={path}
+              scroll
+              onClick={handleOpenMenu}
+            >
+              <MenuItem active={asPath === path}>{name}</MenuItem>
             </Link>
           ))}
         </MenuList>
