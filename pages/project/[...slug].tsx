@@ -1,8 +1,6 @@
-import { Badge, ProjectCard } from 'components/common';
+import { ProjectCard } from 'components/common';
 import Banner from 'components/common/Banner';
-import Tag from 'components/common/Tag';
 import { ProjectContent, ProjectRetrospects } from 'components/project';
-import Breakpoints from 'constants/breakpoints';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -124,17 +122,16 @@ function ProjectDetail({ project, contentImages, otherProjects }: Props) {
         description={`YAPP에서 활동하는 구성원인\n‘야뿌’들이 만들어낸 프로젝트들이에요.`}
       />
       <Wrapper>
-        <ResponsiveLayout>
-          <BadgeList>
-            {tags?.map((tag) => (
-              <Badge key={tag}>{`#${tag}`}</Badge>
-            ))}
-          </BadgeList>
-          <ProjectName>{title}</ProjectName>
-          <ProjectContent project={project} />
-        </ResponsiveLayout>
+        <BadgeList>
+          {tags?.map((tag) => (
+            <TagChip key={tag}>{tag}</TagChip>
+          ))}
+        </BadgeList>
+        <ProjectName>{title}</ProjectName>
+        <ProjectContent project={project} />
+
         {contentImages.length > 0 && (
-          <div style={{ margin: '100px auto 100px' }}>
+          <ImageBox>
             {contentImages.map(({ src, width, height }) => (
               <ProjectImage
                 key={src}
@@ -146,119 +143,128 @@ function ProjectDetail({ project, contentImages, otherProjects }: Props) {
                 alt="project-content-image"
               />
             ))}
-          </div>
+          </ImageBox>
         )}
 
         {retrospects?.length > 0 && (
-          <>
+          <RetrospectSection>
             <ProjectSubTitle>팀 회고</ProjectSubTitle>
             <ProjectRetrospects retrospects={retrospects} />
-          </>
+          </RetrospectSection>
         )}
-        <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
 
-        <OtherProjectList>
-          {randomProjects.map((otherProject, i) => (
-            <ProjectCard key={i} project={otherProject} isSubCard />
-          ))}
-        </OtherProjectList>
+        <section>
+          <ProjectSubTitle>더 둘러보기</ProjectSubTitle>
+          <OtherProjectList>
+            {randomProjects.map((otherProject, i) => (
+              <ProjectCard key={i} project={otherProject} isSubCard />
+            ))}
+          </OtherProjectList>
+        </section>
       </Wrapper>
     </>
   );
 }
 
+/* 시안: 본문 폭 1040px, 배너 아래 64px. 834 화면은 좌우 80px, 360 화면은 20px */
 const Wrapper = styled.div`
-  width: ${Breakpoints.large}px;
+  box-sizing: content-box;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 64px 0 209px 0;
-  height: 100%;
-  .tag {
-    &:not(:last-child) {
-      margin-right: 12px;
-    }
-  }
-  ${media.tablet} {
-    width: 100%;
-    padding: 174px 0 200px 0;
-  }
+  padding: 64px 80px 144px;
+
   ${media.mobile} {
-    padding: 80px 0 120px 0;
+    padding: 64px 20px;
   }
 `;
 
 const BadgeList = styled.ul`
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   gap: 8px;
+  margin: 0;
 `;
 
-const ResponsiveLayout = styled.div`
-  ${media.tablet} {
-    padding: 0 76px 0 80px;
-  }
+/* 시안: 높이 37px(360 화면 34px), 기수와 플랫폼을 '#' 없이 보여 준다 */
+const TagChip = styled.li`
+  padding: 3.5px 8px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.palette.grey_100};
+  color: ${({ theme }) => theme.palette.black_60};
+  ${({ theme }) => theme.textStyleV2.resp.body_md};
+  line-height: 30px;
+
   ${media.mobile} {
-    padding: 0 20px;
+    padding: 4px 8px;
+    ${({ theme }) => theme.textStyleV2.resp.body_sm};
+    line-height: 26px;
   }
 `;
 
-const ProjectName = styled.div`
+const ProjectName = styled.h2`
+  margin: 7px 0 32px;
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
-  margin-top: 16px;
-  margin-bottom: 26px;
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.title2_md};
-    margin-bottom: 32px;
-  }
-`;
-
-const ProjectImage = styled.img`
-  max-width: 100%;
-  height: auto;
-  display: block;
-`;
-
-const ProjectSubTitle = styled.div`
-  ${({ theme }) => theme.textStyleV2.resp.title1_md};
-  text-align: start;
-  margin-bottom: 72px;
-
-  ${media.tablet} {
-    padding: 0 80px;
-  }
 
   ${media.mobile} {
-    padding: 0 20px;
-    margin-bottom: 32px;
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
   }
 `;
 
-const OtherProjectList = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  > div {
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
-  }
+/* 시안: 본문 이미지는 위아래 95px. 834 이하 화면에서는 화면 폭을 꽉 채운다 */
+const ImageBox = styled.div`
+  margin: 95px 0;
 
   ${media.tablet} {
-    flex-direction: column;
-    > div {
-      margin-bottom: 32px;
-      &:not(:last-child) {
-        margin-right: 0px;
-      }
-    }
+    margin: 95px -80px;
   }
 
   ${media.mobile} {
-    > div {
-      margin-bottom: 20px;
-      height: 267px;
-    }
+    margin: 95px -20px;
+  }
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: auto;
+  display: block;
+`;
+
+/* 시안: 팀 회고 아래 더 둘러보기 제목까지 151px(360 화면 94px). 카드 아래 여백 16px을 뺀 값 */
+const RetrospectSection = styled.section`
+  margin-bottom: 135px;
+
+  ${media.mobile} {
+    margin-bottom: 80px;
+  }
+`;
+
+const ProjectSubTitle = styled.h2`
+  margin: 0 0 24px;
+  ${({ theme }) => theme.textStyleV2.resp.title1_md};
+  text-align: start;
+
+  ${media.mobile} {
+    ${({ theme }) => theme.textStyleV2.resp.title1_sm};
+  }
+`;
+
+/* 시안: 1920 화면 3열(간격 24px), 834 화면 2열, 360 화면 2열(간격 8px, 본문보다 좌우 8px씩 넓다) */
+const OtherProjectList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  > a {
+    min-width: 0;
+  }
+
+  ${media.tablet} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  ${media.mobile} {
+    gap: 16px 8px;
+    margin: 0 -8px;
   }
 `;
 

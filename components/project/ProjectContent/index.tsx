@@ -141,33 +141,22 @@ function ProjectContent({ project }: Props): ReactElement {
 
 const Container = styled.div``;
 
+/* 시안: 제목 아래에 내용을 쌓는다 (제목과 내용 사이 4px, 묶음 사이 22px) */
 const Block = styled.div`
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  ${media.mobile} {
-    flex-direction: column;
-    align-items: unset;
-  }
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 22px;
 `;
 
 const Description = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 38px 0 67px 0;
-  ${media.tablet} {
-    margin: 38px 0 112px 0;
-  }
-  ${media.mobile} {
-    margin: 20px 0 32px 0;
-  }
+  margin: 23px 0 32px;
 `;
 
 const SubTitle = styled.div`
-  display: inline-block;
-  width: 170px;
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
   color: ${({ theme }) => theme.palette.black_100};
+
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
@@ -175,57 +164,74 @@ const SubTitle = styled.div`
 
 const BodyText = styled.div`
   display: flex;
-  flex: 1;
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-  color: ${({ theme }) => theme.palette.black_50};
   flex-wrap: wrap;
+  ${({ theme }) => theme.textStyleV2.resp.body_md};
+  color: ${({ theme }) => theme.palette.black_60};
 
   ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+    ${({ theme }) => theme.textStyleV2.resp.body_sm};
   }
 `;
 
 const DescriptionText = styled(BodyText)`
   display: block;
   white-space: pre-wrap;
+  word-break: keep-all;
 `;
 
 const TextItem = styled.div`
+  max-width: 100%;
   margin-right: 6px;
+  /* 띄어쓰기 없는 긴 이름(라이브러리 이름 등)이 좁은 화면 밖으로 나가지 않게 한다 */
+  overflow-wrap: anywhere;
 `;
 
+/* 시안: 버튼 사이 12px. 360 화면에서는 두 개씩 나란히 */
 const DeployBox = styled.div`
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 12px;
-  ${media.tablet} {
-    justify-content: center;
-  }
 
   ${media.mobile} {
-    flex-direction: column;
-    row-gap: 1.2rem;
+    > a {
+      flex: 0 1 calc(50% - 6px);
+      min-width: 0;
+    }
   }
 `;
 
+/* 시안: 높이 45px(360 화면 42px), 모서리 12px */
 const DeployLinkButton = styled(Button)`
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+  box-sizing: border-box;
+  height: 45px;
+  padding: 0 18px;
   border-radius: 12px;
+  white-space: nowrap;
 
-  background-color: ${theme.palette.grey_850};
+  > svg {
+    flex-shrink: 0;
+  }
+
+  background-color: ${theme.palette.black_100};
   color: ${theme.palette.white};
   ${theme.textStyleV2.resp.body_point_md};
 
   ${media.mobile} {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
     ${theme.textStyleV2.resp.body_point_sm};
   }
 
-  &:not(:first-child) {
-    margin-left: 20px;
+  /* 320px에서도 두 버튼의 아이콘과 화살표가 원래 크기로 들어가도록 한다. */
+  ${media.custom(359)} {
+    gap: 4px;
+    padding: 0 6px;
   }
 `;
 

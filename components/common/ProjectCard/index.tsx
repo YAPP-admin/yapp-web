@@ -22,23 +22,19 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
           className="project-card-image"
           src={thumbnail}
           blurDataURL={thumbnailBlurDataURL}
-          sizes="(max-width: 833px) 335px, 380px"
+          sizes="(max-width: 833px) calc((100vw - 32px) / 2), 331px"
           quality={90}
           alt="project-image"
           height={214}
         />
-        <ContentContainer>
-          <DetailWrapper>
-            {isSubCard ? (
-              <ProjectSubTitleWrapper>{title}</ProjectSubTitleWrapper>
-            ) : (
-              <>
-                <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
-                <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
-              </>
-            )}
+        <ContentContainer className="project-card-content">
+          <DetailWrapper className="project-card-detail">
+            <ProjectTitleWrapper className="project-card-title">
+              {title}
+            </ProjectTitleWrapper>
+            <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
           </DetailWrapper>
-          <TagWrapper>
+          <TagWrapper className="project-card-tags">
             {tags.map((tag) => (
               <Tag key={tag}>{'#' + tag} </Tag>
             ))}
@@ -49,7 +45,7 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   );
 }
 
-const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
+const StyledProjectCard = styled.div`
   width: 380px;
   height: 326px;
   border-radius: 25px;
@@ -84,6 +80,81 @@ const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
       aspect-ratio: 335 / 188;
     }
   }
+
+  /* 목록과 상세의 '더 둘러보기'가 같은 카드 모양을 쓴다 */
+  ${({ theme }) =>
+    css`
+      width: 100%;
+      height: 282px;
+      border-radius: 12px;
+
+      > .project-card-image {
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .project-card-content {
+        margin: 16px;
+      }
+
+      .project-card-detail {
+        gap: 8px;
+      }
+
+      .project-card-title {
+        width: auto;
+        min-width: 0;
+        white-space: nowrap;
+      }
+
+      .project-card-tags {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      ${media.mobile} {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 160px;
+
+        > .project-card-image {
+          aspect-ratio: 164 / 96;
+        }
+
+        .project-card-content {
+          margin: 12px;
+        }
+
+        .project-card-detail {
+          height: 24px;
+          align-items: flex-start;
+        }
+
+        .project-card-title {
+          ${theme.textStyleV2.resp.body_point_sm};
+          font-size: 14px;
+          line-height: 22px;
+        }
+
+        .project-card-detail > div {
+          padding: 2px 6px;
+          font-size: 10px;
+          line-height: 18px;
+        }
+
+        .project-card-tags > div {
+          font-size: 10px;
+          line-height: 16px;
+        }
+
+        .project-card-tags {
+          font-size: 10px;
+          line-height: 16px;
+        }
+      }
+    `}
 `;
 
 const ContentContainer = styled.div<{ isSubCard?: boolean }>`
@@ -111,19 +182,6 @@ const ProjectTitleWrapper = styled.span`
   color: ${({ theme }) => theme.palette.grey_850};
 
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
-  }
-`;
-
-const ProjectSubTitleWrapper = styled.span`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: ${({ theme }) => theme.palette.grey_850};
-
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
   }
