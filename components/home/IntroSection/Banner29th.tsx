@@ -54,8 +54,30 @@ const floatY = keyframes`
   }
 `;
 
+/* 위에서 아래로 흰색이 옅어지는 4x96 PNG */
+const WHITE_FADE =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAABgCAYAAAA6lNMyAAAATElEQVR42s2OMQ4AIAgDq/H/H1asq3ExIUXseLkWCkliSwMwTtCvRghQnLWc1+2TisNIqoRsKMD8ZHRGGEmVN4BPNhyGoiIHFUcUxgIa32B1EunPrwAAAABJRU5ErkJggg==';
+
 const BannerLayout = styled.div`
   position: relative;
+
+  /*
+   * 배너 바로 아래에 흰색이 옅어지는 띠를 깐다. 아래 구역이 흰 배경이라 평소에는 보이지 않는다.
+   * 브라우저가 강제로 다크모드를 적용하면 아래 구역만 어두워져 밝은 배너와 딱 잘려 보이는데,
+   * 그림은 색이 바뀌지 않으므로 이 띠가 배너에서 어두운 배경으로 이어지는 경계를 풀어 준다.
+   * (CSS 그라데이션은 강제 다크모드에서 같이 어두워져 쓸 수 없다)
+   */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: min(140px, 20vh);
+    background: url(${WHITE_FADE}) 0 0 / 100% 100% no-repeat;
+    pointer-events: none;
+  }
 
   /*
    * --banner-unit: 배경 시안의 1px에 해당하는 길이 (배경이 cover로 채워질 때의 배율)

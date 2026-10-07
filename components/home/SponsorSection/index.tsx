@@ -35,14 +35,15 @@ function SponsorSection(): ReactElement {
         </motion.div>
 
         <SponsorList as={motion.ul} variants={containerVariants}>
-          {SPONSOR_DATA.map(({ image, alt }, index) => (
+          {SPONSOR_DATA.map(({ image, alt, width, height }, index) => (
             <Sponsor as={motion.li} key={index} variants={itemVariants}>
+              {/* 바탕색까지 그림에 들어 있어 색이 바뀌면 안 된다. 다시 압축하지 않고 그대로 내보낸다 */}
               <Image
                 src={image}
                 alt={alt}
-                width={137}
-                height={50}
-                sizes="(max-width: 480px) 45vw, (max-width: 833px) 30vw, 196px"
+                width={width}
+                height={height}
+                unoptimized
               />
             </Sponsor>
           ))}
@@ -125,17 +126,22 @@ const Sponsor = styled.li`
   aspect-ratio: 1 / 1;
   background-color: ${({ theme }) => theme.palette.black_5};
   border-radius: 16px;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* 시안: 로고 좌우 여백 24px */
+  /*
+   * 시안: 로고 좌우 여백 24px.
+   * 그림은 로고 폭의 3배 크기(카드 색 바탕 포함)라서, 로고 폭(100% - 48px)의 3배로 놓고
+   * 카드 밖으로 넘치는 바탕은 잘라 낸다.
+   */
   & img {
-    object-fit: contain;
-    width: calc(100% - 48px);
+    flex: none;
+    width: calc((100% - 48px) * 3);
+    max-width: none;
     height: auto;
-    max-height: 50%;
   }
 
   ${media.mobile} {
