@@ -43,12 +43,6 @@ const StyledBox = styled.div<BannerProps>`
   background-image: url(${({ backgroundImg }) => backgroundImg});
   background-color: ${({ theme, backgroundImg }) =>
     !backgroundImg && theme.palette.grey_800};
-  /*
-   * 시안: 모든 폭에서 높이 330px.
-   * 높이가 늘면 배경 그림이 그만큼 확대되므로, 글이 두 줄씩으로 접히는 폭에서는 위아래 여백을 줄여 330px을 지킨다.
-   */
-  box-sizing: border-box;
-  min-height: 330px;
   padding: 146px 0 93px 0;
   width: 100%;
   display: flex;
@@ -57,12 +51,7 @@ const StyledBox = styled.div<BannerProps>`
   justify-content: center;
   gap: 8px;
 
-  ${media.custom(1600)} {
-    padding: 108px 0 48px 0;
-  }
-
   ${media.tablet} {
-    padding: 146px 0 93px 0;
     background-position: center;
     background-image: url(${({ backgroundImgTablet }) => backgroundImgTablet});
   }
