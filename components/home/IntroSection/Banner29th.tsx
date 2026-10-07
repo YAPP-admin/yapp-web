@@ -10,9 +10,9 @@ const Banner29th = () => {
         <Image
           src="/assets/images/29th/title_pc.png"
           alt="Play Our CHEMISTRY - 새로운 무대의 시작, YAPP 29기에서 함께해요!"
-          width={928}
-          height={262}
-          sizes="(max-width: 833px) 90vw, (max-width: 1920px) 928px, 49vw"
+          width={926}
+          height={268}
+          sizes="(max-width: 833px) 90vw, (max-width: 1920px) 926px, 49vw"
           priority
         />
       </Banner29thTitleBox>
@@ -87,7 +87,7 @@ const BannerLayout = styled.div`
   --banner-unit: max(100vw / 1920, 100vh / 1200);
   --art-height: 1200;
   --title-top: 201;
-  --title-width: 928;
+  --title-width: 926;
 
   /*
    * 화면이 낮아서 배경이 위아래로 넘칠 때 배경을 위로 올리는 양.
