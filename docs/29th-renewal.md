@@ -104,7 +104,7 @@ footer 링크:
 | 기수·모집 일정 | 완료 | 29기, 2026-10-16 ~ 10-25 (시안의 `10.16(금) - 10.25(일)` 기준) |
 | 배너 | 완료 | 1920 / 834 / 360 배경 3종. 세로로 긴 화면에서만 834·360 배경을 씁니다. |
 | 01_now | 완료 | 아이콘 6종, 카드 색, 문구(`운영 기수 28기`, `누적 활동회원`) |
-| 02_AI Native | 완료 | `components/home/AINativeSection`. 파란 카드 배경은 CSS로 그렸습니다. |
+| 02_AI Native | 완료 | `components/home/AINativeSection`. 파란 카드 배경은 1201px 이상에서 시안의 내보내기용 프레임 그림(`ai_native_team.webp`)을 쓰고, 1200px 이하에서는 구름·반짝이·선을 CSS로 따로 놓습니다. |
 | 05_Executives | 완료 | `components/home/ExecutiveSection`. 프로필 사진 19장은 `public/assets/images/29th/executives/`에 있습니다(운영진이 준 원본을 588px WebP로 변환). |
 | 06_recruit | 완료 | `components/common/JoinSection`. 카드 크기·글자·버튼을 시안에 맞췄습니다. |
 | nn기 지원하기 FAB | 완료 | 색·그림자 변경. 모집 기간에만 보입니다. |
@@ -127,7 +127,7 @@ Figma `이미지 모음` 섹션(node `8531:5809`)의 프레임을 PNG로 내보�
 
 `이미지 모음`에서 받지 않은 것:
 
-- `title_pc.png`(배너 타이틀)는 `이미지 모음 > 타이틀`의 1920 프레임 안 그룹(node `8647:19986`, 926×268)을 2배로 렌더링한 것입니다. 오선의 흐림과 CHEMISTRY의 글래스 효과는 Figma가 그려야 나오므로, 참고 코드나 벡터로 다시 만들지 않습니다.
+- `title_pc.png`(배너 타이틀)는 `이미지 모음 > 타이틀`의 1920 프레임 안 그룹(node `8647:19986`, 926×268)을 2배로 렌더링한 뒤, CHEMISTRY 글자의 색만 홈 시안 프레임(node `8531:2315`) 안에서 렌더링한 색으로 맞춘 것입니다. 이 글자에는 뒤 배경을 비추는 글래스 효과가 걸려 있어, 그룹만 따로 내보내면 하늘색이 빠지고 회색으로 나옵니다(`이미지 모음`의 프레임에는 배경이 없습니다). 다시 뽑을 때도 배경 위에 놓인 상태의 색과 대조합니다. 오선의 흐림과 글래스 효과는 Figma가 그려야 나오므로, 참고 코드나 벡터로 다시 만들지 않습니다.
 - `icons/*.png`(01_now 아이콘 6종)는 Figma가 준 참고 코드와 벡터를 그대로 렌더링해서 만들었습니다. 시안 스크린샷과 대조해 확인했습니다.
 - `icons/ai_native_*.svg`(AI Native 카드의 캐릭터 2종)는 해당 레이어에 설정된 SVG 내보내기로 받았습니다.
 - `lines.svg`(AI Native 카드의 선 장식)는 배너 시안의 벡터입니다.
@@ -159,9 +159,10 @@ Figma에서 따로 받은 그림(`이미지 모음` 밖):
 
 | 파일 (`public/assets/images/29th/`) | 받은 곳 | 쓰는 곳 |
 | --- | --- | --- |
-| `ai_native_cloud.webp`, `ai_native_sparkle.webp` | AI Native 파란 카드의 구름·반짝이 레이어 (2x) | 홈 AI Native 카드 배경 |
-| `goorm.png` | 세션 커리큘럼 "얍커톤 X" 옆 로고 (2x) | 모집 안내 세션 커리큘럼 |
-| `job_character_{orange,yellow,blue}.webp` | 직군 소개 카드 컴포넌트 3종의 오른쪽 부분 (2x) | 직군별 JD 소개 카드. 카드와 같은 색 배경째로 잘라서, 카드 색을 바꾸면 그림도 다시 받아야 합니다. |
+| `ai_native_team.webp` | `이미지 모음 > AI Native Team 이미지` 프레임(node `8659:3819`, 1040×244)을 2배로 내보낸 것. 선·구름·반짝이가 겹쳐진 그대로 들어 있고 글자는 없습니다. | 홈 AI Native 카드 배경 (1201px 이상) |
+| `ai_native_cloud.webp`, `ai_native_sparkle.webp` | AI Native 파란 카드의 구름·반짝이 레이어 (2x) | 홈 AI Native 카드 배경 (1200px 이하. 이 폭의 시안에는 통그림 프레임이 없습니다) |
+| `goorm.png` | 세션 커리큘럼 "얍커톤 X" 옆 로고 (2x). 카드 색(`#F2F5F8`) 바탕을 넣은 그림입니다. | 모집 안내 세션 커리큘럼 |
+| `job_character_{orange,yellow,blue}.webp` | 직군 소개 카드 컴포넌트 3종의 캐릭터 벡터를 2배로 렌더링한 것. 바탕은 투명합니다. | 직군별 JD 소개 카드 |
 
 Figma 내보내기 이미지와 화면을 겹쳐 비교한 평균 색 차이(0~255): 직군 소개 카드 3종 2 이하, AI Native 카드 5 이하.
 
