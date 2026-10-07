@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styles/media';
+import { darkTextOnImage } from 'styles/utils-styles';
 import SectionTemplate from '../../home/SectionTemplate';
 import Button from '../Button';
 import { LINK_BY_STATUS, RecruitStatus } from '../../../constants/status';
@@ -52,6 +53,29 @@ function JoinSection({
     </JoinSectionContainer>
   );
 }
+
+/*
+ * 글자가 어두운 색일 때만 적용한다: 두 줄 제목 카드는 모든 폭에서,
+ * 한 줄 제목 카드는 1201px 이상에서 어두운 글자를 쓴다(그보다 좁으면 흰 글자).
+ * 글자 끝이 상자 밖으로 1px쯤 나가는 글리프가 잘리지 않도록 좌우로 2px씩 칠할 자리를 넓힌다
+ * (바깥 여백을 그만큼 줄여 글자 자리는 그대로다).
+ */
+const darkTextRoom = css`
+  ${darkTextOnImage}
+  padding-inline: 2px;
+  margin-inline: -2px;
+`;
+
+const darkTextWhenDark = css<{ $compact: boolean }>`
+  ${({ $compact }) =>
+    $compact
+      ? darkTextRoom
+      : css`
+          @media (min-width: 1201px) {
+            ${darkTextRoom}
+          }
+        `}
+`;
 
 const JoinSectionContainer = styled(SectionTemplate)`
   width: auto;
@@ -155,6 +179,7 @@ const Title = styled.span<{ $compact: boolean }>`
   line-height: 51.2px;
   white-space: pre-line;
   word-break: keep-all;
+  ${darkTextWhenDark}
 
   /* 시안(두 줄 제목): 834 화면에서 28px, 줄 간격 44px */
   ${media.tablet} {
@@ -185,6 +210,7 @@ const SubTitle = styled.span<{ $compact: boolean }>`
   white-space: pre-line;
   word-break: keep-all;
   color: ${({ theme }) => theme.palette.grey_800};
+  ${darkTextWhenDark}
   /* 시안(두 줄 제목): 20px, 줄 높이 32px */
   ${({ $compact }) =>
     $compact && '--trim: 0px; font-size: 1.25rem; line-height: 32px;'}

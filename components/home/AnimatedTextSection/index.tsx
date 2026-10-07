@@ -44,18 +44,24 @@ const HighLightText = styled(motion.div)`
     margin: 0;
   }
 
-  background: linear-gradient(
+  /*
+   * 가운데가 진하고 양끝이 옅은 글자. 글자색에 투명도 마스크를 씌워 만든다.
+   * 배경 그라데이션을 글자 모양으로 오려 내는 방식(background-clip: text)은
+   * 브라우저가 강제로 다크모드를 적용하면 배경과 같이 어두워져 글자가 사라진다.
+   */
+  color: ${({ theme }) => theme.palette.black};
+  -webkit-mask-image: linear-gradient(
     270deg,
     rgba(0, 0, 0, 0.3) 0%,
     rgba(0, 0, 0, 0.8) 50%,
     rgba(0, 0, 0, 0.3) 100%
   );
-  background-position: center;
-  background-size: cover;
-
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  mask-image: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
 
   ${media.small} {
     ${({ theme }) => theme.textStyleV2.resp.subtitle2_sm};

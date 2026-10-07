@@ -37,12 +37,14 @@ function SessionOverview(): ReactElement {
                 <SessionHead>
                   <SessionName>
                     {name}
+                    {/* 카드 색 바탕까지 들어 있는 그림이라 다시 압축하지 않는다 (강제 다크모드에서 로고가 묻히지 않게) */}
                     {logo && (
                       <Image
                         src={logo.src}
                         alt={logo.alt}
                         width={63}
                         height={20}
+                        unoptimized
                       />
                     )}
                   </SessionName>

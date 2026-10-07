@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
+import { darkTextOnImage } from 'styles/utils-styles';
 
 interface BannerProps {
   backgroundImg?: string;
@@ -92,10 +93,12 @@ const slideUp = keyframes`
 const StyledTitle = styled.h1`
   color-scheme: only light;
   color: ${({ theme }) => theme.palette.chemistry_29th_text};
+  ${darkTextOnImage}
+  /* 글자 끝이 상자 밖으로 1px쯤 나가는 글리프가 잘리지 않게 칠할 자리를 좌우 2px씩 넓힌다 (바깥 여백을 그만큼 줄여 글자 자리는 그대로) */
+  padding-inline: 2px;
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
   white-space: nowrap;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 -2px;
 
   animation: ${slideUp} 0.6s ease forwards;
   animation-delay: 0.2s;
@@ -112,7 +115,7 @@ const StyledTitle = styled.h1`
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
     white-space: pre-line;
-    margin: 0 24px;
+    margin: 0 22px;
   }
 `;
 

@@ -339,27 +339,42 @@ export const SPONSOR_SECTION = {
   subTitle: `YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의,\n언제든 기다리고 있습니다.`,
 };
 
-/** Sponsor 이미지 경로 */
+/**
+ * Sponsor 이미지.
+ * 로고 원본(sponsor_*.png)을 카드 색 바탕 위에 올려 한 장으로 만든 그림(tile_*.webp)을 쓴다.
+ * 브라우저가 강제로 다크모드를 적용해도 로고와 바탕이 함께 움직여 로고가 묻히지 않는다.
+ * 그림 폭은 로고 폭의 3배이고 로고는 가운데에 있다. 만드는 방법은 DESIGN.md에 있다.
+ */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/sponsor_flab.png',
+    image: '/assets/sponsors/tile_flab.webp',
     alt: 'sponsor F-Lab',
+    width: 738,
+    height: 738,
   },
   {
-    image: '/assets/sponsors/sponsor_elice.png',
+    image: '/assets/sponsors/tile_elice.webp',
     alt: 'sponsor elice',
+    width: 819,
+    height: 819,
   },
   {
-    image: '/assets/sponsors/sponsor_greeting.png',
+    image: '/assets/sponsors/tile_greeting.webp',
     alt: 'sponsor greeting',
+    width: 873,
+    height: 874,
   },
   {
-    image: '/assets/sponsors/sponsor_dcamp.png',
+    image: '/assets/sponsors/tile_dcamp.webp',
     alt: 'sponsor dcamp',
+    width: 840,
+    height: 841,
   },
   {
-    image: '/assets/sponsors/sponsor_ictcoc.png',
+    image: '/assets/sponsors/tile_ictcoc.webp',
     alt: 'sponsor ICT COC',
+    width: 840,
+    height: 840,
   },
   // {
   //   image: '/assets/sponsors/sponsor_goorm.png',
