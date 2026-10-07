@@ -112,12 +112,13 @@ const ImageContainer = styled.div`
   /*
    * 시안: 360 화면 328x580. 배너용 그림(328x489)을 122.5%로 키워 아래에 맞추고,
    * 왼쪽으로 25px 옮긴 자리다(넘치는 폭의 34.6%).
+   * 그림 폭이 390px보다 좁으면 높이 580px을 다 덮지 못하므로(350px 미만 화면) 그 아래로는 줄이지 않는다.
    */
   ${media.small} {
     aspect-ratio: auto;
     height: 580px;
     background-image: url('/assets/images/29th/recruit_bg_mo.webp');
-    background-size: 122.5% auto;
+    background-size: max(122.5%, 390px) auto;
     background-position: 34.6% bottom;
   }
 `;
