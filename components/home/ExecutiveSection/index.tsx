@@ -18,8 +18,6 @@ function ExecutiveSection(): ReactElement {
     useScrollAnimation();
 
   const groupNames = EXECUTIVE_GROUPS.map(({ name }) => name);
-  const members =
-    EXECUTIVE_GROUPS.find(({ name }) => name === currentGroup)?.members ?? [];
 
   return (
     <SectionLayout
@@ -48,28 +46,35 @@ function ExecutiveSection(): ReactElement {
           variants={itemVariants}
           {...getTabPanelProps('executive', groupNames, currentGroup)}
         >
-          <MemberList>
-            {members.map(({ role, name, image }) => (
-              <Member key={`${role}-${name}`}>
-                <Profile>
-                  {image ? (
-                    <Image
-                      src={image}
-                      alt={`${role} ${name}`}
-                      fill
-                      sizes="196px"
-                    />
-                  ) : (
-                    <YappLogo aria-hidden />
-                  )}
-                </Profile>
-                <MemberLabel>
-                  <MemberRole>{role}</MemberRole>
-                  <MemberName>{name}</MemberName>
-                </MemberLabel>
-              </Member>
-            ))}
-          </MemberList>
+          {/*
+           * 모든 분류의 사진을 페이지를 열 때 미리 받아 둔다.
+           * 스크롤해 내려왔을 때나 탭을 바꿨을 때 사진이 뒤늦게 나타나며 깜빡이지 않게 한다.
+           */}
+          {EXECUTIVE_GROUPS.map(({ name: groupName, members }) => (
+            <MemberList key={groupName} hidden={groupName !== currentGroup}>
+              {members.map(({ role, name, image }) => (
+                <Member key={`${role}-${name}`}>
+                  <Profile>
+                    {image ? (
+                      <Image
+                        src={image}
+                        alt={`${role} ${name}`}
+                        fill
+                        sizes="196px"
+                        loading="eager"
+                      />
+                    ) : (
+                      <YappLogo aria-hidden />
+                    )}
+                  </Profile>
+                  <MemberLabel>
+                    <MemberRole>{role}</MemberRole>
+                    <MemberName>{name}</MemberName>
+                  </MemberLabel>
+                </Member>
+              ))}
+            </MemberList>
+          ))}
         </MemberScroll>
       </SectionInner>
     </SectionLayout>
@@ -152,6 +157,11 @@ const MemberList = styled.ul`
   flex-wrap: wrap;
   gap: 32px 16px;
   margin: 0;
+
+  /* 고르지 않은 분류는 숨긴다 (아래 display 지정이 hidden 속성을 덮어쓰지 않게 한다) */
+  &[hidden] {
+    display: none;
+  }
 
   /*
    * 시안: 좁은 화면에서는 135px 칸을 가운데에 놓고, 사람은 왼쪽 칸부터 채운다. 줄 사이 16px.
