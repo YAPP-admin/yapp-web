@@ -130,30 +130,35 @@ const TeamCard = styled(motion.div)`
   border-radius: 20px;
   color: ${({ theme }) => theme.palette.white_100};
   background-color: ${({ theme }) => theme.palette.chemistry_29th_blue};
-  /* 시안의 반짝이(왼쪽 위 기준)와 구름(오른쪽 아래 기준) 레이어 */
-  background-image: url('/assets/images/29th/ai_native_sparkle.webp'),
-    url('/assets/images/29th/ai_native_cloud.webp');
+  /*
+   * 시안의 내보내기용 프레임 'AI Native Team 이미지'(1040x244)를 2배로 받은 그림.
+   * 선, 구름, 반짝이가 시안에서 겹쳐진 그대로 들어 있다. 카드가 1040x244인 폭(1201px 이상)에서 쓴다.
+   */
+  background-image: url('/assets/images/29th/ai_native_team.webp');
   background-repeat: no-repeat;
-  background-size: 838px 172px, 1040px 227px;
-  background-position: 94px 56px, right bottom;
+  background-size: 100% 100%;
 
-  /* 오른쪽으로 흐르는 선 */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 9px;
-    right: -30px;
-    width: 808px;
-    height: 376px;
-    background: url('/assets/images/29th/lines.svg') no-repeat center / 100%
-      100%;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
+  /*
+   * 1200px 이하에서는 카드 비율이 달라지고 시안도 장식을 따로 옮겨 놓았다(통그림 프레임이 없다).
+   * 반짝이(왼쪽 위 기준), 구름(오른쪽 아래 기준), 오른쪽으로 흐르는 선을 따로 놓는다.
+   */
   ${media.tablet} {
+    background-image: url('/assets/images/29th/ai_native_sparkle.webp'),
+      url('/assets/images/29th/ai_native_cloud.webp');
+    background-size: 838px 172px, 1040px 227px;
+    background-position: 94px 56px, right bottom;
+
     &::before {
+      content: '';
+      position: absolute;
+      top: 9px;
       right: -152px;
+      width: 808px;
+      height: 376px;
+      background: url('/assets/images/29th/lines.svg') no-repeat center / 100%
+        100%;
+      opacity: 0.6;
+      pointer-events: none;
     }
   }
 
