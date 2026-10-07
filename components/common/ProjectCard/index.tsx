@@ -90,6 +90,14 @@ const StyledProjectCard = styled.div`
 
     > .project-card-image {
       aspect-ratio: 164 / 96;
+
+      /*
+       * 이 자리(164:96)는 16:9 썸네일보다 세로가 길어 위아래로 1.9px씩 비고, 1%로는 다 덮이지 않는다.
+       * 5% 키워 덮는다(16:9 썸네일은 좌우가 2%쯤 잘린다. 시안도 이 자리에 맞춰 잘라 넣었다).
+       */
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 `;
