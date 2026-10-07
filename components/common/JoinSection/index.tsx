@@ -78,11 +78,19 @@ const darkTextWhenDark = css<{ $compact: boolean }>`
 `;
 
 const JoinSectionContainer = styled(SectionTemplate)`
+  /*
+   * --u: 시안(1920px 화면)의 1px. 화면이 1920px보다 좁으면 그 비율만큼 줄어든다.
+   * 카드 바깥 여백(위아래 140, 좌우 160)과 카드 안의 글자를 이 단위로 잡아,
+   * 1201~1919px 화면에서도 카드가 화면에 꽉 차지 않고 시안과 같은 비율로 놓이게 한다.
+   */
+  --u: min(1px, calc(100vw / 1920));
   width: auto;
-  padding: 140px 16px;
+  padding: calc(140 * var(--u)) calc(160 * var(--u));
   background-color: ${({ theme }) => theme.palette.white};
 
+  /* 834·360 시안은 값이 따로 있으므로 줄이지 않는다 */
   ${media.tablet} {
+    --u: 1px;
     padding: 28px 16px;
   }
 
@@ -132,15 +140,17 @@ const InnerContainer = styled.div<{ $compact: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  /* 카드가 줄어도 글자가 너무 작아지지 않게 아래 값들에는 하한을 둔다 */
+  gap: max(20px, calc(32 * var(--u)));
   padding: 0 24px;
   text-align: center;
   /* 시안: 넓은 화면은 어두운 글자, 834px 이하 시안은 흰 글자 */
   color: ${({ theme }) => theme.palette.black_100};
 
   button {
-    padding: 12px 20px;
+    padding: max(10px, calc(12 * var(--u))) max(16px, calc(20 * var(--u)));
     ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+    font-size: max(15px, calc(18 * var(--u)));
   }
 
   ${media.tablet} {
@@ -172,7 +182,7 @@ const InnerContainer = styled.div<{ $compact: boolean }>`
 
 const TextBox = styled.div<{ $compact: boolean }>`
   /* 시안: 제목과 안내 문구 사이 8px (두 줄 제목은 넓은 화면에서 12px) */
-  --text-gap: ${({ $compact }) => ($compact ? '12px' : '8px')};
+  --text-gap: calc(${({ $compact }) => ($compact ? 12 : 8)} * var(--u));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,8 +195,9 @@ const TextBox = styled.div<{ $compact: boolean }>`
 
 const Title = styled.span<{ $compact: boolean }>`
   ${({ theme }) => theme.textStyleV2.resp.title1_md};
-  font-size: 2.25rem;
-  line-height: 51.2px;
+  /* 시안: 36px, 줄 높이 51.2px */
+  font-size: max(24px, calc(36 * var(--u)));
+  line-height: max(34px, calc(51.2 * var(--u)));
   white-space: pre-line;
   word-break: keep-all;
   ${darkTextWhenDark}
@@ -213,9 +224,10 @@ const Title = styled.span<{ $compact: boolean }>`
 
 const SubTitle = styled.span<{ $compact: boolean }>`
   ${({ theme }) => theme.textStyleV2.fix.font_24};
+  font-size: max(16px, calc(24 * var(--u)));
   /* 시안: 줄 높이 32px. 글자 줄(36px)에서 위아래로 넘치는 만큼을 --trim으로 당긴다 */
-  --trim: 2px;
-  line-height: 36px;
+  --trim: calc(2 * var(--u));
+  line-height: max(24px, calc(36 * var(--u)));
   margin: calc(-1 * var(--trim)) 0;
   white-space: pre-line;
   word-break: keep-all;
@@ -223,7 +235,8 @@ const SubTitle = styled.span<{ $compact: boolean }>`
   ${darkTextWhenDark}
   /* 시안(두 줄 제목): 20px, 줄 높이 32px */
   ${({ $compact }) =>
-    $compact && '--trim: 0px; font-size: 1.25rem; line-height: 32px;'}
+    $compact &&
+    '--trim: 0px; font-size: max(15px, calc(20 * var(--u))); line-height: max(24px, calc(32 * var(--u)));'}
 
   ${media.tablet} {
     ${({ $compact }) => !$compact && 'color: inherit;'}
@@ -249,7 +262,7 @@ const SubTitle = styled.span<{ $compact: boolean }>`
 /* 시안: 안내 문구 바로 아래 줄에 더 작은 글자(14px, 360 화면은 12px)로 놓인다. 줄 높이는 안내 문구와 같다 */
 const Caution = styled(SubTitle)`
   margin-top: calc(-1 * var(--text-gap) - var(--trim));
-  font-size: 0.875rem;
+  font-size: max(12px, calc(14 * var(--u)));
 
   ${media.mobile} {
     font-size: clamp(11px, 1.68vw, 14px);

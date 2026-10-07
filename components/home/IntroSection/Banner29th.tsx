@@ -82,36 +82,26 @@ const BannerLayout = styled.div`
   }
 
   /*
-   * --banner-unit: 배경 시안의 1px에 해당하는 길이 (배경이 cover로 채워질 때의 배율)
+   * 배경은 화면 폭에 맞추고 시안 비율 그대로 보여 준다. 화면 높이에 맞추지 않으므로 어떤 화면에서도 잘리지 않는다.
+   * 대신 화면 비율이 시안과 다르면 배너가 첫 화면보다 길거나 짧다.
+   *
+   * --banner-unit: 배경 시안의 1px에 해당하는 길이
    * --art-height: 배경 시안의 높이
    * --title-top, --title-width: 배경 시안에서 타이틀의 위쪽 위치와 폭
    */
-  --banner-unit: max(100vw / 1920, 100vh / 1200);
+  --banner-unit: calc(100vw / 1920);
   --art-height: 1200;
   --title-top: 201;
   --title-width: 926;
 
-  /*
-   * 화면이 낮아서 배경이 위아래로 넘칠 때 배경을 위로 올리는 양.
-   * 가운데 맞춤을 기본으로 하되, 타이틀이 고정 헤더(높이 60~64px)에 가리지 않도록
-   * 타이틀 위쪽이 80px보다 올라가지 않는 선에서 멈춘다.
-   */
-  --banner-shift: max(
-    0px,
-    min(
-      (var(--banner-unit) * var(--art-height) - 100vh) / 2,
-      var(--banner-unit) * var(--title-top) - 80px
-    )
-  );
-
   ${tabletPortrait} {
-    --banner-unit: max(100vw / 834, 100vh / 1200);
+    --banner-unit: calc(100vw / 834);
     --title-top: 214;
     --title-width: 603;
   }
 
   ${mobilePortrait} {
-    --banner-unit: max(100vw / 360, 100vh / 780);
+    --banner-unit: calc(100vw / 360);
     --art-height: 780;
     --title-top: 205;
     --title-width: 291;
@@ -121,15 +111,15 @@ const BannerLayout = styled.div`
 const BannerBackgroundInner = styled.div`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--banner-unit) * var(--art-height));
   margin: 0 auto;
 
   opacity: 0;
   animation: ${fadeIn} 1s ease forwards;
 
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-position: center calc(var(--banner-shift) * -1);
+  background-position: center top;
   background-image: url('/assets/images/29th/banner_home_pc.webp');
 
   ${tabletPortrait} {
@@ -144,11 +134,13 @@ const BannerBackgroundInner = styled.div`
 const Banner29thTitleBox = styled.div`
   position: absolute;
   left: 50%;
-  /* 배경이 화면에 맞춰 커지거나 잘려도 시안의 타이틀 자리를 따라간다 */
-  top: calc(var(--banner-unit) * var(--title-top) - var(--banner-shift));
+  /*
+   * 배경이 화면 폭에 맞춰 커지거나 줄어도 시안의 타이틀 자리를 따라간다.
+   * 눕힌 휴대폰처럼 배경이 아주 작아질 때는 고정 헤더(높이 60~64px)에 가리지 않게 72px 아래로는 올리지 않는다.
+   */
+  top: max(72px, calc(var(--banner-unit) * var(--title-top)));
   z-index: 20;
-  /* 좁고 긴 화면에서 배경이 크게 확대돼도 타이틀이 화면 밖으로 나가지 않게 한다 */
-  width: min(calc(var(--banner-unit) * var(--title-width)), 90vw);
+  width: calc(var(--banner-unit) * var(--title-width));
 
   transform: translate3d(-50%, -2rem, 0);
   opacity: 0;
