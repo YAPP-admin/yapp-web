@@ -26,6 +26,8 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
           blurDataURL={thumbnailBlurDataURL}
           sizes="(max-width: 833px) calc((100vw - 32px) / 2), 331px"
           quality={90}
+          /* 썸네일 비율이 자리와 조금만 달라도 위아래로 카드 바탕색이 비치므로 자리를 꽉 채운다 */
+          objectFit="cover"
           alt={`${title} 대표 이미지`}
           height={214}
         />

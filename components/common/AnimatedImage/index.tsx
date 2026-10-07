@@ -13,6 +13,7 @@ interface AnimatedImageProps extends AnimatedImageStyle {
   blurDataURL?: string;
   sizes?: string;
   quality?: number;
+  objectFit?: 'contain' | 'cover';
 }
 
 function AnimatedImage({
@@ -22,6 +23,7 @@ function AnimatedImage({
   blurDataURL,
   sizes,
   quality,
+  objectFit,
   ...rest
 }: AnimatedImageProps) {
   return (
@@ -33,6 +35,7 @@ function AnimatedImage({
           blurDataURL={blurDataURL}
           sizes={sizes}
           quality={quality}
+          {...(objectFit && { objectFit })}
         />
       </ImageScaleWrapper>
     </ImageWrapper>
