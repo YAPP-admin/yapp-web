@@ -119,6 +119,7 @@ function BellIcon() {
   );
 }
 
+/* 시안: 1920 화면에서 위아래 120px, 좌우 160px 여백 안에 1600x960 카드 */
 const RecruitBannerContainer = styled.div`
   display: flex;
   flex-direction: column;
