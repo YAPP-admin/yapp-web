@@ -72,6 +72,14 @@ const StyledProjectCard = styled.div`
   > .project-card-image {
     height: auto;
     aspect-ratio: 16 / 9;
+
+    /*
+     * 불러온 썸네일의 비율이 자리와 소수점만큼 달라 위아래로 카드 바탕색이 가늘게 비친다.
+     * 1% 키워 덮는다. 정사각형인 옛 썸네일은 잘리지 않고 그대로 보인다.
+     */
+    img {
+      transform: scale(1.01);
+    }
   }
 
   /* 시안: 360 화면의 164x160 카드, 모서리 8px */

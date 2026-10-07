@@ -153,8 +153,16 @@ const MemberList = styled.ul`
   gap: 32px 16px;
   margin: 0;
 
-  /* 시안: 좁은 화면에서는 가운데 정렬, 줄 사이 16px */
+  /*
+   * 시안: 좁은 화면에서는 135px 칸을 가운데에 놓고, 사람은 왼쪽 칸부터 채운다. 줄 사이 16px.
+   * 한 명뿐이거나 마지막 줄이 덜 차도 왼쪽에 붙는다. 320px 화면에서도 두 칸이 들어가게 칸을 줄인다.
+   */
   ${media.mobile} {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      min(135px, calc((100% - 16px) / 2))
+    );
     gap: 16px;
     justify-content: center;
     padding: 0 20px;
@@ -173,9 +181,9 @@ const Member = styled.li`
     width: 122px;
   }
 
-  /* 시안: 135px. 320px 화면에서도 두 명씩 놓이게 한다 */
+  /* 폭은 MemberList의 칸이 정한다 */
   ${media.mobile} {
-    width: min(135px, calc((100% - 16px) / 2));
+    width: 100%;
   }
 `;
 

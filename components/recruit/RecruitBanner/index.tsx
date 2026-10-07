@@ -75,6 +75,7 @@ function RecruitBanner() {
               </TimeList>
             </TimerBox>
             <ApplyButton
+              $hasIcon={isAlertButton}
               onClick={() => {
                 window.open(targetLink, '_blank');
               }}
@@ -99,6 +100,7 @@ function RecruitBanner() {
   );
 }
 
+/* 시안: 20x20, 속을 채운 종 */
 function BellIcon() {
   return (
     <svg
@@ -109,17 +111,10 @@ function BellIcon() {
       aria-hidden="true"
     >
       <path
-        d="M10 2.5a5 5 0 0 0-5 5v2.6c0 .7-.2 1.4-.6 2L3.3 14a.8.8 0 0 0 .7 1.2h12a.8.8 0 0 0 .7-1.2l-1.1-1.9c-.4-.6-.6-1.3-.6-2V7.5a5 5 0 0 0-5-5Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
+        d="M9.99979 2C8.40849 2 6.88236 2.63214 5.75715 3.75736C4.63193 4.88258 3.99979 6.4087 3.99979 8V11.586L3.29279 12.293C3.15298 12.4329 3.05777 12.611 3.0192 12.805C2.98064 12.9989 3.00044 13.2 3.07611 13.3827C3.15178 13.5654 3.27992 13.7215 3.44433 13.8314C3.60874 13.9413 3.80204 14 3.99979 14H15.9998C16.1975 14 16.3908 13.9413 16.5552 13.8314C16.7197 13.7215 16.8478 13.5654 16.9235 13.3827C16.9991 13.2 17.0189 12.9989 16.9804 12.805C16.9418 12.611 16.8466 12.4329 16.7068 12.293L15.9998 11.586V8C15.9998 6.4087 15.3676 4.88258 14.2424 3.75736C13.1172 2.63214 11.5911 2 9.99979 2ZM9.99979 18C9.20414 18 8.44108 17.6839 7.87847 17.1213C7.31586 16.5587 6.99979 15.7956 6.99979 15H12.9998C12.9998 15.7956 12.6837 16.5587 12.1211 17.1213C11.5585 17.6839 10.7954 18 9.99979 18Z"
+        fill="currentColor"
       />
-      <path
-        d="M8 17.2a2.2 2.2 0 0 0 4 0"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
+      <ellipse cx="10" cy="2.22021" rx="1.5" ry="2" fill="currentColor" />
     </svg>
   );
 }
@@ -250,14 +245,16 @@ const Colon = styled.span`
   }
 `;
 
-const ApplyButton = styled.button`
+const ApplyButton = styled.button<{ $hasIcon: boolean }>`
   all: unset;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 12px 20px;
+  /* 시안: 아이콘이 있으면 왼쪽 18px */
+  padding: ${({ $hasIcon }) =>
+    $hasIcon ? '12px 20px 12px 18px' : '12px 20px'};
   border-radius: 99px;
   background-color: ${({ theme }) => theme.palette.black_100};
   color: ${({ theme }) => theme.palette.white_100};

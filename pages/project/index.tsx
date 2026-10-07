@@ -176,11 +176,16 @@ const ProjectContainer = styled.section`
   width: 1024px;
   max-width: calc(100% - 24px);
   margin: 0 auto;
+  /* 시안: 맨 아래 80px (360 화면은 64px). 더보기 버튼이 없는 분류에서도 같은 여백을 둔다 */
+  padding-bottom: 80px;
   ${media.tablet} {
     width: 674px;
   }
   ${media.mobile} {
     width: 100%;
+  }
+  ${media.small} {
+    padding-bottom: 64px;
   }
 `;
 
@@ -218,15 +223,15 @@ const ProjectGridWrapper = styled.div`
   }
 `;
 
-/* 시안: 카드 아래 48px에 버튼, 그 아래 80px (360 화면은 32px, 64px) */
+/* 시안: 카드 아래 48px에 버튼 (360 화면은 32px). 버튼 아래 여백은 ProjectContainer가 둔다 */
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 48px 0 80px 0;
+  margin-top: 48px;
 
   ${media.small} {
-    margin: 32px 0 64px 0;
+    margin-top: 32px;
   }
 `;
 
