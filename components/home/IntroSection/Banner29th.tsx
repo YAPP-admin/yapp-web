@@ -13,6 +13,8 @@ const Banner29th = () => {
           width={926}
           height={268}
           sizes="(max-width: 833px) 90vw, (max-width: 1920px) 926px, 49vw"
+          /* 가는 오선과 글자 윤곽이 기본값(75)에서는 뭉개진다 */
+          quality={90}
           priority
         />
       </Banner29thTitleBox>
