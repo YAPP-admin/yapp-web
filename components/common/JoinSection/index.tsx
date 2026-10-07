@@ -102,14 +102,23 @@ const ImageContainer = styled.div`
   /* 시안: 1920 화면 1600x920, 834 화면 802x466 (같은 비율) */
   aspect-ratio: 1600 / 920;
   border-radius: 32px;
-  background: url('/assets/images/29th/recruit_bg.webp') no-repeat center;
+  /*
+   * 그림은 모집 안내 상단 배너용(1600x960)이라 이 카드보다 40px 높다.
+   * 시안의 카드는 그 그림의 아래쪽에 맞춰져 있어, 넘치는 만큼 위에서 잘라 낸다.
+   */
+  background: url('/assets/images/29th/recruit_bg.webp') no-repeat center bottom;
   background-size: cover;
 
-  /* 시안: 360 화면 328x580 */
+  /*
+   * 시안: 360 화면 328x580. 배너용 그림(328x489)을 122.5%로 키워 아래에 맞추고,
+   * 왼쪽으로 25px 옮긴 자리다(넘치는 폭의 34.6%).
+   */
   ${media.small} {
     aspect-ratio: auto;
     height: 580px;
     background-image: url('/assets/images/29th/recruit_bg_mo.webp');
+    background-size: 122.5% auto;
+    background-position: 34.6% bottom;
   }
 `;
 
