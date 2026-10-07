@@ -77,7 +77,7 @@ function RecruitJobPage({ job }: RecruitJobPageProps): ReactElement {
 
   return (
     <>
-      <JobBanner
+      <Banner
         title={RECRUIT_JOB_BANNER.title}
         description={RECRUIT_JOB_BANNER.description}
       />
@@ -98,29 +98,6 @@ function RecruitJobPage({ job }: RecruitJobPageProps): ReactElement {
     </>
   );
 }
-
-/*
- * 시안: 배너 높이 330px.
- * 글이 두 줄씩으로 접히는 폭에서는 높이가 늘어 배경 그림이 그만큼 확대되므로, 위아래 여백을 줄여 330px을 지킨다.
- */
-const JobBanner = styled(Banner)`
-  && {
-    box-sizing: border-box;
-    min-height: 330px;
-
-    ${media.custom(1600)} {
-      padding: 108px 0 48px 0;
-    }
-
-    ${media.tablet} {
-      padding: 146px 0 93px 0;
-    }
-
-    ${media.mobile} {
-      padding: 130px 0 64px 0;
-    }
-  }
-`;
 
 /* 시안: 본문 폭 1040px, 탭 위 56px, 탭 아래 48px, 본문 아래 80px */
 const Layout = styled.div`
