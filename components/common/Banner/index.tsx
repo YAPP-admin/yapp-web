@@ -10,6 +10,8 @@ interface BannerProps {
   className?: string;
   title?: string;
   description?: string;
+  /** 한 줄로 쓰면 배경의 캐릭터와 겹칠 만큼 긴 설명. 1201~1600px에서만 정해진 자리에서 줄을 바꾼다 */
+  wrapDescriptionOnLaptop?: boolean;
 }
 
 function Banner({
@@ -19,6 +21,7 @@ function Banner({
   backgroundImgMobile = '/assets/images/29th/project_page_mo.webp',
   title,
   description,
+  wrapDescriptionOnLaptop = false,
 }: BannerProps): ReactElement {
   return (
     <StyledBox
@@ -29,7 +32,9 @@ function Banner({
     >
       <InnerTextContainer>
         <StyledTitle>{title}</StyledTitle>
-        <StyledDescription>{description}</StyledDescription>
+        <StyledDescription $wrapOnLaptop={wrapDescriptionOnLaptop}>
+          {description}
+        </StyledDescription>
       </InnerTextContainer>
     </StyledBox>
   );
@@ -43,10 +48,7 @@ const StyledBox = styled.div<BannerProps>`
   background-image: url(${({ backgroundImg }) => backgroundImg});
   background-color: ${({ theme, backgroundImg }) =>
     !backgroundImg && theme.palette.grey_800};
-  /*
-   * 시안: 모든 폭에서 높이 330px.
-   * 높이가 늘면 배경 그림이 그만큼 확대되므로, 글이 두 줄씩으로 접히는 폭에서는 위아래 여백을 줄여 330px을 지킨다.
-   */
+  /* 시안: 모든 폭에서 높이 330px. 높이가 늘면 배경 그림이 그만큼 확대된다 */
   box-sizing: border-box;
   min-height: 330px;
   padding: 146px 0 93px 0;
@@ -57,11 +59,25 @@ const StyledBox = styled.div<BannerProps>`
   justify-content: center;
   gap: 8px;
 
+  /*
+   * 시안(1440 화면): 글은 한 줄씩, 위에서 146px.
+   * 설명을 두 줄로 쓰는 페이지도 330px 안에 들어오게, 가운데 맞춤 대신 위에서부터 놓고 아래 여백을 줄인다.
+   */
   ${media.custom(1600)} {
-    padding: 108px 0 48px 0;
+    justify-content: flex-start;
+    padding: 146px 0 48px 0;
+  }
+
+  /*
+   * 1330px보다 좁아지면 한 줄 글자가 캐릭터에 닿는다. 배경을 오른쪽으로 조금씩 밀어(1201px에서 50px) 사이를 띄운다.
+   * 캐릭터 오른쪽에는 빈 하늘이 74px 있어서 밀어도 캐릭터는 잘리지 않는다.
+   */
+  ${media.custom(1329)} {
+    background-position: right calc((100vw - 1330px) * 0.39) center;
   }
 
   ${media.tablet} {
+    justify-content: center;
     padding: 146px 0 93px 0;
     background-position: center;
     background-image: url(${({ backgroundImgTablet }) => backgroundImgTablet});
@@ -114,15 +130,6 @@ const StyledTitle = styled.h1`
   animation: ${slideUp} 0.6s ease forwards;
   animation-delay: 0.2s;
 
-  /* 1201~1600px에서는 한 줄 글자가 배경의 캐릭터와 겹치므로 정해진 자리에서 줄을 바꾼다 */
-  ${media.custom(1600)} {
-    white-space: pre-line;
-  }
-
-  ${media.tablet} {
-    white-space: nowrap;
-  }
-
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title1_sm};
     white-space: pre-line;
@@ -130,7 +137,7 @@ const StyledTitle = styled.h1`
   }
 `;
 
-const StyledDescription = styled.p`
+const StyledDescription = styled.p<{ $wrapOnLaptop: boolean }>`
   color-scheme: only light;
   color: ${({ theme }) => theme.palette.chemistry_29th_point};
   ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
@@ -142,7 +149,8 @@ const StyledDescription = styled.p`
   animation-delay: 0.2s;
 
   ${media.custom(1600)} {
-    white-space: pre-line;
+    white-space: ${({ $wrapOnLaptop }) =>
+      $wrapOnLaptop ? 'pre-line' : 'nowrap'};
   }
 
   ${media.tablet} {

@@ -80,6 +80,7 @@ function RecruitJobPage({ job }: RecruitJobPageProps): ReactElement {
       <Banner
         title={RECRUIT_JOB_BANNER.title}
         description={RECRUIT_JOB_BANNER.description}
+        wrapDescriptionOnLaptop
       />
       <Layout>
         <TabBox>
