@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactElement, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -19,6 +19,35 @@ function ExecutiveSection(): ReactElement {
 
   const groupNames = EXECUTIVE_GROUPS.map(({ name }) => name);
 
+  /*
+   * 사진은 이 구역이 화면에 가까워졌을 때 모든 분류 것을 한꺼번에 받는다.
+   * 페이지를 열자마자 받으면 첫 화면 그림과 회선을 나눠 쓰고, 여기까지 내려오지 않는 방문자도 받게 된다.
+   * 구역에 닿은 뒤에 받으면 스크롤해 내려왔을 때나 탭을 바꿨을 때 사진이 뒤늦게 나타나며 깜빡인다.
+   */
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [isNear, setIsNear] = useState(false);
+
+  useEffect(() => {
+    const target = innerRef.current;
+    if (!target || typeof IntersectionObserver === 'undefined') {
+      setIsNear(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsNear(true);
+        observer.disconnect();
+      },
+      /* 페이지는 #__next 안에서 스크롤된다. 화면 세 개 높이쯤 앞에서 받기 시작한다 */
+      { root: document.getElementById('__next'), rootMargin: '2500px 0px' },
+    );
+    observer.observe(target);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <SectionLayout
       ref={ref}
@@ -26,7 +55,7 @@ function ExecutiveSection(): ReactElement {
       animate={controls}
       variants={containerVariants}
     >
-      <SectionInner>
+      <SectionInner ref={innerRef}>
         <TitleBox variants={itemVariants}>
           <Title>{title}</Title>
           <SubTitle>{subTitle}</SubTitle>
@@ -46,10 +75,7 @@ function ExecutiveSection(): ReactElement {
           variants={itemVariants}
           {...getTabPanelProps('executive', groupNames, currentGroup)}
         >
-          {/*
-           * 모든 분류의 사진을 페이지를 열 때 미리 받아 둔다.
-           * 스크롤해 내려왔을 때나 탭을 바꿨을 때 사진이 뒤늦게 나타나며 깜빡이지 않게 한다.
-           */}
+          {/* 고르지 않은 분류도 그려 두어, 사진을 미리 받아 둘 수 있게 한다 */}
           {EXECUTIVE_GROUPS.map(({ name: groupName, members }) => (
             <MemberList key={groupName} hidden={groupName !== currentGroup}>
               {members.map(({ role, name, image }) => (
@@ -61,7 +87,7 @@ function ExecutiveSection(): ReactElement {
                         alt={`${role} ${name}`}
                         fill
                         sizes="196px"
-                        loading="eager"
+                        loading={isNear ? 'eager' : 'lazy'}
                       />
                     ) : (
                       <YappLogo aria-hidden />
