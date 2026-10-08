@@ -1,7 +1,7 @@
 import { RECRUIT_FAQ } from 'database/recruit';
 import DOMPurify from 'isomorphic-dompurify';
 import React, { ReactElement, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media from 'styles/media';
 
 import SectionTemplate from '../SectionTemplate';
@@ -87,13 +87,15 @@ function FrequentlyAskedQuestions(): ReactElement {
                     <ArrowButton />
                   </TitleIcon>
                 </FAQSubTitle>
-                <FQASubContent
-                  id={answerId}
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(description),
-                  }}
-                  $isOpen={isOpen}
-                />
+                <FAQAnswer id={answerId} $isOpen={isOpen}>
+                  <FAQAnswerClip>
+                    <FQASubContent
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(description),
+                      }}
+                    />
+                  </FAQAnswerClip>
+                </FAQAnswer>
               </FAQBox>
             );
           })}
@@ -176,31 +178,33 @@ const TitleIcon = styled.span<{ $isOpen: boolean }>`
   }
 `;
 
-const FQASubContent = styled.div<{ $isOpen: boolean }>`
+const ANSWER_TRANSITION = '500ms cubic-bezier(0.25, 0.17, 0.25, 1)';
+
+/*
+ * 답변을 여닫을 때 높이까지 부드럽게 바뀌게 한다.
+ * height는 0 ↔ auto 사이를 전환할 수 없어서, 격자 줄 높이(0fr ↔ 1fr)를 전환한다.
+ */
+const FAQAnswer = styled.div<{ $isOpen: boolean }>`
+  display: grid;
+  width: 100%;
+  grid-template-rows: ${({ $isOpen }) => ($isOpen ? '1fr' : '0fr')};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  /* 접힌 답변 속 링크에 키보드 초점이 가지 않게 한다. 접힐 때는 다 접힌 뒤에 숨긴다 */
+  visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
+  transition: grid-template-rows ${ANSWER_TRANSITION},
+    opacity ${ANSWER_TRANSITION},
+    visibility 0s linear ${({ $isOpen }) => ($isOpen ? '0s' : '500ms')};
+`;
+
+const FAQAnswerClip = styled.div`
+  min-height: 0;
+  overflow: hidden;
+`;
+
+const FQASubContent = styled.div`
   ${({ theme }) => theme.textStyleV2.resp.body_md};
   color: ${({ theme }) => theme.palette.black_60};
-  width: 100%;
-  overflow: hidden;
-  transition: all 500ms cubic-bezier(0.25, 0.17, 0.25, 1);
-
-  ${({ $isOpen }) =>
-    $isOpen
-      ? css`
-          height: auto;
-          padding-bottom: 23px;
-          opacity: 1;
-          transform: translateY(0);
-
-          ${media.mobile} {
-            padding-bottom: 24px;
-          }
-        `
-      : css`
-          /* 접힌 답변 속 링크에 키보드 초점이 가지 않게 한다 */
-          visibility: hidden;
-          opacity: 0;
-          height: 0px;
-        `}
+  padding-bottom: 23px;
 
   b {
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
@@ -208,6 +212,8 @@ const FQASubContent = styled.div<{ $isOpen: boolean }>`
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_sm};
+    padding-bottom: 24px;
+
     .br {
       display: none;
     }
