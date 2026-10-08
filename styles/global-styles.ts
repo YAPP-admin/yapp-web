@@ -51,6 +51,21 @@ const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: none; /* for. internet explorer */
     scrollbar-width: none; /* for. firefox */
   }
+
+  /*
+    기기에서 '동작 줄이기'를 켠 방문자에게는 CSS 움직임을 끈다 (등장 효과, 무한 반복, 화면 전환).
+    framer-motion으로 만든 움직임은 pages/_app.tsx의 MotionConfig가 같은 설정을 보고 줄인다.
+  */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 `;
 
 export default GlobalStyle;
