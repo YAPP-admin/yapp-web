@@ -29,6 +29,8 @@ const TimeText = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.textStyleV2.resp.timer_md};
+  /* 테두리가 글자 안쪽에 겹쳐 보이지 않게 숫자는 고정 굵기 글꼴로 그린다(styles/fonts.ts) */
+  font-family: 'Timer Digits', 'Pretendard Variable', Pretendard, sans-serif;
   /* 시안: 흰색 → 흰색 60% 그라데이션, 흰 테두리 1px, 하늘색 그림자 */
   color: transparent;
   background: linear-gradient(

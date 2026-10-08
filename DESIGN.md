@@ -94,6 +94,9 @@ color: ${({ theme }) => theme.palette.grey_850};
 | --- | --- | --- |
 | Pretendard | 기본 글꼴 | `pages/_document.tsx`에서 jsDelivr CDN의 `pretendardvariable-dynamic-subset.css`(v1.3.9)를 불러옵니다. 가변 폰트를 글자 묶음으로 나눈 버전이라 화면에 쓰인 글자만 받습니다(홈 기준 약 330KB). 굵기별 전체 파일을 받는 `pretendard.css`(굵기당 약 760KB)로 바꾸지 않습니다. 글꼴 이름은 `Pretendard Variable`입니다. |
 | Syne-ExtraBold, Poppins-ExtraBold | 영문 강조 | `styles/fonts.ts`의 `@font-face` |
+| Timer Digits | 모집 타이머 숫자 | `styles/fonts.ts`의 `@font-face`. 고정 굵기 Pretendard Bold(v1.3.9)에서 0~9만 뽑은 `public/assets/fonts/TimerDigits-Bold.woff2`(1.6KB)입니다. |
+
+글자 테두리(`-webkit-text-stroke`)는 가변 폰트로 그린 글자에 쓰지 않습니다. 가변 폰트는 글자를 겹친 조각으로 그려서 조각의 경계선이 글자 안쪽에 보입니다(예: 숫자 4). 테두리가 필요하면 타이머처럼 고정 굵기 글꼴을 지정합니다.
 
 루트 글자 크기는 `100%`(16px)입니다. `1rem = 16px`로 계산합니다.
 
