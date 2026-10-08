@@ -92,7 +92,7 @@ color: ${({ theme }) => theme.palette.grey_850};
 
 | 글꼴 | 용도 | 불러오는 방식 |
 | --- | --- | --- |
-| Pretendard | 기본 글꼴 | `pages/_document.tsx`에서 jsDelivr CDN의 `pretendard.css`를 불러옵니다. `global-styles.ts`의 `@font-face`는 주석 처리되어 있고, `public/assets/fonts/PretendardVariable.ttf`는 어디서도 참조하지 않습니다. |
+| Pretendard | 기본 글꼴 | `pages/_document.tsx`에서 jsDelivr CDN의 `pretendardvariable-dynamic-subset.css`(v1.3.9)를 불러옵니다. 가변 폰트를 글자 묶음으로 나눈 버전이라 화면에 쓰인 글자만 받습니다(홈 기준 약 330KB). 굵기별 전체 파일을 받는 `pretendard.css`(굵기당 약 760KB)로 바꾸지 않습니다. 글꼴 이름은 `Pretendard Variable`입니다. |
 | Syne-ExtraBold, Poppins-ExtraBold | 영문 강조 | `styles/fonts.ts`의 `@font-face` |
 
 루트 글자 크기는 `100%`(16px)입니다. `1rem = 16px`로 계산합니다.
@@ -148,7 +148,7 @@ ${media.mobile} {
 - 콘텐츠 이미지는 **WebP**로 넣습니다. PR에 이미지가 있으면 `Compress Images` 액션이 압축 커밋을 붙입니다. 포크에서 연 PR에는 실행되지 않으므로, 포크로 작업할 때는 미리 압축해서 올립니다.
 - 기수별 이미지는 `public/assets/images/<기수>/`에, 프로젝트 이미지는 `public/assets/project/`에 둡니다.
   - 썸네일: `<기수>_thumbnail_<슬러그>.webp`
-  - 본문: `<기수>_content_<슬러그>_<n>.webp`
+  - 본문: `<기수>_content_<슬러그>_<n>.webp`. 폭 2080px 이하(본문 폭 1040px의 2배), WebP 품질 82. `<img>`로 원본을 그대로 내려 주므로 큰 PNG를 넣지 않습니다. WebP는 한 변이 16383px까지입니다.
 - `next/image`를 쓸 때는 `sizes`를 반드시 지정합니다. 지정하지 않으면 화면 폭 전체 기준으로 큰 이미지를 받거나, 반대로 흐릿한 이미지를 받습니다.
   - 프로젝트 카드: `sizes="(max-width: 833px) 335px, 380px"`
 - 썸네일과 캐러셀은 `quality={90}`입니다. 기본값(75)에서는 썸네일 글자가 뭉개집니다.
