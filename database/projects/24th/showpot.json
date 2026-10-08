@@ -2,7 +2,7 @@
   "name": "ShowPot",
   "title": "내한공연 정보 누구보다 빠르게, 쇼팟!",
   "thumbnail": "/assets/project/24_thumbnail_showpot.png",
-  "content": ["/assets/project/24_content_showpot.png"],
+  "content": ["/assets/project/24_content_showpot.webp"],
   "tags": ["24기", "Android", "iOS"],
   "team": [
     "양세빈",
