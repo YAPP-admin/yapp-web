@@ -180,5 +180,8 @@ ${media.mobile} {
 ## 7. 움직임
 
 - 단순한 등장 효과는 `styles/utils-styles.ts`의 `fadeIn`, `slideIn`, `slideOut` keyframes를 씁니다.
-- 스크롤 등장·호버 효과는 `framer-motion`을 씁니다(홈·모집 섹션, FAB). `@react-spring/web`은 `components/common/AnimatedBox`에만 남아 있으니 새 코드에서는 쓰지 않습니다.
+- 스크롤 등장·호버 효과는 `framer-motion`을 씁니다(홈·모집 섹션, FAB). `@react-spring/web`은 코드에서 쓰지 않습니다(`package.json`에만 남아 있습니다). 새 코드에서도 쓰지 않습니다.
+- 한 요소에는 등장 효과를 한 번만 줍니다. 섹션이 `useScrollAnimation`으로 자식을 올리면, 그 안의 카드 컴포넌트에는 따로 효과를 넣지 않습니다.
+- 높이를 여닫는 효과는 `height: 0 ↔ auto`로는 전환되지 않습니다. 격자 줄 높이(`grid-template-rows: 0fr ↔ 1fr`)를 전환합니다(모집 FAQ 참고).
+- 기기의 '동작 줄이기' 설정을 따릅니다. CSS 움직임은 `styles/global-styles.ts`의 `prefers-reduced-motion` 블록이, `framer-motion`은 `pages/_app.tsx`의 `MotionConfig reducedMotion="user"`가 줄입니다. 움직임이 끝나야만 보이는 내용을 만들지 않습니다.
 - 캐러셀은 `react-slick`, Lottie는 `lottie-web`입니다.
