@@ -46,11 +46,19 @@ export default class MyDocument extends Document {
           <meta name="darkreader-lock" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <GoogleAnalyticsScript />
-          {/* 폰트 */}
+          {/*
+            폰트: 가변 폰트를 글자 묶음으로 나눈 버전. 화면에 쓰인 글자가 든 묶음만 받는다.
+            굵기별 전체 파일(약 760KB씩)을 받는 pretendard.css로 바꾸지 않는다.
+          */}
+          <link
+            rel="preconnect"
+            href="https://cdn.jsdelivr.net"
+            crossOrigin="anonymous"
+          />
           <link
             rel="stylesheet"
             type="text/css"
-            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
           />
         </Head>
         <body>

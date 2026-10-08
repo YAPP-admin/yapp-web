@@ -59,7 +59,7 @@ import는 `baseUrl: ./` 기준 절대 경로를 씁니다(`components/common`, `
 ### 프로젝트 추가
 
 1. `database/projects/<기수>/<슬러그>.json`을 만듭니다. 타입은 `types/project.ts`의 `Project`입니다.
-2. 썸네일은 `public/assets/project/<기수>_thumbnail_<슬러그>.webp`, 본문은 `<기수>_content_<슬러그>_<n>.webp`로 넣습니다.
+2. 썸네일은 `public/assets/project/<기수>_thumbnail_<슬러그>.webp`, 본문은 `<기수>_content_<슬러그>_<n>.webp`로 넣습니다. 본문 이미지는 변환 없이 그대로 내려가므로 폭 2080px 이하의 WebP로 줄여서 넣습니다.
 3. 주소는 파일 경로에서 나옵니다: `/project/<기수>/<슬러그>`. 상세 페이지는 **파일명(슬러그)만으로** 프로젝트를 찾으므로, 기수가 달라도 슬러그가 겹치면 안 됩니다.
 4. 회고(`retrospects[].content`)는 HTML 문자열입니다. 문단 사이는 `<br /><br />`, 문단 안 줄바꿈은 `<br />`입니다.
 5. 홈 캐러셀에 올리려면 `database/home.ts`의 `CAROUSEL_DATA`에 추가합니다.
