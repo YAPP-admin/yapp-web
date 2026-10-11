@@ -136,6 +136,7 @@ pnpm exec tsc --noEmit && pnpm lint && pnpm build
 - 중첩 worktree에서는 모듈 해석이 상위 `node_modules`까지 올라갑니다. worktree에서 `tsc`와 빌드가 통과해도 배포에서는 실패할 수 있으니, 의존성 변경은 레포 밖 복사본에서 확인합니다.
 - `pnpm dev` 화면은 headless 브라우저에서 `body{display:none}` 상태로 남는 경우가 있습니다. 자동 화면 확인은 `pnpm build && pnpm start`로 합니다.
 - 테스트 서버는 포트로 찾아서 종료합니다(`lsof -iTCP:<포트>`). 프로세스 이름으로 죽이면 자식 프로세스가 옛 빌드를 계속 서비스합니다.
+- **`next.config.js`의 `compiler.styledComponents`를 지우면 안 됩니다.** 이 설정이 styled-components의 클래스 이름을 파일과 컴포넌트 기준으로 고정합니다. 없으면 이름이 만들어진 순서로 정해져 빌드와 접속 경로에 따라 달라지고, 서버가 그린 HTML과 브라우저가 붙이는 이름이 어긋나면 다른 컴포넌트의 스타일이 엉뚱한 곳에 붙습니다. 같은 코드인데 Preview는 멀쩡하고 운영 배포만 깨질 수 있습니다(29기 첫 운영 배포에서 모집 일정 카드가 깨졌습니다). `.babelrc`의 `babel-plugin-styled-components`는 `forceSwcTransforms` 때문에 쓰이지 않습니다.
 - `_middleware.ts`는 최상위에 있어서 Next 13에서 동작하지 않습니다.
 - `story` 페이지는 헤더 메뉴에서 빠져 있지만 주소로는 열리고 sitemap에도 들어 있습니다.
 
