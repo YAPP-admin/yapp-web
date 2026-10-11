@@ -35,17 +35,20 @@ function SponsorSection(): ReactElement {
         </motion.div>
 
         <SponsorList as={motion.ul} variants={containerVariants}>
-          {SPONSOR_DATA.map(({ image, alt, width, height }, index) => (
-            <Sponsor as={motion.li} key={index} variants={itemVariants}>
-              {/* 바탕색까지 그림에 들어 있어 색이 바뀌면 안 된다. 다시 압축하지 않고 그대로 내보낸다 */}
-              <Image
-                src={image}
-                alt={alt}
-                width={width}
-                height={height}
-                unoptimized
-              />
-            </Sponsor>
+          {SPONSOR_DATA.map(({ image, alt, url, width, height }) => (
+            <SponsorItem as={motion.li} key={image} variants={itemVariants}>
+              {/* 협력사 쪽에서 유입 경로를 볼 수 있게 noreferrer는 붙이지 않는다 */}
+              <Sponsor href={url} target="_blank" rel="noopener">
+                {/* 바탕색까지 그림에 들어 있어 색이 바뀌면 안 된다. 다시 압축하지 않고 그대로 내보낸다 */}
+                <Image
+                  src={image}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  unoptimized
+                />
+              </Sponsor>
+            </SponsorItem>
           ))}
         </SponsorList>
 
@@ -122,17 +125,36 @@ const ButtonContainer = styled(motion.div)`
   }
 `;
 
-const Sponsor = styled.li`
-  position: relative;
-  /* 시안: 196x196. 화면이 좁아지면 같은 비율로 줄어든다 */
+/* 시안: 196x196. 화면이 좁아지면 같은 비율로 줄어든다 */
+const SponsorItem = styled.li`
   aspect-ratio: 1 / 1;
-  background-color: ${({ theme }) => theme.palette.black_5};
-  border-radius: 16px;
-  overflow: hidden;
+`;
 
+const Sponsor = styled.a`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.palette.black_5};
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* 마우스를 올리면 살짝 떠오른다. 터치 화면에서는 눌린 뒤에도 남지 않게 뺀다 */
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 8px 20px ${({ theme }) => theme.palette.grey_850 + '1F'};
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.palette.grey_850};
+    outline-offset: 2px;
+  }
 
   /*
    * 시안: 196px 카드에 로고 폭 140px (834 화면 122px에 87px, 360 화면 135px에 96px로 같은 비율).

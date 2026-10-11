@@ -345,58 +345,67 @@ export const SPONSOR_SECTION = {
  * 브라우저가 강제로 다크모드를 적용해도 로고와 바탕이 함께 움직여 로고가 묻히지 않는다.
  * 그림 폭은 로고 폭의 3배이고 로고는 가운데에 있다. 만드는 방법은 DESIGN.md에 있다.
  */
-/* 시안 순서 그대로. 로고 그림 만드는 방법은 DESIGN.md의 "라이트 화면만 지원합니다" 항목에 있다 */
+/* 시안 순서 그대로. url은 카드를 누르면 새 탭으로 여는 협력사 홈페이지. 로고 그림 만드는 방법은 DESIGN.md의 "라이트 화면만 지원합니다" 항목에 있다 */
 export const SPONSOR_DATA = [
   {
     image: '/assets/sponsors/tile_docshunt.webp',
+    url: 'https://docshunt.ai/',
     alt: 'sponsor DocsHunt',
     width: 840,
     height: 840,
   },
   {
     image: '/assets/sponsors/tile_elice.webp',
+    url: 'https://lab.elice.page/',
     alt: 'sponsor elice',
     width: 819,
     height: 819,
   },
   {
     image: '/assets/sponsors/tile_ictcoc.webp',
+    url: 'https://www.ictcoc.kr/',
     alt: 'sponsor ICT COC',
     width: 840,
     height: 840,
   },
   {
     image: '/assets/sponsors/tile_dcamp.webp',
+    url: 'https://dcamp.kr/',
     alt: 'sponsor dcamp',
     width: 840,
     height: 841,
   },
   {
     image: '/assets/sponsors/tile_alt.webp',
+    url: 'https://altalt.io',
     alt: 'sponsor Alt',
     width: 840,
     height: 840,
   },
   {
     image: '/assets/sponsors/tile_greeting.webp',
+    url: 'https://www.greetinghr.com/',
     alt: 'sponsor greeting',
     width: 873,
     height: 874,
   },
   {
     image: '/assets/sponsors/tile_programmers.webp',
+    url: 'https://programmers.co.kr/',
     alt: 'sponsor programmers',
     width: 840,
     height: 840,
   },
   {
     image: '/assets/sponsors/tile_tiokorea.webp',
+    url: 'https://tiokorea.com/?utm_source=yapp&utm_medium=referral&utm_campaign=yapp',
     alt: 'sponsor tiokorea',
     width: 840,
     height: 840,
   },
   {
     image: '/assets/sponsors/tile_goorm.webp',
+    url: 'https://www.goorm.io/',
     alt: 'sponsor goorm',
     width: 840,
     height: 840,
