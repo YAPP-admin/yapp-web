@@ -47,9 +47,24 @@ function FindMember(): ReactElement {
 const SectionTemplate = styled.section`
   display: flex;
   justify-content: center;
-  background-color: #f6f6f6;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: ${({ theme }) => theme.palette.grey_25};
   width: 100%;
-  padding: 80px 0;
+  /* 시안: 1920 화면에서 섹션 높이 1200px, 내용은 가운데 */
+  min-height: 1200px;
+  padding: 80px 20px;
+
+  ${media.tablet} {
+    min-height: auto;
+    /* 시안: 834 화면 858px (목록의 위아래 여백 16px 포함) */
+    padding: 105px 20px;
+  }
+
+  /* 시안: 360 화면 720px */
+  ${media.mobile} {
+    padding: 168px 20px;
+  }
 `;
 
 const SectionContent = styled.ul`
@@ -75,8 +90,13 @@ const YappuIcon = styled(Image)<{
   $mobileWidth: number;
   $mobileHeight: number;
 }>`
-  margin: 0 8px;
-  vertical-align: middle;
+  /* 시안: 글자와 16px 간격, 줄(64px)의 위쪽에 맞춤 */
+  margin: 0 16px;
+  vertical-align: top;
+
+  ${media.mobile} {
+    margin: 0 8px;
+  }
 
   ${media.mobile} {
     width: ${({ $mobileWidth }) => $mobileWidth}px !important;
@@ -90,6 +110,7 @@ const MotionTextPart = styled(motion.span)`
   font-size: 40px;
   line-height: 64px;
   letter-spacing: -0.8px;
+  word-break: keep-all;
 
   ${media.mobile} {
     font-size: 20px;

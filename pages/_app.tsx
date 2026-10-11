@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
+import { MotionConfig } from 'framer-motion';
 import { SEO, LayoutWrapper } from 'components/common';
 import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
@@ -34,9 +35,12 @@ function App({ Component, pageProps }: AppProps) {
         </Head>
         <SEO {...(pageProps.seo ?? PAGE_SEO[router.pathname])} />
         <Font />
-        <LayoutWrapper>
-          <Component {...pageProps} />
-        </LayoutWrapper>
+        {/* 기기에서 '동작 줄이기'를 켠 방문자에게는 이동·확대 효과를 빼고 투명도만 바꾼다 */}
+        <MotionConfig reducedMotion="user">
+          <LayoutWrapper>
+            <Component {...pageProps} />
+          </LayoutWrapper>
+        </MotionConfig>
       </ThemeProvider>
     </>
   );

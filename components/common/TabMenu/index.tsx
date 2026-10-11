@@ -1,18 +1,17 @@
 import type { Dispatch, ReactElement, SetStateAction } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media from 'styles/media';
-import { PaletteKeyTypes } from 'styles/theme';
 import { ProjectField, TAB_LABELS } from 'types/project';
 
-interface ITabMenuStyle {
-  backgroundColor?: PaletteKeyTypes;
-}
-
-export interface TabMenuProps extends ITabMenuStyle {
+export interface TabMenuProps {
   className?: string;
   tabs: ProjectField[];
   currentTab: ProjectField;
-  onClick: Dispatch<SetStateAction<ProjectField>>;
+  onClick:
+    | Dispatch<SetStateAction<ProjectField>>
+    | ((tab: ProjectField) => void);
+  /** 스크린 리더가 읽는 탭 묶음 이름 */
+  label?: string;
 }
 
 function TabMenu({
@@ -20,15 +19,17 @@ function TabMenu({
   tabs,
   currentTab,
   onClick,
-  backgroundColor = 'grey_100',
+  label = '분류',
 }: TabMenuProps): ReactElement {
   return (
-    <TabMenuContainer className={className} backgroundColor={backgroundColor}>
-      {tabs.map((tab: any) => (
+    <TabMenuContainer className={className} role="group" aria-label={label}>
+      {tabs.map((tab) => (
         <TabMenuButton
           key={`field-${tab}`}
+          type="button"
+          aria-pressed={currentTab === tab}
           onClick={() => onClick(tab)}
-          isActive={currentTab === tab}
+          $isActive={currentTab === tab}
         >
           {TAB_LABELS[tab] || tab}
         </TabMenuButton>
@@ -37,44 +38,43 @@ function TabMenu({
   );
 }
 
-const TabMenuContainer = styled.div<ITabMenuStyle>`
+const TabMenuContainer = styled.div`
   display: inline-flex;
+  /* 시안: 탭 사이 32px, 360 화면에서는 24px */
   gap: 32px;
-  position: relative;
-  height: 48px;
+
   ${media.mobile} {
-    height: 43px;
+    gap: 24px;
   }
-  border-radius: 124px;
-  background-color: ${({ theme, backgroundColor }) =>
-    backgroundColor && theme.palette[backgroundColor]};
 `;
 
-const TabMenuButton = styled.div<{ isActive: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
+const TabMenuButton = styled.button<{ $isActive: boolean }>`
+  flex-shrink: 0;
+  /* 시안: 높이 48px (밑줄 3px 포함), 360 화면에서는 42px */
+  padding: 8px 0 5px;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
   cursor: pointer;
-  z-index: 2;
+  color: ${({ theme }) => theme.palette.grey_400};
+  ${({ theme }) => theme.textStyleV2.fix.font_20};
+  font-weight: 500;
 
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  ${({ theme, $isActive }) =>
+    $isActive &&
+    `
+      font-weight: 600;
+      color: ${theme.palette.grey_850};
+      border-bottom-color: ${theme.palette.grey_850};
+    `}
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.palette.grey_850};
+    outline-offset: 2px;
   }
 
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-  ${({ isActive }) =>
-    isActive
-      ? css`
-          color: #25282d;
-          border-bottom: 3px solid #25282d;
-        `
-      : css`
-          color: ${({ theme }) => theme.palette.black_50};
-        `}
-
-  cursor: pointer;
-  z-index: 100;
+  ${media.mobile} {
+    font-size: ${({ theme }) => theme.fontSize.size_16};
+  }
 `;
 
 export default TabMenu;

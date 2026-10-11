@@ -3,10 +3,10 @@
   "title": "그림을 망친 악동미술가를 찾아라, Trouble Painter",
   "thumbnail": "/assets/project/24_thumbnail_trouble_painter.png",
   "content": [
-    "/assets/project/24_content_trouble_painter.png",
-    "/assets/project/24_content_trouble_painter_2.png",
-    "/assets/project/24_content_trouble_painter_3.png",
-    "/assets/project/24_content_trouble_painter_4.png"
+    "/assets/project/24_content_trouble_painter.webp",
+    "/assets/project/24_content_trouble_painter_2.webp",
+    "/assets/project/24_content_trouble_painter_3.webp",
+    "/assets/project/24_content_trouble_painter_4.webp"
   ],
   "tags": ["24기", "Android", "iOS"],
   "team": [

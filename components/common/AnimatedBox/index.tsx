@@ -1,7 +1,4 @@
-import { useEffect, useCallback, useRef, useState } from 'react';
 import type { ReactElement, ReactNode } from 'react';
-import { useSpring, animated } from '@react-spring/web';
-import { Box } from 'components/common';
 import styled from 'styled-components';
 import media from 'styles/media';
 import { PaletteKeyTypes } from 'styles/theme';
@@ -13,52 +10,25 @@ export interface AnimatedBoxProps {
   fontColor: PaletteKeyTypes;
 }
 
+/*
+ * 색 카드 상자. 등장 효과는 여기서 주지 않고, 이 상자를 쓰는 섹션이 framer-motion으로 준다.
+ * (예전에는 여기서도 react-spring으로 올렸는데, 섹션의 효과와 겹쳐 카드가 두 번 올라왔다.)
+ */
 function AnimatedBox({
   children,
   className,
   color,
   fontColor,
 }: AnimatedBoxProps): ReactElement {
-  const animatedDivRef = useRef(null);
-  const [isIntersect, setIsIntersect] = useState(false);
-
-  const handleIntersect: IntersectionObserverCallback = useCallback(
-    ([entry], observer) => {
-      if (entry.isIntersecting && animatedDivRef.current) {
-        observer.unobserve(animatedDivRef.current); // 한번 observe된 ref 풀기
-        setIsIntersect(true);
-      }
-    },
-    [],
-  );
-
-  const styles = useSpring({
-    config: { mass: 200, tension: 1500, friction: 1000 }, // 질량, 장력, 마찰력
-    from: { opacity: 0, y: 50 }, // 처음 위치
-    to: isIntersect && { opacity: 1, y: 0 }, // 이벤트 시작시 해당 값까지 애니메이션
-  });
-
-  useEffect(() => {
-    let observer: IntersectionObserver;
-    if (animatedDivRef.current) {
-      observer = new IntersectionObserver(handleIntersect, { threshold: 0.3 }); // 이벤트 부여
-      observer.observe(animatedDivRef.current); // observe 시작
-    }
-
-    return () => observer && observer.disconnect();
-  }, [handleIntersect]);
-
   return (
-    <animated.div ref={animatedDivRef} style={styles}>
-      <StyledBox
-        className={className}
-        backgroundColor={color}
-        fontColor={fontColor}
-        borderRadius={20}
-      >
-        {children}
-      </StyledBox>
-    </animated.div>
+    <StyledBox
+      className={className}
+      backgroundColor={color}
+      fontColor={fontColor}
+      borderRadius={20}
+    >
+      {children}
+    </StyledBox>
   );
 }
 
@@ -73,6 +43,9 @@ const StyledBox = styled.section<{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  /* 시안: 카드 높이 180px (좁은 화면 121px) */
+  height: 180px;
   padding: 20px 24px;
   width: auto;
   min-width: 195px;
@@ -83,6 +56,6 @@ const StyledBox = styled.section<{
 
   ${media.mobile} {
     width: auto;
-    height: 120px;
+    height: 121px;
   }
 `;

@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useCallback } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Slider, { Settings } from 'react-slick';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,6 +19,9 @@ export interface CarouselProps {
   data: CarouselDataType[];
 }
 
+/* 슬라이드가 넘어가는 시간(ms). 가운데 카드가 커지고 작아지는 시간도 여기에 맞춘다 */
+const SLIDE_SPEED = 800;
+
 function Carousel({ data }: CarouselProps) {
   const slickRef = useRef<Slider>(null);
   const settings = useMemo<Settings>(
@@ -26,12 +29,12 @@ function Carousel({ data }: CarouselProps) {
       dots: true, // 캐러셀 하단부 점으로 한번에 이동
       arrows: true, // 캐러셀을 움직이는 화살표 추가
       centerMode: true, // 중앙 정렬
-      centerPadding: '220px', // 좌 우 카드가 padding 만큼 삐져나오게 함
+      centerPadding: '169.5px', // 중앙 585px 카드와 양옆 카드 사이 간격 30px
       slidesToShow: 3, // 한번에 보여줄 슬라이드 수
       infinite: true, // 무한 루프
       arrow: false, // 좌 우 화살표
       autoplay: true, // 자동재생
-      speed: 800, // 슬라이더 속도
+      speed: SLIDE_SPEED, // 슬라이더 속도
       pauseOnHover: true, // Hover시 멈춤
       draggable: true, // 드래그 가능
       // 반응형, 현재는 임시 구현
@@ -58,9 +61,9 @@ function Carousel({ data }: CarouselProps) {
             <ProjectCard className="project-card">
               <Image
                 src={image}
-                alt="Project Card Image"
+                alt={`${title} 대표 이미지`}
                 layout="fill"
-                sizes="(max-width: 833px) 335px, 491px"
+                sizes="(max-width: 833px) 335px, 585px"
                 quality={90}
               />
               <ProjectBlurCard>{title}</ProjectBlurCard>
@@ -81,54 +84,111 @@ function Carousel({ data }: CarouselProps) {
 }
 
 const CarouselContainer = styled.div`
+  /* 카드 그림자가 잘리지 않게 슬라이드 위아래에 두는 여유 */
+  --card-room: 35px;
+  /* 시안: 제목과 카드 사이, 카드와 점 사이 80px (좁은 화면은 32px) */
+  --carousel-gap: 80px;
+  --card-height: 331px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   min-width: 1920px;
-  margin: 10px 0 64px;
+  margin: calc(var(--carousel-gap) - var(--card-room)) 0 0;
   overflow: hidden;
 
-  // Carousel Container
-  .slick-slide {
-    height: 400px;
+  ${media.mobile} {
+    --carousel-gap: 32px;
+    --card-height: 189px;
   }
 
-  .slick-list .slick-track {
-    height: 331px;
-  }
+  // Carousel Container
   .slick-slide {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 1.5s;
+    height: calc(var(--card-height) + 2 * var(--card-room));
   }
 
-  // Carousel 중앙 요소
-  .slick-center.slick-active {
-    transform: scale(1.2);
-
-    ${media.small} {
-      transform: none;
-    }
+  /* 링크가 글자 줄로 놓이면 아래에 빈틈이 생겨 카드가 가운데에서 밀린다 */
+  .slick-slide > div {
+    display: flex;
   }
 
-  // Dots
-  .slick-dots {
-    padding-bottom: 20px;
-    button::before {
-      color: ${({ theme }) => theme.palette.grey_900};
+  /*
+   * Carousel 중앙 요소.
+   * 마지막 → 처음으로 넘어갈 때는 복제 슬라이드가 가운데로 들어온다. 복제 슬라이드에는
+   * slick-active가 붙지 않으므로 slick-center만 본다(붙여 보면 넘어가는 동안 큰 카드가 없다가 끝에 툭 커진다).
+   */
+  .slick-center {
+    .project-card {
+      width: 585px !important;
+      height: 331px !important;
     }
 
-    .slick-active {
-      button::before {
-        color: ${({ theme }) => theme.palette.black};
+    ${media.mobile} {
+      .project-card {
+        width: 335px !important;
+        height: 189px !important;
       }
     }
+  }
 
-    ${media.small} {
-      padding-bottom: 60px;
+  &&& .slick-dotted.slick-slider {
+    margin-bottom: 0;
+  }
+
+  // Dots — 시안: 12px 점, 사이 16px
+  .slick-dots {
+    position: static;
+    display: flex !important;
+    justify-content: center;
+    gap: 16px;
+    height: 12px;
+    margin: calc(var(--carousel-gap) - var(--card-room)) 0 0;
+    padding: 0;
+
+    li {
+      width: 12px;
+      height: 12px;
+      margin: 0;
+    }
+
+    li button {
+      position: relative;
+      box-sizing: border-box;
+      width: 12px;
+      height: 12px;
+      padding: 0;
+    }
+
+    /* 누르기 쉽게 점 둘레로 영역을 넓힌다 */
+    li button::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+    }
+
+    li button::before {
+      content: '';
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: ${({ theme }) => theme.palette.grey_200};
+      opacity: 1;
+    }
+
+    li.slick-active button::before {
+      background-color: ${({ theme }) => theme.palette.grey_400};
+      opacity: 1;
+    }
+
+    li button:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.palette.grey_850};
+      outline-offset: 2px;
     }
   }
 `;
@@ -146,10 +206,14 @@ const ProjectCard = styled.div`
 
   width: 409px !important;
   height: 229px !important;
+  /* 가운데로 들어오는 카드는 슬라이드가 넘어가는 동안 함께 커지고, 나가는 카드는 함께 작아진다 */
+  transition: width ${SLIDE_SPEED}ms ease, height ${SLIDE_SPEED}ms ease;
 
+  /* 시안: 360 화면의 카드 모서리 16px */
   ${media.mobile} {
     width: 335px !important;
     height: 189px !important;
+    border-radius: 16px;
   }
 
   :hover {
@@ -168,61 +232,40 @@ const ProjectBlurCard = styled.span`
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: inherit;
   visibility: hidden;
   color: ${({ theme }) => theme.palette.white};
   background: ${({ theme }) => theme.palette.black + '50'};
   ${({ theme }) => theme.textStyle.web.Button}
 `;
 
+/* 시안: 가운데 카드 좌우 끝에서 16px 안쪽에 48px 버튼 (좁은 화면은 20px 안쪽에 32px) */
 const Arrow = styled.button<{ left?: boolean }>`
+  --card-width: 585px;
+  --arrow-inset: 16px;
   position: absolute;
-  top: 50%;
+  /* 점을 뺀 카드 영역의 가운데 */
+  top: calc(var(--card-room) + var(--card-height) / 2);
   transform: translateY(-50%);
   z-index: 10;
+  display: flex;
+  ${({ left }) => (left ? 'left' : 'right')}: calc(
+    50% - var(--card-width) / 2 + var(--arrow-inset)
+  );
+
   svg {
     width: 48px;
     height: 48px;
   }
 
-  ${({ left }) =>
-    left
-      ? css`
-          left: 38.5%;
-        `
-      : css`
-          right: 38.5%;
-        `};
-
   ${media.mobile} {
+    --card-width: 335px;
+    --arrow-inset: 20px;
+
     svg {
       width: 32px;
       height: 32px;
     }
-
-    ${({ left }) =>
-      left
-        ? css`
-            left: 40%;
-          `
-        : css`
-            right: 40%;
-          `};
-  }
-
-  ${media.small} {
-    svg {
-      width: 28px;
-      height: 28px;
-    }
-    ${({ left }) =>
-      left
-        ? css`
-            left: 42%;
-          `
-        : css`
-            right: 42%;
-          `};
   }
 `;
 

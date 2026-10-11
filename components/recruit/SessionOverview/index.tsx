@@ -1,15 +1,14 @@
-import { SESSION_OVERVIEW } from 'database/recruit';
+import { SESSION_CURRICULUM } from 'database/recruit';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 import media from 'styles/media';
-import SectionTemplate from '../SectionTemplate';
 import SectionTitle from 'components/common/SectionTitle';
-import { PaletteKeyTypes } from 'styles/theme';
 import { useScrollAnimation } from 'hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
 
 function SessionOverview(): ReactElement {
-  const { title, overviewContents, subtitle } = SESSION_OVERVIEW;
+  const { title, sessions, subtitle } = SESSION_CURRICULUM;
 
   const { ref, controls, containerVariants, itemVariants } =
     useScrollAnimation();
@@ -17,7 +16,6 @@ function SessionOverview(): ReactElement {
   return (
     <SectionLayout
       ref={ref}
-      as={motion.section}
       initial="hidden"
       animate={controls}
       variants={containerVariants}
@@ -32,40 +30,40 @@ function SessionOverview(): ReactElement {
             align="flex-start"
           />
         </motion.div>
-        <SectionContent
-          as={motion.ul}
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-        >
-          {overviewContents.map(({ date, programs, backgroundColor }) => (
-            <OverviewContentBox
-              key={`recruit-overview-${date}`}
-              as={motion.li}
-              variants={itemVariants}
-            >
-              <OverviewContentSubTitle
-                backgroundColor={backgroundColor as PaletteKeyTypes}
-              >
-                {date}
-              </OverviewContentSubTitle>
-              <OverviewContentContent>
-                {programs.map((program, i) => (
-                  <span key={`line-${i}`}>{program}</span>
-                ))}
-              </OverviewContentContent>
-            </OverviewContentBox>
+        <SessionList variants={containerVariants}>
+          {sessions.map(({ name, date, description, logo }) => (
+            <Session key={name} variants={itemVariants}>
+              <SessionBody>
+                <SessionHead>
+                  <SessionName>
+                    {name}
+                    {/* 카드 색 바탕까지 들어 있는 그림이라 다시 압축하지 않는다 (강제 다크모드에서 로고가 묻히지 않게) */}
+                    {logo && (
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={63}
+                        height={20}
+                        unoptimized
+                      />
+                    )}
+                  </SessionName>
+                  <SessionDate>{date}</SessionDate>
+                </SessionHead>
+                <SessionDescription>{description}</SessionDescription>
+              </SessionBody>
+            </Session>
           ))}
-        </SectionContent>
+        </SessionList>
       </SectionInner>
     </SectionLayout>
   );
 }
 
-const SectionLayout = styled(SectionTemplate)`
+const SectionLayout = styled(motion.section)`
   display: flex;
   justify-content: center;
-  width: auto;
+  background-color: ${({ theme }) => theme.palette.white};
   padding: 160px 80px;
 
   ${media.mobile} {
@@ -74,63 +72,91 @@ const SectionLayout = styled(SectionTemplate)`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
-const SectionContent = styled.ul`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: space-between;
-  gap: 30px;
-  margin-top: 48px;
-`;
+const SessionList = styled(motion.ul)`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 48px 0 0;
 
-const OverviewContentBox = styled.li`
-  list-style: none;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const OverviewContentSubTitle = styled.div<{
-  backgroundColor: PaletteKeyTypes;
-}>`
-  border-radius: 8px 8px 0 0;
-  padding: 7px 0;
-  text-align: center;
-  background-color: ${({ backgroundColor, theme }) =>
-    theme.palette[backgroundColor]};
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-  color: ${({ theme }) => theme.palette.white_100};
-
+  /* 시안: 360 화면에서는 카드가 본문보다 좌우 4px씩 넓다 (328px) */
   ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+    grid-template-columns: minmax(0, 1fr);
+    margin: 48px -4px 0;
   }
 `;
 
-const OverviewContentContent = styled.div`
-  border-radius: 0 0 8px 8px;
+/* 시안: 카드 508x156, 위쪽 회색 띠 28px */
+const Session = styled(motion.li)`
+  display: flex;
+  flex-direction: column;
+  min-height: 156px;
+  overflow: hidden;
+
+  /* 시안: 834·360 화면에서는 설명이 14px이라 카드가 148px */
+  ${media.tablet} {
+    min-height: 148px;
+  }
+
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.palette.chemistry_29th_grey};
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    height: 28px;
+    background-color: ${({ theme }) => theme.palette.grey_500};
+  }
+`;
+
+const SessionBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* 시안: 이름과 설명 사이 4px, 안쪽 여백 16·24·24·24 */
+  gap: 4px;
+  padding: 16px 24px 24px;
+`;
+
+const SessionHead = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  ${({ theme }) => theme.textStyleV2.fix.font_15};
-  background-color: ${({ theme }) => theme.palette.black_5};
-  color: ${({ theme }) => theme.palette.black_80};
-  padding: 22px 0;
-  flex: 1;
+  align-items: center;
+  gap: 12px;
+`;
 
-  & > span {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    white-space: pre-line;
-    padding: 0 12px;
+const SessionName = styled.h3`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: ${({ theme }) => theme.palette.black_100};
+  ${({ theme }) => theme.textStyleV2.resp.subtitle_md};
+`;
+
+const SessionDate = styled.span`
+  flex-shrink: 0;
+  padding: 0 8px;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.palette.chemistry_29th_date_bg};
+  color: ${({ theme }) => theme.palette.chemistry_29th_date};
+  ${({ theme }) => theme.textStyleV2.fix.font_16};
+  font-weight: 600;
+`;
+
+const SessionDescription = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.palette.grey_700};
+  ${({ theme }) => theme.textStyleV2.fix.font_16};
+  white-space: pre-line;
+  word-break: keep-all;
+
+  /* 좁은 화면에서는 정해진 줄바꿈 대신 폭에 맞춰 흐르게 하고, 시안대로 한 단계 작은 글자를 쓴다 */
+  ${media.tablet} {
+    white-space: normal;
+    ${({ theme }) => theme.textStyleV2.fix.font_14};
   }
 `;
 

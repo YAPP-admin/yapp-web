@@ -33,14 +33,9 @@ function CircusCard(
 
 export default CircusCard;
 
-const CardLayout = styled(AnimatedBox)`
-  ${media.mobile} {
-    max-height: 156px;
-  }
-`;
+const CardLayout = styled(AnimatedBox)``;
 
 const CardInnerBox = styled.div`
-  padding-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -57,7 +52,7 @@ const CardSubTitle = styled.span`
 
 const CardTitle = styled.h1`
   ${({ theme }) => theme.textStyleV2.resp.title2_md};
-  margin-top: 8px;
+  margin: 0;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.title2_sm};

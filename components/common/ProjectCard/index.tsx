@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import styled, { css } from 'styled-components';
-import { Badge, AnimatedImage } from 'components/common';
+import styled from 'styled-components';
+import { AnimatedImage } from 'components/common';
 import Link from 'next/link';
 import media from 'styles/media';
 import { fadeIn } from 'styles/utils-styles';
@@ -14,6 +14,8 @@ interface ProjectCardProps {
 function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   const { title, thumbnail, thumbnailBlurDataURL, tags, generation, url } =
     project;
+  /* 기수는 배지로 보여 주므로 태그 줄에서는 뺀다 */
+  const platformTags = tags.filter((tag) => !/^\d+기$/.test(tag));
 
   return (
     <Link href={isSubCard ? `${url}` : `project/${url}`} passHref>
@@ -22,24 +24,18 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
           className="project-card-image"
           src={thumbnail}
           blurDataURL={thumbnailBlurDataURL}
-          sizes="(max-width: 833px) 335px, 380px"
+          sizes="(max-width: 833px) calc((100vw - 32px) / 2), 331px"
           quality={90}
-          alt="project-image"
+          alt={`${title} 대표 이미지`}
           height={214}
         />
         <ContentContainer>
           <DetailWrapper>
-            {isSubCard ? (
-              <ProjectSubTitleWrapper>{title}</ProjectSubTitleWrapper>
-            ) : (
-              <>
-                <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
-                <Badge backgroundColor="black_5">{`${generation}기`}</Badge>
-              </>
-            )}
+            <ProjectTitleWrapper>{title}</ProjectTitleWrapper>
+            <GenerationBadge>{`${generation}기`}</GenerationBadge>
           </DetailWrapper>
           <TagWrapper>
-            {tags.map((tag) => (
+            {platformTags.map((tag) => (
               <Tag key={tag}>{'#' + tag} </Tag>
             ))}
           </TagWrapper>
@@ -49,10 +45,12 @@ function ProjectCard({ project, isSubCard }: ProjectCardProps) {
   );
 }
 
-const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
-  width: 380px;
-  height: 326px;
-  border-radius: 25px;
+/* 목록과 상세의 '더 둘러보기'가 같은 카드 모양을 쓴다 */
+const StyledProjectCard = styled.div`
+  width: 100%;
+  /* 시안: 325x282, 모서리 12px */
+  height: 282px;
+  border-radius: 12px;
   background-color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
   overflow: hidden;
@@ -71,76 +69,110 @@ const StyledProjectCard = styled.div<{ isSubCard?: boolean }>`
     );
   }
 
-  ${media.mobile} {
-    width: 335px;
-    /* 화면이 카드보다 좁을 때(320px 등) 잘리지 않도록 */
-    max-width: calc(100vw - 24px);
-    height: 294px;
+  > .project-card-image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+
+    /*
+     * 불러온 썸네일의 비율이 자리와 소수점만큼 달라 위아래로 카드 바탕색이 가늘게 비친다.
+     * 1% 키워 덮는다. 정사각형인 옛 썸네일은 잘리지 않고 그대로 보인다.
+     */
+    img {
+      transform: scale(1.01);
+    }
   }
 
-  > .project-card-image {
-    ${media.mobile} {
-      height: auto;
-      aspect-ratio: 335 / 188;
+  /* 시안: 360 화면의 164x160 카드, 모서리 8px */
+  ${media.small} {
+    height: auto;
+    min-height: 160px;
+    border-radius: 8px;
+
+    > .project-card-image {
+      aspect-ratio: 164 / 96;
+
+      /*
+       * 이 자리(164:96)는 16:9 썸네일보다 세로가 길어 위아래로 1.9px씩 비고, 1%로는 다 덮이지 않는다.
+       * 5% 키워 덮는다(16:9 썸네일은 좌우가 2%쯤 잘린다. 시안도 이 자리에 맞춰 잘라 넣었다).
+       */
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 `;
 
-const ContentContainer = styled.div<{ isSubCard?: boolean }>`
-  margin: 24px;
-  ${media.mobile} {
-    margin: 20px 24px;
+/* 시안: 이미지 아래 16px, 좌우·아래 20px (360 화면은 10px, 12px) */
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 16px 20px 20px;
+
+  ${media.small} {
+    margin: 10px 12px 12px;
   }
 `;
 
 const DetailWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 37px;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
 
-  /* 카드가 좁아져도 기수 배지가 눌려서 줄바꿈되지 않도록 */
-  > div {
-    flex-shrink: 0;
+  ${media.small} {
+    height: 22px;
   }
 `;
 
 const ProjectTitleWrapper = styled.span`
-  width: 240px;
+  min-width: 0;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   color: ${({ theme }) => theme.palette.grey_850};
+  ${({ theme }) => theme.textStyleV2.fix.font_20};
+  font-weight: 600;
 
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  ${media.small} {
+    font-size: ${({ theme }) => theme.fontSize.size_15};
+    line-height: 1.3;
   }
 `;
 
-const ProjectSubTitleWrapper = styled.span`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: ${({ theme }) => theme.palette.grey_850};
+/* 카드가 좁아져도 기수 배지가 눌려서 줄바꿈되지 않게 한다 */
+const GenerationBadge = styled.span`
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.palette.grey_100};
+  color: ${({ theme }) => theme.palette.grey_600};
+  ${({ theme }) => theme.textStyleV2.fix.font_16};
 
-  ${({ theme }) => theme.textStyleV2.resp.body_point_md};
-
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.body_point_sm};
+  ${media.small} {
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 0.6875rem;
+    line-height: 1.3;
   }
 `;
 
 const TagWrapper = styled.div`
   margin: 0;
-`;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: ${({ theme }) => theme.palette.grey_400};
+  ${({ theme }) => theme.textStyleV2.fix.font_15};
+  font-weight: 600;
 
-const Tag = styled.div`
-  display: inline;
-  margin-right: 4px;
-  color: ${({ theme }) => theme.palette.grey_500};
-  ${({ theme }) => theme.textStyleV2.resp.caption_md};
-  ${media.mobile} {
-    ${({ theme }) => theme.textStyleV2.resp.caption_sm};
+  ${media.small} {
+    ${({ theme }) => theme.textStyleV2.fix.font_12};
+    line-height: 1.3;
   }
 `;
+
+const Tag = styled.span``;
 
 export default memo(ProjectCard);

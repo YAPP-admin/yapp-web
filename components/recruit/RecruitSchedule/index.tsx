@@ -16,7 +16,7 @@ const additionalSchedule = {
     { label: '1차 서류', text: '지원서 작성 및 포트폴리오 제출' },
     { label: '2차 면접', text: '온라인 인터뷰 후 최종 합격' },
   ],
-  color: 'discovery_28th_blue',
+  color: 'chemistry_29th_blue',
   fontColor: 'white_100',
 };
 
@@ -64,7 +64,7 @@ function RecruitSchedule(): ReactElement {
               ),
             )}
             <motion.div key="additional" variants={itemVariants}>
-              <AnimatedBox
+              <GuideBox
                 color={additionalSchedule.color as PaletteKeyTypes}
                 fontColor={additionalSchedule.fontColor as PaletteKeyTypes}
               >
@@ -78,7 +78,7 @@ function RecruitSchedule(): ReactElement {
                     </CardInnerLine>
                   ))}
                 </CardInnerBox>
-              </AnimatedBox>
+              </GuideBox>
             </motion.div>
           </GridContainer>
         </SectionContent>
@@ -99,7 +99,7 @@ const SectionLayout = styled(motion.section)`
 `;
 
 const SectionInner = styled.div`
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 `;
 
@@ -112,16 +112,24 @@ const SectionContent = styled.div`
   ${media.tablet} {
     gap: 0px;
     width: auto;
-    overflow: auto;
   }
 `;
 
+/* 안내 문구가 줄바꿈되면 카드가 내용만큼 늘어난다 (다른 카드는 높이 고정) */
+const GuideBox = styled(AnimatedBox)`
+  height: auto;
+  min-height: 180px;
+`;
+
+/*
+ * 시안: 제목 아래 48px. 카드 묶음이 본문보다 좌우 8px씩 넓다 (1920 화면 516px 두 장).
+ * 360 화면에서는 카드 328x156, 간격 16px (본문보다 좌우 4px씩 넓다)
+ */
 const GridContainer = styled.article`
-  width: 100%;
+  width: calc(100% + 16px);
   display: grid;
-  row-gap: 32px;
-  column-gap: 30px;
-  margin-top: 64px;
+  gap: 24px;
+  margin: 48px -8px 0;
 
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
@@ -129,6 +137,18 @@ const GridContainer = styled.article`
   ${media.mobile} {
     grid-template-columns: 1fr;
     align-items: stretch;
+    gap: 16px;
+    width: calc(100% + 8px);
+    margin: 48px -4px 0;
+
+    section {
+      height: 156px;
+    }
+
+    ${GuideBox} {
+      height: auto;
+      min-height: 156px;
+    }
   }
 `;
 
@@ -137,8 +157,8 @@ const CardInnerBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
-  min-height: 150px;
+  /* 시안: 두 줄 사이 8px */
+  gap: 8px;
 `;
 
 const CardInnerLine = styled.li`
@@ -147,7 +167,12 @@ const CardInnerLine = styled.li`
   gap: 16px;
 `;
 
+/* 시안: 폭 64px에 글자를 가운데로. 폭이 같아야 두 줄의 설명이 같은 자리에서 시작한다 */
 const CardLabel = styled.span`
+  box-sizing: border-box;
+  flex-shrink: 0;
+  min-width: 64px;
+  text-align: center;
   white-space: nowrap;
   padding: 4px;
   border-radius: 4px;
@@ -163,6 +188,7 @@ const CardLabel = styled.span`
 const CardInnerText = styled.div`
   color: ${({ theme }) => theme.palette.white_100};
   ${({ theme }) => theme.textStyleV2.resp.body_point_md};
+  word-break: keep-all;
 
   ${media.mobile} {
     ${({ theme }) => theme.textStyleV2.resp.body_point_sm};

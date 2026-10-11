@@ -17,7 +17,7 @@ function ProjectSection(): ReactElement {
       visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, ease: 'easeInOut' },
+        transition: { duration: 0.5, ease: 'easeOut' },
       },
     },
   });
@@ -39,9 +39,9 @@ function ProjectSection(): ReactElement {
         />
       </TextBoxLayout>
       <Carousel data={CAROUSEL_DATA} />
-      <Button variant="black" onClick={() => Router.push('/project')}>
+      <MoreButton variant="black" onClick={() => Router.push('/project')}>
         프로젝트 더보기
-      </Button>
+      </MoreButton>
     </ProjectContainer>
   );
 }
@@ -51,19 +51,46 @@ const ProjectContainer = styled(SectionTemplate)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*
+   * 캐러셀은 폭이 1920px로 고정이라 화면보다 넓다. 여기서 잘라 두지 않으면 페이지 전체가
+   * 가로로 넘치는 것으로 계산돼, 모바일에서 화면을 누르고 끌 때 페이지가 옆으로 딸려 온다.
+   */
+  overflow: hidden;
+
+  /* 시안: 834·360 화면에서는 위아래 100px */
+  ${media.tablet} {
+    padding: 100px 80px;
+  }
 
   ${media.mobile} {
-    padding: 200px 20px;
+    padding: 100px 20px;
   }
 `;
 
 const TextBoxLayout = styled.div`
   box-sizing: border-box;
-  max-width: 1200px;
+  max-width: 1040px;
   width: 100%;
 
   & > div {
-    max-width: 1200px;
+    max-width: 1040px;
+  }
+`;
+
+/* 시안: 점 아래 48px에 151x53 버튼 (360 화면은 32px 아래에 135x42) */
+const MoreButton = styled(Button)`
+  box-sizing: border-box;
+  height: 53px;
+  margin-top: 48px;
+  padding: 12px 20px;
+
+  ${media.mobile} {
+    margin-top: 32px;
+  }
+
+  ${media.small} {
+    height: auto;
+    padding: 8px 18px;
   }
 `;
 

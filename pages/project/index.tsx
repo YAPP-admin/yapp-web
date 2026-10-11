@@ -2,6 +2,7 @@ import { Button, ProjectCard, TabMenu } from 'components/common';
 import Banner from 'components/common/Banner';
 import useSmoothScroll from 'hooks/useSmoothScroll';
 import { GetStaticProps } from 'next';
+import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -54,9 +55,30 @@ interface ProjectProps {
 
 const INITIAL_CARD_COUNT = 9; // '기본' 카드 표현 수
 const NEXT_CARD_COUNT = 6; // '더보기' 카드 표현 수
+
+/*
+ * 상세 페이지에서 뒤로 돌아오면 보던 분류와 펼친 개수를 되살린다.
+ * 페이지를 떠나면 컴포넌트 상태가 사라지므로 모듈에 남겨 두고, 뒤로·앞으로 가기일 때만 꺼내 쓴다.
+ */
+let lastListState: { category: ProjectField; count: number } | null = null;
+let isHistoryMove = false;
+if (typeof window !== 'undefined') {
+  window.addEventListener('popstate', () => {
+    isHistoryMove = true;
+  });
+  Router.events.on('routeChangeComplete', () => {
+    isHistoryMove = false;
+  });
+}
+
 function Project({ projects }: ProjectProps) {
-  const [viewCardCount, setViewCardCount] = useState(INITIAL_CARD_COUNT);
-  const [category, setCategory] = useState<ProjectField>(PROJECT_CATEGORIES[0]);
+  const [restored] = useState(() => (isHistoryMove ? lastListState : null));
+  const [viewCardCount, setViewCardCount] = useState(
+    restored?.count ?? INITIAL_CARD_COUNT,
+  );
+  const [category, setCategory] = useState<ProjectField>(
+    restored?.category ?? PROJECT_CATEGORIES[0],
+  );
 
   const { ref: containerRef, trigger: triggerContainerScroll } =
     useSmoothScroll<HTMLDivElement>({
@@ -75,10 +97,15 @@ function Project({ projects }: ProjectProps) {
     }, 100);
   };
 
-  useEffect(() => {
+  const handleCategoryClick = (nextCategory: ProjectField) => {
+    setCategory(nextCategory);
     setViewCardCount(INITIAL_CARD_COUNT);
     triggerCategoryScroll();
-  }, [category]);
+  };
+
+  useEffect(() => {
+    lastListState = { category, count: viewCardCount };
+  }, [category, viewCardCount]);
 
   return (
     <ProjectWrapper>
@@ -91,8 +118,8 @@ function Project({ projects }: ProjectProps) {
           <TabMenu
             tabs={PROJECT_CATEGORIES}
             currentTab={category}
-            onClick={setCategory}
-            backgroundColor="white"
+            onClick={handleCategoryClick}
+            label="프로젝트 분류"
           />
         </CategoriesWrapper>
         <ProjectGridWrapper>
@@ -146,42 +173,65 @@ const ProjectWrapper = styled.div`
 
 const ProjectContainer = styled.section`
   position: relative;
-  flex: 0 1 1200px;
+  width: 1024px;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  /* 시안: 맨 아래 80px (360 화면은 64px). 더보기 버튼이 없는 분류에서도 같은 여백을 둔다 */
+  padding-bottom: 80px;
+  ${media.tablet} {
+    width: 674px;
+  }
+  ${media.mobile} {
+    width: 100%;
+  }
+  ${media.small} {
+    padding-bottom: 64px;
+  }
 `;
 
+/* 시안: 배너 아래 56px에 탭, 그 아래 48px에 카드 (360 화면은 32px, 32px) */
 const CategoriesWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 52px;
+  padding-top: 56px;
+
+  ${media.small} {
+    padding-top: 32px;
+  }
 `;
 
 const ProjectGridWrapper = styled.div`
   display: grid;
-  gap: 30px;
-  margin-top: 64px;
+  gap: 24px;
+  margin-top: 48px;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
+  > a {
+    width: 100%;
+    min-width: 0;
+  }
   ${media.tablet} {
     grid-template-columns: repeat(2, 1fr);
   }
   ${media.mobile} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* 시안: 360 화면에서는 카드 사이 8px, 줄 사이 16px */
+  ${media.small} {
+    gap: 16px 8px;
+    margin-top: 32px;
   }
 `;
 
+/* 시안: 카드 아래 48px에 버튼 (360 화면은 32px). 버튼 아래 여백은 ProjectContainer가 둔다 */
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 56px 0 80px 0;
-`;
+  margin-top: 48px;
 
-const StyledButton = styled(Button)`
-  transition: background-color 0.5s;
-
-  ${media.mobile} {
-    width: 162px;
-    height: 56px;
+  ${media.small} {
+    margin-top: 32px;
   }
 `;
 

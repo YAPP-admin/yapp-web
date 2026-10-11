@@ -8,7 +8,7 @@ const links = [
   { name: '카카오톡 공식채널', href: Yapp.YAPP_KAKAO },
   { name: '인스타그램', href: Yapp.YAPP_INSTAGRAM },
   { name: '깃허브', href: Yapp.YAPP_GITHUB },
-  { name: '미디엄', href: Yapp.YAPP_MEDIUM },
+  { name: '미디움', href: Yapp.YAPP_MEDIUM },
   { name: '링크드인', href: Yapp.YAPP_LINKEDIN },
   { name: '스레드', href: Yapp.YAPP_THREADS },
 ];
@@ -54,10 +54,21 @@ function Footer(): ReactElement {
 
 const FooterBlock = styled.footer`
   width: auto;
+  box-sizing: border-box;
+  min-height: 225px;
+  display: flex;
+  align-items: center;
   background-color: ${({ theme }) => theme.palette.black_5};
   padding: 24px 100px;
 
+  /* 시안: 834 화면은 183px, 여백 40·40·32·40 */
+  ${media.tablet} {
+    min-height: 183px;
+    padding: 40px 40px 32px;
+  }
+
   ${media.mobile} {
+    min-height: 268px;
     padding: 24px;
   }
 `;
@@ -175,7 +186,7 @@ const BusinessInfo = styled.div`
     margin: 0;
   }
 
-  ${media.mobile} {
+  ${media.tablet} {
     font-size: 14px;
     line-height: 20px;
   }
@@ -187,6 +198,11 @@ const Copyright = styled.div`
   font-weight: 500;
   letter-spacing: -0.28px;
   line-height: 22.4px;
+  white-space: nowrap;
+
+  ${media.tablet} {
+    font-size: 13px;
+  }
 
   ${media.mobile} {
     font-size: 12px;
