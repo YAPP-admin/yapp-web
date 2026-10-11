@@ -55,10 +55,10 @@ function SponsorSection(): ReactElement {
         <ButtonContainer variants={itemVariants}>
           <Button variant="black">
             <ButtonLinked
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${Yapp.YAPP_OFFICIAL_EMAIL}&su=후원문의&body=안녕하세요, 후원 관련 문의드립니다.`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${Yapp.YAPP_OFFICIAL_EMAIL}&su=협력문의&body=안녕하세요, 협력 관련 문의드립니다.`}
               target="_blank"
             >
-              후원 문의하기
+              협력 문의하기
             </ButtonLinked>
           </Button>
         </ButtonContainer>
@@ -86,22 +86,16 @@ const SectionInner = styled.div`
 `;
 
 /*
- * 시안: 한 줄에 다섯 장(196px, 간격 16px)을 왼쪽부터 채운다. 834 화면도 다섯 장(122px)이다.
- * 본문 폭(1040px)이 다섯 장(1044px)보다 4px 좁아 실제로는 195.2px가 된다.
+ * 시안: 한 줄에 네 장, 간격 16px. 1920 화면은 248px, 834 화면은 157px.
+ * 360 화면에서는 135px 카드를 두 장씩 가운데에 놓는다.
  */
 const SponsorList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 196px));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin: 48px 0;
   width: 100%;
 
-  /* 한 줄에 세 장 */
-  ${media.mobile} {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  /* 시안: 360 화면에서는 135px 카드를 두 장씩 가운데에. 마지막 한 장은 왼쪽 칸에 놓인다 */
   ${media.small} {
     grid-template-columns: repeat(2, minmax(0, 135px));
     justify-content: center;
@@ -113,19 +107,18 @@ const ButtonContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
 
-  /* 시안: 버튼 136x53 (360 화면은 121x42) */
+  /* 시안: 버튼 136x53 (834 화면은 132x45, 360 화면은 121x42) */
   button {
     padding: 12px 20px;
   }
 
-  ${media.small} {
+  ${media.tablet} {
     button {
       padding: 8px 18px;
     }
   }
 `;
 
-/* 시안: 196x196. 화면이 좁아지면 같은 비율로 줄어든다 */
 const SponsorItem = styled.li`
   aspect-ratio: 1 / 1;
 `;
@@ -138,7 +131,11 @@ const Sponsor = styled.a`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.palette.black_5};
-  border-radius: 16px;
+  /*
+   * 시안: 모서리 16px. 834·360 화면은 196px 카드를 그대로 줄인 모양이라 모서리도 같이 줄어든다
+   * (157px 카드에 12.8px, 135px 카드에 11px).
+   */
+  border-radius: min(16px, calc(100% * 16 / 196));
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -157,15 +154,22 @@ const Sponsor = styled.a`
   }
 
   /*
-   * 시안: 196px 카드에 로고 폭 140px (834 화면 122px에 87px, 360 화면 135px에 96px로 같은 비율).
-   * 그림은 로고 둘레에 카드 색 바탕을 붙여 시안의 420px 정사각형을 담고 있다.
-   * 카드 폭의 420/196배로 놓고, 카드 밖으로 넘치는 바탕은 잘라 낸다.
+   * 그림은 로고 둘레에 카드 색 바탕을 붙인 정사각형이고, 그림 폭의 1/3이 로고 폭(140px 기준)이다.
+   * 시안: 1920 화면은 248px 카드에 로고 폭 180px이므로 그림을 카드 폭의 540/248배로 놓는다.
+   * 카드 밖으로 넘치는 바탕은 잘라 낸다.
    */
   & img {
     flex: none;
-    width: calc(100% * 420 / 196);
+    width: calc(100% * 540 / 248);
     max-width: none;
     height: auto;
+  }
+
+  /* 시안: 834·360 화면은 196px 카드에 로고 140px인 비율이다 (157px에 112px, 135px에 96px) */
+  ${media.tablet} {
+    & img {
+      width: calc(100% * 420 / 196);
+    }
   }
 `;
 
