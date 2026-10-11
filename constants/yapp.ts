@@ -16,16 +16,21 @@ const Yapp = {
   // 공고 링크
   YAPP_RECRUIT_ALL: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
   YAPP_RECRUIT_EXTRA: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  /*
+   * TODO: 29기 직군별 공고 링크가 나오면 교체.
+   * 지금은 모집 안내의 직군 카드 6장이 모두 전체 지원 페이지로 간다.
+   * (28기 공고 주소는 그리팅에서 내려가 404라서 그대로 두면 모집 중에 링크가 깨진다.)
+   */
   YAPP_RECRUIT_PROJECT_MANAGER:
-    'https://yapp-recruit.career.greetinghr.com/o/210447',
-  YAPP_RECRUIT_DESIGNER: 'https://yapp-recruit.career.greetinghr.com/o/210451',
-  YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/o/210434',
-  YAPP_RECRUIT_ANDROID: 'https://yapp-recruit.career.greetinghr.com/o/210373',
-  YAPP_RECRUIT_FRONT_END: 'https://yapp-recruit.career.greetinghr.com/o/210439',
-  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/o/210444',
-  // TODO: 29기 Mobile, AI Native 공고 링크가 나오면 교체 (지금은 전체 공고로 연결)
+    'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  YAPP_RECRUIT_DESIGNER: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  YAPP_RECRUIT_FRONT_END: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  YAPP_RECRUIT_BACK_END: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
   YAPP_RECRUIT_MOBILE: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
   YAPP_RECRUIT_AI_NATIVE: 'https://yapp-recruit.career.greetinghr.com/ko/apply',
+  // 28기까지 쓰던 직군(지금은 쓰는 곳 없음)
+  YAPP_RECRUIT_IOS: 'https://yapp-recruit.career.greetinghr.com/o/210434',
+  YAPP_RECRUIT_ANDROID: 'https://yapp-recruit.career.greetinghr.com/o/210373',
   YAPP_RECRUIT_CROSS_PLATFORM:
     'https://yapp-recruit.career.greetinghr.com/o/106740',
 

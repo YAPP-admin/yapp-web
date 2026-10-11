@@ -19,6 +19,9 @@ export interface CarouselProps {
   data: CarouselDataType[];
 }
 
+/* 슬라이드가 넘어가는 시간(ms). 가운데 카드가 커지고 작아지는 시간도 여기에 맞춘다 */
+const SLIDE_SPEED = 800;
+
 function Carousel({ data }: CarouselProps) {
   const slickRef = useRef<Slider>(null);
   const settings = useMemo<Settings>(
@@ -31,7 +34,7 @@ function Carousel({ data }: CarouselProps) {
       infinite: true, // 무한 루프
       arrow: false, // 좌 우 화살표
       autoplay: true, // 자동재생
-      speed: 800, // 슬라이더 속도
+      speed: SLIDE_SPEED, // 슬라이더 속도
       pauseOnHover: true, // Hover시 멈춤
       draggable: true, // 드래그 가능
       // 반응형, 현재는 임시 구현
@@ -106,7 +109,6 @@ const CarouselContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: calc(var(--card-height) + 2 * var(--card-room));
-    transition: transform 1.5s;
   }
 
   /* 링크가 글자 줄로 놓이면 아래에 빈틈이 생겨 카드가 가운데에서 밀린다 */
@@ -114,8 +116,12 @@ const CarouselContainer = styled.div`
     display: flex;
   }
 
-  // Carousel 중앙 요소
-  .slick-center.slick-active {
+  /*
+   * Carousel 중앙 요소.
+   * 마지막 → 처음으로 넘어갈 때는 복제 슬라이드가 가운데로 들어온다. 복제 슬라이드에는
+   * slick-active가 붙지 않으므로 slick-center만 본다(붙여 보면 넘어가는 동안 큰 카드가 없다가 끝에 툭 커진다).
+   */
+  .slick-center {
     .project-card {
       width: 585px !important;
       height: 331px !important;
@@ -200,6 +206,8 @@ const ProjectCard = styled.div`
 
   width: 409px !important;
   height: 229px !important;
+  /* 가운데로 들어오는 카드는 슬라이드가 넘어가는 동안 함께 커지고, 나가는 카드는 함께 작아진다 */
+  transition: width ${SLIDE_SPEED}ms ease, height ${SLIDE_SPEED}ms ease;
 
   /* 시안: 360 화면의 카드 모서리 16px */
   ${media.mobile} {
