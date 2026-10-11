@@ -345,12 +345,13 @@ export const SPONSOR_SECTION = {
  * 브라우저가 강제로 다크모드를 적용해도 로고와 바탕이 함께 움직여 로고가 묻히지 않는다.
  * 그림 폭은 로고 폭의 3배이고 로고는 가운데에 있다. 만드는 방법은 DESIGN.md에 있다.
  */
+/* 시안 순서 그대로. 로고 그림 만드는 방법은 DESIGN.md의 "라이트 화면만 지원합니다" 항목에 있다 */
 export const SPONSOR_DATA = [
   {
-    image: '/assets/sponsors/tile_flab.webp',
-    alt: 'sponsor F-Lab',
-    width: 738,
-    height: 738,
+    image: '/assets/sponsors/tile_docshunt.webp',
+    alt: 'sponsor DocsHunt',
+    width: 840,
+    height: 840,
   },
   {
     image: '/assets/sponsors/tile_elice.webp',
@@ -359,10 +360,10 @@ export const SPONSOR_DATA = [
     height: 819,
   },
   {
-    image: '/assets/sponsors/tile_greeting.webp',
-    alt: 'sponsor greeting',
-    width: 873,
-    height: 874,
+    image: '/assets/sponsors/tile_ictcoc.webp',
+    alt: 'sponsor ICT COC',
+    width: 840,
+    height: 840,
   },
   {
     image: '/assets/sponsors/tile_dcamp.webp',
@@ -371,19 +372,35 @@ export const SPONSOR_DATA = [
     height: 841,
   },
   {
-    image: '/assets/sponsors/tile_ictcoc.webp',
-    alt: 'sponsor ICT COC',
+    image: '/assets/sponsors/tile_alt.webp',
+    alt: 'sponsor Alt',
     width: 840,
     height: 840,
   },
-  // {
-  //   image: '/assets/sponsors/sponsor_goorm.png',
-  //   alt: 'sponsor goorm',
-  // },
-  // {
-  //   image: '/assets/sponsors/sponsor_fiveSpot.png',
-  //   alt: 'sponsor fiveSpot',
-  // },
+  {
+    image: '/assets/sponsors/tile_greeting.webp',
+    alt: 'sponsor greeting',
+    width: 873,
+    height: 874,
+  },
+  {
+    image: '/assets/sponsors/tile_programmers.webp',
+    alt: 'sponsor programmers',
+    width: 840,
+    height: 840,
+  },
+  {
+    image: '/assets/sponsors/tile_tiokorea.webp',
+    alt: 'sponsor tiokorea',
+    width: 840,
+    height: 840,
+  },
+  {
+    image: '/assets/sponsors/tile_goorm.webp',
+    alt: 'sponsor goorm',
+    width: 840,
+    height: 840,
+  },
 ];
 
 export interface RecruitBannerInfo {

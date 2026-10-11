@@ -82,22 +82,26 @@ const SectionInner = styled.div`
   width: 100%;
 `;
 
+/*
+ * 시안: 한 줄에 다섯 장(196px, 간격 16px)을 왼쪽부터 채운다. 834 화면도 다섯 장(122px)이다.
+ * 본문 폭(1040px)이 다섯 장(1044px)보다 4px 좁아 실제로는 195.2px가 된다.
+ */
 const SponsorList = styled.ul`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 196px));
   gap: 16px;
   margin: 48px 0;
   width: 100%;
 
-  /* 한 줄에 세 장, 남는 두 장은 가운데로 */
+  /* 한 줄에 세 장 */
   ${media.mobile} {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  /* 시안: 360 화면에서는 135px 카드를 두 장씩 가운데에 */
+  /* 시안: 360 화면에서는 135px 카드를 두 장씩 가운데에. 마지막 한 장은 왼쪽 칸에 놓인다 */
   ${media.small} {
-    display: grid;
     grid-template-columns: repeat(2, minmax(0, 135px));
+    justify-content: center;
   }
 `;
 
@@ -121,8 +125,6 @@ const ButtonContainer = styled(motion.div)`
 const Sponsor = styled.li`
   position: relative;
   /* 시안: 196x196. 화면이 좁아지면 같은 비율로 줄어든다 */
-  flex: 1 1 0;
-  max-width: 196px;
   aspect-ratio: 1 / 1;
   background-color: ${({ theme }) => theme.palette.black_5};
   border-radius: 16px;
@@ -133,20 +135,15 @@ const Sponsor = styled.li`
   justify-content: center;
 
   /*
-   * 시안: 로고 좌우 여백 24px.
-   * 그림은 로고 폭의 3배 크기(카드 색 바탕 포함)라서, 로고 폭(100% - 48px)의 3배로 놓고
-   * 카드 밖으로 넘치는 바탕은 잘라 낸다.
+   * 시안: 196px 카드에 로고 폭 140px (834 화면 122px에 87px, 360 화면 135px에 96px로 같은 비율).
+   * 그림은 로고 둘레에 카드 색 바탕을 붙여 시안의 420px 정사각형을 담고 있다.
+   * 카드 폭의 420/196배로 놓고, 카드 밖으로 넘치는 바탕은 잘라 낸다.
    */
   & img {
     flex: none;
-    width: calc((100% - 48px) * 3);
+    width: calc(100% * 420 / 196);
     max-width: none;
     height: auto;
-  }
-
-  ${media.mobile} {
-    flex: 0 0 calc((100% - 32px) / 3);
-    max-width: none;
   }
 `;
 
