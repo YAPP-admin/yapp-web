@@ -335,7 +335,7 @@ export const NEWS_SECTION = {
 };
 
 export const SPONSOR_SECTION = {
-  title: 'YAPP의 후원사',
+  title: 'YAPP의 협력사',
   subTitle: `YAPP과 새로운 가치를 만들어갈 후원 및 협업 문의,\n언제든 기다리고 있습니다.`,
 };
 
