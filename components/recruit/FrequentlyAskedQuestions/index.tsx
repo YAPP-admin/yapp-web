@@ -70,17 +70,19 @@ function FrequentlyAskedQuestions(): ReactElement {
             <EmptyText>질문을 준비하고 있어요.</EmptyText>
           )}
           {faqList.map(({ subTitle, description }, index) => {
-            const isOpen = openQuestions.includes(subTitle);
+            /* 같은 질문이 여러 탭에 있어도(예: PM·Designer의 포트폴리오 질문) 따로 여닫히게 탭 이름을 붙인다 */
+            const questionKey = `${currentCategory}/${subTitle}`;
+            const isOpen = openQuestions.includes(questionKey);
             const answerId = `${TAB_ID_PREFIX}-answer-${currentCategory}-${index}`;
 
             return (
-              <FAQBox key={`faq-${subTitle}`}>
+              <FAQBox key={`faq-${questionKey}`}>
                 {/* 질문 줄만 눌러서 여닫는다. 답변을 드래그하거나 답변 속 링크를 눌러도 접히지 않는다 */}
                 <FAQSubTitle
                   type="button"
                   aria-expanded={isOpen}
                   aria-controls={answerId}
-                  onClick={() => handleToggleFaq(subTitle)}
+                  onClick={() => handleToggleFaq(questionKey)}
                 >
                   <TitleText>{subTitle}</TitleText>
                   <TitleIcon $isOpen={isOpen} aria-hidden>
