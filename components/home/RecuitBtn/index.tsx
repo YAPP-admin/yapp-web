@@ -34,7 +34,7 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
     joinSectionRef.current = section as HTMLElement;
 
     /*
-     * 본문이 화면 위쪽 40% 선을 넘어 올라오면 보이고, 본문이 끝나 버튼 자리(아래 100px)에
+     * 본문이 화면 위쪽 40% 선을 넘어 올라오면 보이고, 본문이 끝나 버튼 자리(아래 120px)에
      * 푸터가 올라오면 숨긴다. "본문의 10%가 보이면"으로 정하면 본문이 길어질수록
      * 낮은 화면에서는 조건을 영영 채우지 못한다.
      */
@@ -42,7 +42,7 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
       const { top, bottom } = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       setIsSectionInView(
-        top < viewportHeight * 0.4 && bottom > viewportHeight - 100,
+        top < viewportHeight * 0.4 && bottom > viewportHeight - 120,
       );
     };
 
@@ -62,14 +62,13 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
     };
   }, []);
 
-  const handleHoverStart = useCallback(async () => {
-    await controls.start({
-      rotateX: 360,
+  /* 예전에는 위아래로 한 바퀴 돌았지만, 도중에 마우스를 빼면 각도가 어긋나 가끔만 돌아서 색 전환만 남겼다 */
+  const handleHoverStart = useCallback(() => {
+    controls.start({
       color: theme.palette.white_100,
       backgroundColor: theme.palette.grey_1000,
-      transition: { duration: 1.5, ease: 'easeInOut' },
+      transition: { duration: 0.4, ease: 'easeOut' },
     });
-    await controls.set({ rotateX: 0 });
   }, [controls]);
 
   const handleHoverEnd = useCallback(() => {
@@ -116,10 +115,10 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.24));
   left: 50%;
   transform: translateX(-50%);
-  bottom: 31px;
+  bottom: 47px;
 
   ${media.mobile} {
-    bottom: 35px;
+    bottom: 51px;
   }
 
   /* 360px보다 좁으면 화면 양끝에 닿지 않게 간격을 줄인다 */
@@ -163,8 +162,6 @@ const AnimatedButton = styled(motion.button)`
   ${media.custom(359)} {
     padding: 7px 14px 8px;
   }
-
-  transform-origin: center;
 `;
 
 export default RecuitBtn;
