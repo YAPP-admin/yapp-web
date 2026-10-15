@@ -62,14 +62,13 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
     };
   }, []);
 
-  const handleHoverStart = useCallback(async () => {
-    await controls.start({
-      rotateX: 360,
+  /* 예전에는 위아래로 한 바퀴 돌았지만, 도중에 마우스를 빼면 각도가 어긋나 가끔만 돌아서 색 전환만 남겼다 */
+  const handleHoverStart = useCallback(() => {
+    controls.start({
       color: theme.palette.white_100,
       backgroundColor: theme.palette.grey_1000,
-      transition: { duration: 1.5, ease: 'easeInOut' },
+      transition: { duration: 0.4, ease: 'easeOut' },
     });
-    await controls.set({ rotateX: 0 });
   }, [controls]);
 
   const handleHoverEnd = useCallback(() => {
@@ -107,6 +106,11 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
 const BtnContainer = styled.section<{ $visible: boolean }>`
   width: max-content;
   position: fixed;
+  /*
+   * 홈 배너 아래의 흰색 띠(Banner29th ::after, z-index 1)가 버튼 위에 그려져 겹치는 동안 버튼이 뿌옇게 보였다.
+   * 헤더(5000)와 모바일 메뉴(1500)보다는 아래에 둔다.
+   */
+  z-index: 100;
   display: flex;
   padding: 6px 6px 6px 24px;
   align-items: center;
@@ -116,10 +120,10 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.24));
   left: 50%;
   transform: translateX(-50%);
-  bottom: 31px;
+  bottom: 41px;
 
   ${media.mobile} {
-    bottom: 35px;
+    bottom: 40px;
   }
 
   /* 360px보다 좁으면 화면 양끝에 닿지 않게 간격을 줄인다 */
@@ -163,8 +167,6 @@ const AnimatedButton = styled(motion.button)`
   ${media.custom(359)} {
     padding: 7px 14px 8px;
   }
-
-  transform-origin: center;
 `;
 
 export default RecuitBtn;
