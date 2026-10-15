@@ -106,6 +106,11 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
 const BtnContainer = styled.section<{ $visible: boolean }>`
   width: max-content;
   position: fixed;
+  /*
+   * 홈 배너 아래의 흰색 띠(Banner29th ::after, z-index 1)가 버튼 위에 그려져 겹치는 동안 버튼이 뿌옇게 보였다.
+   * 헤더(5000)와 모바일 메뉴(1500)보다는 아래에 둔다.
+   */
+  z-index: 100;
   display: flex;
   padding: 6px 6px 6px 24px;
   align-items: center;
