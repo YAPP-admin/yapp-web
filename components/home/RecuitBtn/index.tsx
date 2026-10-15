@@ -120,10 +120,10 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.24));
   left: 50%;
   transform: translateX(-50%);
-  bottom: 31px;
+  bottom: 41px;
 
   ${media.mobile} {
-    bottom: 35px;
+    bottom: 40px;
   }
 
   /* 360px보다 좁으면 화면 양끝에 닿지 않게 간격을 줄인다 */
