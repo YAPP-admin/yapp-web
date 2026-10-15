@@ -5,7 +5,6 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { MotionConfig } from 'framer-motion';
 import { SEO, LayoutWrapper } from 'components/common';
-import OpenTestPanel from 'components/common/OpenTestPanel';
 import GlobalStyle from 'styles/global-styles';
 import theme from 'styles/theme';
 import Font from 'styles/fonts';
@@ -41,7 +40,6 @@ function App({ Component, pageProps }: AppProps) {
           <LayoutWrapper>
             <Component {...pageProps} />
           </LayoutWrapper>
-          <OpenTestPanel />
         </MotionConfig>
       </ThemeProvider>
     </>
