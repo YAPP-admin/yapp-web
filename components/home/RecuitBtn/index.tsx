@@ -34,7 +34,7 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
     joinSectionRef.current = section as HTMLElement;
 
     /*
-     * 본문이 화면 위쪽 40% 선을 넘어 올라오면 보이고, 본문이 끝나 버튼 자리(아래 120px)에
+     * 본문이 화면 위쪽 40% 선을 넘어 올라오면 보이고, 본문이 끝나 버튼 자리(아래 100px)에
      * 푸터가 올라오면 숨긴다. "본문의 10%가 보이면"으로 정하면 본문이 길어질수록
      * 낮은 화면에서는 조건을 영영 채우지 못한다.
      */
@@ -42,7 +42,7 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
       const { top, bottom } = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       setIsSectionInView(
-        top < viewportHeight * 0.4 && bottom > viewportHeight - 120,
+        top < viewportHeight * 0.4 && bottom > viewportHeight - 100,
       );
     };
 
@@ -106,6 +106,11 @@ function RecuitBtn({ status }: RecuitBtnProps): ReactElement | null {
 const BtnContainer = styled.section<{ $visible: boolean }>`
   width: max-content;
   position: fixed;
+  /*
+   * 홈 배너 아래의 흰색 띠(Banner29th ::after, z-index 1)가 버튼 위에 그려져 겹치는 동안 버튼이 뿌옇게 보였다.
+   * 헤더(5000)와 모바일 메뉴(1500)보다는 아래에 둔다.
+   */
+  z-index: 100;
   display: flex;
   padding: 6px 6px 6px 24px;
   align-items: center;
@@ -115,10 +120,10 @@ const BtnContainer = styled.section<{ $visible: boolean }>`
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.24));
   left: 50%;
   transform: translateX(-50%);
-  bottom: 47px;
+  bottom: 41px;
 
   ${media.mobile} {
-    bottom: 51px;
+    bottom: 40px;
   }
 
   /* 360px보다 좁으면 화면 양끝에 닿지 않게 간격을 줄인다 */
