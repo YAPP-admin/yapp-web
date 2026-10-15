@@ -2,8 +2,8 @@ import {
   LINK_BY_STATUS,
   RECRUITING_DEADLINE,
   RECRUITING_EXTRA_DEADLINE,
-  RECRUITING_START,
   RECRUITING_STATUS,
+  getRecruitingStart,
   RecruitStatus,
 } from '../../../constants/status';
 import { RECRUIT_BANNER_BY_STATUS } from 'database/recruit';
@@ -34,7 +34,7 @@ function RecruitBanner() {
   const targetDate = (() => {
     switch (currentStatus) {
       case RecruitStatus.PRE:
-        return new Date(RECRUITING_START);
+        return new Date(getRecruitingStart());
       case RecruitStatus.ACTIVE:
         return new Date(RECRUITING_DEADLINE);
       case RecruitStatus.EXTRA:
