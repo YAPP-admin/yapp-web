@@ -398,7 +398,7 @@ export const SPONSOR_DATA = [
   },
   {
     image: '/assets/sponsors/tile_programmers.webp',
-    url: 'https://programmers.co.kr/',
+    url: 'https://school.programmers.co.kr/learn/courses/26360?utm_source=instagram&utm_medium=social&utm_campaign=school_26207_YAPP_sponsor&utm_content=26360_profile',
     alt: 'sponsor programmers',
     width: 840,
     height: 840,
