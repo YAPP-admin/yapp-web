@@ -46,6 +46,12 @@ export const PAGE_SEO: Record<string, PageSEO> = {
       '야뿌들의 성장 과정, 활동 후기, 밋업 현장과 다양한 이야기를 담고 있어요.',
     path: '/story',
   },
+  '/hackathon': {
+    title: 'YAPP × goorm 해커톤',
+    description:
+      'AI와 함께 아이디어를 실제 웹 서비스로 구현하는 특별한 하루, YAPP × goorm 해커톤에 함께하세요.',
+    path: '/hackathon',
+  },
   '/404': { title: '페이지를 찾을 수 없습니다', noindex: true },
 };
 

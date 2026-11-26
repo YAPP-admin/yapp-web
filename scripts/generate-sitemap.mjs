@@ -28,7 +28,14 @@ const projectPaths = fs
   )
   .sort();
 
-const paths = ['', '/project', '/recruit', '/story', ...projectPaths];
+const paths = [
+  '',
+  '/project',
+  '/recruit',
+  '/story',
+  '/hackathon',
+  ...projectPaths,
+];
 const escapeXml = (value) => value.replace(/&/g, '&amp;');
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
