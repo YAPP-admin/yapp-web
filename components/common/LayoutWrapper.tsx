@@ -1,6 +1,7 @@
 import { FloatingButton, Footer, Header } from 'components/common';
 // import { IntroSection } from 'components/home';
 // import PATH from 'constants/path';
+import Path from 'constants/path';
 import Router, { useRouter } from 'next/router';
 import { ReactNode, useEffect, useRef } from 'react';
 import smoothscroll from 'smoothscroll-polyfill'; // Safari 에서 smooth 효과 적용
@@ -25,6 +26,8 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
       inline: 'nearest',
     });
   };
+
+  const isHackathonPage = asPath.split(/[?#]/)[0] === Path.Hackathon;
 
   const prevPathRef = useRef(asPath);
   /* 페이지별로 떠날 때의 스크롤 위치. 뒤로·앞으로 가기로 돌아오면 그 자리로 되돌린다 */
@@ -113,9 +116,10 @@ function LayoutWrapper({ children }: LayoutWrapperProps) {
   return (
     <div ref={outerRef}>
       {/* {asPath === PATH.Home && <IntroSection />} */}
-      <Header />
+      {/* 해커톤 랜딩은 전용 헤더·푸터를 쓴다(components/hackathon) */}
+      {!isHackathonPage && <Header />}
       <div ref={contentRef}>{children}</div>
-      <Footer />
+      {!isHackathonPage && <Footer />}
       {/* <FloatingButton /> */}
     </div>
   );

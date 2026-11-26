@@ -1,0 +1,14 @@
+export { default as Header } from './Header';
+export { default as TopBanner } from './TopBanner';
+export { default as Intro } from './Intro';
+export { default as Talent } from './Talent';
+export { default as Topic } from './Topic';
+export { default as Program } from './Program';
+export { default as Recruit } from './Recruit';
+export { default as Award } from './Award';
+export { default as Judges } from './Judges';
+export { default as Benefits } from './Benefits';
+export { default as Faq } from './Faq';
+export { default as BottomBanner } from './BottomBanner';
+export { default as Partners } from './Partners';
+export { default as Footer } from './Footer';
