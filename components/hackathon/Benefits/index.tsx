@@ -44,7 +44,7 @@ const BENEFITS: Benefit[] = [
     description: (
       <>
         행사 당일 팀원들과 함께하는 <Br on={['desktop', 'tablet', 'mobile']} />
-        든든한 점심·저녁 식사 제공
+        점심 식사·저녁 치킨피자 제공
       </>
     ),
     icon: `${ICON_PATH}/benefit_meal.svg`,
