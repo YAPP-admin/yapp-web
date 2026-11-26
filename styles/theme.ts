@@ -57,6 +57,25 @@ const palette = {
   chemistry_29th_date: '#FF5C00',
   chemistry_29th_date_bg: '#FFDECC',
 
+  // 29기 해커톤 랜딩(/hackathon). 기존 키에 없는 색만 둔다. 행사 뒤 페이지와 함께 지운다.
+  // hackathon-palette-start
+  hackathon_point_blue: '#26B5FF',
+  hackathon_topic_christmas: '#FF3F38',
+  hackathon_topic_keyword: '#202226',
+  hackathon_topic_card_shadow: 'rgba(0, 0, 0, 0.12)',
+  hackathon_banner_sky_top: '#E3EDFA',
+  hackathon_banner_sky_bottom: '#D4E6FD',
+  hackathon_banner_button: '#080808',
+  hackathon_header_bg: 'rgba(0, 0, 0, 0.5)',
+  hackathon_header_border: 'rgba(0, 0, 0, 0.05)',
+  hackathon_top_subtitle: '#0475E6',
+  hackathon_top_subtitle_mid: '#0067CD',
+  hackathon_top_pill_shadow: 'rgba(0, 0, 0, 0.16)',
+  hackathon_top_button_shadow: 'rgba(0, 0, 0, 0.08)',
+  hackathon_night: '#3A393F',
+  hackathon_intro_card_shadow: 'rgba(0, 0, 0, 0.25)',
+  // hackathon-palette-end
+
   // Yellow
   yellow_100: '#FFEFBE',
   yellow_200: '#FFE69A',
