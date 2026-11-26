@@ -29,6 +29,8 @@ interface FaqTab {
 }
 
 const ICON_PATH = '/assets/images/hackathon/faq';
+/* 모집 안내 페이지 FAQ와 같은 속도·곡선 */
+const ANSWER_TRANSITION = '500ms cubic-bezier(0.25, 0.17, 0.25, 1)';
 
 /*
  * 노션 「구름 얍커톤 기획안」 · 「노쇼비」 · 「일정」과 운영진 답변(합격 메일 발표, AI 계정 미제공,
@@ -256,11 +258,9 @@ function Faq() {
                     onClick={() => toggleItem(index)}
                   >
                     <Question>{question}</Question>
-                    <Chevron>
+                    <Chevron $open={open}>
                       <Image
-                        src={`${ICON_PATH}/${
-                          open ? 'chevron_up' : 'chevron_down'
-                        }.svg`}
+                        src={`${ICON_PATH}/chevron_down.svg`}
                         alt=""
                         width={36}
                         height={36}
@@ -268,9 +268,15 @@ function Faq() {
                       />
                     </Chevron>
                   </QuestionButton>
-                  <Answer id={answerId(activeTab, index)} hidden={!open}>
-                    {answer}
-                  </Answer>
+                  <AnswerPanel
+                    id={answerId(activeTab, index)}
+                    $open={open}
+                    aria-hidden={!open}
+                  >
+                    <AnswerClip>
+                      <Answer>{answer}</Answer>
+                    </AnswerClip>
+                  </AnswerPanel>
                 </Item>
               );
             })}
@@ -353,7 +359,6 @@ const Item = styled.li`
   scroll-margin-top: 100px; /* 고정 헤더 60 + 여유 40 */
   display: flex;
   flex-direction: column;
-  gap: 8px;
   padding: 20px 0;
   box-shadow: inset 0 -1px 0 ${({ theme }) => theme.palette.black_5};
 `;
@@ -383,23 +388,47 @@ const Question = styled.span`
   }
 `;
 
-const Chevron = styled.span`
+/* 열린 상태의 위쪽 화살표(시안 chevron_up)는 아래쪽 화살표를 180도 돌린 모양과 같다 */
+const Chevron = styled.span<{ $open: boolean }>`
   display: flex;
   flex-shrink: 0;
   width: 36px;
   height: 36px;
+  transform: rotate(${({ $open }) => ($open ? 180 : 0)}deg);
+  transition: transform ${ANSWER_TRANSITION};
+`;
+
+/*
+ * 답변 여닫기 애니메이션. 모집 안내 페이지 FAQ(components/recruit/FrequentlyAskedQuestions)와 같은 방식:
+ * height는 0 ↔ auto 전환이 안 되므로 격자 줄 높이(0fr ↔ 1fr)를 전환한다.
+ * 질문과 답변 사이 8px도 접힐 때 함께 줄어들도록 답변 안쪽 위 여백으로 둔다.
+ */
+const AnswerPanel = styled.div<{ $open: boolean }>`
+  display: grid;
+  grid-template-rows: ${({ $open }) => ($open ? '1fr' : '0fr')};
+  opacity: ${({ $open }) => ($open ? 1 : 0)};
+  /* 다 접힌 뒤에 숨겨 접힌 답변 속 링크에 키보드 초점이 가지 않게 한다 */
+  visibility: ${({ $open }) => ($open ? 'visible' : 'hidden')};
+  transition: grid-template-rows ${ANSWER_TRANSITION},
+    opacity ${ANSWER_TRANSITION},
+    visibility 0s linear ${({ $open }) => ($open ? '0s' : '500ms')};
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+`;
+
+const AnswerClip = styled.div`
+  min-height: 0;
+  overflow: hidden;
 `;
 
 const Answer = styled.p`
   margin: 0;
+  padding-top: 8px;
   color: ${({ theme }) => theme.palette.grey_500};
   word-break: normal; /* Figma처럼 음절 단위로 줄바꿈 */
   ${hackathonFont(16, 500, '1.5', -0.36)};
-
-  &[hidden],
-  &:empty {
-    display: none;
-  }
 `;
 
 export default Faq;
