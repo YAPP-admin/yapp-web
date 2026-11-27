@@ -34,6 +34,7 @@ function TopBanner() {
             rel="preload"
             as="image"
             href={`${ASSET}/art_desktop.webp`}
+            imageSrcSet={`${ASSET}/art_desktop.webp 1x, ${ASSET}/art_desktop@2x.webp 2x`}
             media="(min-width: 1201px)"
           />
           <link
@@ -141,7 +142,9 @@ const Stage = styled.div`
 
 /*
  * 배경 그림.
- * - 1920: 9003:10957(배경·눈·캐릭터) 1920×1080
+ * - 1920: 9003:10957(배경·눈·캐릭터) 1920×1080. 레티나 화면에는 2배(3840×2160) 파일을 쓴다.
+ *   배경 사진 원본은 1672px로 작지만 위에 겹친 눈·빛·캐릭터 레이어는 해상도가 높아서,
+ *   1배 파일을 브라우저가 늘리면 이 레이어까지 뭉개진다.
  * - 834: 사진 9003:11127에서 화면에 보이는 아래 1080px, 폭 1200px(가운데 기준)
  * - 360: 사진 9003:11243에서 아래 780px, 폭 837.88px(가운데 기준)
  */
@@ -153,6 +156,10 @@ const Art = styled.div`
   height: 100%;
   transform: translateX(-50%);
   background-image: url(${ASSET}/art_desktop.webp);
+  background-image: image-set(
+    url(${ASSET}/art_desktop.webp) 1x,
+    url(${ASSET}/art_desktop@2x.webp) 2x
+  );
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
