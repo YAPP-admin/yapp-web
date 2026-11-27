@@ -63,6 +63,7 @@ function Judges() {
                     alt={`심사위원 ${name}`}
                     fill
                     sizes="(max-width: 833px) 90px, 240px"
+                    unoptimized
                   />
                 </Photo>
                 <Info>

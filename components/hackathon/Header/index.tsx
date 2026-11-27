@@ -156,6 +156,7 @@ function Header() {
                 alt=""
                 fill
                 sizes="68px"
+                unoptimized
               />
             </LogoGoorm>
           </LogoLink>
