@@ -119,7 +119,6 @@ function Award() {
                             )}px, (max-width: 1200px) ${Math.ceil(
                               size.tablet.width,
                             )}px, ${size.desktop.width}px`}
-                            unoptimized
                           />
                         </Photo>
                       </PhotoBox>

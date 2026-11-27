@@ -26,7 +26,7 @@ function BottomBanner() {
           alt=""
           fill
           sizes="100vw"
-          unoptimized
+          quality={90}
         />
       </Background>
       <Background $variant="tablet">
@@ -35,7 +35,7 @@ function BottomBanner() {
           alt=""
           fill
           sizes="100vw"
-          unoptimized
+          quality={90}
         />
       </Background>
       <Content>
