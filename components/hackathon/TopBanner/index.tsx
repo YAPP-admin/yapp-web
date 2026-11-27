@@ -51,42 +51,14 @@ function TopBanner() {
         </Head>
         <Stage>
           <Art aria-hidden />
-          {/* 834: 눈 9003:11192 */}
-          <SnowTablet aria-hidden>
-            <Image src={`${ASSET}/snow_tablet.svg`} alt="" fill unoptimized />
-          </SnowTablet>
-          {/* 360: 눈 9003:11320 · 9003:11328 */}
-          <SnowMobileLeft aria-hidden>
-            <Image
-              src={`${ASSET}/snow_mobile_left.svg`}
-              alt=""
-              fill
-              unoptimized
-            />
-          </SnowMobileLeft>
-          <SnowMobileRight aria-hidden>
-            <Image
-              src={`${ASSET}/snow_mobile_right.svg`}
-              alt=""
-              fill
-              unoptimized
-            />
-          </SnowMobileRight>
-          {/*
-            834·360: 캐릭터 9003:11173 · 9003:11301 (1920은 배경 그림에 들어 있다).
-            기본 압축(75)은 모바일 고배율 화면에서 윤곽이 뭉개져 90으로 올린다(제목도 같음).
-          */}
-          <Characters aria-hidden>
-            <Image
-              src={`${ASSET}/characters.webp`}
-              alt=""
-              fill
-              quality={90}
-              sizes="(max-width: 833px) 343px, 715px"
-            />
-          </Characters>
           {/* 834·360: 아래 흰색 그라데이션 띠 9003:11191 · 9003:11319 */}
           <BottomFade aria-hidden />
+          {/*
+            834·360: 시안 프레임 크기의 3배 통그림(배경·눈·캐릭터, 제목 제외, 디자인팀 제공).
+            배경·눈·캐릭터를 따로 겹치면 브라우저가 소수점 위치에서 각각 다시 그려 흐려져서 한 장으로 쓴다.
+            프레임 밖(넓은 휴대폰·태블릿)은 아래의 Art 배경과 BottomFade가 이어 준다.
+          */}
+          <FrameArt aria-hidden />
 
           <Heading>
             <Title>
@@ -173,59 +145,28 @@ const Layer = styled.div`
   pointer-events: none;
 `;
 
-const SnowTablet = styled(Layer)`
+/* 834: 834×1080 · 360: 360×780, 화면 가운데 기준(시안 프레임 자리) */
+const FrameArt = styled(Layer)`
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
   ${media.tablet} {
     display: block;
-    top: 89.61px;
-    left: calc(50% - 371.13px);
-    width: 259px;
-    height: 266px;
+    top: 0;
+    left: calc(50% - 417px);
+    width: 834px;
+    height: 1080px;
+    background-image: url(${ASSET}/frame_tablet.webp);
   }
 
   ${media.mobile} {
-    display: none;
+    left: calc(50% - 180px);
+    width: 360px;
+    height: 780px;
+    background-image: url(${ASSET}/frame_mobile.webp);
   }
 `;
 
-const SnowMobileLeft = styled(Layer)`
-  ${media.mobile} {
-    display: block;
-    top: 294.36px;
-    left: calc(50% - 160.64px);
-    width: 124px;
-    height: 128px;
-  }
-`;
-
-const SnowMobileRight = styled(Layer)`
-  ${media.mobile} {
-    display: block;
-    top: 84.36px;
-    left: calc(50% + 33.36px);
-    width: 126px;
-    height: 98px;
-  }
-`;
-
-/* 834: x 54.85 y 614.78, 714.06×319.6 / 360: x 6.41 y 557, 342.28×153.2 */
-const Characters = styled(Layer)`
-  ${media.tablet} {
-    display: block;
-    top: 614.78px;
-    left: calc(50% - 362.15px);
-    width: 714.06px;
-    height: 319.6px;
-  }
-
-  ${media.mobile} {
-    top: 557px;
-    left: calc(50% - 173.59px);
-    width: 342.28px;
-    height: 153.2px;
-  }
-`;
-
-/* 흰색 0% → 100% 세로 그라데이션. 834: y 1015.33, 높이 64.67 / 360: y 749, 높이 31 */
 const BottomFade = styled(Layer)`
   ${media.tablet} {
     display: block;
