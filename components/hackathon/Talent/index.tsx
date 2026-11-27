@@ -162,6 +162,7 @@ function Talent() {
                   alt=""
                   fill
                   sizes="(max-width: 833px) 285px, (max-width: 1200px) 351px, 381px"
+                  unoptimized
                 />
               </Santa>
               <Speech>
