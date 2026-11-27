@@ -1,4 +1,7 @@
-import { HACKATHON_SECTION_ID } from 'constants/hackathon';
+import {
+  HACKATHON_SECTION_ID,
+  HACKATHON_VENUE_LINK,
+} from 'constants/hackathon';
 import Image from 'next/image';
 import styled from 'styled-components';
 import media from 'styles/media';
@@ -98,7 +101,15 @@ function Intro() {
                 </InfoRow>
                 <InfoRow>
                   <InfoLabel>행사 장소</InfoLabel>
-                  <InfoValue>아키스케치 성수 3층</InfoValue>
+                  <InfoValue>
+                    <VenueLink
+                      href={HACKATHON_VENUE_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      아키스케치 성수 3층
+                    </VenueLink>
+                  </InfoValue>
                 </InfoRow>
               </InfoList>
             </CardBody>
@@ -354,6 +365,17 @@ const Description = styled.p`
   ${media.mobile} {
     color: ${({ theme }) => theme.palette.grey_300};
     ${hackathonFont(16, 400, '1.6', -0.4)};
+  }
+`;
+
+/* 장소: 누르면 네이버 지도를 새 탭으로 연다. 모양은 시안 글자 그대로, 마우스를 올리면 밑줄 */
+const VenueLink = styled.a`
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-position: under;
   }
 `;
 
