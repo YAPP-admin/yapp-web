@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import media from 'styles/media';
@@ -44,8 +45,17 @@ export const hackathonFont = (
   letter-spacing: ${letterSpacing}px;
 `;
 
-/** 섹션 안쪽 본문 폭. 좌우 여백은 섹션 쪽에서 준다. */
-export const SectionInner = styled.div`
+/**
+ * 섹션 안쪽 본문 폭. 좌우 여백은 섹션 쪽에서 준다.
+ * 스크롤해 화면에 들어오면 아래에서 위로 서서히 나타난다(한 번만). 배경색은 섹션에 있어 그대로 보인다.
+ * 동작 줄이기 설정이면 페이지의 MotionConfig(reducedMotion="user")가 움직임을 끈다.
+ */
+export const SectionInner = styled(motion.div).attrs({
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.7, ease: 'easeOut' },
+})`
   width: 100%;
   max-width: ${CONTENT_WIDTH}px;
   margin: 0 auto;
