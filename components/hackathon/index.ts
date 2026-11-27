@@ -12,3 +12,4 @@ export { default as Faq } from './Faq';
 export { default as BottomBanner } from './BottomBanner';
 export { default as Partners } from './Partners';
 export { default as Footer } from './Footer';
+export { default as ApplyButton } from './ApplyButton';

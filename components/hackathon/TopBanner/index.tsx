@@ -1,7 +1,6 @@
-import { HACKATHON_APPLY_LINK } from 'constants/hackathon';
 import Head from 'next/head';
 import Image from 'next/image';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styles/media';
 import { Br, hackathonFont } from '../shared';
 
@@ -73,12 +72,16 @@ function TopBanner() {
               unoptimized
             />
           </SnowMobileRight>
-          {/* 834·360: 캐릭터 9003:11173 · 9003:11301 (1920은 배경 그림에 들어 있다) */}
+          {/*
+            834·360: 캐릭터 9003:11173 · 9003:11301 (1920은 배경 그림에 들어 있다).
+            기본 압축(75)은 모바일 고배율 화면에서 윤곽이 뭉개져 90으로 올린다(제목도 같음).
+          */}
           <Characters aria-hidden>
             <Image
               src={`${ASSET}/characters.webp`}
               alt=""
               fill
+              quality={90}
               sizes="(max-width: 833px) 343px, 715px"
             />
           </Characters>
@@ -92,6 +95,7 @@ function TopBanner() {
                 alt="Play Our YAPPKATHON 29TH"
                 fill
                 priority
+                quality={90}
                 sizes="(max-width: 833px) 331px, (max-width: 1200px) 722px, max(1172px, 61vw)"
               />
             </Title>
@@ -103,18 +107,6 @@ function TopBanner() {
           </Heading>
         </Stage>
       </Section>
-
-      {/* 9002:4763 — 날짜 + 지원 버튼. 화면 아래에 계속 떠 있는다 */}
-      <Pill>
-        <DateText>12월 19일 (토요일)</DateText>
-        <ApplyLink
-          href={HACKATHON_APPLY_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          얍커톤 지원하기
-        </ApplyLink>
-      </Pill>
     </>
   );
 }
@@ -277,11 +269,26 @@ const Heading = styled.div`
   }
 `;
 
+/* 홈 배너 제목(Banner29th)처럼 위아래로 천천히 떠 있는다 */
+const floatY = keyframes`
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 10px, 0);
+  }
+`;
+
 const Title = styled.h1`
   position: relative;
   margin: 0;
   display: block;
   flex-shrink: 0;
+  animation: ${floatY} 1s ease-in-out infinite alternate;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
   width: ${d(1171.3)};
   aspect-ratio: 1171.3 / 243.85;
 
@@ -342,62 +349,4 @@ const Subtitle = styled.p`
  * - 360: 배너 780 중 y 703, 높이 53 → 아래에서 24px. 여백 왼쪽 20 오른쪽 6 위아래 6, 간격 12
  * 헤더(z-index 5000)와 모바일 메뉴(4999)보다 아래에 둔다.
  */
-const Pill = styled.div`
-  position: fixed;
-  z-index: 4000;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 10px 10px 10px 28px;
-  border-radius: 99px;
-  background-color: ${({ theme }) => theme.palette.grey_100};
-  filter: drop-shadow(
-    0 4px 8px ${({ theme }) => theme.palette.hackathon_top_pill_shadow}
-  );
-  white-space: nowrap;
-
-  ${media.mobile} {
-    bottom: 24px;
-    gap: 12px;
-    padding: 6px 6px 6px 20px;
-  }
-`;
-
-const DateText = styled.span`
-  color: ${({ theme }) => theme.palette.grey_800};
-  ${hackathonFont(24, 500, 28.8, -0.36)};
-
-  ${media.mobile} {
-    ${hackathonFont(16, 500, 28.8, -0.36)};
-  }
-`;
-
-const ApplyLink = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 24px;
-  border-radius: 99px;
-  background-color: ${({ theme }) => theme.palette.white};
-  filter: drop-shadow(
-    0 0 6px ${({ theme }) => theme.palette.hackathon_top_button_shadow}
-  );
-  color: ${({ theme }) => theme.palette.grey_1000};
-  ${hackathonFont(24, 600, 28.8, -0.36)};
-  text-decoration: none;
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.palette.chemistry_29th_point};
-    outline-offset: 2px;
-  }
-
-  ${media.mobile} {
-    padding: 6px 14px;
-    ${hackathonFont(16, 600, 28.8, -0.36)};
-  }
-`;
-
 export default TopBanner;
