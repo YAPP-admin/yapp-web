@@ -73,7 +73,7 @@ const palette = {
   hackathon_top_pill_shadow: 'rgba(0, 0, 0, 0.16)',
   hackathon_night: '#3A393F',
   hackathon_intro_card_shadow: 'rgba(0, 0, 0, 0.25)',
-  hackathon_apply_shadow: 'rgba(0, 0, 0, 0.24)',
+  hackathon_apply_button_shadow: 'rgba(0, 0, 0, 0.08)',
   // hackathon-palette-end
 
   // Yellow
