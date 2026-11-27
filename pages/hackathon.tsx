@@ -1,4 +1,5 @@
 import {
+  ApplyButton,
   Award,
   Benefits,
   BottomBanner,
@@ -14,6 +15,7 @@ import {
   Topic,
   TopBanner,
 } from 'components/hackathon';
+import { MotionConfig } from 'framer-motion';
 import styled from 'styled-components';
 
 /*
@@ -22,24 +24,27 @@ import styled from 'styled-components';
  */
 function HackathonPage() {
   return (
-    <Page>
-      <Header />
-      <Main>
-        <TopBanner />
-        <Intro />
-        <Talent />
-        <Topic />
-        <Program />
-        <Recruit />
-        <Award />
-        <Judges />
-        <Benefits />
-        <Faq />
-        <BottomBanner />
-        <Partners />
-      </Main>
-      <Footer />
-    </Page>
+    <MotionConfig reducedMotion="user">
+      <Page>
+        <Header />
+        <Main>
+          <TopBanner />
+          <Intro />
+          <Talent />
+          <Topic />
+          <Program />
+          <Recruit />
+          <Award />
+          <Judges />
+          <Benefits />
+          <Faq />
+          <BottomBanner />
+          <Partners />
+        </Main>
+        <Footer />
+        <ApplyButton />
+      </Page>
+    </MotionConfig>
   );
 }
 

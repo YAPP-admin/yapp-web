@@ -3,6 +3,9 @@
  * 링크는 아직 확정 전이다. 확정되면 여기만 바꾼다.
  */
 
+/** 행사 장소(아키스케치 성수) 네이버 지도 */
+export const HACKATHON_VENUE_LINK = 'https://naver.me/GsjpGnlb';
+
 /** 참가 신청 구글폼 */
 export const HACKATHON_APPLY_LINK = 'https://forms.gle/4nZzxhpWoCk18PZ8A';
 
