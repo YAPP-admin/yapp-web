@@ -50,6 +50,8 @@ export const PAGE_SEO: Record<string, PageSEO> = {
     title: 'YAPP × goorm 해커톤',
     description:
       'AI와 함께 아이디어를 실제 웹 서비스로 구현하는 특별한 하루, YAPP × goorm 해커톤에 함께하세요.',
+    // 상단 배너(1920 화면)를 2:1로 자른 공유 이미지 2400×1200
+    image: '/assets/images/hackathon/og.jpg',
     path: '/hackathon',
   },
   '/404': { title: '페이지를 찾을 수 없습니다', noindex: true },
